@@ -1,0 +1,454 @@
+---
+---
+
+<div class="ci-wrap" id="ci-root">
+  <div class="ci-header">
+    <span class="ci-badge">SAFETY TOOL</span>
+    <h2 class="ci-title">Chimney &amp; Fireplace — <em>Safety Inspection Checklist</em></h2>
+    <p class="ci-sub">Check 10 warning signs — our AI gives you a safety assessment and tells you exactly what needs professional attention.</p>
+    <div class="ci-progress"><div class="ci-progress-fill" id="ci-progress-fill"></div></div>
+  </div>
+
+  <!-- STEP 1: Checklist Inputs -->
+  <div class="step active" id="ci-step1">
+    <p class="step-label">Step 1 of 3 — Chimney Warning Signs</p>
+    <p class="step-desc">Check every item that applies to your chimney right now:</p>
+    <div class="checklist">
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Cracked or missing mortar between exterior chimney bricks" />
+        <span class="check-box"></span>
+        <span class="check-text">Cracked or missing mortar between exterior chimney bricks</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="White staining (efflorescence) on chimney exterior" />
+        <span class="check-box"></span>
+        <span class="check-text">White staining (efflorescence) on chimney exterior</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Bricks spalling, flaking, or crumbling" />
+        <span class="check-box"></span>
+        <span class="check-text">Bricks spalling, flaking, or crumbling</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Visible gaps where chimney meets roofline" />
+        <span class="check-box"></span>
+        <span class="check-text">Visible gaps where chimney meets roofline</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Rusted or damaged chimney cap or crown" />
+        <span class="check-box"></span>
+        <span class="check-text">Rusted or damaged chimney cap or crown</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Water leaks or staining near the fireplace inside" />
+        <span class="check-box"></span>
+        <span class="check-text">Water leaks or staining near the fireplace inside</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Smoke backs up into room when using fireplace" />
+        <span class="check-box"></span>
+        <span class="check-text">Smoke backs up into room when using fireplace</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Strong odor from fireplace when not in use" />
+        <span class="check-box"></span>
+        <span class="check-text">Strong odor from fireplace when not in use</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Last professional inspection was 3+ years ago (or never)" />
+        <span class="check-box"></span>
+        <span class="check-text">Last professional inspection was 3+ years ago (or never)</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="ci-check" value="Fireplace damper sticks or won't fully open/close" />
+        <span class="check-box"></span>
+        <span class="check-text">Fireplace damper sticks or won't fully open/close</span>
+      </label>
+    </div>
+    <div class="check-counter" id="ci-counter">0 of 10 items checked</div>
+    <div class="field-group" style="margin-top:20px;">
+      <label class="field-label" for="ci-location">Chimney Location</label>
+      <select class="ci-input ci-select" id="ci-location">
+        <option value="Exterior">Exterior (outside-facing)</option>
+        <option value="Attached garage">Attached Garage</option>
+        <option value="Indoor only">Indoor Only</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="ci-notes">Additional Notes</label>
+      <textarea class="ci-input ci-textarea" id="ci-notes" placeholder="Any other concerns, age of chimney, recent changes, etc."></textarea>
+    </div>
+    <button class="ci-btn ci-btn-primary" id="ci-to-step2">Next — Your Information →</button>
+  </div>
+
+  <!-- STEP 2: Contact Form -->
+  <div class="step" id="ci-step2">
+    <p class="step-label">Step 2 of 3 — Your Contact Information</p>
+    <p class="step-desc">We'll include your details in the personalized safety report.</p>
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="ci-name">Full Name <span class="req">*</span></label>
+        <input class="ci-input" type="text" id="ci-name" placeholder="Jane Smith" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="ci-phone">Phone <span class="req">*</span></label>
+        <input class="ci-input" type="tel" id="ci-phone" placeholder="(773) 555-0100" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="ci-email">Email <span class="req">*</span></label>
+        <input class="ci-input" type="email" id="ci-email" placeholder="jane@example.com" required />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="ci-address">Property Address <span class="req">*</span></label>
+        <input class="ci-input" type="text" id="ci-address" placeholder="123 Main St, Chicago, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="ci-zip">Zip Code <span class="req">*</span></label>
+        <input class="ci-input" type="text" id="ci-zip" placeholder="60601" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="ci-btn ci-btn-outline" id="ci-back-to-step1">← Back</button>
+      <button class="ci-btn ci-btn-primary" id="ci-submit">Generate Safety Report →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="ci-step3">
+    <div class="spinner-wrap" id="ci-spinner">
+      <div class="spinner"></div>
+      <p class="spinner-text">Your Personal Masonry Assistant is reviewing your data…</p>
+      <p class="spinner-sub">Building your property-specific report</p>
+    </div>
+    <div class="result-wrap" id="ci-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="result-title">Your Safety Report Is Ready</h3>
+      <p class="result-sub">Your personalized Chimney Safety Inspection Report is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary report is based on warning signs you self-reported and is not a substitute for a certified chimney inspection. Actual safety conditions, fire risk, and repair scope may differ. For a 100% accurate safety assessment, contact All Masonry Services Inc. for a FREE professional inspection — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="ci-btn ci-btn-primary" id="ci-pdf-btn">Download PDF Report</button>
+        <a class="ci-btn ci-btn-outline" href="/contact#form">Book Free Professional Inspection</a>
+      </div>
+    </div>
+    <div class="error-wrap" id="ci-error" style="display:none">
+      <p class="error-msg" id="ci-error-msg"></p>
+      <button class="ci-btn ci-btn-outline" id="ci-retry">← Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (async () => {
+    const GEMINI_KEY = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+
+    let ci_reportText = "";
+    let ci_contactData: Record<string, string> = {};
+
+    function ci_getVal(id: string): string {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      return el ? el.value.trim() : "";
+    }
+
+    function ci_setProgress(pct: number) {
+      const bar = document.getElementById("ci-progress-fill") as HTMLElement | null;
+      if (bar) bar.style.width = pct + "%";
+    }
+
+    function ci_showStep(n: number) {
+      [1, 2, 3].forEach(i => {
+        const el = document.getElementById(`ci-step${i}`);
+        if (el) el.classList.toggle("active", i === n);
+      });
+      ci_setProgress(n === 1 ? 10 : n === 2 ? 50 : 100);
+    }
+
+    // Update counter
+    document.querySelectorAll(".ci-check").forEach(cb => {
+      cb.addEventListener("change", () => {
+        const checked = document.querySelectorAll(".ci-check:checked").length;
+        const counter = document.getElementById("ci-counter");
+        if (counter) counter.textContent = `${checked} of 10 items checked`;
+      });
+    });
+
+    function ci_getChecked(): string[] {
+      return Array.from(document.querySelectorAll<HTMLInputElement>(".ci-check:checked")).map(c => c.value);
+    }
+
+    async function ci_generate() {
+      const checked = ci_getChecked();
+      const location = ci_getVal("ci-location");
+      const notes = ci_getVal("ci-notes");
+      const zip = ci_contactData.zip;
+
+      const hasSmoke = checked.some(c => c.includes("Smoke backs up"));
+      const hasWater = checked.some(c => c.includes("Water leaks") || c.includes("staining near the fireplace"));
+      const hasStructural = checked.some(c => c.includes("gaps where chimney meets"));
+      const hasCrown = checked.some(c => c.includes("chimney cap or crown"));
+      const neverInspected = checked.some(c => c.includes("3+ years ago") || c.includes("never"));
+      const riskLevel = (hasSmoke || hasWater) ? "URGENT" : checked.length >= 5 ? "CRITICAL" : checked.length >= 3 ? "CAUTION" : checked.length > 0 ? "CAUTION" : "SAFE";
+
+      const prompt = `You are a certified chimney safety inspector at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED safety inspection report for a specific homeowner at zip code ${zip}.
+
+CHIMNEY PROFILE:
+- Homeowner: ${ci_contactData.name}
+- Property: ${ci_contactData.address}, IL ${zip}
+- Chimney Location: ${location}
+- Warning Signs Flagged: ${checked.length} of 10
+- Overall Risk Level: ${riskLevel}
+- Active Smoke/CO Hazard: ${hasSmoke ? "YES — smoke backdraft detected" : "No"}
+- Active Water Intrusion: ${hasWater ? "YES — water inside" : "No"}
+- Roofline Gap: ${hasStructural ? "YES — open weather path" : "No"}
+- Crown/Cap Damage: ${hasCrown ? "YES" : "No"}
+- Overdue for Inspection: ${neverInspected ? "YES — 3+ years or never" : "Unknown"}
+- Additional Notes: ${notes || "None"}
+
+FLAGGED WARNING SIGNS:
+${checked.length > 0 ? checked.map((c, i) => `${i + 1}. ${c}`).join("\n") : "None flagged — precautionary self-check."}
+
+TASK: Write a SPECIFIC, PERSONALIZED chimney safety report for THIS homeowner. Every section must address their specific combination of warning signs and the safety implications for a ${location} chimney at their property. Do NOT write generic chimney advice — reference their actual flagged conditions in every section.
+
+Use exactly these ALL CAPS headings:
+
+SAFETY ASSESSMENT — ${riskLevel}
+(Explain what ${checked.length}/10 warning signs means for this homeowner's chimney safety right now. Be direct: a ${riskLevel} rating means [specific consequence]. If smoke backdraft or water intrusion is present, explain the CO poisoning risk and structural damage pathway.)
+
+WARNING SIGN ANALYSIS — ITEM BY ITEM
+(For each flagged item, explain specifically: what it means, what's causing it, and what happens if it's ignored. Examples: "Smoke backing up" = blocked or collapsed flue = CO risk right now. "Water staining inside" = breach in crown, flashing, or liner = mold + structural rot. If nothing is flagged, explain what the homeowner should monitor and what a clean inspection report looks like.)
+
+${hasSmoke || hasWater ? "IMMEDIATE SAFETY ACTION REQUIRED\n(This chimney should NOT be used until professionally inspected. Explain specifically why, referencing the homeowner's flagged conditions. Include 773-656-2107 as the emergency contact.)" : "CURRENT SAFETY STATUS\n(Explain whether this chimney is currently safe to use based on flagged conditions. Give specific conditions under which they should stop using it immediately.)"}
+
+RECOMMENDED REPAIRS — SPECIFIC TO THIS CHIMNEY
+(List the specific repairs needed based on flagged conditions only. For each repair, give: what it is, why it's needed, and approximate cost. Example: "Crown replacement: $350–$600 — needed because the rusted/damaged cap is allowing water into the flue." Skip repairs not relevant to their flags.)
+
+REPAIR COST ESTIMATE — ZIP ${zip} AREA
+(Give a realistic TOTAL repair cost range based on their specific flagged conditions. Break it down: individual repair costs + total range. Use Chicago Metro 2026 pricing. Give LOW and HIGH estimate with explanation of what drives the difference.)
+
+CHICAGO WINTER URGENCY
+(Explain specifically how Chicago's freeze-thaw cycles will worsen the flagged conditions over the ${new Date().getMonth() >= 9 || new Date().getMonth() <= 2 ? "current winter" : "coming winter"}. Give a specific month deadline for when repairs must be completed. If smoke/CO risk exists, state there is no safe season to delay.)
+
+YOUR NEXT STEP
+(Recommend a FREE professional chimney inspection from All Masonry Services Inc. at 773-656-2107 or allmasonryservices.com. AMS serves zip ${zip} and has inspected 500+ chimneys in Chicagoland since 2007. Professional inspection takes 45–60 minutes and includes a written assessment.)
+
+Write for a homeowner who is not a contractor. Be safety-focused, direct, and specific to their actual flagged conditions.`;
+
+      const resp = await fetch(GEMINI_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+        })
+      });
+      if (!resp.ok) throw new Error(`API error: ${resp.status}`);
+      const data = await resp.json();
+      ci_reportText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No report generated.";
+    }
+
+    function ci_renderReport() {
+      const spinner = document.getElementById("ci-spinner");
+      const result = document.getElementById("ci-result");
+      if (spinner) spinner.style.display = "none";
+      if (result) result.style.display = "block";
+    }
+
+    async function ci_downloadPDF() {
+      await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"); const jsPDF = (window as any).jspdf.jsPDF; const GState = (window as any).jspdf.GState;
+      const doc = new jsPDF({ unit: "pt", format: "letter" });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const margin = 48;
+      let y = 0;
+
+      function ci_checkPage(needed: number) {
+        if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
+      }
+
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, 0, pageW, 72, "F");
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES INC", margin, 26);
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(16);
+      doc.text("Chimney & Fireplace — Safety Inspection Report", margin, 52);
+      y = 96;
+
+      doc.setTextColor(74, 74, 74);
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Prepared for: ${ci_contactData.name}  |  ${ci_contactData.phone}  |  ${ci_contactData.email}`, margin, y);
+      y += 14;
+      doc.text(`Property: ${ci_contactData.address}, ${ci_contactData.zip}`, margin, y);
+      y += 14;
+      const checked = ci_getChecked();
+      doc.text(`Warning Signs Flagged: ${checked.length} of 10`, margin, y);
+      y += 14;
+      doc.text(`Date: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`, margin, y);
+      y += 24;
+
+      const lines = ci_reportText.split("\n");
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) { y += 6; continue; }
+        const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 90 && !trimmed.includes("•") && !trimmed.match(/^\d/);
+        if (isHeading) {
+          ci_checkPage(36);
+          doc.setFillColor(184, 92, 56);
+          doc.rect(margin, y, 3, 16, "F");
+          doc.setTextColor(22, 18, 15);
+          doc.setFontSize(11);
+          doc.setFont("helvetica", "bold");
+          doc.text(trimmed.replace(/\*\*/g, ""), margin + 10, y + 12);
+          y += 24;
+        } else {
+          ci_checkPage(18);
+          doc.setTextColor(74, 74, 74);
+          doc.setFontSize(9.5);
+          doc.setFont("helvetica", "normal");
+          const cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/^[-•]\s+/, "• ");
+          const wrapped = doc.splitTextToSize(cleaned, pageW - margin * 2);
+          doc.text(wrapped, margin, y);
+          y += wrapped.length * 13;
+        }
+      }
+
+      ci_checkPage(80);
+      doc.setDrawColor(184, 92, 56);
+      doc.setLineWidth(0.5);
+      doc.line(margin, y, pageW - margin, y);
+      y += 12;
+      doc.setTextColor(140, 128, 112);
+      doc.setFontSize(8);
+      doc.setFont("helvetica", "bolditalic");
+      doc.text("DISCLAIMER", margin, y);
+      y += 12;
+      doc.setFont("helvetica", "normal");
+      const disclaimerText = "This report is a preliminary safety assessment based on warning signs self-reported by the homeowner through an online tool. It is not a substitute for a certified professional chimney inspection by a licensed masonry contractor. Actual safety conditions, fire risk, structural integrity, and repair scope may differ significantly from this report. All Masonry Services Inc. does not warrant the accuracy of this preliminary report and assumes no liability for decisions made based solely on this assessment. For a definitive safety evaluation, contact All Masonry Services Inc. for a FREE professional inspection at 773-656-2107 or allmasonryservices.com.";
+      const disclaimerWrapped = doc.splitTextToSize(disclaimerText, pageW - margin * 2);
+      doc.text(disclaimerWrapped, margin, y);
+      y += disclaimerWrapped.length * 11 + 16;
+
+      const totalPages = (doc.internal as any).getNumberOfPages();
+      for (let p = 1; p <= totalPages; p++) {
+        doc.setPage(p);
+        doc.saveGraphicsState();
+        doc.setGState(new GState({ opacity: 0.07 }));
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(52);
+        doc.setFont("helvetica", "bold");
+        doc.text("ALL MASONRY SERVICES", pageW / 2, pageH / 2, { align: "center", angle: 45 });
+        doc.restoreGraphicsState();
+        doc.setFillColor(22, 18, 15);
+        doc.rect(0, pageH - 36, pageW, 36, "F");
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "bold");
+        doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+        doc.setTextColor(180, 180, 180);
+        doc.text(`Page ${p} of ${totalPages}`, pageW - margin - 40, pageH - 14);
+      }
+      doc.save(`ChimneySafetyReport-${ci_contactData.name.replace(/\s+/g, "-")}.pdf`);
+    }
+
+    document.getElementById("ci-to-step2")?.addEventListener("click", () => ci_showStep(2));
+    document.getElementById("ci-back-to-step1")?.addEventListener("click", () => ci_showStep(1));
+
+    document.getElementById("ci-submit")?.addEventListener("click", async () => {
+      const name = ci_getVal("ci-name");
+      const phone = ci_getVal("ci-phone");
+      const email = ci_getVal("ci-email");
+      const address = ci_getVal("ci-address");
+      const zip = ci_getVal("ci-zip");
+      if (!name || !phone || !email || !address || !zip) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+      ci_contactData = { name, phone, email, address, zip };
+      ci_showStep(3);
+      const spinner = document.getElementById("ci-spinner");
+      const result = document.getElementById("ci-result");
+      const errWrap = document.getElementById("ci-error");
+      if (spinner) spinner.style.display = "flex";
+      if (result) result.style.display = "none";
+      if (errWrap) errWrap.style.display = "none";
+      try {
+        await ci_generate();
+        ci_renderReport();
+      } catch (e: any) {
+        if (spinner) spinner.style.display = "none";
+        if (errWrap) errWrap.style.display = "block";
+        const msg = document.getElementById("ci-error-msg");
+        if (msg) msg.textContent = "Error generating report: " + (e.message || "Please try again.");
+      }
+    });
+
+    document.getElementById("ci-pdf-btn")?.addEventListener("click", ci_downloadPDF);
+    document.getElementById("ci-retry")?.addEventListener("click", () => ci_showStep(1));
+  })();
+</script>
+
+<style>
+  .ci-wrap { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #16120F; max-width: 720px; margin: 0 auto; }
+  .ci-header { background: #16120F; padding: 32px 36px 0; }
+  .ci-badge { display: inline-block; background: #B85C38; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 4px 10px; margin-bottom: 14px; border-radius: 4px; }
+  .ci-title { font-family: 'Onest', sans-serif; color: #FFFFFF; font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.25; }
+  .ci-title em { color: #B85C38; font-style: normal; }
+  .ci-sub { color: #6A625A; font-size: 14px; margin: 0 0 24px; line-height: 1.5; }
+  .ci-progress { height: 3px; background: #2A2A2A; }
+  .ci-progress-fill { height: 3px; background: #B85C38; width: 10%; transition: width .4s ease; }
+  .step { display: none; padding: 32px 36px; }
+  .step.active { display: block; }
+  .step-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #6A625A; text-transform: uppercase; margin: 0 0 8px; }
+  .step-desc { font-size: 14px; color: #4A4A4A; margin: 0 0 16px; }
+  .checklist { display: flex; flex-direction: column; gap: 0; border: 2px solid #16120F; }
+  .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; cursor: pointer; border-bottom: 1px solid #E0DDD8; background: #fff; transition: background .15s; }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:hover { background: #FAF8F4; }
+  .check-item input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .check-box { width: 20px; height: 20px; border: 2px solid #D9D9D9; flex-shrink: 0; margin-top: 1px; background: #fff; position: relative; transition: background .15s, border-color .15s; }
+  .check-item input:checked ~ .check-box { background: #B85C38; border-color: #B85C38; }
+  .check-item input:checked ~ .check-box::after { content: ""; position: absolute; left: 5px; top: 2px; width: 6px; height: 10px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg); }
+  .check-item input:checked ~ .check-text { color: #16120F; font-weight: 600; }
+  .check-text { font-size: 14px; color: #4A4A4A; line-height: 1.45; }
+  .check-counter { margin-top: 12px; font-size: 13px; font-weight: 700; color: #B85C38; text-align: right; }
+  .field-group { margin-bottom: 16px; }
+  .field-full { grid-column: 1 / -1; }
+  .field-label { display: block; font-size: 13px; font-weight: 600; color: #16120F; margin-bottom: 6px; }
+  .req { color: #B85C38; }
+  .ci-input { width: 100%; height: 44px; border: 1px solid #D9D9D9; background: #fff; color: #16120F; font-family: 'Inter', sans-serif; font-size: 14px; padding: 0 12px; box-sizing: border-box; outline: none; border-radius: 10px; appearance: none; }
+  .ci-input:focus { border-color: #B85C38; }
+  .ci-select { cursor: pointer; }
+  .ci-textarea { height: 80px; resize: vertical; padding: 10px 12px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .ci-btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border: none; border-radius: 14px; letter-spacing: .04em; text-decoration: none; transition: opacity .2s; }
+  .ci-btn:hover { opacity: .85; }
+  .ci-btn-primary { background: #B85C38; color: #FFFFFF; }
+  .ci-btn-outline { background: transparent; color: #16120F; border: 2px solid #16120F; }
+  .nav-row { display: flex; gap: 12px; margin-top: 8px; }
+  #ci-to-step2 { width: 100%; }
+  .spinner-wrap { display: flex; flex-direction: column; align-items: center; padding: 48px 0; gap: 16px; }
+  .spinner { width: 44px; height: 44px; border: 3px solid #E0DDD8; border-top-color: #B85C38; border-radius: 50%; animation: ci-spin .8s linear infinite; }
+  @keyframes ci-spin { to { transform: rotate(360deg); } }
+  .spinner-text { color: #6A625A; font-size: 14px; }
+  .spinner-sub { color: #B0A898; font-size: 12px; margin-top: 4px; }
+  .result-wrap { text-align: center; padding: 8px 0; }
+  .success-icon { width: 56px; height: 56px; background: #B85C38; color: #FFFFFF; font-size: 28px; font-weight: 900; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .result-title { font-family: 'Onest', sans-serif; font-size: 22px; color: #16120F; margin: 0 0 8px; }
+  .result-sub { font-size: 14px; color: #4A4A4A; margin: 0 0 20px; line-height: 1.5; }
+  .disclaimer-box { background: #FEF3EF; border: 1px solid #B85C38; border-left: 4px solid #B85C38; padding: 14px 16px; font-size: 12px; color: #4A433B; line-height: 1.6; text-align: left; margin-bottom: 20px; }
+  .disclaimer-box strong { color: #16120F; display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+  .result-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .error-wrap { padding: 32px; text-align: center; }
+  .error-msg { color: #c0392b; font-size: 14px; margin-bottom: 16px; }
+  @media (max-width: 600px) {
+    .ci-header, .step { padding: 24px 20px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .ci-title { font-size: 20px; }
+    .field-full { grid-column: 1; }
+  }
+</style>

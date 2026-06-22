@@ -1,0 +1,584 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { blogPosts, categories, formatDate } from '../../data/blog.js';
+---
+
+<Layout
+  title="Masonry Blog — AMS Chicagoland | Brick, Stone & Expert Tips"
+  description="Expert masonry articles on brick installation, tuckpointing, chimneys, and home exterior maintenance across Chicagoland. Written by AMS, your 19-year local masonry partner."
+>
+  <Navbar />
+
+  <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+  <section class="blg-hero" id="blg-hero">
+    <picture class="blg-hero-bg">
+      <source media="(max-width:768px)" srcset="/images/blog/blog-hero-m.webp" type="image/webp">
+      <img src="/images/blog/blog-hero.webp" alt="AMS masonry craftsmen at work" fetchpriority="high" decoding="async" width="1260" height="720">
+    </picture>
+    <div class="blg-hero-overlay"></div>
+    <div class="blg-hero-content" id="blg-hero-inner">
+      <p class="blg-eyebrow">AMS Masonry — Chicagoland's Trusted Partner Since 2005</p>
+      <h1 class="blg-hero-h1">Expert Insights.<br>Real Masonry Knowledge.</h1>
+      <p class="blg-hero-sub">Brick, stone, chimneys, and exterior maintenance — written by the team that has worked on thousands of Chicagoland homes.</p>
+      <div class="blg-search-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+          type="search"
+          id="blg-search"
+          placeholder="Search articles…"
+          autocomplete="off"
+          aria-label="Search blog articles"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Body ──────────────────────────────────────────────────────────────── -->
+  <section class="blg-body">
+    <div class="blg-inner">
+
+      <!-- Category tabs -->
+      <div class="blg-tabs" role="tablist" aria-label="Filter by category" id="blg-tabs">
+        {categories.map((cat, i) => (
+          <button
+            class={`blg-tab${i === 0 ? ' active' : ''}`}
+            data-cat={cat.id}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+          >
+            {cat.label}
+            <span class="blg-tab-count">{cat.count}</span>
+          </button>
+        ))}
+      </div>
+
+      <!-- No results -->
+      <p class="blg-no-results" id="blg-no-results" aria-live="polite">No articles found. Try a different search term.</p>
+
+      <!-- Grid -->
+      <div class="blg-grid" id="blg-grid">
+        {blogPosts.map(post => (
+          <article
+            class="blg-card"
+            data-cat={post.category}
+            data-search={`${post.title} ${post.excerpt} ${post.tags.join(' ')} ${post.category}`}
+          >
+            <a href={`/blog/${post.slug}`} class="blg-card-img-wrap" tabindex="-1" aria-hidden="true">
+              <picture>
+                <source srcset={`/images/blog/${post.slug}.webp`} type="image/webp">
+                <img
+                  src={`/images/blog/${post.slug}.webp`}
+                  alt={post.title}
+                  width="630"
+                  height="360"
+                  loading="lazy"
+                  decoding="async"
+                  class="blg-card-img"
+                >
+              </picture>
+              <span class={`blg-card-cat blg-cat-${post.category}`}>{
+                post.category === 'services' ? 'Service' :
+                post.category === 'locations' ? 'Location' : 'Guide'
+              }</span>
+            </a>
+            <div class="blg-card-body">
+              <h2 class="blg-card-title">
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </h2>
+              <p class="blg-card-excerpt">{post.excerpt}</p>
+              <div class="blg-card-meta">
+                <span class="blg-meta-date">{formatDate(post.date)}</span>
+                <span class="blg-meta-dot" aria-hidden="true">·</span>
+                <span class="blg-meta-read">{post.readTime} min read</span>
+              </div>
+              <a href={`/blog/${post.slug}`} class="blg-card-cta" aria-label={`Read: ${post.title}`}>
+                Read Article
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ───────────────────────────────────────────────────────────────── -->
+  <section class="blg-cta-band">
+    <div class="blg-cta-inner">
+      <div>
+        <p class="blg-cta-tag">Ready to Start?</p>
+        <h2 class="blg-cta-h2">Get a Free Masonry Estimate</h2>
+        <p class="blg-cta-sub">19 years serving Chicagoland. Licensed &amp; insured. No-obligation site visit.</p>
+      </div>
+      <div class="blg-cta-btns">
+        <a href="tel:+17736562107" class="blg-btn-primary">
+          <svg width="16" height="16" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M4.5 3h3.4l1.6 4-2 1.2a10.5 10.5 0 005.3 5.3L14 11.5l4 1.6V16.5A2 2 0 0116 18.5C8.5 18.5 3.5 13.5 3.5 6A2 2 0 014.5 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          773-656-2107
+        </a>
+        <a href="/contact#form" class="blg-btn-ghost">Request Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<!-- ── Styles ─────────────────────────────────────────────────────────────── -->
+<style>
+
+  /* ── Hero ── */
+  .blg-hero {
+    position: relative;
+    height: clamp(480px, 56vh, 640px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  .blg-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .blg-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .blg-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(13,10,8,0.88) 0%, rgba(13,10,8,0.62) 60%, rgba(13,10,8,0.70) 100%);
+  }
+  .blg-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px;
+    margin-left: max(0px, calc((100vw - 1280px) / 2));
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s cubic-bezier(0.22,1,0.36,1), transform 0.75s cubic-bezier(0.22,1,0.36,1);
+  }
+  .blg-hero-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .blg-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #B85C38;
+    margin: 0 0 14px;
+  }
+  .blg-hero-h1 {
+    font-family: 'Onest', sans-serif;
+    font-size: clamp(32px, 4.5vw, 58px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+  .blg-hero-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(14px, 1.4vw, 17px);
+    color: rgba(255,255,255,0.68);
+    max-width: 520px;
+    line-height: 1.65;
+    margin: 0 0 28px;
+  }
+  .blg-search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 12px;
+    padding: 14px 20px;
+    max-width: 420px;
+    backdrop-filter: blur(8px);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .blg-search-wrap:focus-within {
+    border-color: rgba(184,92,56,0.6);
+    background: rgba(255,255,255,0.14);
+  }
+  .blg-search-wrap svg { color: rgba(255,255,255,0.5); flex-shrink: 0; }
+  #blg-search {
+    background: none;
+    border: none;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    width: 100%;
+  }
+  #blg-search::placeholder { color: rgba(255,255,255,0.42); }
+
+  /* ── Body ── */
+  .blg-body {
+    background: #F5F3EF;
+    padding: 64px 0 80px;
+  }
+  .blg-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* Category tabs */
+  .blg-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(22,18,15,0.12);
+    padding-bottom: 0;
+  }
+  .blg-tab {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6A625A;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 16px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.18s;
+    margin-bottom: -1px;
+    border-radius: 0;
+  }
+  .blg-tab:hover { color: #16120F; }
+  .blg-tab.active {
+    color: #B85C38;
+    border-bottom-color: #B85C38;
+  }
+  .blg-tab-count {
+    font-size: 11px;
+    font-weight: 700;
+    background: rgba(22,18,15,0.08);
+    color: #6A625A;
+    border-radius: 20px;
+    padding: 1px 7px;
+    transition: background 0.18s, color 0.18s;
+  }
+  .blg-tab.active .blg-tab-count {
+    background: rgba(184,92,56,0.12);
+    color: #B85C38;
+  }
+
+  /* No results */
+  .blg-no-results {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: #6A625A;
+    text-align: center;
+    padding: 48px 0;
+  }
+  .blg-no-results.visible { display: block; }
+
+  /* Grid */
+  .blg-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  /* Card */
+  .blg-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(22,18,15,0.07);
+    transition: box-shadow 0.22s, transform 0.22s;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1), box-shadow 0.22s, filter 0.22s;
+  }
+  .blg-card.revealed { opacity: 1; transform: translateY(0); }
+  .blg-card.hidden { display: none; }
+  .blg-card:hover {
+    box-shadow: 0 8px 32px rgba(22,18,15,0.13);
+    transform: translateY(-3px);
+  }
+  .blg-card.revealed:hover { transform: translateY(-3px); }
+
+  .blg-card-img-wrap {
+    display: block;
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .blg-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  }
+  .blg-card:hover .blg-card-img { transform: scale(1.04); }
+
+  .blg-card-cat {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+  .blg-cat-services  { background: rgba(184,92,56,0.90); color: #fff; }
+  .blg-cat-locations { background: rgba(22,18,15,0.80);  color: #fff; }
+  .blg-cat-guides    { background: rgba(74,67,59,0.85);  color: #fff; }
+
+  .blg-card-body {
+    padding: 22px 24px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .blg-card-title {
+    font-family: 'Onest', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #16120F;
+    margin: 0 0 10px;
+  }
+  .blg-card-title a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.18s;
+  }
+  .blg-card-title a:hover { color: #B85C38; }
+
+  .blg-card-excerpt {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #6A625A;
+    margin: 0 0 16px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blg-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(106,98,90,0.75);
+    margin-bottom: 14px;
+  }
+  .blg-meta-dot { opacity: 0.5; }
+
+  .blg-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #B85C38;
+    text-decoration: none;
+    transition: gap 0.18s, color 0.18s;
+    margin-top: auto;
+  }
+  .blg-card-cta:hover { gap: 10px; color: #8A3A22; }
+
+  /* ── CTA Band ── */
+  .blg-cta-band {
+    background: #16120F;
+    padding: 56px 40px;
+  }
+  .blg-cta-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .blg-cta-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #B85C38;
+    margin: 0 0 8px;
+  }
+  .blg-cta-h2 {
+    font-family: 'Onest', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .blg-cta-sub {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+  }
+  .blg-cta-btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+  .blg-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #B85C38;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .blg-btn-primary:hover { background: #8A3A22; }
+  .blg-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.22);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .blg-btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
+
+  /* ── Responsive ── */
+  @media (max-width: 1100px) {
+    .blg-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .blg-hero-content { padding: 0 32px; margin-left: 0; }
+    .blg-inner { padding: 0 24px; }
+    .blg-search-wrap { max-width: 100%; }
+  }
+  @media (max-width: 640px) {
+    .blg-grid { grid-template-columns: 1fr; }
+    .blg-hero { height: auto; min-height: 520px; padding: 100px 0 48px; }
+    .blg-hero-content { padding: 0 20px; }
+    .blg-inner { padding: 0 16px; }
+    .blg-body { padding: 40px 0 60px; }
+    .blg-cta-inner { flex-direction: column; align-items: flex-start; }
+    .blg-cta-band { padding: 48px 20px; }
+  }
+  @media (max-width: 400px) {
+    .blg-tabs { gap: 4px; }
+    .blg-tab { padding: 8px 10px 10px; font-size: 13px; }
+  }
+</style>
+
+<!-- ── Script ──────────────────────────────────────────────────────────────── -->
+<script is:inline>
+(function () {
+  // Hero entrance
+  const heroInner = document.getElementById('blg-hero-inner');
+  if (heroInner) {
+    requestAnimationFrame(() => {
+      setTimeout(() => heroInner.classList.add('visible'), 60);
+    });
+  }
+
+  // Card reveal via IntersectionObserver
+  const cards = document.querySelectorAll('.blg-card');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const delay = Array.from(cards).indexOf(card) % 3 * 80;
+        setTimeout(() => card.classList.add('revealed'), delay);
+        io.unobserve(card);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  cards.forEach(c => io.observe(c));
+
+  // Filter tabs
+  const tabs   = document.querySelectorAll('.blg-tab');
+  const grid   = document.getElementById('blg-grid');
+  const noRes  = document.getElementById('blg-no-results');
+  let activeCat = 'all';
+  let searchTerm = '';
+
+  function applyFilter() {
+    let visible = 0;
+    cards.forEach(card => {
+      const cat    = card.dataset.cat;
+      const search = card.dataset.search.toLowerCase();
+      const catOk  = activeCat === 'all' || cat === activeCat;
+      const srchOk = !searchTerm || search.includes(searchTerm);
+      if (catOk && srchOk) {
+        card.classList.remove('hidden');
+        visible++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+    noRes.classList.toggle('visible', visible === 0);
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      activeCat = tab.dataset.cat;
+      applyFilter();
+    });
+  });
+
+  // Search
+  const searchInput = document.getElementById('blg-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      searchTerm = searchInput.value.trim().toLowerCase();
+      applyFilter();
+    });
+  }
+})();
+</script>

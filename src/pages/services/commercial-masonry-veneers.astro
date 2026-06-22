@@ -1,0 +1,3069 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+import { projects as allProjects } from '../../data/projects.js';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import FacadeCoverageEstimator from '../../components/magnets/FacadeCoverageEstimator.astro';
+
+const siteUrl = 'https://allmasonryservices.com';
+const svcProjects = allProjects.filter(p => p.serviceSlug === 'commercial-masonry-veneers').slice(0, 5);
+const pageUrl = `${siteUrl}/services/commercial-masonry-veneers`;
+
+const faqItems = [
+  {
+    question: "What is the difference between commercial and residential veneer installation?",
+    answer: "Commercial installations typically involve larger areas, higher wind loads, special inspection requirements, and multi-trade coordination. Commercial projects also require specific documentation — special inspection logs, lien waivers, certificates of insurance — that residential projects don't. AMS is set up for both."
+  },
+  {
+    question: "What is a special inspection for masonry?",
+    answer: "Special inspections are third-party quality verifications required by the IBC for certain commercial masonry applications. An inspector verifies mortar mix, joint consistency, and grout placement during construction. AMS coordinates special inspection scheduling and maintains logs."
+  },
+  {
+    question: "Do you work with spec'd veneer systems?",
+    answer: "Yes — we install systems from major commercial veneer manufacturers per architect's specification. We review submittals and can provide product data sheets for spec approval."
+  },
+  {
+    question: "Can you phase commercial veneer work around occupied tenants?",
+    answer: "Yes — we're experienced with phased commercial work including after-hours installation and dust containment for occupied retail and office properties."
+  },
+  {
+    question: "How does commercial facade veneer handle wind load?",
+    answer: "Commercial veneers are designed to transfer lateral loads through the lath and substrate system to the structural framing — not to rely on adhesion alone. Lath fastening to structural framing (not just sheathing) is the critical requirement. AMS installs to this standard."
+  },
+  {
+    question: "Is AMS certified or approved for commercial masonry veneers?",
+    answer: "AMS is a licensed masonry contractor in Illinois with commercial project experience. We can work with your architect on material submittals and system approval documentation."
+  },
+  {
+    question: "Do you provide warranties on commercial veneer work?",
+    answer: "Yes — our commercial veneer warranty covers installation deficiencies. Material warranties are passed through from the manufacturer. Terms provided with every commercial contract."
+  },
+  {
+    question: "What's the lead time for a commercial facade project?",
+    answer: "Contact us 6–10 weeks before your required mobilization date for large commercial projects. Mid-size projects typically need 3–5 weeks of lead time."
+  },
+  {
+    question: "Do you coordinate with the GC on sequencing?",
+    answer: "Yes — we coordinate with the GC before mobilization to sequence our work around window installation, waterproofing, and roofing. Sequencing errors are the most common cause of commercial envelope failures. We proactively flag conflicts before they become problems."
+  }
+];
+---
+
+<Layout
+  title="Commercial Masonry Veneers Chicago | All Masonry Services"
+  description="System-specified commercial masonry veneers for storefronts, office buildings, and mixed-use developments across Chicagoland — GC-coordinated, special inspections documented, built to spec."
+>
+  <!-- Schema: Service -->
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Commercial Masonry Veneers in Chicago & Chicagoland",
+    "description": "System-specified commercial masonry veneers for storefronts, office buildings, and mixed-use developments across Chicagoland. GC-coordinated, special inspections documented.",
+    "url": pageUrl,
+    "provider": { "@type": "Organization", "name": "All Masonry Services", "url": siteUrl },
+    "areaServed": "Chicago, Chicagoland, IL",
+    "serviceType": "Commercial Masonry Veneers"
+  })}</script>
+
+  <!-- Schema: HowTo -->
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How Commercial Masonry Veneer Installation Works: AMS 5-Step Process",
+    "description": "How system-specified commercial masonry veneers are installed on storefronts, office buildings, and mixed-use developments across Chicagoland.",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Spec Review & System Selection", "text": "We review the project spec and select a veneer system — substrate, waterproofing, lath, scratch coat, and veneer — from compatible manufacturers per the architect's requirements." },
+      { "@type": "HowToStep", "position": 2, "name": "Pre-Installation Coordination", "text": "We coordinate with the GC on sequencing — windows, waterproofing, and roofing must be completed in the correct order relative to veneer." },
+      { "@type": "HowToStep", "position": 3, "name": "Substrate & Waterproofing Installation", "text": "We install waterproof barrier, lath fastened to structural framing, and scratch coat per spec — with inspection points coordinated with the GC before veneer placement begins." },
+      { "@type": "HowToStep", "position": 4, "name": "Veneer Installation & Quality Control", "text": "We install veneer to the approved pattern with consistent mortar joints, movement joints at required intervals, and daily progress documentation." },
+      { "@type": "HowToStep", "position": 5, "name": "Closeout & Special Inspection Documentation", "text": "We complete special inspection logs, clean-up, and punch list before closing out — with documentation package ready for your GC." }
+    ]
+  })}</script>
+
+  <!-- Schema: FAQ -->
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  })}</script>
+
+  <Navbar />
+
+  <!-- ─── 1. HERO — EXPLODED ANATOMY ─── -->
+  <section class="mv-hero" id="mv-hero" aria-label="Commercial Masonry Veneers hero">
+
+    <!-- Left: 3D anatomy stage -->
+    <div class="mv-stage-wrap" aria-hidden="true">
+      <div class="mv-stage" id="mv-stage">
+        <div class="mv-layer mv-l1" id="mv-l1"><div class="mv-ledge mv-ledge-1"></div></div>
+        <div class="mv-layer mv-l2" id="mv-l2"><div class="mv-ledge mv-ledge-2"></div></div>
+        <div class="mv-layer mv-l3" id="mv-l3"><div class="mv-ledge mv-ledge-3"></div></div>
+        <div class="mv-layer mv-l4" id="mv-l4"><div class="mv-ledge mv-ledge-4"></div></div>
+      </div>
+      <div class="mv-label-panel" id="mv-labels">
+        <div class="mv-ltag" id="mv-lbl-4"><span class="mv-lnum">04</span><span class="mv-ltxt">Stone Veneer</span></div>
+        <div class="mv-ltag" id="mv-lbl-3"><span class="mv-lnum">03</span><span class="mv-ltxt">Scratch Coat</span></div>
+        <div class="mv-ltag" id="mv-lbl-2"><span class="mv-lnum">02</span><span class="mv-ltxt">Wire Lath</span></div>
+        <div class="mv-ltag" id="mv-lbl-1"><span class="mv-lnum">01</span><span class="mv-ltxt">Substrate</span></div>
+      </div>
+    </div>
+
+    <!-- Heading block: eyebrow + h1 -->
+    <div class="mv-ct" id="mv-ct">
+      <div class="mv-eyebrow" id="mv-eyebrow">
+        <span class="mv-ey-line" aria-hidden="true"></span>
+        Commercial Masonry Veneers · Chicago &amp; Chicagoland
+      </div>
+      <h1 class="mv-h1">
+        <div class="mv-h1-row"><span id="mv-r1">Commercial</span></div>
+        <div class="mv-h1-row"><span id="mv-r2">Masonry Veneers</span></div>
+        <div class="mv-h1-row"><span id="mv-r3">in Chicago &amp; Chicagoland</span></div>
+      </h1>
+    </div>
+    <!-- Body block: sub + actions + badges -->
+    <div class="mv-cb" id="mv-cb">
+      <p class="mv-sub" id="mv-sub">
+        Full commercial facade veneer systems — brick, stone, and masonry panel installation for storefronts, office buildings, and mixed-use developments, installed to spec and built to last.
+      </p>
+      <div class="lh-actions mv-actions" id="mv-act">
+        <a href="/contact#form" class="lh-btn lh-btn--gold">
+          <span class="lh-btn-bg" aria-hidden="true"></span>
+          <span class="lh-btn-label">Get a Free Estimate</span>
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="tel:7736562107" class="lh-btn mv-btn-ghost">
+          <span class="lh-btn-bg" aria-hidden="true"></span>
+          <span class="lh-btn-label">Call 773-656-2107</span>
+        </a>
+      </div>
+      <div class="lh-badges mv-badges" id="mv-bdg">
+        <div class="lh-badge"><strong>500+</strong><span>Projects Done</span></div>
+        <div class="mv-badge-sep" aria-hidden="true"></div>
+        <div class="lh-badge"><strong>4.8★</strong><span>92 Google Reviews</span></div>
+        <div class="mv-badge-sep" aria-hidden="true"></div>
+        <div class="lh-badge"><strong>19+</strong><span>Years Experience</span></div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="lh-scroll mv-scroll" id="mv-scroll">
+      <div class="lh-scroll-mouse"><div class="lh-scroll-dot"></div></div>
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+  <style>
+    /* ── MV HERO ── */
+    .mv-hero {
+      position: relative; width: 100%; height: 100svh; min-height: 600px;
+      background: #16120F;
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr auto auto 1fr;
+      overflow: hidden;
+    }
+    .mv-ct {
+      grid-column: 1; grid-row: 2;
+      position: relative; z-index: 10;
+      display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start;
+      padding: 0 40px 16px 80px; pointer-events: none;
+      margin-left: max(0px, calc((100vw - 1280px) / 2));
+    }
+    .mv-cb {
+      grid-column: 1; grid-row: 3;
+      position: relative; z-index: 10;
+      display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;
+      padding: 0 40px 0 80px; pointer-events: none;
+      margin-left: max(0px, calc((100vw - 1280px) / 2));
+    }
+    .mv-stage-wrap {
+      grid-column: 2; grid-row: 1 / span 4;
+      position: relative;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding-right: 64px;
+      perspective: 2200px; perspective-origin: 50% 50%;
+    }
+    .mv-stage {
+      width: 310px; height: 68vh; min-height: 420px;
+      transform-style: preserve-3d; flex-shrink: 0;
+    }
+    .mv-layer {
+      position: absolute; inset: 0;
+      transform-style: preserve-3d;
+    }
+    .mv-l1 { background: url(/images/bv-hero/bv-wood.webp) center/cover no-repeat; }
+    .mv-l2 { background: url(/images/bv-hero/bv-lath.webp) center/cover no-repeat; }
+    .mv-l3 { background: url(/images/bv-hero/bv-mortar.webp) center/cover no-repeat; }
+    .mv-l4 { background: url(/images/bv-hero/bv-stone.webp) center/cover no-repeat; }
+    .mv-ledge {
+      position: absolute; top: 0; left: -26px; width: 26px; height: 100%;
+      transform-origin: right center; transform: rotateY(-90deg);
+    }
+    .mv-ledge-1 { background: url(/images/bv-hero/bv-wood.webp) center/cover no-repeat; filter: brightness(0.35); }
+    .mv-ledge-2 { background: url(/images/bv-hero/bv-lath.webp) center/cover no-repeat; filter: brightness(0.22); }
+    .mv-ledge-3 { background: url(/images/bv-hero/bv-mortar.webp) center/cover no-repeat; filter: brightness(0.55); }
+    .mv-ledge-4 { background: url(/images/bv-hero/bv-stone.webp) left/cover no-repeat; filter: brightness(0.3); }
+    .mv-label-panel {
+      position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
+      display: none; flex-direction: column; gap: 18px; pointer-events: none;
+    }
+    .mv-ltag { display: flex; align-items: center; gap: 8px; }
+    .mv-lnum {
+      font-family: 'Onest', sans-serif; font-size: 11px; font-weight: 700;
+      color: #B85C38; letter-spacing: 0.08em; flex-shrink: 0;
+    }
+    .mv-ltxt {
+      font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: rgba(255,255,255,0.48); white-space: nowrap;
+    }
+    .mv-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); margin-bottom: 20px;
+    }
+    .mv-ey-line { display: block; width: 32px; height: 1px; background: rgba(255,255,255,0.3); flex-shrink: 0; }
+    .mv-h1 {
+      font-family: 'Onest', sans-serif; font-weight: 700;
+      font-size: clamp(2.4rem, 5.5vw, 4.6rem); line-height: 1.0;
+      letter-spacing: -0.03em; color: #FFFFFF; margin-bottom: 24px;
+    }
+    .mv-h1-row { display: block; overflow: hidden; padding-bottom: 0.06em; }
+    .mv-accent { color: #ffffff; font-style: normal; font-weight: 700; }
+    .mv-sub {
+      max-width: 480px; font-family: 'Inter', sans-serif;
+      font-size: clamp(0.88rem, 1.2vw, 1.0rem);
+      color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 28px;
+    }
+    .mv-actions { pointer-events: auto; margin-bottom: 24px; }
+    .mv-btn-ghost {
+      background: transparent; color: #FFFFFF;
+      border: 1.5px solid rgba(255,255,255,0.35);
+    }
+    .mv-btn-ghost .lh-btn-bg { background: rgba(255,255,255,0.12); }
+    .mv-btn-ghost:hover { color: #FFFFFF; border-color: rgba(255,255,255,0.7); }
+    .mv-badges { pointer-events: auto; }
+    .mv-badges .lh-badge { border-left-color: rgba(255,255,255,0.2); }
+    .mv-badges .lh-badge strong { color: #B85C38; }
+    .mv-badges .lh-badge span { color: rgba(255,255,255,0.6); }
+    .mv-badge-sep { width: 1px; height: 28px; background: rgba(255,255,255,0.2); align-self: center; margin: 0 4px; }
+    .mv-scroll { z-index: 20; }
+    .mv-hero .lh-scroll-mouse { border-color: rgba(255,255,255,0.3); }
+    .mv-hero .lh-scroll-dot { background: #B85C38; }
+    .mv-hero .lh-scroll span { color: rgba(255,255,255,0.4); }
+    @media (max-width: 900px) {
+      .mv-hero { display: flex; flex-direction: column; height: auto; min-height: 100svh; }
+      .mv-ct { order: 1; padding: 88px 24px 0; margin-left: 0; justify-content: flex-start; }
+      .mv-stage-wrap { order: 2; grid-column: unset; grid-row: unset; justify-content: center; align-items: flex-start; padding: 8px 0 0; perspective: 900px; perspective-origin: 50% 50%; overflow: hidden; }
+      .mv-cb { order: 3; padding: 20px 24px 48px; margin-left: 0; justify-content: flex-start; }
+      .mv-h1 { font-size: clamp(2.4rem, 10vw, 4rem); margin-bottom: 0; }
+      .mv-sub { max-width: 100%; }
+      .mv-stage { width: min(260px, 70vw); height: min(300px, 58vw); min-height: 190px; }
+      .mv-label-panel { display: none; }
+    }
+    @media (max-width: 640px) {
+      .mv-ct { padding: 80px 20px 0; }
+      .mv-cb { padding: 16px 20px 40px; }
+      .mv-h1 { font-size: clamp(2.2rem, 11vw, 3.5rem); }
+      .mv-stage { width: min(220px, 78vw); height: min(260px, 62vw); }
+    }
+  </style>
+
+  <script is:inline>
+  (function() {
+    function initMv() {
+      var gsap = window.__gsap;
+      var ST   = window.__ScrollTrigger;
+      if (!gsap) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var hero      = document.getElementById('mv-hero');
+      var stage     = document.getElementById('mv-stage');
+      var stageWrap = hero ? hero.querySelector('.mv-stage-wrap') : null;
+      if (!hero || !stage) return;
+
+      var layers = [
+        document.getElementById('mv-l1'),
+        document.getElementById('mv-l2'),
+        document.getElementById('mv-l3'),
+        document.getElementById('mv-l4')
+      ].filter(Boolean);
+
+      var tags = hero.querySelectorAll('.mv-ltag');
+
+      /* ── Initial state ── */
+      gsap.set(stage,  { rotationY: 0, x: 0 });
+      gsap.set(layers, { z: 0 });
+      gsap.set(tags,   { opacity: 0, x: 14 });
+      /* ── 3D explosion timeline ── */
+      var isMobile = window.innerWidth <= 900;
+      var rotY   = isMobile ? -20  : -42;
+      var xShift = isMobile ? '0%' : '-6%';
+      var zStep  = isMobile ? 58   : 155;
+
+      var explodeTl = gsap.timeline({ paused: true })
+        .to(stage, { rotationY: rotY, x: xShift, duration: 0.75, ease: 'power3.inOut' }, 0)
+        .to(layers, {
+          z: function(i) { return i * zStep; },
+          duration: 0.9, ease: 'expo.out', stagger: 0.08
+        }, 0.1)
+        .to(tags, { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out', stagger: 0.08 }, 0.5);
+
+      var isHovered  = false;
+      var isScrolled = false;
+      var autoPlaying = true;
+
+      function syncExplode() {
+        if (autoPlaying) return;
+        if (isHovered || isScrolled) { explodeTl.play(); }
+        else { explodeTl.reverse(); }
+      }
+
+      /* ── Auto-expand on load ── */
+      explodeTl.eventCallback('onComplete', function() { autoPlaying = false; });
+      gsap.delayedCall(0.4, function() { explodeTl.play(); });
+
+      /* ── Hover (desktop) / Tap (touch) ── */
+      if (stageWrap) {
+        var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+        if (isTouch) {
+          stageWrap.addEventListener('click', function() { isHovered = !isHovered; syncExplode(); });
+        } else {
+          stageWrap.addEventListener('mouseenter', function() { isHovered = true;  syncExplode(); });
+          stageWrap.addEventListener('mouseleave', function() { isHovered = false; syncExplode(); });
+        }
+      }
+
+      /* ── Scroll: open when scrolled down ── */
+      if (ST) {
+        gsap.registerPlugin(ST);
+        ST.create({
+          trigger: hero,
+          start: 'top -20%',
+          onEnter:     function() { isScrolled = true;  syncExplode(); },
+          onLeaveBack: function() { isScrolled = false; syncExplode(); }
+        });
+      }
+
+      /* ── Scroll cue click ── */
+      var scrEl = document.getElementById('mv-scroll');
+      if (scrEl) {
+        scrEl.addEventListener('click', function() {
+          var next = document.querySelector('.sp-trust');
+          if (next) next.scrollIntoView({ behavior: 'smooth' });
+          else window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+        });
+      }
+    }
+
+    if (window.__gsap) { initMv(); }
+    else { window.addEventListener('animations:ready', initMv, { once: true }); }
+  })();
+  </script>
+
+  <!-- ─── 2. TRUST BAR ─── -->
+  <section class="sp-trust">
+    <div class="sp-trust-inner">
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Licensed &amp; Insured in Illinois
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Free On-Site Estimates
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Written Schedule Commitment
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        19+ Years in Chicagoland
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3. PROBLEM / CONSEQUENCE ─── -->
+  <section class="sp-problem">
+    <div class="sp-delay-inner">
+
+      <!-- Header -->
+      <div class="sp-delay-hdr">
+        <div class="sp-section-label">Why It Matters</div>
+        <h2 class="sp-delay-h2">What Happens When <em>Commercial Veneer Systems Fail</em></h2>
+        <p class="sp-delay-sub">Commercial veneer failures aren't visible until water is already inside the building. By then, it's not a veneer repair — it's a full facade removal, structural investigation, and rebuild.</p>
+      </div>
+
+      <div class="sp-delay-cols">
+
+        <!-- LEFT: dark stats sidebar -->
+        <div class="sp-delay-sidebar">
+          <p class="sp-delay-sidebar-label">The real cost of shortcuts</p>
+          <div class="sp-delay-stats">
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">0</span>
+              <span class="sp-delay-stat-desc">Failed special inspections on AMS commercial veneer projects</span>
+            </div>
+            <div class="sp-delay-stat-sep"></div>
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">100%</span>
+              <span class="sp-delay-stat-desc">System-compatible installations — no component mixing</span>
+            </div>
+            <div class="sp-delay-stat-sep"></div>
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">6–10</span>
+              <span class="sp-delay-stat-desc">Weeks lead time for large commercial facade projects</span>
+            </div>
+          </div>
+          <a href="/contact#form" class="sp-delay-sidebar-cta">
+            Get a free commercial facade estimate
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- RIGHT: consequence list -->
+        <div class="sp-delay-list">
+
+          <div class="sp-delay-rule"></div>
+
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Incompatible System Components</h3>
+            </div>
+            <p class="sp-delay-text">Commercial veneer systems require compatible waterproofing, lath, scratch coat, and mortar — all from the same approved system. Mixing components from different manufacturers voids warranties and causes failures.</p>
+          </div>
+
+          <div class="sp-delay-rule"></div>
+
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Inadequate Substrate Attachment</h3>
+            </div>
+            <p class="sp-delay-text">Commercial veneers span large areas with high wind loads. Lath attached only to sheathing, not to structural framing, pulls away under lateral load — creating cascading delamination across the entire facade.</p>
+          </div>
+
+          <div class="sp-delay-rule"></div>
+
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3 class="sp-delay-title">No Third-Party Inspection</h3>
+            </div>
+            <p class="sp-delay-text">Commercial projects often require special inspections for masonry work. Skipping or cutting corners on special inspections creates liability exposure and may void the building's certificate of occupancy.</p>
+            <div class="sp-delay-chart" aria-label="Cost escalation timeline">
+              <div class="sp-delay-chart-row">
+                <span class="sp-delay-chart-stage">Now</span>
+                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:20%"></div></div>
+                <span class="sp-delay-chart-cost">$</span>
+                <span class="sp-delay-chart-note">Spec review</span>
+              </div>
+              <div class="sp-delay-chart-row">
+                <span class="sp-delay-chart-stage">3–6 mo</span>
+                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:42%"></div></div>
+                <span class="sp-delay-chart-cost">$$</span>
+                <span class="sp-delay-chart-note">Failed inspection</span>
+              </div>
+              <div class="sp-delay-chart-row">
+                <span class="sp-delay-chart-stage">6–12 mo</span>
+                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:68%"></div></div>
+                <span class="sp-delay-chart-cost">$$$</span>
+                <span class="sp-delay-chart-note">Delamination repair</span>
+              </div>
+              <div class="sp-delay-chart-row">
+                <span class="sp-delay-chart-stage">1+ yr</span>
+                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:100%"></div></div>
+                <span class="sp-delay-chart-cost">$$$$</span>
+                <span class="sp-delay-chart-note">Full facade removal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sp-delay-rule"></div>
+
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Sequencing Conflicts with Other Trades</h3>
+            </div>
+            <p class="sp-delay-text">Commercial veneer must be coordinated with window installation, waterproofing, and roofing. Installed out of sequence — particularly before windows are flashed — guarantees water intrusion at every penetration.</p>
+          </div>
+
+          <div class="sp-delay-rule"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 4. PROCESS ─── -->
+  <section id="sp-prc-section" style="background:#ffffff; position:relative;">
+    <div id="sp-prc-driver" style="position:relative; height:600vh;">
+      <div id="sp-prc-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-prc-grid">
+
+          <!-- LEFT: heading + CTA -->
+          <div id="sp-prc-left">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">How We Work</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(36px,3.5vw,54px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 20px;">Our Commercial<br>Veneer Process</h2>
+
+            <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.65; color:#6A625A; margin:0 0 36px;">From spec review to special inspection documentation — system-installed, GC-coordinated, built to pass.</p>
+
+            <div class="sp-prc-desktop-cta">
+              <a href="/contact#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:28px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: steps -->
+          <div id="sp-prc-right">
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">01</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Spec Review & System Selection</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We review the project spec and select a veneer system — substrate, waterproofing, lath, scratch coat, and veneer — from compatible manufacturers per the architect's requirements.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Spec'd systems have tested compatibility data. Field substitutions without engineering review are a warranty void and a failure waiting to happen.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">02</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Pre-Installation Coordination</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We coordinate with the GC on sequencing — windows, waterproofing, and roofing must be completed in the correct order relative to veneer. We confirm the sequence before mobilizing.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Veneer installed before window flashing is complete guarantees water infiltration at window heads. This sequence error is the most common cause of commercial envelope failures.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">03</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Substrate & Waterproofing Installation</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We install waterproof barrier, lath fastened to structural framing, and scratch coat per spec — with inspection points coordinated with the GC before veneer placement begins.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>This is the invisible work that determines whether the veneer lasts 5 years or 30. We don't rush the substrate for schedule.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">04</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Veneer Installation & Quality Control</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We install veneer to the approved pattern with consistent mortar joints, movement joints at required intervals, and daily progress documentation.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Daily documentation gives your GC visibility and provides evidence for special inspection records. We make inspection coordination easy.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE; border-bottom:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">05</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Closeout & Special Inspection Documentation</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We complete special inspection logs, clean-up, and punch list before closing out — with documentation package ready for your GC.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Clean special inspection records are required for certificate of occupancy on commercial projects. We don't leave you chasing paperwork.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile-only CTA -->
+            <div class="sp-prc-mobile-cta" style="display:none; padding-top:36px;">
+              <a href="/contact#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:20px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5. WHY AMS ─── -->
+  <section class="sp-why">
+    <div class="sp-why-inner">
+      <div class="sp-section-label" data-reveal>What Sets Us Apart</div>
+      <h2 class="sp-section-h2" data-reveal style="--rd:80ms">Why Commercial Clients<br><em>Choose AMS for Facade Veneers</em></h2>
+      <div class="sp-why-grid">
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/svc-commercial.webp" alt="System-compatible commercial masonry veneer installation" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">01</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">System Compatibility Expertise</h3>
+              <p class="sp-why-body">We install complete veneer systems — not just the visible layer. Compatible components, correct installation sequence, and documented special inspections.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/bv-hero/bv-mortar.webp" alt="Transparent written estimates" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">02</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Transparent, Written Estimates</h3>
+              <p class="sp-why-body">Every estimate is free, on-site, and in writing — scope, materials, and timeline before any work begins. No ballpark numbers over the phone.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/sl-hero/sl-stone.webp" alt="Free commercial facade coverage estimator tool" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">03</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Free Facade Coverage Estimator</h3>
+              <p class="sp-why-body">Estimate commercial facade coverage before your first meeting with us. Dimensions in, coverage and cost range out. No sign-up, no sales call — just useful numbers for early budget conversations.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/bv-hero/bv-stone.webp" alt="Family owned masonry company" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">04</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Family-Owned — Owner Accountability</h3>
+              <p class="sp-why-body">No layers of management. You deal directly with the people responsible for the work — on every commercial project, from first call to final closeout.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 6. TOOL EMBED ─── -->
+  <section class="sp-tool" id="commercial-facade-estimator">
+    <div class="sp-tool-inner">
+      <div class="sp-tool-header">
+        <div class="sp-section-label sp-section-label--light">Free Tool — No Sign-Up Required</div>
+        <h2 class="sp-tool-h2">Free Commercial Masonry Veneers<br><em>Facade Coverage Estimator</em></h2>
+        <div class="sp-tool-warning-hook" aria-label="Project checklist">
+          <p class="sp-tool-warning-intro">Need facade coverage numbers before the formal takeoff?</p>
+          <ul class="sp-tool-warning-list">
+            <li>Full building exterior or partial facade</li>
+            <li>Storefront, retail, or mixed-use cladding</li>
+            <li>Parking structure or industrial facing</li>
+          </ul>
+          <p class="sp-tool-warning-cta">Enter building dimensions — get coverage area, material estimate, and cost range. Free.</p>
+        </div>
+        <p class="sp-tool-sub">Building dimensions → net coverage, material count, Chicago commercial 2026 cost range. 90 seconds. Free.</p>
+      </div>
+      <div class="sp-tool-social">
+        <div class="sp-tool-stat">
+          <span class="sp-tool-stat-num">420+</span>
+          <span class="sp-tool-stat-label">Commercial facade estimates generated</span>
+        </div>
+        <div class="sp-tool-stat-sep"></div>
+        <div class="sp-tool-stat">
+          <span class="sp-tool-stat-num">4.8★</span>
+          <span class="sp-tool-stat-label">Average rating · 92 reviews</span>
+        </div>
+        <div class="sp-tool-stat-sep"></div>
+        <div class="sp-tool-stat">
+          <span class="sp-tool-stat-num">90s</span>
+          <span class="sp-tool-stat-label">To get your estimate</span>
+        </div>
+      </div>
+      <blockquote class="sp-tool-quote">
+        <p>"The facade estimator gave our project team a quick coverage check before the formal takeoff. It matched our architect's numbers within 5%. Useful for early budget conversations."</p>
+        <cite>— GC Project Manager · Chicagoland</cite>
+      </blockquote>
+      <div class="sp-tool-embed">
+        <FacadeCoverageEstimator />
+      </div>
+      <p class="sp-tool-note">
+        This AI-generated facade estimate is based on building dimensions you provided and is not a substitute for a professional site inspection or engineering review. Actual coverage, material quantities, anchorage requirements, and costs may differ based on site conditions and structural engineering specifications. Contact All Masonry Services Inc. for a formal commercial estimate — 773-656-2107.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── 7. FEATURED PROJECTS ─── -->
+  <section id="sp-proj-section" style="background:#16120F; position:relative; overflow-x:clip;">
+    <div id="sp-proj-driver" style="position:relative; height:200vh;">
+      <div id="sp-proj-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-proj-grid">
+
+          <!-- LEFT: Polaroid card stack -->
+          <div id="sp-proj-stack" style="position:relative; height:520px; display:flex; align-items:center; justify-content:center;">
+
+            {svcProjects.map((p, i) => (
+              <div class="sp-proj-polaroid" data-i={String(i)} style="position:absolute; background:#ffffff; padding:14px 14px 56px; box-shadow:0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06); width:230px; will-change:transform; user-select:none; cursor:pointer; transition:box-shadow 0.25s ease;">
+                <div style="overflow:hidden; width:100%; height:290px;">
+                  <picture style="display:block;width:100%;height:100%;">
+                    <source media="(max-width: 768px)" srcset={p.heroImageSm} type="image/webp" />
+                    <img src={p.heroImage} alt={p.serviceType + ' in ' + p.city} class="sp-proj-img" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);" loading="lazy" />
+                  </picture>
+                </div>
+                <div style="padding-top:14px; text-align:center;">
+                  <p class="sp-proj-label" style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 3px; line-height:1.3; transition:color 0.25s ease;">{p.city}</p>
+                  <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">{p.county}, IL</p>
+                  <a href={'/projects/' + p.slug} style="display:inline-block; margin-top:6px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:#B85C38; text-decoration:none; letter-spacing:0.04em; text-transform:uppercase;" onclick="event.stopPropagation()">View →</a>
+                </div>
+              </div>
+            ))}
+
+          </div>
+
+          <!-- RIGHT: Text content -->
+          <div class="sp-proj-text">
+
+            <div class="sp-proj-text-top">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+                </svg>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">Recent Work</span>
+              </div>
+              <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#ffffff; letter-spacing:-0.02em; margin:0 0 20px;">
+                Commercial Veneer Projects<br><em style="font-style:normal;">Across Chicagoland</em>
+              </h2>
+              <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.65); margin:0; max-width:400px;">
+                From small retail facades to multi-story office buildings — system-specified, GC-coordinated, special inspections documented.
+              </p>
+            </div>
+
+            <div class="sp-proj-text-bottom">
+              <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+                <a href="/projects"
+                  style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:16px; font-weight:500; padding:16px 30px; border-radius:14px; text-decoration:none; transition:background 0.2s;"
+                  onmouseenter="this.style.background='#8A3A22'"
+                  onmouseleave="this.style.background='#B85C38'">
+                  View more projects
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="/contact#form"
+                  style="font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,0.3); transition:color 0.2s;"
+                  onmouseenter="this.style.color='#fff'"
+                  onmouseleave="this.style.color='rgba(255,255,255,0.65)'">
+                  Get a free estimate →
+                </a>
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.4); margin:16px 0 0;">
+                500+ projects completed across Chicagoland
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="sp-proj-spacer"></div>
+  </section>
+
+  <!-- ─── 8. PRICING ─── -->
+  <section class="sp-pricing">
+    <div class="sp-pricing-inner">
+      <div class="sp-section-label">Transparent Pricing</div>
+      <h2 class="sp-section-h2">Commercial Veneer<br><em>Investment Ranges</em></h2>
+      <p class="sp-section-sub">
+        Commercial veneer pricing depends on facade area, system specification, and project complexity. These ranges reflect typical Chicagoland projects.
+      </p>
+      <div class="sp-pricing-grid">
+        <div class="sp-price-card">
+          <div class="sp-price-tier">Small Commercial Facade</div>
+          <div class="sp-price-range">$25,000 – $70,000</div>
+          <ul class="sp-price-list">
+            <li>Under 3,000 sq ft</li>
+            <li>Standard brick or stone veneer</li>
+            <li>Free estimate included</li>
+          </ul>
+          <a href="/contact#form" class="sp-btn sp-btn--outline">Get a Quote</a>
+        </div>
+        <div class="sp-price-card sp-price-card--featured">
+          <div class="sp-price-popular">Most Common</div>
+          <div class="sp-price-tier">Mid-Size Facade</div>
+          <div class="sp-price-range">$70,000 – $220,000</div>
+          <ul class="sp-price-list">
+            <li>3,000–10,000 sq ft</li>
+            <li>Complete system — spec-compliant</li>
+            <li>Special inspection coordination included</li>
+          </ul>
+          <a href="/contact#form" class="sp-btn sp-btn--primary">Get a Quote</a>
+        </div>
+        <div class="sp-price-card">
+          <div class="sp-price-tier">Large Commercial Project</div>
+          <div class="sp-price-range">$220,000+</div>
+          <ul class="sp-price-list">
+            <li>10,000+ sq ft</li>
+            <li>Full package including special inspections</li>
+            <li>Written schedule & milestone payment</li>
+          </ul>
+          <a href="/contact#form" class="sp-btn sp-btn--outline">Get a Quote</a>
+        </div>
+      </div>
+      <p class="sp-pricing-note">
+        Commercial veneer pricing requires formal bid from drawings and site visit. Contact us with project documents for a complete bid. <a href="/contact#form" class="sp-pricing-link">Send us your documents.</a>
+      </p>
+      <p class="sp-pricing-guarantee">System-specified installation, GC-coordinated sequencing, documented special inspections. No shortcuts that create liability downstream.</p>
+    </div>
+  </section>
+
+  <!-- ─── 9. REVIEWS ─── -->
+  <section id="sp-rev-section" style="background:#ffffff; position:relative; overflow-x:clip;">
+
+    <div id="sp-rev-driver" style="position:relative; height:300vh;">
+      <div style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-rev-grid">
+
+          <!-- LEFT: heading + rating + neighbourhood cards -->
+          <div class="sp-rev-left">
+
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">What Clients Say</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 28px;">
+              Real Reviews from<br><em style="font-style:normal;">Commercial Clients</em>
+            </h2>
+
+            <div style="margin-bottom:40px;">
+              <p style="font-family:'Onest',sans-serif; font-size:48px; font-weight:700; color:#16120F; margin:0 0 8px; line-height:1;">4.8</p>
+              <div style="display:flex; gap:4px; margin-bottom:6px;">
+                {[1,2,3,4,5].map(() => (
+                  <svg width="18" height="18" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>
+                ))}
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:14px; color:#6A625A; margin:0;">4.8★ average across 92 reviews — from commercial clients who've trusted AMS with facade systems.</p>
+            </div>
+
+            <div id="sp-rev-nbhd-area" style="opacity:0; transform:translateY(16px);">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+                </svg>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Trusted across Chicagoland</span>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">North Shore</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Winnetka</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Lake Forest</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"AMS handled our commercial facade veneer with exactly the level of professionalism a $180K project demands. Special inspection logs were complete, sequencing with our other trades was clean."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Marcus R.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Chicagoland</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Western Suburbs</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Hinsdale</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Oak Brook</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"We've used AMS on two retail facade renovations. Both times — on-schedule, zero callbacks, documentation complete at closeout. That's exactly what commercial property management needs."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Stephanie H.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Western Suburbs</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">DuPage Corridor</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Naperville</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Wheaton</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"The stone veneer AMS installed on our office building looks exactly like the architect's rendering. They held the joint width and coursing pattern throughout — no drift over a 5-story elevation."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Kevin O.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Downers Grove, IL</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: stacked review cards -->
+          <div style="display:flex; align-items:center; justify-content:center;">
+            <div id="sp-rev-stack" style="position:relative; width:340px; height:400px;">
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"AMS coordinated with three other trades on our mixed-use facade veneer — window installers, roofers, and waterproofing. Zero sequencing conflicts. That's exactly what a GC needs."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Victor T.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Chicagoland</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Spec'd a complex stone veneer system for our office building. AMS submitted the product data sheets, got spec approval, and executed without a single substitution request."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Angela B.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Oak Brook, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Three commercial facade projects with AMS. Special inspections passed first time on all three. That consistency is why they're our go-to veneer sub."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Nathan P.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Schaumburg, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Our building had occupied tenants during the facade renovation. AMS coordinated after-hours work and dust containment — no tenant complaints, no schedule disruption."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Rebecca J.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Downers Grove, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"AMS gave us a system-specified bid — not a loose allowance. Every component named, every sequence documented. That level of detail on a bid tells you everything about how they run a job."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Scott M.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Western Suburbs</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile-only neighbourhood card -->
+    <div class="sp-rev-mob-nbhd">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Trusted across Chicagoland</span>
+      </div>
+      <div style="border-radius:16px; padding:22px 20px 18px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07);">
+        <div style="display:flex; gap:4px; margin-bottom:14px;">
+          {[1,2,3,4,5].map(() => (<svg width="14" height="14" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}
+        </div>
+        <p style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.6; color:#4A433B; margin:0 0 18px; font-style:italic;">
+          "AMS handled our commercial facade veneer with exactly the level of professionalism a $180K project demands. Special inspection logs were complete, sequencing with our other trades was clean."
+        </p>
+        <div style="display:flex; align-items:center; gap:10px; padding-top:14px; border-top:1px solid #E4E2DE;">
+          <div style="width:32px; height:32px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="13" r="7" fill="#C4BDB5"/><ellipse cx="16" cy="28" rx="11" ry="7" fill="#C4BDB5"/></svg></div>
+          <div>
+            <p style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 2px;">Marcus R.</p>
+            <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">Chicagoland · North Shore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── 9.5. BEFORE / AFTER ─── -->
+  <section class="sp-ba">
+    <div class="sp-ba-inner">
+
+      <!-- Centered header -->
+      <div class="sp-ba-hdr" data-reveal>
+        <div class="sp-ba-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Real Results</span>
+        </div>
+        <h2 class="sp-ba-h2">See the Difference<br><em>Commercial Veneer Makes</em></h2>
+        <p class="sp-ba-sub">Drag the handle to compare — or scroll to watch the reveal.</p>
+      </div>
+
+      <!-- Single cinematic slider -->
+      <div class="sp-ba-stage" data-reveal style="--rd:120ms">
+        <div class="sp-ba-slider" id="sp-ba-main">
+          <!-- After (base layer — clean mortar) -->
+          <div class="sp-ba-after">
+            <picture>
+              <source media="(max-width:768px)" srcset="/images/proj-tuckpointing-m.webp" type="image/webp" />
+              <img src="/images/svc-commercial.webp" alt="After commercial masonry veneer installation — facade complete" class="sp-ba-img" loading="lazy" />
+            </picture>
+          </div>
+          <!-- Before (clipped, reveals on scroll — deteriorated mortar) -->
+          <div class="sp-ba-before">
+            <picture>
+              <source media="(max-width:768px)" srcset="/images/svc-brick-repair-m.webp" type="image/webp" />
+              <img src="/images/svc-brick-repair.webp" alt="Before commercial veneer — facade pre-installation" class="sp-ba-img" loading="lazy" />
+            </picture>
+          </div>
+          <!-- Glowing divider + handle -->
+          <div class="sp-ba-line" id="sp-ba-line">
+            <div class="sp-ba-handle" id="sp-ba-handle">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7 3.5L2 10L7 16.5" stroke="#B85C38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 3.5L18 10L13 16.5" stroke="#B85C38" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Before / After pills -->
+          <div class="sp-ba-pill sp-ba-pill--b">Before</div>
+          <div class="sp-ba-pill sp-ba-pill--a">After</div>
+          <!-- Bottom vignette + location -->
+          <div class="sp-ba-vignette"></div>
+          <div class="sp-ba-location">Commercial Masonry Veneer · Chicagoland</div>
+          <!-- Drag hint -->
+          <div class="sp-ba-drag-hint" id="sp-ba-hint">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M5 2L2 7L5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 2L12 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Drag to compare
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="sp-ba-stats" data-reveal style="--rd:240ms">
+        <div class="sp-ba-stat">
+          <strong>500+</strong>
+          <span>Masonry projects<br>completed</span>
+        </div>
+        <div class="sp-ba-stat-sep"></div>
+        <div class="sp-ba-stat">
+          <strong>15+</strong>
+          <span>Years serving<br>Chicago</span>
+        </div>
+        <div class="sp-ba-stat-sep"></div>
+        <div class="sp-ba-stat">
+          <strong>A+</strong>
+          <span>BBB Rating &amp;<br>fully insured</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 10. CREDENTIALS ─── -->
+  <section class="sp-creds">
+    <div class="sp-creds-inner">
+      <div class="sp-section-label">Why Trust AMS</div>
+      <h2 class="sp-section-h2">Every Box Checked.<br><em>In Writing.</em></h2>
+      <div class="sp-creds-grid">
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Licensed in Illinois</span>
+            <span class="sp-cred-body">State-licensed masonry contractor — License #MA-104-018887. We pull permits when required and operate fully above board.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Fully Insured — $2.5M Liability</span>
+            <span class="sp-cred-body">$2.5 million general liability coverage on every job. Proof of insurance available before any work begins — no exceptions.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Workers' Comp Covered</span>
+            <span class="sp-cred-body">Every crew member is covered. You're not liable if someone is injured on your property.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Family-Owned Since 2007</span>
+            <span class="sp-cred-body">Not a franchise. Not a call center. You deal with the owners — same crew, same standards, every job.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Written Schedule Commitment</span>
+            <span class="sp-cred-body">We put our start date and milestone dates in writing. We don't make promises we can't keep — on any commercial project.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Serving 19 Chicagoland Cities</span>
+            <span class="sp-cred-body">From Chicago to Naperville, Winnetka to Hinsdale — local crews, local knowledge.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sp-creds-guarantee">
+        <div class="sp-guarantee-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>System Integrity Guarantee</span>
+        </div>
+        <p class="sp-guarantee-text">Veneer installed to spec with compatible system components. Special inspections documented and filed. If installation deficiencies cause veneer failure within 3 years, we correct it at no charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 11. FAQ ─── -->
+  <section class="sp-faqx-section" id="faq-section">
+    <div class="sp-faqx-inner">
+
+      <div class="sp-faqx-header" id="faq-header">
+        <div class="sp-faqx-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Common Questions</span>
+        </div>
+        <h2 class="sp-faqx-heading">
+          Commercial Masonry Veneers FAQ<br>
+          <em class="sp-faqx-heading-accent">Answered Honestly</em>
+        </h2>
+        <p class="sp-faqx-desc">Everything you need to know about commercial veneer systems before you pick up the phone.</p>
+      </div>
+
+      <div class="sp-faqx-body">
+
+        <nav class="sp-faqx-nav" id="faq-nav" aria-label="FAQ categories">
+          <button class="sp-faqx-tab active" data-cat="problems" aria-selected="true">
+            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>System &amp; Specs
+          </button>
+          <button class="sp-faqx-tab" data-cat="cost" aria-selected="false">
+            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Installation
+          </button>
+          <button class="sp-faqx-tab" data-cat="repair" aria-selected="false">
+            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Wind Load &amp; Warranty
+          </button>
+          <button class="sp-faqx-tab" data-cat="process" aria-selected="false">
+            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Working With AMS
+          </button>
+        </nav>
+
+        <div class="sp-faqx-panels" id="faq-panels">
+
+          <!-- SYSTEM & SPECS -->
+          <div class="sp-faqx-panel active" data-cat="problems" role="list">
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">What is the difference between commercial and residential veneer installation?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Commercial installations typically involve larger areas, higher wind loads, special inspection requirements, and multi-trade coordination. Commercial projects also require specific documentation — special inspection logs, lien waivers, certificates of insurance — that residential projects don't. AMS is set up for both.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">What is a special inspection for masonry?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Special inspections are third-party quality verifications required by the IBC for certain commercial masonry applications. An inspector verifies mortar mix, joint consistency, and grout placement during construction. AMS coordinates special inspection scheduling and maintains logs.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INSTALLATION -->
+          <div class="sp-faqx-panel" data-cat="cost" role="list">
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Do you work with spec'd veneer systems?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Yes — we install systems from major commercial veneer manufacturers per architect's specification. We review submittals and can provide product data sheets for spec approval.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Can you phase commercial veneer work around occupied tenants?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Yes — we're experienced with phased commercial work including after-hours installation and dust containment for occupied retail and office properties.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WIND LOAD & WARRANTY -->
+          <div class="sp-faqx-panel" data-cat="repair" role="list">
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">How does commercial facade veneer handle wind load?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Commercial veneers are designed to transfer lateral loads through the lath and substrate system to the structural framing — not to rely on adhesion alone. Lath fastening to structural framing (not just sheathing) is the critical requirement. AMS installs to this standard.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Is AMS certified or approved for commercial masonry veneers?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">AMS is a licensed masonry contractor in Illinois with commercial project experience. We can work with your architect on material submittals and system approval documentation.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Do you provide warranties on commercial veneer work?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Yes — our commercial veneer warranty covers installation deficiencies. Material warranties are passed through from the manufacturer. Terms provided with every commercial contract.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WORKING WITH AMS -->
+          <div class="sp-faqx-panel" data-cat="process" role="list">
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">What's the lead time for a commercial facade project?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Contact us 6–10 weeks before your required mobilization date for large commercial projects. Mid-size projects typically need 3–5 weeks of lead time.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Do you coordinate with the GC on sequencing?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Yes — we coordinate with the GC before mobilization to sequence our work around window installation, waterproofing, and roofing. Sequencing errors are the most common cause of commercial envelope failures. We proactively flag conflicts before they become problems.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="sp-faqx-footer" id="faq-footer">
+        <p class="sp-faqx-footer-text">Still have questions? We're happy to talk through your specific situation.</p>
+        <a href="/contact#form" class="sp-faqx-footer-cta">Ask Us Directly →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 12. SERVICE AREAS ─── -->
+  <section class="sp-areas">
+    <div class="sp-areas-inner">
+      <div class="sp-section-label">Where We Work</div>
+      <h2 class="sp-section-h2">Commercial Masonry Veneer Service Areas<br><em>Across Chicagoland</em></h2>
+      <p class="sp-areas-sub">
+        We serve commercial clients, GCs, and developers throughout the Chicago metro and surrounding communities.
+      </p>
+      <div class="sp-areas-grid">
+        {['Chicago','Hinsdale','Oak Brook','Winnetka','Highland Park','Elmhurst','Western Springs','Naperville','Wheaton','Downers Grove','La Grange','Clarendon Hills','Burr Ridge','Willowbrook','Evanston','Wilmette','Kenilworth','Glencoe','Northbrook'].map(city => (
+          <a href={`/locations/${city.toLowerCase().replace(/\s+/g, '-')}`} class="sp-area" style="text-decoration:none;">{city}</a>
+        ))}
+      </div>
+      <p class="sp-areas-note">Don't see your city? <a href="/contact#form" class="sp-areas-link">Contact us</a> — we likely serve your area.</p>
+    </div>
+  </section>
+
+  <!-- ─── 13. RELATED SERVICES ─── -->
+  <section class="sp-related">
+    <div class="sp-related-dark">
+
+      <!-- Header -->
+      <div class="sp-related-hdr">
+        <div class="sp-related-eyebrow" data-reveal>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Also Consider</span>
+        </div>
+        <h2 class="sp-related-heading" data-reveal style="--rd:80ms">More Commercial<br><em>Masonry Services</em></h2>
+      </div>
+
+      <!-- Cards -->
+      <div class="sp-rsvc-grid">
+
+        <!-- Card 1: Commercial Brick & Stone -->
+        <a href="/services/commercial-brick-stone" class="sp-rsvc-card" data-reveal>
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-chimney-m.webp" type="image/webp" />
+                <img src="/images/svc-chimney.webp" alt="Commercial brick and stone masonry for large projects" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M7 19V10H15V19" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19H17" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round"/><rect x="8" y="4" width="6" height="6" rx="0.5" stroke="#B85C38" stroke-width="1.5"/><path d="M9 4V3M11 4V2M13 4V3" stroke="#B85C38" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">Commercial Brick &amp; Stone</h3>
+            <p class="sp-rsvc-desc">Large-scale commercial brick and stone masonry for developers, GCs, and commercial property owners.</p>
+          </div>
+        </a>
+
+        <!-- Card 2: CMU Block Installation -->
+        <a href="/services/cmu-block-installation" class="sp-rsvc-card" data-reveal style="--rd:80ms">
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-brick-repair-m.webp" type="image/webp" />
+                <img src="/images/svc-brick-repair.webp" alt="CMU block installation for commercial structures" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="2" y="5" width="8" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="12" y="5" width="8" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="6" y="11" width="10" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="2" y="11" width="2" height="4" rx="0.5" stroke="#B85C38" stroke-width="1.5"/><rect x="18" y="11" width="2" height="4" rx="0.5" stroke="#B85C38" stroke-width="1.5"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">CMU Block Installation</h3>
+            <p class="sp-rsvc-desc">Engineered CMU block construction for commercial load-bearing walls, retaining structures, and foundations.</p>
+          </div>
+        </a>
+
+        <!-- Card 3: Brick & Stone Veneers -->
+        <a href="/services/brick-stone-veneers" class="sp-rsvc-card" data-reveal style="--rd:160ms">
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-stone-install-m.webp" type="image/webp" />
+                <img src="/images/svc-stone-install.webp" alt="Brick and stone veneers for residential and commercial" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M13 4L18 9L10 17L5 12L13 4Z" stroke="#B85C38" stroke-width="1.5" stroke-linejoin="round"/><path d="M5 12L3 19L10 17" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5L17 8" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">Brick &amp; Stone Veneers</h3>
+            <p class="sp-rsvc-desc">Residential brick and stone veneer installation with proper flashing, drainage, and substrate systems.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 14. CTA BANNER ─── -->
+  <section class="sp-cta-banner">
+    <div class="sp-cta-banner-inner">
+      <div class="sp-cta-banner-text">
+        <h2 class="sp-cta-banner-h2">Ready to Start Your Commercial Veneer Project?</h2>
+        <p class="sp-cta-banner-sub">19 years of commercial masonry across Chicagoland. System-specified installation, GC coordination, special inspections documented.</p>
+      </div>
+      <div class="sp-cta-banner-actions">
+        <a href="/contact#form" class="sp-btn sp-btn--accent">Get a Free Estimate</a>
+        <a href="tel:7736562107" class="sp-btn sp-btn--ghost-light">Call 773-656-2107</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- ─── BEFORE / AFTER ANIMATION ─── -->
+  <script is:inline>
+  (function() {
+    var el     = document.getElementById('sp-ba-main');
+    var lineEl = document.getElementById('sp-ba-line');
+    var hint   = document.getElementById('sp-ba-hint');
+    if (!el || !lineEl) return;
+
+    var before = el.querySelector('.sp-ba-before');
+    if (!before) return;
+
+    var dragging = false;
+
+    function apply(p) {
+      before.style.clipPath = 'inset(0 ' + (100 - p) + '% 0 0)';
+      lineEl.style.left = p + '%';
+    }
+
+    /* Initial state: 95% before (damaged mortar dominates) */
+    apply(95);
+
+    function setX(clientX) {
+      var r = el.getBoundingClientRect();
+      var p = Math.max(2, Math.min(98, ((clientX - r.left) / r.width) * 100));
+      apply(p);
+      if (hint) hint.style.opacity = '0';
+    }
+
+    /* ── Drag (mouse) — set up immediately, no GSAP needed ── */
+    el.addEventListener('mousedown', function(e) {
+      dragging = true; setX(e.clientX); e.preventDefault();
+    });
+    document.addEventListener('mousemove', function(e) { if (dragging) setX(e.clientX); });
+    document.addEventListener('mouseup',   function()  { dragging = false; });
+
+    /* ── Touch ── */
+    el.addEventListener('touchstart', function(e) {
+      dragging = true; setX(e.touches[0].clientX);
+    }, {passive: true});
+    el.addEventListener('touchmove', function(e) {
+      if (dragging) setX(e.touches[0].clientX);
+    }, {passive: true});
+    el.addEventListener('touchend', function() { dragging = false; });
+
+    /* ── GSAP scroll reveal (separate — needs animations:ready) ── */
+    function initReveal() {
+      var gsap = window.__gsap;
+      var ST   = window.__ScrollTrigger;
+      if (!gsap || !ST) return;
+
+      var handle   = document.getElementById('sp-ba-handle');
+      var revealed = false;
+
+      ST.create({
+        trigger: el,
+        start: 'top 74%',
+        onEnter: function() {
+          if (revealed) return;
+          revealed = true;
+          /* Sweep: AFTER image slides in from right, pushing line left 95→50 */
+          var proxy = { p: 95 };
+          gsap.to(proxy, {
+            p: 50,
+            duration: 1.9,
+            ease: 'expo.inOut',
+            onUpdate: function() { apply(proxy.p); },
+            onComplete: function() {
+              /* Left-right nudge on handle: "drag me" signal */
+              if (handle) {
+                gsap.fromTo(handle,
+                  { x: 0 },
+                  { x: -12, duration: 0.16, yoyo: true, repeat: 5,
+                    ease: 'power1.inOut',
+                    onComplete: function() { gsap.set(handle, { clearProps: 'x' }); }
+                  }
+                );
+              }
+            }
+          });
+        }
+      });
+    }
+
+    if (window.__gsap && window.__ScrollTrigger) { initReveal(); }
+    else { window.addEventListener('animations:ready', initReveal, { once: true }); }
+  })();
+  </script>
+
+  <!-- ─── HERO ANIMATION ─── -->
+  <script is:inline>
+  (function() {
+
+    /* ── BRICK MASK GENERATOR — running bond, objectBoundingBox coords ── */
+    function makeBrickClip(clipId, cols, rows) {
+      var clipEl = document.getElementById(clipId);
+      if (!clipEl) return [];
+      var bricks = [], gapX = 0.009, gapY = 0.011;
+      var cW = 1 / cols, cH = 1 / rows;
+      var bW = cW - gapX, bH = cH - gapY;
+      for (var r = 0; r < rows; r++) {
+        var odd = r % 2 === 1;
+        for (var c = (odd ? -1 : 0); c < cols + (odd ? 1 : 0); c++) {
+          var xRaw = c * cW + (odd ? cW * 0.5 : 0);
+          var yPos = r * cH + gapY * 0.5;
+          if (xRaw + bW <= 0 || xRaw >= 1) continue;
+          var x = Math.max(0, xRaw);
+          var w = Math.min(bW - Math.max(0, x - xRaw), 1 - x);
+          if (w < 0.012) continue;
+          var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+          rect.setAttribute('x', x);
+          rect.setAttribute('y', yPos);
+          rect.setAttribute('width', w);
+          rect.setAttribute('height', bH);
+          clipEl.appendChild(rect);
+          bricks.push({ el: rect, fy: yPos, r: r, x: x });
+        }
+      }
+      /* Sort top-left → bottom-right diagonal for stagger order */
+      bricks.sort(function(a, b) { return (a.r * 0.45 + a.x) - (b.r * 0.45 + b.x); });
+      return bricks;
+    }
+
+    var lgBricks = makeBrickClip('lh-clip-lg', 6, 4);
+    var mdBricks = makeBrickClip('lh-clip-md', 4, 3);
+    var smBricks = makeBrickClip('lh-clip-sm', 3, 3);
+    makeBrickClip('lh-clip-mob', 5, 3);
+
+    /* Apply clip-paths */
+    ['lg', 'md', 'sm'].forEach(function(k) {
+      var el = document.getElementById('lh-clip-wrap-' + k);
+      if (el) { el.style.clipPath = 'url(#lh-clip-' + k + ')'; }
+    });
+    var mobClip = document.getElementById('lh-mob-clip-wrap');
+    if (mobClip) { mobClip.style.clipPath = 'url(#lh-clip-mob)'; }
+
+    /* Mortar SVG for mobile image */
+    (function() {
+      var svg = document.getElementById('lh-mob-mlines');
+      if (!svg) return;
+      svg.setAttribute('viewBox', '0 0 100 100');
+      var col = 'rgba(200,169,110,0.18)', sw = '0.4';
+      for (var y = 33; y < 100; y += 33) {
+        var l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        l.setAttribute('x1', 0); l.setAttribute('y1', y);
+        l.setAttribute('x2', 100); l.setAttribute('y2', y);
+        l.setAttribute('stroke', col); l.setAttribute('stroke-width', sw);
+        svg.appendChild(l);
+      }
+      var bW = 20;
+      for (var ri = 0; ri < 3; ri++) {
+        var yT = ri * 33, xOff = (ri % 2 === 1) ? bW * 0.5 : 0;
+        for (var x = xOff; x <= 100; x += bW) {
+          var lv = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          lv.setAttribute('x1', x); lv.setAttribute('y1', yT);
+          lv.setAttribute('x2', x); lv.setAttribute('y2', yT + 33);
+          lv.setAttribute('stroke', col); lv.setAttribute('stroke-width', sw);
+          svg.appendChild(lv);
+        }
+      }
+    })();
+
+    /* ── MORTAR LINE SVG — viewBox 0 0 100 100, preserveAspectRatio="none" ── */
+    function buildMortarLines() {
+      var svg = document.getElementById('lh-mlines');
+      if (!svg) return [];
+      svg.setAttribute('viewBox', '0 0 100 100');
+      var lines = [], col = 'rgba(200,169,110,0.18)', sw = '0.25';
+      /* Horizontal bed joints every 5 units */
+      for (var y = 5; y < 100; y += 5) {
+        var l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        l.setAttribute('x1', 0); l.setAttribute('y1', y);
+        l.setAttribute('x2', 100); l.setAttribute('y2', y);
+        l.setAttribute('stroke', col); l.setAttribute('stroke-width', sw);
+        svg.appendChild(l); lines.push(l);
+      }
+      /* Vertical head joints — running bond pattern */
+      var bW = 14;
+      for (var ri = 0; ri < 20; ri++) {
+        var yT = ri * 5, xOff = (ri % 2 === 1) ? bW * 0.5 : 0;
+        for (var x = xOff; x <= 100; x += bW) {
+          var lv = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          lv.setAttribute('x1', x); lv.setAttribute('y1', yT);
+          lv.setAttribute('x2', x); lv.setAttribute('y2', yT + 5);
+          lv.setAttribute('stroke', col); lv.setAttribute('stroke-width', sw);
+          svg.appendChild(lv); lines.push(lv);
+        }
+      }
+      return lines;
+    }
+    var mortarLines = buildMortarLines();
+
+    /* ── MOUSE PARALLAX — RAF loop, lerped at 0.08 ── */
+    var heroEl = document.getElementById('sp-hero');
+    var imgLg  = document.getElementById('lh-img-lg');
+    var imgMd  = document.getElementById('lh-img-md');
+    var imgSm  = document.getElementById('lh-img-sm');
+    var mX = 0, mY = 0, cX = 0, cY = 0, rafOn = false;
+
+    function rafTick() {
+      cX += (mX - cX) * 0.08; cY += (mY - cY) * 0.08;
+      if (imgLg) imgLg.style.transform = 'translate(' + (cX * 10) + 'px,' + (cY * 7) + 'px)';
+      if (imgMd) imgMd.style.transform = 'translate(' + (cX * 14) + 'px,' + (cY * 10) + 'px)';
+      if (imgSm) imgSm.style.transform = 'translate(' + (cX * 7)  + 'px,' + (cY * 5)  + 'px)';
+      if (Math.abs(mX - cX) + Math.abs(mY - cY) > 0.001) requestAnimationFrame(rafTick);
+      else rafOn = false;
+    }
+    if (heroEl) {
+      heroEl.addEventListener('mousemove', function(e) {
+        var r = heroEl.getBoundingClientRect();
+        mX = ((e.clientX - r.left) / r.width  - 0.5) * 2;
+        mY = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+        if (!rafOn) { rafOn = true; requestAnimationFrame(rafTick); }
+      }, { passive: true });
+    }
+
+    /* ── GSAP SCROLL PARALLAX only — no entrance animation ── */
+    function initHero() {
+      var gsap = window.__gsap;
+      var ST   = window.__ScrollTrigger;
+      if (!gsap || !ST) return;
+
+      var rightEl = document.getElementById('lh-right');
+      var leftEl  = heroEl ? heroEl.querySelector('.lh-left') : null;
+
+      if (rightEl && heroEl) {
+        gsap.to(rightEl, {
+          y: -55, ease: 'none',
+          scrollTrigger: { trigger: heroEl, start: 'top top', end: 'bottom top', scrub: 0.8 }
+        });
+      }
+      if (leftEl && heroEl) {
+        gsap.to(leftEl, {
+          y: -30, ease: 'none',
+          scrollTrigger: { trigger: heroEl, start: 'top top', end: '55% top', scrub: 0.8 }
+        });
+      }
+
+      var scrEl = document.getElementById('lh-scroll');
+      if (scrEl) {
+        scrEl.addEventListener('click', function() {
+          var next = document.querySelector('.sp-trust');
+          if (next) next.scrollIntoView({ behavior: 'smooth' });
+          else window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+        });
+      }
+    }
+
+    if (window.__gsap && window.__ScrollTrigger) {
+      initHero();
+    } else {
+      window.addEventListener('animations:ready', initHero, { once: true });
+    }
+  })();
+  </script>
+
+  <!-- ─── PROCESS SCROLL ANIMATION ─── -->
+  <script is:inline>
+    (function() {
+      function initProcessAnim() {
+        var gsap = window.__gsap;
+        var ScrollTrigger = window.__ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+
+        var driver   = document.getElementById('sp-prc-driver');
+        var leftCol  = document.getElementById('sp-prc-left');
+        var items    = Array.from(document.querySelectorAll('.sp-prc-item'));
+        var nums     = Array.from(document.querySelectorAll('.sp-prc-num'));
+        if (!driver || !leftCol || !items.length) return;
+
+        var isMobile = window.innerWidth < 900;
+        // Skip entrance fades on mobile — content always visible, no blank spaces
+        if (isMobile) {
+          items.forEach(function(item, i) {
+            var stepTl = gsap.timeline({ defaults: { ease: 'none' } });
+            var n = nums[i];
+            stepTl
+              .fromTo(n, { opacity: 0.22 }, { opacity: 1, duration: 0.5 }, 0)
+              .fromTo(item, { backgroundColor: 'rgba(184,92,56,0)' }, { backgroundColor: 'rgba(184,92,56,0.06)', duration: 0.5 }, 0)
+              .to(n, { opacity: 0.22, duration: 0.5 }, 0.5)
+              .to(item, { backgroundColor: 'rgba(184,92,56,0)', duration: 0.5 }, 0.5);
+            ScrollTrigger.create({ trigger: item, start: 'top 65%', end: 'bottom 35%', scrub: 0.4, animation: stepTl });
+          });
+          return;
+        }
+
+        // Desktop: left column entrance
+        gsap.from(leftCol, {
+          opacity: 0, x: -24,
+          duration: 0.9, ease: 'power2.out',
+          scrollTrigger: { trigger: driver, start: 'top 80%', once: true },
+        });
+
+        // Desktop: steps fade in
+        gsap.from(items, {
+          opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', stagger: 0.08,
+          scrollTrigger: { trigger: driver, start: 'top 70%', once: true },
+        });
+
+        // Desktop: scrub active-step highlight
+        var tl  = gsap.timeline({ defaults: { ease: 'none' } });
+        var seg = 1 / items.length;
+
+        items.forEach(function(item, i) {
+          var s  = i * seg;
+          var fi = seg * 0.25;
+          var fo = seg * 0.25;
+
+          tl.fromTo(nums[i],  { opacity: 0.22 }, { opacity: 1,                           duration: fi }, s);
+          tl.to(nums[i],                          { opacity: 0.22,                        duration: fo }, s + seg - fo);
+          tl.fromTo(items[i], { backgroundColor: 'rgba(184,92,56,0)' },
+                              { backgroundColor: 'rgba(184,92,56,0.06)', duration: fi }, s);
+          tl.to(items[i],     { backgroundColor: 'rgba(184,92,56,0)',    duration: fo }, s + seg - fo);
+        });
+
+        ScrollTrigger.create({
+          trigger: driver, start: 'top top', end: 'bottom bottom',
+          scrub: 1.2, animation: tl,
+        });
+      }
+
+      window.removeEventListener('animations:ready', window.__spPrcAnimReady);
+      window.__spPrcAnimReady = initProcessAnim;
+      window.addEventListener('animations:ready', window.__spPrcAnimReady);
+    })();
+  </script>
+
+  <!-- ─── DELAY / PROBLEM ANIMATION ─── -->
+  <script is:inline>
+    (function() {
+      function initDelayAnim() {
+        var gsap = window.__gsap;
+        var ScrollTrigger = window.__ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+        if (window.innerWidth <= 900) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var section = document.querySelector('.sp-problem');
+        if (!section) return;
+        var label   = section.querySelector('.sp-section-label');
+        var h2      = section.querySelector('.sp-delay-h2');
+        var sub     = section.querySelector('.sp-delay-sub');
+        var sidebar = section.querySelector('.sp-delay-sidebar');
+        var stats   = Array.from(section.querySelectorAll('.sp-delay-stat'));
+        var items   = Array.from(section.querySelectorAll('.sp-delay-item'));
+        var rules   = Array.from(section.querySelectorAll('.sp-delay-rule'));
+        var bars    = Array.from(section.querySelectorAll('.sp-delay-chart-bar'));
+
+        // Initial states
+        gsap.set([label, h2, sub].filter(Boolean), { opacity: 0, y: 24 });
+        if (sidebar) gsap.set(sidebar, { opacity: 0, x: -32 });
+        gsap.set(stats, { opacity: 0, y: 16 });
+        gsap.set(rules, { scaleX: 0, transformOrigin: 'left center' });
+        gsap.set(items, { opacity: 0, y: 28 });
+        if (bars.length) gsap.set(bars, { scaleX: 0, transformOrigin: 'left center' });
+
+        // Header
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 78%',
+          onEnter: function() {
+            gsap.to([label, h2, sub].filter(Boolean), {
+              opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', stagger: 0.12, overwrite: true
+            });
+          },
+          onLeaveBack: function() {
+            gsap.set([label, h2, sub].filter(Boolean), { opacity: 0, y: 24 });
+          }
+        });
+
+        // Sidebar slides in from left
+        if (sidebar) {
+          ScrollTrigger.create({
+            trigger: '.sp-delay-cols',
+            start: 'top 82%',
+            onEnter: function() {
+              gsap.to(sidebar, { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', overwrite: true });
+              gsap.to(stats, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.12, delay: 0.3, overwrite: true });
+            },
+            onLeaveBack: function() {
+              gsap.set(sidebar, { opacity: 0, x: -32 });
+              gsap.set(stats, { opacity: 0, y: 16 });
+            }
+          });
+        }
+
+        // List items: rules draw, then items fade in
+        items.forEach(function(item, i) {
+          var prevRule = rules[i];
+          ScrollTrigger.create({
+            trigger: item,
+            start: 'top 88%',
+            onEnter: function() {
+              if (prevRule) gsap.to(prevRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true });
+              gsap.to(item, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.15, overwrite: true });
+              if (i === 2 && bars.length) {
+                gsap.to(bars, { scaleX: 1, duration: 0.5, ease: 'power2.inOut', stagger: 0.12, delay: 0.5, overwrite: true });
+              }
+            },
+            onLeaveBack: function() {
+              if (prevRule) gsap.set(prevRule, { scaleX: 0 });
+              gsap.set(item, { opacity: 0, y: 28 });
+              if (i === 2 && bars.length) gsap.set(bars, { scaleX: 0 });
+            }
+          });
+        });
+
+        // Last rule
+        var lastRule = rules[rules.length - 1];
+        if (lastRule) {
+          ScrollTrigger.create({
+            trigger: lastRule,
+            start: 'top 92%',
+            onEnter: function() { gsap.to(lastRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true }); },
+            onLeaveBack: function() { gsap.set(lastRule, { scaleX: 0 }); }
+          });
+        }
+      }
+      window.removeEventListener('animations:ready', window.__spProblemAnimReady);
+      window.__spProblemAnimReady = initDelayAnim;
+      window.addEventListener('animations:ready', window.__spProblemAnimReady);
+    })();
+  </script>
+
+  <!-- ─── WHY AMS CARD ANIMATION ─── -->
+  <script is:inline>
+    (function() {
+      function initWhyAnim() {
+        var gsap = window.__gsap;
+        var ScrollTrigger = window.__ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+        if (window.innerWidth <= 900) return;
+        var cards = Array.from(document.querySelectorAll('.sp-why-item'));
+        if (!cards.length) return;
+        var isMobile = window.innerWidth < 768;
+        cards.forEach(function(card, i) {
+          var yFrom = isMobile ? 30 : 40;
+          var delay = isMobile ? 0 : (i % 2) * 0.12;
+          ScrollTrigger.create({
+            trigger: card,
+            start: 'top 88%',
+            onEnter: function() {
+              gsap.fromTo(card,
+                { opacity: 0, y: yFrom },
+                { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: delay, overwrite: true }
+              );
+            },
+            onLeaveBack: function() {
+              gsap.set(card, { opacity: 0, y: yFrom });
+            }
+          });
+        });
+      }
+      window.removeEventListener('animations:ready', window.__spWhyAnimReady);
+      window.__spWhyAnimReady = initWhyAnim;
+      window.addEventListener('animations:ready', window.__spWhyAnimReady);
+    })();
+  </script>
+
+  <!-- ─── PROJECTS POLAROID ANIMATION ─── -->
+  <script is:inline>
+    (function() {
+      function initProjAnim() {
+        var gsap = window.__gsap;
+        var ScrollTrigger = window.__ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+
+        var driver = document.getElementById('sp-proj-driver');
+        var cards  = gsap.utils.toArray('.sp-proj-polaroid');
+        var N      = cards.length;
+        if (!driver || !N) return;
+
+        var FAN_ROTATIONS = [-24, -12, 0, 12, 24];
+
+        gsap.set(cards, {
+          transformOrigin: '50% 100%',
+          rotation: 0,
+          scale: 1,
+          zIndex: function(i) { return i + 1; }
+        });
+
+        var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+        cards.forEach(function(card, i) {
+          tl.to(card, { rotation: FAN_ROTATIONS[i], duration: 1 }, 0);
+        });
+
+        ScrollTrigger.create({
+          trigger: driver,
+          start:   'top top',
+          end:     'bottom bottom',
+          scrub:   0.6,
+          animation: tl
+        });
+
+        var SHADOW_DEFAULT = '0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06)';
+        var SHADOW_HOVER   = '0 20px 60px rgba(22,18,15,0.22), 0 6px 16px rgba(22,18,15,0.10)';
+        var SHADOW_ACTIVE  = '0 28px 80px rgba(22,18,15,0.26), 0 8px 20px rgba(22,18,15,0.12)';
+
+        var activeCard = null;
+
+        cards.forEach(function(card, i) {
+          var title = card.querySelector('.sp-proj-label');
+          var img   = card.querySelector('.sp-proj-img');
+
+          card.addEventListener('mouseenter', function() {
+            if (card === activeCard) return;
+            card.style.boxShadow = SHADOW_HOVER;
+            card.style.zIndex    = String(N + 5);
+            if (title) title.style.color   = '#B85C38';
+            if (img)   img.style.transform = 'scale(1.06)';
+            gsap.to(card, { y: -28, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+          });
+
+          card.addEventListener('mouseleave', function() {
+            if (card === activeCard) return;
+            card.style.boxShadow = SHADOW_DEFAULT;
+            card.style.zIndex    = String(i + 1);
+            if (title) title.style.color   = '#16120F';
+            if (img)   img.style.transform = 'scale(1)';
+            gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+          });
+
+          card.addEventListener('click', function() {
+            if (card === activeCard) {
+              activeCard = null;
+              card.style.boxShadow = SHADOW_DEFAULT;
+              card.style.zIndex    = String(i + 1);
+              gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+              return;
+            }
+            if (activeCard) {
+              var prevI = parseInt(activeCard.dataset.i || '0');
+              activeCard.style.boxShadow = SHADOW_DEFAULT;
+              activeCard.style.zIndex    = String(prevI + 1);
+              gsap.to(activeCard, { y: 0, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+            }
+            activeCard = card;
+            card.style.zIndex    = String(N + 10);
+            card.style.boxShadow = SHADOW_ACTIVE;
+            gsap.to(card, { y: -48, duration: 0.35, ease: 'back.out(1.6)', overwrite: 'auto' });
+          });
+        });
+      }
+
+      window.removeEventListener('animations:ready', window.__spProjAnimReady);
+      window.__spProjAnimReady = initProjAnim;
+      window.addEventListener('animations:ready', window.__spProjAnimReady);
+    })();
+  </script>
+
+  <!-- ─── TOOL SECTION ANIMATION ─── -->
+  <script is:inline>
+    (function() {
+      function initToolAnim() {
+        var gsap = window.__gsap;
+        var ScrollTrigger = window.__ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+        if (window.innerWidth <= 900) return;
+
+        var header = document.querySelector('.sp-tool-header');
+        var social = document.querySelector('.sp-tool-social');
+        var stats  = Array.from(document.querySelectorAll('.sp-tool-stat'));
+        var quote  = document.querySelector('.sp-tool-quote');
+        var embed  = document.querySelector('.sp-tool-embed');
+
+        if (!header) return;
+
+        // Header: fade + slide up
+        ScrollTrigger.create({
+          trigger: header,
+          start: 'top 85%',
+          onEnter: function() {
+            gsap.fromTo(header,
+              { opacity: 0, y: 32 },
+              { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', overwrite: true }
+            );
+          },
+          onLeaveBack: function() { gsap.set(header, { opacity: 0, y: 32 }); }
+        });
+
+        // Stats: stagger fade up
+        if (social && stats.length) {
+          ScrollTrigger.create({
+            trigger: social,
+            start: 'top 88%',
+            onEnter: function() {
+              gsap.fromTo(stats,
+                { opacity: 0, y: 18 },
+                { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', stagger: 0.12, overwrite: true }
+              );
+            },
+            onLeaveBack: function() { gsap.set(stats, { opacity: 0, y: 18 }); }
+          });
+        }
+
+        // Quote: fade + slide from left
+        if (quote) {
+          ScrollTrigger.create({
+            trigger: quote,
+            start: 'top 90%',
+            onEnter: function() {
+              gsap.fromTo(quote,
+                { opacity: 0, x: -24 },
+                { opacity: 1, x: 0, duration: 0.65, ease: 'power2.out', overwrite: true }
+              );
+            },
+            onLeaveBack: function() { gsap.set(quote, { opacity: 0, x: -24 }); }
+          });
+        }
+
+        // Embed: fade + slide up
+        if (embed) {
+          ScrollTrigger.create({
+            trigger: embed,
+            start: 'top 88%',
+            onEnter: function() {
+              gsap.fromTo(embed,
+                { opacity: 0, y: 28 },
+                { opacity: 1, y: 0, duration: 0.75, ease: 'power2.out', overwrite: true }
+              );
+            },
+            onLeaveBack: function() { gsap.set(embed, { opacity: 0, y: 28 }); }
+          });
+        }
+      }
+
+      window.removeEventListener('animations:ready', window.__spToolAnimReady);
+      window.__spToolAnimReady = initToolAnim;
+      window.addEventListener('animations:ready', window.__spToolAnimReady);
+    })();
+  </script>
+
+  <!-- ─── REVIEWS ANIMATION ─── -->
+  <script is:inline>
+    (function() {
+      function initRevAnim() {
+        var gsap = window.__gsap;
+        var ScrollTrigger = window.__ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+        if (window.innerWidth <= 900) return;
+
+        var driver     = document.getElementById('sp-rev-driver');
+        var nbhdArea   = document.getElementById('sp-rev-nbhd-area');
+        var tCards     = gsap.utils.toArray('.sp-rev-card');
+        var nbhdCards  = gsap.utils.toArray('.sp-rev-nbhd-card');
+        var N = tCards.length;
+
+        if (!driver || !N) return;
+
+        var ROTATIONS = [12, 20, 28, 34, 38];
+        var SCALES    = [1, 0.97, 0.94, 0.91, 0.88];
+
+        tCards.forEach(function(card, i) {
+          gsap.set(card, {
+            zIndex:          N - i,
+            rotation:        ROTATIONS[i] || 0,
+            scale:           SCALES[i]    || 0.85,
+            transformOrigin: 'center center'
+          });
+        });
+
+        gsap.set(nbhdArea,  { opacity: 0, y: 16 });
+        gsap.set(nbhdCards, { opacity: 0, y: 16 });
+
+        // Card deck scroll animation
+        var tl = gsap.timeline();
+        for (var i = 0; i < N - 1; i++) {
+          var s = i / (N - 1);
+          var e = (i + 1) / (N - 1);
+          var d = e - s;
+          tl.to(tCards[i], { yPercent: -110, opacity: 0, duration: d, ease: 'power2.in' }, s);
+          for (var j = i + 1; j < N; j++) {
+            var newPos = j - (i + 1);
+            tl.to(tCards[j], {
+              rotation: ROTATIONS[newPos] || 0,
+              scale:    SCALES[newPos]    || 0.85,
+              duration: d, ease: 'power2.out'
+            }, s);
+          }
+        }
+
+        ScrollTrigger.create({
+          trigger:   driver,
+          start:     'top top',
+          end:       'bottom bottom',
+          scrub:     1.2,
+          animation: tl
+        });
+
+        // Neighbourhood cards reveal at 60% scroll
+        ScrollTrigger.create({
+          trigger: driver,
+          start:   '60% bottom',
+          end:     '80% bottom',
+          scrub:   1,
+          onEnter: function() {
+            gsap.to(nbhdArea,  { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+            gsap.to(nbhdCards, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.12, delay: 0.15 });
+          },
+          onLeaveBack: function() {
+            gsap.to(nbhdArea,  { opacity: 0, y: 16, duration: 0.35 });
+            gsap.to(nbhdCards, { opacity: 0, y: 16, duration: 0.25 });
+          }
+        });
+      }
+
+      window.removeEventListener('animations:ready', window.__spRevAnimReady);
+      window.__spRevAnimReady = initRevAnim;
+      window.addEventListener('animations:ready', window.__spRevAnimReady);
+    })();
+  </script>
+
+  <!-- ─── FAQ ACCORDION + TABS + SCROLL ANIM ─── -->
+  <script is:inline>
+  (function () {
+
+    function openItem(item) {
+      var body  = item.querySelector('.sp-faqx-a');
+      var inner = item.querySelector('.sp-faqx-a-inner');
+      var btn   = item.querySelector('.sp-faqx-q');
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      body.setAttribute('aria-hidden', 'false');
+      var gsap = window.__gsap;
+      if (gsap) {
+        gsap.killTweensOf(body);
+        gsap.fromTo(body, { height: 0, overflow: 'hidden' }, {
+          height: inner.scrollHeight, duration: 0.38, ease: 'power3.out',
+          onComplete: function () { body.style.height = 'auto'; body.style.overflow = ''; }
+        });
+      } else { body.style.height = inner.scrollHeight + 'px'; }
+    }
+
+    function closeItem(item) {
+      var body = item.querySelector('.sp-faqx-a');
+      var btn  = item.querySelector('.sp-faqx-q');
+      item.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      body.setAttribute('aria-hidden', 'true');
+      var gsap = window.__gsap;
+      if (gsap) {
+        gsap.killTweensOf(body);
+        gsap.to(body, { height: body.offsetHeight, duration: 0,
+          onComplete: function () { gsap.to(body, { height: 0, duration: 0.28, ease: 'power3.in', overflow: 'hidden' }); }
+        });
+      } else { body.style.height = '0'; }
+    }
+
+    function initAccordion() {
+      var items = document.querySelectorAll('.sp-faqx-item');
+      items.forEach(function (item) {
+        var btn = item.querySelector('.sp-faqx-q');
+        if (!btn || btn.dataset.faqInit) return;
+        btn.dataset.faqInit = '1';
+        var body = item.querySelector('.sp-faqx-a');
+        if (!item.classList.contains('open')) body.style.height = '0';
+        btn.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+          var panel  = item.closest('.sp-faqx-panel');
+          panel.querySelectorAll('.sp-faqx-item.open').forEach(function (o) {
+            if (o !== item) closeItem(o);
+          });
+          if (isOpen) { closeItem(item); } else { openItem(item); }
+        });
+      });
+    }
+
+    function initTabs() {
+      var tabs = document.querySelectorAll('.sp-faqx-tab');
+      if (!tabs.length || tabs[0].dataset.tabInit) return;
+      tabs[0].dataset.tabInit = '1';
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var cat = tab.dataset.cat;
+          tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+          tab.classList.add('active'); tab.setAttribute('aria-selected', 'true');
+          document.querySelectorAll('.sp-faqx-panel').forEach(function (p) { p.classList.remove('active'); });
+          var activePanel = document.querySelector('.sp-faqx-panel[data-cat="' + cat + '"]');
+          if (activePanel) {
+            activePanel.classList.add('active');
+            var gsap = window.__gsap;
+            if (gsap) {
+              gsap.fromTo(activePanel.querySelectorAll('.sp-faqx-item'),
+                { opacity: 0, y: 12 },
+                { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.06 }
+              );
+            }
+          }
+        });
+      });
+    }
+
+    function initScrollAnims() {
+      var gsap = window.__gsap;
+      var ST   = window.__ScrollTrigger;
+      if (!gsap || !ST) return;
+      if (window.innerWidth <= 900) return;
+      var section = document.getElementById('faq-section');
+      if (!section || section.dataset.faqAnimDone) return;
+      section.dataset.faqAnimDone = '1';
+      var defaults = { ease: 'power3.out', duration: 0.7 };
+      gsap.from('#faq-header .sp-faqx-eyebrow', { ...defaults, y: 24, opacity: 0, scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true } });
+      gsap.from('#faq-header .sp-faqx-heading',  { ...defaults, y: 32, opacity: 0, delay: 0.1, scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true } });
+      gsap.from('#faq-header .sp-faqx-desc',     { ...defaults, y: 20, opacity: 0, delay: 0.2, scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true } });
+      gsap.from('#faq-nav .sp-faqx-tab', { x: -24, opacity: 0, duration: 0.5, ease: 'power2.out', stagger: 0.08, scrollTrigger: { trigger: '#faq-nav', start: 'top 85%', once: true } });
+      var initItems = document.querySelectorAll('.sp-faqx-panel.active .sp-faqx-item');
+      gsap.from(initItems, { y: 16, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.07, scrollTrigger: { trigger: '#faq-panels', start: 'top 85%', once: true } });
+      gsap.from('#faq-footer', { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: '#faq-footer', start: 'top 90%', once: true } });
+    }
+
+    function init() { initAccordion(); initTabs(); initScrollAnims(); }
+
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+    if (window.__gsap && window.__ScrollTrigger) { initScrollAnims(); } else { window.addEventListener('animations:ready', initScrollAnims); }
+
+  })();
+  </script>
+
+</Layout>
+
+<style>
+/* ─── SHARED TOKENS ─── */
+.sp-section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: #B85C38; margin-bottom: 14px;
+}
+.sp-section-label--light { color: #B85C38; }
+.sp-section-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(36px, 3.5vw, 54px);
+  font-weight: 700; color: #16120F; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px 0;
+}
+.sp-section-h2 em { font-style: normal; color: #16120F; }
+.sp-section-sub {
+  font-family: 'Inter', sans-serif; font-size: 16px;
+  color: #4A433B; line-height: 1.75; max-width: 640px; margin: 0 0 48px 0;
+}
+
+/* ─── BADGES ─── */
+.sp-badge {
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
+}
+.sp-badge--accent { background: #B85C38; color: #ffffff; }
+.sp-badge--outline { border: 2px solid #B85C38; color: #B85C38; background: transparent; }
+
+/* ─── BUTTONS ─── */
+.sp-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+  letter-spacing: 0.04em; text-decoration: none;
+  padding: 0 28px; height: 52px; border-radius: 14px;
+  border: 2px solid transparent;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  white-space: nowrap; cursor: pointer;
+}
+.sp-btn--primary { background: #16120F; color: #ffffff; border-color: #16120F; }
+.sp-btn--primary:hover { background: #B85C38; border-color: #B85C38; }
+.sp-btn--accent { background: #B85C38; color: #ffffff; border-color: #B85C38; }
+.sp-btn--accent:hover { background: #8A3A22; border-color: #8A3A22; }
+.sp-btn--ghost { background: transparent; color: #B85C38; border-color: #B85C38; }
+.sp-btn--ghost:hover { background: #B85C38; color: #ffffff; }
+.sp-btn--ghost-light { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.sp-btn--ghost-light:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
+.sp-btn--outline { background: transparent; color: #16120F; border-color: #16120F; }
+.sp-btn--outline:hover { background: #16120F; color: #ffffff; }
+
+/* ─── 1. HERO — LEGENDARY ─── */
+.lh-hero {
+  position: relative;
+  min-height: 100vh; min-height: 100svh;
+  background: #FFFFFF;
+  display: flex; align-items: stretch;
+  overflow: hidden;
+}
+.lh-svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+
+/* Background */
+.lh-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: #FFFFFF; }
+.lh-hb { display: none; }
+.lh-particles { display: none; }
+.lh-p { display: none; }
+
+/* Content grid */
+.lh-inner {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1360px;
+  margin: 0 auto; padding: 130px 48px 100px;
+  display: grid; grid-template-columns: 55fr 45fr;
+  gap: 64px; align-items: center;
+  min-height: inherit; box-sizing: border-box;
+}
+
+/* LEFT */
+.lh-left { display: flex; flex-direction: column; }
+
+.lh-eyebrow {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: #B85C38;
+  margin-bottom: 28px;
+}
+.lh-ey-line { display: block; width: 36px; height: 1px; flex-shrink: 0; background: linear-gradient(90deg, #B85C38, rgba(184,92,56,0.1)); }
+
+.lh-h1 {
+  display: flex; flex-direction: column; gap: 2px;
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(52px, 5.8vw, 88px);
+  font-weight: 800; line-height: 1.02; letter-spacing: -0.03em;
+  color: #16120F; margin: 0 0 32px;
+}
+.lh-h1-row { display: block; overflow: hidden; }
+.lh-h1-inner { display: block; }
+.lh-h1-row--em .lh-h1-inner { color: #ffffff; font-style: normal; font-weight: 700; }
+.lh-h1-loc {
+  display: block; font-size: 0.41em; font-weight: 500; letter-spacing: -0.005em;
+  color: #6A625A; margin-top: 10px;
+}
+
+.lh-sub {
+  font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.78;
+  color: #4A433B; margin: 0 0 40px; max-width: 490px;
+}
+
+/* Actions */
+.lh-actions {
+  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 44px;
+}
+
+/* Mortar-fill buttons — AMS style guide specs */
+.lh-btn {
+  position: relative; display: inline-flex; align-items: center; gap: 9px;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500;
+  letter-spacing: 0.01em; padding: 16px 30px; border-radius: 14px;
+  text-decoration: none; overflow: hidden; cursor: pointer;
+  transition: color 0.32s ease;
+}
+.lh-btn-bg {
+  position: absolute; inset: 0;
+  transform: scaleY(0); transform-origin: bottom center;
+  transition: transform 0.34s cubic-bezier(0.4,0,0.2,1); z-index: 0;
+}
+.lh-btn-label, .lh-btn svg { position: relative; z-index: 1; }
+.lh-btn:hover .lh-btn-bg { transform: scaleY(1); }
+/* Primary: Brick accent */
+.lh-btn--gold { background: #B85C38; color: #FFFFFF; }
+.lh-btn--gold .lh-btn-bg { background: #8A3A22; }
+.lh-btn--gold:hover { color: #FFFFFF; }
+/* Secondary: dark outline */
+.lh-btn--outline { background: transparent; color: #16120F; border: 1.5px solid rgba(22,18,15,0.22); }
+.lh-btn--outline .lh-btn-bg { background: #16120F; }
+.lh-btn--outline:hover { color: #FFFFFF; border-color: #16120F; }
+
+/* Badges */
+.lh-badges { display: flex; align-items: center; }
+.lh-badge { display: flex; flex-direction: column; gap: 3px; padding: 0 22px; border-left: 1px solid rgba(22,18,15,0.12); }
+.lh-badge:first-child { padding-left: 0; border-left: none; }
+.lh-badge strong { font-family: 'Onest', sans-serif; font-size: 24px; font-weight: 800; color: #B85C38; line-height: 1; display: block; }
+.lh-badge span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #6A625A; }
+
+/* RIGHT image grid */
+.lh-right { position: relative; height: 600px; will-change: transform; }
+.lh-mlines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 10; pointer-events: none; }
+.lh-img { position: absolute; border-radius: 8px; overflow: hidden; will-change: transform; box-shadow: 0 4px 24px rgba(22,18,15,0.10); }
+.lh-img-clip { width: 100%; height: 100%; overflow: hidden; border-radius: 8px; }
+.lh-img-photo {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.65s cubic-bezier(0.4,0,0.2,1); will-change: transform;
+}
+.lh-img:hover .lh-img-photo { transform: scale(1.06); }
+.lh-img--lg { top: 0; left: 0; right: 0; height: 57%; }
+.lh-img--md { bottom: 0; left: 0; width: 56%; height: 39%; }
+.lh-img--sm { bottom: 0; right: 0; width: 40%; height: 39%; }
+
+/* Service label: slides up on hover */
+.lh-img-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 20px 16px 13px;
+  background: linear-gradient(to top, rgba(22,18,15,0.82) 0%, transparent 100%);
+  transform: translateY(100%); transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+.lh-img:hover .lh-img-label { transform: translateY(0); }
+.lh-img-label span { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #D98E5F; }
+
+/* Scroll cue */
+.lh-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  z-index: 3; cursor: pointer;
+}
+.lh-scroll-mouse { width: 21px; height: 33px; border: 1.5px solid rgba(22,18,15,0.2); border-radius: 11px; position: relative; }
+.lh-scroll-dot {
+  position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 6px; background: #B85C38; border-radius: 2px;
+  animation: lhScrollDot 1.9s ease-in-out infinite;
+}
+@keyframes lhScrollDot {
+  0%  { opacity: 1; top: 5px; }
+  60% { opacity: 0; top: 20px; }
+  100% { opacity: 0; top: 20px; }
+}
+.lh-scroll span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase; color: rgba(22,18,15,0.32); }
+
+/* Mobile-only image — hidden on desktop */
+.lh-mob-img { display: none; position: relative; }
+.lh-mob-mlines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+.lh-mob-clip-wrap { width: 100%; height: 100%; overflow: hidden; border-radius: 12px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lh-p { animation: none; opacity: 0; }
+  .lh-scroll-dot { animation: none; }
+  .lh-h1-inner { clip-path: none !important; transform: none !important; }
+  .lh-eyebrow { clip-path: none !important; }
+  .lh-sub, .lh-actions, .lh-badges, .lh-h1-loc { opacity: 1 !important; transform: none !important; }
+  .lh-img-clip { opacity: 1 !important; }
+}
+
+/* ─── 2. TRUST BAR ─── */
+.sp-trust { background: #16120F; padding: 20px 0; }
+.sp-trust-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 30px;
+  display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap;
+}
+.sp-trust-item {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  color: #B85C38; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.sp-trust-item svg { flex-shrink: 0; stroke: #B85C38; }
+.sp-trust-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.10); }
+
+/* ─── 3. PROBLEM ─── */
+.sp-problem { background: #ffffff; padding: 100px 0; }
+.sp-delay-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.sp-delay-hdr { max-width: 700px; margin-bottom: 60px; }
+.sp-delay-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(34px, 3.6vw, 52px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.025em;
+  color: #16120F; margin: 0 0 18px;
+}
+.sp-delay-h2 em { font-style: normal; color: #16120F; }
+.sp-delay-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #4A433B; margin: 0; max-width: 560px; }
+/* Two-column layout */
+.sp-delay-cols { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: start; }
+/* LEFT: dark stats sidebar */
+.sp-delay-sidebar {
+  background: #16120F; border-radius: 20px; padding: 36px 32px 40px;
+  position: sticky; top: 100px;
+}
+.sp-delay-sidebar-label {
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.40);
+  margin: 0 0 28px;
+}
+.sp-delay-stats { display: flex; flex-direction: column; }
+.sp-delay-stat { padding: 20px 0; }
+.sp-delay-stat-val {
+  font-family: 'Onest', sans-serif; font-size: 40px; font-weight: 700;
+  color: #B85C38; line-height: 1; display: block; margin-bottom: 8px;
+}
+.sp-delay-stat-desc {
+  font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.6;
+  color: rgba(255,255,255,0.55); margin: 0;
+}
+.sp-delay-stat-sep { height: 1px; background: rgba(255,255,255,0.08); }
+.sp-delay-sidebar-cta {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 32px;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  color: #ffffff; text-decoration: none;
+  background: #B85C38; padding: 12px 20px; border-radius: 10px;
+  transition: background 200ms ease; width: 100%; justify-content: center;
+}
+.sp-delay-sidebar-cta:hover { background: #8A3A22; }
+/* RIGHT: consequence list */
+.sp-delay-list { display: flex; flex-direction: column; }
+.sp-delay-rule { height: 1px; background: rgba(0,0,0,0.08); }
+.sp-delay-item { padding: 32px 0; }
+.sp-delay-item-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.sp-delay-icon-wrap {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  border: 1px solid rgba(184,92,56,0.22); background: rgba(184,92,56,0.07);
+  display: flex; align-items: center; justify-content: center;
+}
+.sp-delay-title {
+  font-family: 'Onest', sans-serif; font-size: clamp(17px, 1.7vw, 20px);
+  font-weight: 700; color: #16120F; margin: 0; line-height: 1.2;
+}
+.sp-delay-text {
+  font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.75;
+  color: #4A433B; margin: 0; max-width: 600px;
+}
+/* Cost chart */
+.sp-delay-chart { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; max-width: 500px; }
+.sp-delay-chart-row { display: grid; grid-template-columns: 56px 1fr 36px 120px; align-items: center; gap: 10px; }
+.sp-delay-chart-stage { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: #6A625A; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+.sp-delay-chart-bar-wrap { height: 5px; background: rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden; }
+.sp-delay-chart-bar { height: 100%; width: var(--w, 100%); background: #B85C38; border-radius: 3px; transform-origin: left center; }
+.sp-delay-chart-cost { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #B85C38; text-align: right; }
+.sp-delay-chart-note { font-family: 'Inter', sans-serif; font-size: 11px; color: #6A625A; }
+@media (max-width: 960px) {
+  .sp-delay-cols { grid-template-columns: 1fr; gap: 48px; }
+  .sp-delay-sidebar { position: static; }
+}
+@media (max-width: 640px) {
+  .sp-problem { padding: 64px 0; }
+  .sp-delay-inner { padding: 0 20px; }
+  .sp-delay-hdr { margin-bottom: 40px; }
+  .sp-delay-chart-row { grid-template-columns: 52px 1fr 30px; }
+  .sp-delay-chart-note { display: none; }
+}
+
+/* ─── 4. PROCESS ─── */
+.sp-prc-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1.65fr; gap: 80px; align-items: start;
+}
+#sp-prc-left { align-self: center; }
+#sp-prc-sticky {
+  align-items: flex-start !important;
+  padding-top: 80px !important;
+  padding-bottom: 60px !important;
+}
+@media (max-width: 768px) {
+  #sp-prc-driver { height: auto !important; }
+  #sp-prc-sticky { position: relative !important; top: auto !important; height: auto !important; padding: 72px 0 !important; align-items: center !important; }
+  .sp-prc-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; }
+  .sp-prc-desktop-cta { display: none !important; }
+  .sp-prc-mobile-cta { display: block !important; }
+  .sp-prc-item { padding: 28px 0 !important; }
+  .sp-prc-num { font-size: 36px !important; }
+}
+@media (max-width: 480px) {
+  #sp-prc-sticky { padding: 56px 0 !important; }
+  .sp-prc-grid { padding: 0 16px !important; }
+}
+
+/* ─── 5. WHY AMS ─── */
+.sp-why { background: #F5F5F5; padding: 100px 0; }
+.sp-why-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+.sp-why-item {
+  background: #fff; border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  opacity: 0; transform: translateY(40px);
+}
+@media (prefers-reduced-motion: reduce) { .sp-why-item { opacity: 1; transform: none; } }
+.sp-why-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+  border-color: rgba(184,92,56,0.25);
+}
+.sp-why-img-wrap { width: 100%; height: 200px; overflow: hidden; }
+.sp-why-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 500ms ease; }
+.sp-why-item:hover .sp-why-img-wrap img { transform: scale(1.05); }
+.sp-why-card-body { display: flex; gap: 20px; align-items: flex-start; padding: 28px 28px 32px; }
+.sp-why-num { font-family: 'Onest', sans-serif; font-size: 32px; font-weight: 700; color: #B85C38; opacity: 0.35; line-height: 1; flex-shrink: 0; padding-top: 2px; }
+.sp-why-content { display: flex; flex-direction: column; gap: 10px; }
+.sp-why-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #16120F; text-transform: uppercase; letter-spacing: 0.05em; margin: 0; }
+.sp-why-body { font-family: 'Inter', sans-serif; font-size: 15px; color: #4A433B; line-height: 1.7; margin: 0; }
+
+/* ─── 6. TOOL ─── */
+.sp-tool { background: #ffffff; padding: 100px 0; }
+.sp-tool-inner { max-width: 900px; margin: 0 auto; padding: 0 30px; }
+.sp-tool-header { text-align: center; margin-bottom: 48px; opacity: 0; }
+.sp-tool-social { opacity: 0; }
+.sp-tool-quote  { opacity: 0; }
+.sp-tool-embed  { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .sp-tool-header, .sp-tool-social, .sp-tool-quote, .sp-tool-embed { opacity: 1; }
+}
+.sp-tool-h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; color: #16120F; line-height: 1.2; margin: 0 0 16px 0; }
+.sp-tool-h2 em { font-style: normal; color: #16120F; }
+.sp-tool-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: #6A625A; line-height: 1.75; margin: 0; }
+.sp-tool-warning-hook {
+  background: rgba(184,92,56,0.08); border: 1px solid rgba(184,92,56,0.25);
+  border-left: 3px solid #B85C38; padding: 20px 24px; margin: 0 auto 28px;
+  max-width: 640px; text-align: left; border-radius: 0 8px 8px 0;
+}
+.sp-tool-warning-intro { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #B85C38; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 12px 0; }
+.sp-tool-warning-list { margin: 0 0 14px 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 6px; }
+.sp-tool-warning-list li { font-family: 'Inter', sans-serif; font-size: 14px; color: #4A433B; line-height: 1.5; }
+.sp-tool-warning-cta { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #16120F; margin: 0; }
+.sp-tool-embed { background: #fff; border: 2px solid #B85C38; border-radius: 16px; overflow: hidden; }
+.sp-tool-social { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 28px; }
+.sp-tool-stat { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.sp-tool-stat-num { font-family: 'Onest', sans-serif; font-size: 26px; font-weight: 700; color: #B85C38; line-height: 1; }
+.sp-tool-stat-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: #6A625A; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
+.sp-tool-stat-sep { width: 1px; height: 36px; background: rgba(0,0,0,0.10); flex-shrink: 0; }
+.sp-tool-quote { border-left: 3px solid #B85C38; margin: 0 0 36px 0; padding: 12px 20px; background: rgba(184,92,56,0.06); border-radius: 0 8px 8px 0; }
+.sp-tool-quote p { font-family: 'Onest', sans-serif; font-size: 16px; font-weight: 400; font-style: italic; color: #4A433B; line-height: 1.6; margin: 0 0 6px 0; }
+.sp-tool-quote cite { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #B85C38; font-style: normal; letter-spacing: 0.04em; text-transform: uppercase; }
+.sp-tool-note { font-family: 'Inter', sans-serif; font-size: 12px; color: #6A625A; text-align: center; margin-top: 20px; line-height: 1.6; }
+
+/* ─── 7. PROJECTS ─── */
+.sp-proj-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.sp-proj-text { display: flex; flex-direction: column; gap: 40px; }
+.sp-proj-spacer { height: 160px; }
+@media (max-width: 768px) {
+  #sp-proj-driver { height: auto !important; }
+  #sp-proj-sticky {
+    position: relative !important; top: auto !important;
+    height: auto !important; padding: 72px 0;
+  }
+  .sp-proj-grid {
+    display: flex !important; flex-direction: column !important;
+    gap: 28px !important; padding: 0 20px !important; align-items: stretch !important;
+  }
+  .sp-proj-text { display: contents; }
+  .sp-proj-text-top  { order: 1; }
+  #sp-proj-stack     { order: 2; height: 300px !important; }
+  .sp-proj-text-bottom { order: 3; margin-top: 40px; }
+  .sp-proj-polaroid  { width: 160px !important; }
+  .sp-proj-polaroid > div:first-child { height: 200px !important; }
+  .sp-proj-spacer    { height: 60px; }
+}
+
+/* ─── 8. PRICING ─── */
+.sp-pricing { background: #ffffff; padding: 100px 0; }
+.sp-pricing-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
+.sp-price-card {
+  background: #fff; border: 1px solid rgba(0,0,0,0.06); padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 20px; border-radius: 20px; position: relative;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.sp-price-card--featured { border: 2px solid #B85C38; }
+.sp-price-popular {
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: #B85C38; color: #ffffff;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 12px; border-radius: 0 0 8px 8px;
+}
+.sp-price-tier { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: #6A625A; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 12px; }
+.sp-price-range { font-family: 'Onest', sans-serif; font-size: 32px; font-weight: 700; color: #16120F; line-height: 1; }
+.sp-price-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.sp-price-list li { font-family: 'Inter', sans-serif; font-size: 14px; color: #4A433B; padding-left: 16px; position: relative; }
+.sp-price-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; background: #B85C38; border-radius: 50%; }
+.sp-pricing-note { font-family: 'Inter', sans-serif; font-size: 13px; color: #6A625A; line-height: 1.6; max-width: 600px; }
+.sp-pricing-link { color: #B85C38; text-decoration: underline; }
+.sp-pricing-guarantee {
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: #16120F;
+  background: rgba(184,92,56,0.07); border-left: 3px solid #B85C38;
+  padding: 12px 16px; margin-top: 16px; max-width: 600px; border-radius: 0 8px 8px 0;
+}
+
+/* ─── 9. REVIEWS ─── */
+.sp-rev-mob-nbhd { display: none; }
+.sp-rev-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+@media (max-width: 768px) {
+  .sp-rev-mob-nbhd { display: block; padding: 0 20px 60px; margin-top: -80px; }
+  .sp-rev-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; align-items: center !important; }
+  #sp-rev-nbhd-area { display: none !important; }
+  .sp-rev-left h2 { font-size: 32px !important; margin-bottom: 16px !important; }
+  #sp-rev-stack { width: 290px !important; height: 340px !important; margin: 0 auto;
+    clip-path: polygon(-40px -600px, calc(100% + 40px) -600px, calc(100% + 40px) calc(100% + 35px), -40px calc(100% + 35px));
+  }
+}
+
+/* ─── 9.5. BEFORE / AFTER ─── */
+.sp-ba { background: #16120F; padding: 100px 0; }
+.sp-ba-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+
+/* Centered header */
+.sp-ba-hdr { text-align: center; margin-bottom: 56px; }
+.sp-ba-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #B85C38; }
+.sp-ba-h2 { font-family: 'Onest', sans-serif; font-size: clamp(36px, 4vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: #ffffff; margin: 0 0 16px; }
+.sp-ba-h2 em { font-style: normal; color: #ffffff; }
+.sp-ba-sub { font-family: 'Inter', sans-serif; font-size: 15px; color: rgba(255,255,255,0.42); margin: 0; }
+
+/* Slider stage */
+.sp-ba-stage { width: 100%; }
+.sp-ba-slider {
+  position: relative; overflow: hidden;
+  border-radius: 20px;
+  height: clamp(360px, 52vh, 580px);
+  cursor: ew-resize; user-select: none;
+  box-shadow: 0 28px 90px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.06);
+}
+
+/* Image layers */
+.sp-ba-after, .sp-ba-before { position: absolute; inset: 0; }
+.sp-ba-before { clip-path: inset(0 5% 0 0); }
+.sp-ba-img { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+
+/* Glowing divider */
+.sp-ba-line {
+  position: absolute; top: 0; bottom: 0; left: 95%;
+  width: 2px; background: rgba(255,255,255,0.96);
+  transform: translateX(-50%); z-index: 10; pointer-events: none;
+  box-shadow: 0 0 10px rgba(255,255,255,0.80), 0 0 36px rgba(255,255,255,0.22);
+  transition: none;
+}
+
+/* Handle */
+.sp-ba-handle {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.55), 0 0 0 4px rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; will-change: transform;
+}
+
+/* Before / After pills */
+.sp-ba-pill {
+  position: absolute; top: 22px; z-index: 8;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.13em; text-transform: uppercase; color: #ffffff;
+  background: rgba(22,18,15,0.68); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  padding: 8px 18px; border-radius: 9px; pointer-events: none;
+}
+.sp-ba-pill--b { left: 22px; }
+.sp-ba-pill--a { right: 22px; }
+
+/* Bottom vignette + location */
+.sp-ba-vignette {
+  position: absolute; inset: 0; z-index: 6;
+  background: linear-gradient(to bottom, transparent 50%, rgba(22,18,15,0.80) 100%);
+  pointer-events: none;
+}
+.sp-ba-location {
+  position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
+  z-index: 7; font-family: 'Inter', sans-serif; font-size: 12px;
+  color: rgba(255,255,255,0.55); white-space: nowrap; pointer-events: none;
+  letter-spacing: 0.02em;
+}
+
+/* Drag hint badge */
+.sp-ba-drag-hint {
+  position: absolute; bottom: 22px; right: 22px; z-index: 7;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Inter', sans-serif; font-size: 11px; color: rgba(255,255,255,0.50);
+  pointer-events: none; opacity: 1; transition: opacity 0.4s ease;
+}
+.sp-ba-drag-hint.hidden { opacity: 0; }
+
+/* Stats row */
+.sp-ba-stats {
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 52px;
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;
+  padding: 32px 48px;
+}
+.sp-ba-stat {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0 52px; text-align: center; flex: 1;
+}
+.sp-ba-stat strong {
+  font-family: 'Onest', sans-serif; font-size: 36px; font-weight: 700;
+  color: #B85C38; line-height: 1; display: block; margin-bottom: 8px;
+}
+.sp-ba-stat span {
+  font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.5;
+  color: rgba(255,255,255,0.42);
+}
+.sp-ba-stat-sep {
+  width: 1px; height: 44px; background: rgba(255,255,255,0.10); flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sp-ba { padding: 72px 0; }
+  .sp-ba-inner { padding: 0 20px; }
+  .sp-ba-hdr { margin-bottom: 40px; }
+  .sp-ba-slider { height: clamp(260px, 52vw, 400px); border-radius: 14px; }
+  .sp-ba-handle { width: 50px; height: 50px; }
+  .sp-ba-stats { padding: 24px 20px; flex-direction: column; gap: 0; }
+  .sp-ba-stat { padding: 16px 0; }
+  .sp-ba-stat-sep { width: 56px; height: 1px; }
+  .sp-ba-stat strong { font-size: 28px; }
+}
+@media (max-width: 480px) {
+  .sp-ba-hdr { margin-bottom: 28px; }
+  .sp-ba-slider { height: 56vw; min-height: 220px; }
+  .sp-ba-handle { width: 44px; height: 44px; }
+  .sp-ba-pill { font-size: 10px; padding: 6px 13px; }
+  .sp-ba-location { display: none; }
+  .sp-ba-drag-hint { bottom: 14px; right: 14px; }
+}
+
+/* ─── 10. CREDENTIALS ─── */
+.sp-creds { background: #F5F5F5; padding: 100px 0; }
+.sp-creds-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-creds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.sp-cred-item {
+  background: #fff; border: 1px solid rgba(0,0,0,0.06); padding: 32px 28px;
+  display: flex; gap: 20px; align-items: flex-start; border-radius: 20px;
+  transition: border-color 200ms ease; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.sp-cred-item:hover { border-color: #B85C38; }
+.sp-cred-icon {
+  flex-shrink: 0; width: 48px; height: 48px;
+  background: rgba(184,92,56,0.08); border: 1px solid rgba(184,92,56,0.2);
+  display: flex; align-items: center; justify-content: center; border-radius: 12px;
+}
+.sp-cred-text { display: flex; flex-direction: column; gap: 6px; }
+.sp-cred-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #16120F; text-transform: uppercase; letter-spacing: 0.05em; }
+.sp-cred-body { font-family: 'Inter', sans-serif; font-size: 14px; color: #4A433B; line-height: 1.65; }
+.sp-creds-guarantee {
+  margin-top: 32px; background: #16120F; padding: 24px 32px;
+  display: flex; align-items: flex-start; gap: 24px; border-radius: 16px;
+}
+.sp-guarantee-badge {
+  display: flex; align-items: center; gap: 10px; background: #B85C38;
+  padding: 10px 16px; white-space: nowrap; font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 700; color: #ffffff;
+  text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; border-radius: 10px;
+}
+.sp-guarantee-text { font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.65; margin: 0; align-self: center; }
+
+/* ─── 11. FAQ ─── */
+.sp-faqx-section { background: #ffffff; padding: 100px 24px; }
+.sp-faqx-inner { max-width: 1200px; margin: 0 auto; }
+.sp-faqx-header { max-width: 560px; margin-bottom: 60px; }
+.sp-faqx-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.sp-faqx-eyebrow span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #B85C38; }
+.sp-faqx-heading { font-family: 'Onest', sans-serif; font-size: clamp(36px, 4.5vw, 60px); font-weight: 700; line-height: 1.1; color: #16120F; letter-spacing: -0.02em; margin: 0 0 24px; }
+.sp-faqx-heading-accent { font-style: normal; color: #16120F; }
+.sp-faqx-desc { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.65; color: #4A433B; margin: 0; }
+.sp-faqx-body { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
+.sp-faqx-nav { display: flex; flex-direction: column; gap: 0; border: 1px solid #D9D9D9; border-radius: 14px; overflow: hidden; }
+.sp-faqx-tab { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px 18px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: #6A625A; background: #ffffff; border: none; border-bottom: 1px solid #D9D9D9; cursor: pointer; text-align: left; transition: background 180ms ease, color 180ms ease; }
+.sp-faqx-tab:last-child { border-bottom: none; }
+.sp-faqx-tab:hover:not(.active) { background: #F5F5F5; color: #16120F; }
+.sp-faqx-tab.active { background: #16120F; color: #ffffff; }
+.sp-faqx-tab.active .sp-faqx-tab-dot { background: #B85C38; }
+.sp-faqx-tab-dot { width: 6px; height: 6px; border-radius: 50%; background: #D9D9D9; flex-shrink: 0; transition: background 180ms ease; }
+.sp-faqx-tab:hover:not(.active) .sp-faqx-tab-dot { background: #B85C38; }
+.sp-faqx-panels { min-width: 0; }
+.sp-faqx-panel { display: none; }
+.sp-faqx-panel.active { display: block; }
+.sp-faqx-item { border-bottom: 1px solid #D9D9D9; }
+.sp-faqx-item:first-child { border-top: 1px solid #D9D9D9; }
+.sp-faqx-q { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 20px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: #16120F; background: none; border: none; cursor: pointer; text-align: left; gap: 16px; transition: color 200ms ease; }
+.sp-faqx-q:hover { color: #B85C38; }
+.sp-faqx-q::after { content: ''; display: block; width: 20px; height: 20px; flex-shrink: 0; background: #F5F5F5; border-radius: 6px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236A625A' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; transition: transform 280ms ease, background 200ms ease; }
+.sp-faqx-item.open .sp-faqx-q::after { transform: rotate(180deg); background-color: #B85C38; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E"); }
+.sp-faqx-a { height: 0; overflow: hidden; }
+.sp-faqx-a-inner { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400; line-height: 1.7; color: #4A433B; padding: 0 40px 20px 0; }
+.sp-faqx-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 56px; padding-top: 32px; border-top: 1px solid #D9D9D9; flex-wrap: wrap; }
+.sp-faqx-footer-text { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400; color: #4A433B; margin: 0; }
+.sp-faqx-footer-cta { display: inline-flex; align-items: center; height: 50px; padding: 0 28px; background: #16120F; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 14px; white-space: nowrap; flex-shrink: 0; transition: background 200ms ease; }
+.sp-faqx-footer-cta:hover { background: #B85C38; }
+@media (max-width: 860px) {
+  .sp-faqx-body { grid-template-columns: 1fr; gap: 24px; }
+  .sp-faqx-nav { display: grid; grid-template-columns: repeat(2, 1fr); border-radius: 12px; }
+  .sp-faqx-tab { font-size: 11px; padding: 12px 14px; }
+  .sp-faqx-section { padding: 72px 20px; }
+}
+@media (max-width: 560px) {
+  .sp-faqx-nav { grid-template-columns: 1fr; }
+  .sp-faqx-heading { font-size: clamp(28px, 8vw, 40px); }
+  .sp-faqx-footer { flex-direction: column; align-items: flex-start; }
+  .sp-faqx-footer-cta { width: 100%; justify-content: center; }
+}
+
+/* ─── 12. AREAS ─── */
+.sp-areas { background: #ffffff; padding: 100px 0; }
+.sp-areas-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-areas-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: #4A433B; line-height: 1.75; margin: 0 0 40px 0; max-width: 560px; }
+.sp-areas-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.sp-area {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #16120F;
+  background: #fff; border: 1px solid #D9D9D9; border-bottom: 2px solid #B85C38;
+  padding: 8px 16px; text-decoration: none; display: inline-block; border-radius: 8px 8px 0 0;
+  transition: border-color 150ms ease, color 150ms ease, background 150ms ease; cursor: pointer;
+}
+.sp-area:hover { border-color: #B85C38; color: #B85C38; }
+.sp-areas-note { font-family: 'Inter', sans-serif; font-size: 13px; color: #6A625A; }
+.sp-areas-link { color: #B85C38; text-decoration: underline; }
+
+/* ─── 13. RELATED ─── */
+.sp-related { background: #ffffff; padding: 0 12px 80px; }
+.sp-related-dark {
+  background: #16120F; border-radius: 24px;
+  padding: 80px 40px; max-width: 1224px; margin: 0 auto;
+}
+.sp-related-hdr { margin-bottom: 56px; }
+.sp-related-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.sp-related-eyebrow span { font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; color: #B85C38; text-transform: uppercase; }
+.sp-related-heading { font-family: 'Onest',sans-serif; font-size: clamp(36px,4vw,54px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #ffffff; margin: 0; }
+.sp-related-heading em { font-style: normal; color: #ffffff; }
+/* Card grid */
+.sp-rsvc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sp-rsvc-card { background: #ffffff; border-radius: 20px; overflow: visible; text-decoration: none; display: flex; flex-direction: column; transition: transform 240ms ease, box-shadow 240ms ease; height: 100%; }
+.sp-rsvc-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.40); }
+.sp-rsvc-img-wrap { position: relative; width: 100%; flex-shrink: 0; padding: 10px 10px 0; }
+.sp-rsvc-img-clip { overflow: hidden; border-radius: 14px 14px 0 0; width: 100%; }
+.sp-rsvc-img { width: 100%; height: 260px; object-fit: cover; display: block; transform: scale(1); transition: transform 500ms cubic-bezier(0.25,0.46,0.45,0.94); }
+.sp-rsvc-card:hover .sp-rsvc-img { transform: scale(1.06); }
+.sp-rsvc-notch { position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); z-index: 3; width: 160px; height: 40px; pointer-events: none; }
+.sp-rsvc-notch-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sp-rsvc-icon-inner { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; }
+.sp-rsvc-body { padding: 16px 20px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; background: #ffffff; border-radius: 0 0 20px 20px; }
+.sp-rsvc-title { font-family: 'Onest',sans-serif; font-size: 16px; font-weight: 700; color: #16120F; margin: 0 0 6px; line-height: 1.2; letter-spacing: -0.01em; transition: color 200ms ease; }
+.sp-rsvc-card:hover .sp-rsvc-title { color: #B85C38; }
+.sp-rsvc-desc { font-family: 'Inter',sans-serif; font-size: 13px; line-height: 1.5; color: #4A433B; margin: 0; max-width: 260px; }
+
+/* ─── 14. CTA BANNER ─── */
+.sp-cta-banner { background: linear-gradient(90deg, #16120F 0%, #6E2A19 40%, #B85C38 100%); padding: 80px 0; }
+.sp-cta-banner-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 30px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.sp-cta-banner-h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px, 3vw, 40px); font-weight: 700; color: #ffffff; margin: 0 0 10px 0; line-height: 1.2; }
+.sp-cta-banner-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0; max-width: 520px; }
+.sp-cta-banner-actions { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1100px) {
+  .sp-process-inner, .sp-why-inner,
+  .sp-tool-inner, .sp-pricing-inner, .sp-reviews-inner,
+  .sp-creds-inner, .sp-areas-inner,
+  .sp-cta-banner-inner { padding: 0 40px; }
+  .sp-trust-inner { padding: 0 40px; }
+  .lh-inner { padding: 130px 40px 100px; }
+}
+@media (max-width: 900px) {
+  .lh-inner { grid-template-columns: 1fr; gap: 0; padding: 100px 24px 72px; }
+  .lh-right { display: none; }
+  .lh-scroll { display: none; }
+  /* Show mobile image */
+  .lh-mob-img {
+    display: block; width: 100%; margin: 20px 0 28px;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(22,18,15,0.12);
+    height: 220px;
+  }
+  .lh-mob-img-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sp-pricing-grid, .sp-rsvc-grid { grid-template-columns: 1fr 1fr; }
+  .sp-creds-grid { grid-template-columns: 1fr 1fr; }
+  .sp-why-grid { grid-template-columns: 1fr; }
+  .sp-why-img-wrap { height: 220px; }
+  .sp-trust-sep { display: none; }
+  .sp-trust-inner { justify-content: flex-start; gap: 16px; }
+  .sp-cta-banner-inner { flex-direction: column; align-items: flex-start; }
+  /* Mobile animation fix: never hide content behind opacity:0 on mobile */
+  .sp-why-item { opacity: 1 !important; transform: translateY(0) !important; }
+  #sp-rev-nbhd-area, .sp-rev-nbhd-card { opacity: 1 !important; transform: translateY(0) !important; }
+  .sp-tool-header, .sp-tool-social, .sp-tool-quote, .sp-tool-embed { opacity: 1 !important; transform: none !important; }
+}
+@media (max-width: 640px) {
+  .sp-process-inner, .sp-why-inner,
+  .sp-tool-inner, .sp-pricing-inner, .sp-reviews-inner,
+  .sp-creds-inner, .sp-areas-inner,
+  .sp-cta-banner-inner { padding: 0 20px; }
+  .sp-related { padding: 0 8px 48px; }
+  .sp-related-dark { padding: 48px 20px; border-radius: 16px; }
+  .sp-trust-inner { padding: 0 20px; }
+  .lh-inner { padding: 88px 20px 60px; }
+  .lh-right { height: 300px; }
+  .lh-h1 { font-size: clamp(40px, 10.5vw, 60px); }
+  .lh-sub { font-size: 15px; margin-bottom: 28px; }
+  .lh-badge { padding: 0 14px; }
+  .lh-badge strong { font-size: 20px; }
+  /* Fix: guarantee card stack vertically on mobile */
+  .sp-creds-guarantee { flex-direction: column; gap: 14px; padding: 20px; }
+  .sp-guarantee-badge { white-space: normal; }
+  /* Fix: tool section elements always visible on mobile — no GSAP opacity trap */
+  .sp-tool-social, .sp-tool-quote, .sp-tool-embed { opacity: 1 !important; transform: none !important; }
+  .sp-tool-stat-sep { display: none; }
+  .sp-tool-social { gap: 20px; }
+  .sp-process, .sp-why, .sp-tool,
+  .sp-pricing, .sp-creds, .sp-areas { padding: 56px 0; }
+  .sp-cta-banner { padding: 56px 0; }
+  .sp-pricing-grid,
+  .sp-creds-grid, .sp-rsvc-grid { grid-template-columns: 1fr; }
+  .sp-step { grid-template-columns: 60px 1fr; }
+  .sp-step-num { font-size: 24px; padding: 24px 0 24px 20px; }
+  .sp-step-content { padding: 24px 20px 24px 0; }
+  .lh-actions, .sp-cta-banner-actions { flex-direction: column; }
+  .lh-btn { width: 100%; text-align: center; justify-content: center; }
+  .sp-btn { width: 100%; text-align: center; }
+}
+</style>

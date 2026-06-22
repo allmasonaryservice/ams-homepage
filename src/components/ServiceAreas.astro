@@ -1,0 +1,281 @@
+---
+const REGIONS = [
+  {
+    name: 'North Shore',
+    count: 7,
+    cities: [
+      { name: 'Winnetka',      slug: 'winnetka',       lat: 42.1078, lng: -87.7359 },
+      { name: 'Wilmette',      slug: 'wilmette',       lat: 42.0720, lng: -87.7276 },
+      { name: 'Kenilworth',    slug: 'kenilworth',     lat: 42.0867, lng: -87.7148 },
+      { name: 'Glencoe',       slug: 'glencoe',        lat: 42.1353, lng: -87.7587 },
+      { name: 'Evanston',      slug: 'evanston',       lat: 42.0450, lng: -87.6877 },
+      { name: 'Highland Park', slug: 'highland-park',  lat: 42.1817, lng: -87.8003 },
+      { name: 'Northbrook',    slug: 'northbrook',     lat: 42.1264, lng: -87.8264 },
+    ],
+  },
+  {
+    name: 'Western Suburbs',
+    count: 6,
+    cities: [
+      { name: 'Hinsdale',         slug: 'hinsdale',         lat: 41.8003, lng: -87.9298 },
+      { name: 'Oak Brook',        slug: 'oak-brook',        lat: 41.8328, lng: -87.9482 },
+      { name: 'Elmhurst',         slug: 'elmhurst',         lat: 41.8997, lng: -87.9403 },
+      { name: 'Western Springs',  slug: 'western-springs',  lat: 41.8136, lng: -87.9009 },
+      { name: 'La Grange',        slug: 'la-grange',        lat: 41.8069, lng: -87.8698 },
+      { name: 'Burr Ridge',       slug: 'burr-ridge',       lat: 41.7492, lng: -87.9187 },
+    ],
+  },
+  {
+    name: 'DuPage County',
+    count: 5,
+    cities: [
+      { name: 'Naperville',       slug: 'naperville',       lat: 41.7508, lng: -88.1535 },
+      { name: 'Downers Grove',    slug: 'downers-grove',    lat: 41.8081, lng: -88.0111 },
+      { name: 'Clarendon Hills',  slug: 'clarendon-hills',  lat: 41.7975, lng: -87.9576 },
+      { name: 'Willowbrook',      slug: 'willowbrook',      lat: 41.7653, lng: -87.9428 },
+      { name: 'Wheaton',          slug: 'wheaton',          lat: 41.8661, lng: -88.1070 },
+    ],
+  },
+  {
+    name: 'City of Chicago',
+    count: 1,
+    cities: [
+      { name: 'Chicago', slug: 'chicago', lat: 41.8781, lng: -87.6298 },
+    ],
+  },
+];
+---
+
+<section class="sa-section">
+  <div class="sa-inner">
+
+    <!-- Header -->
+    <div class="sa-header" data-reveal>
+      <div class="sa-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span>WHERE WE WORK</span>
+      </div>
+      <h2 class="sa-heading">
+        We Come to You —<br>
+        <em class="sa-heading-accent">Across Chicagoland.</em>
+      </h2>
+      <p class="sa-desc">19 Illinois communities served since 2007. North Shore estates, western suburb colonials, Naperville corridor homes — if your masonry needs work, we're already nearby.</p>
+    </div>
+
+    <!-- Map full-width -->
+    <div class="sa-map-wrap" data-reveal style="--rd:100ms">
+      <div id="sa-map" role="img" aria-label="Map showing All Masonry Services coverage across Chicagoland"></div>
+    </div>
+
+    <!-- Region pill grid -->
+    <div class="sa-regions" data-reveal style="--rd:180ms">
+      {REGIONS.map(region => (
+        <div class="sa-region-col">
+          <div class="sa-region-head">
+            <span class="sa-region-dot"></span>
+            {region.name}
+            <span class="sa-region-count">{region.count}</span>
+          </div>
+          {region.cities.map(c => (
+            <a href={`/locations/${c.slug}`} class="sa-city-pill">{c.name}</a>
+          ))}
+          {region.name === 'City of Chicago' && (
+            <a href="/contact#form" class="sa-area-cta">Not in the list? Ask us →</a>
+          )}
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- Leaflet JS -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script is:inline>
+(function () {
+  var CITIES = [
+    { name: 'Winnetka',        lat: 42.1078, lng: -87.7359 },
+    { name: 'Wilmette',        lat: 42.0720, lng: -87.7276 },
+    { name: 'Kenilworth',      lat: 42.0867, lng: -87.7148 },
+    { name: 'Glencoe',         lat: 42.1353, lng: -87.7587 },
+    { name: 'Evanston',        lat: 42.0450, lng: -87.6877 },
+    { name: 'Highland Park',   lat: 42.1817, lng: -87.8003 },
+    { name: 'Northbrook',      lat: 42.1264, lng: -87.8264 },
+    { name: 'Hinsdale',        lat: 41.8003, lng: -87.9298 },
+    { name: 'Oak Brook',       lat: 41.8328, lng: -87.9482 },
+    { name: 'Elmhurst',        lat: 41.8997, lng: -87.9403 },
+    { name: 'Western Springs', lat: 41.8136, lng: -87.9009 },
+    { name: 'Naperville',      lat: 41.7508, lng: -88.1535 },
+    { name: 'Downers Grove',   lat: 41.8081, lng: -88.0111 },
+    { name: 'La Grange',       lat: 41.8069, lng: -87.8698 },
+    { name: 'Burr Ridge',      lat: 41.7492, lng: -87.9187 },
+    { name: 'Clarendon Hills', lat: 41.7975, lng: -87.9576 },
+    { name: 'Willowbrook',     lat: 41.7653, lng: -87.9428 },
+    { name: 'Wheaton',         lat: 41.8661, lng: -88.1070 },
+    { name: 'Chicago',         lat: 41.8781, lng: -87.6298 },
+  ];
+
+  function initMap() {
+    if (typeof L === 'undefined') return;
+    var el = document.getElementById('sa-map');
+    if (!el) return;
+    if (el.dataset.saInit) {
+      el.dataset.saInit = '';
+      try { el._saMap && el._saMap.remove(); } catch (e) {}
+    }
+    el.dataset.saInit = '1';
+
+    var map = L.map(el, {
+      center: [41.97, -87.83],
+      zoom: 10,
+      scrollWheelZoom: false,
+      zoomControl: true,
+    });
+    el._saMap = map;
+
+    L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+      {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19,
+      }
+    ).addTo(map);
+
+    var dotIcon = L.divIcon({
+      className: '',
+      html: '<div style="width:10px;height:10px;background:#B85C38;border:2.5px solid #ffffff;border-radius:50%;box-shadow:0 1px 5px rgba(0,0,0,0.35);"></div>',
+      iconSize: [10, 10], iconAnchor: [5, 5], popupAnchor: [0, -10],
+    });
+
+    CITIES.forEach(function (c) {
+      L.marker([c.lat, c.lng], { icon: dotIcon })
+        .bindPopup(
+          '<div style="font-family:Inter,sans-serif;min-width:120px;">' +
+          '<strong style="font-size:13px;color:#16120F;">' + c.name + ', IL</strong><br>' +
+          '<span style="font-size:11px;color:#6A625A;">AMS Service Area</span>' +
+          '</div>'
+        )
+        .addTo(map);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
+  document.addEventListener('astro:page-load', initMap);
+})();
+</script>
+
+<style>
+.sa-section { background: #F5F5F5; padding: 100px 24px; }
+.sa-inner   { max-width: 1200px; margin: 0 auto; }
+
+/* Header */
+.sa-header  { max-width: 640px; margin-bottom: 56px; }
+.sa-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.sa-eyebrow span {
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase; color: #B85C38;
+}
+.sa-heading {
+  font-family: 'Onest', sans-serif; font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700; line-height: 1.1; color: #16120F;
+  letter-spacing: -0.02em; margin: 0 0 24px;
+}
+.sa-heading-accent { font-style: normal; color: #16120F; }
+.sa-desc {
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400;
+  line-height: 1.65; color: #4A433B; margin: 0;
+}
+
+/* Map */
+.sa-map-wrap {
+  width: 100%; height: 520px; border-radius: 20px; overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+#sa-map { width: 100%; height: 100%; background: #e8e8e8; }
+
+/* Region grid */
+.sa-regions {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: 1px solid #E4E2DE; border-radius: 18px; overflow: hidden;
+  background: #ffffff;
+}
+.sa-region-col {
+  padding: 28px 24px; border-right: 1px solid #E4E2DE;
+  display: flex; flex-direction: column;
+}
+.sa-region-col:last-child { border-right: none; }
+
+.sa-region-head {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #B85C38;
+  margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid #B85C38;
+}
+.sa-region-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: #B85C38; flex-shrink: 0;
+}
+.sa-region-count {
+  margin-left: auto; background: #B85C38; color: #fff;
+  font-size: 9px; font-weight: 700; width: 18px; height: 18px;
+  border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.sa-city-pill {
+  display: block; font-family: 'Inter', sans-serif; font-size: 13.5px;
+  font-weight: 500; color: #3A342E; text-decoration: none;
+  padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: color 0.15s, padding-left 0.15s;
+}
+.sa-city-pill:last-of-type { border-bottom: none; }
+.sa-city-pill:hover { color: #B85C38; padding-left: 4px; }
+
+.sa-area-cta {
+  display: inline-block; margin-top: 16px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  color: #B85C38; text-decoration: none; letter-spacing: 0.04em;
+  opacity: 0.8; transition: opacity 0.15s;
+}
+.sa-area-cta:hover { opacity: 1; }
+
+/* Leaflet popup */
+:global(.leaflet-popup-content-wrapper) { border-radius: 10px !important; box-shadow: 0 4px 16px rgba(0,0,0,0.14) !important; padding: 0 !important; }
+:global(.leaflet-popup-content)         { margin: 12px 16px !important; }
+:global(.leaflet-popup-tip-container)   { display: none; }
+:global(.leaflet-attribution-flag)      { display: none !important; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sa-section  { padding: 72px 20px; }
+  .sa-map-wrap { height: 360px; }
+  .sa-regions  { grid-template-columns: repeat(2, 1fr); }
+  .sa-region-col:nth-child(odd)  { border-right: 1px solid #E4E2DE; }
+  .sa-region-col:nth-child(even) { border-right: none; }
+  .sa-region-col:nth-child(1),
+  .sa-region-col:nth-child(2)    { border-bottom: 1px solid #E4E2DE; }
+}
+
+@media (max-width: 600px) {
+  .sa-heading  { font-size: clamp(28px, 8vw, 40px); }
+  .sa-map-wrap { height: 280px; }
+  .sa-regions  { grid-template-columns: 1fr; border-radius: 14px; }
+  .sa-region-col { border-right: none !important; border-bottom: 1px solid #E4E2DE; padding: 20px 18px; }
+  .sa-region-col:last-child { border-bottom: none; }
+}
+</style>

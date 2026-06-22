@@ -1,0 +1,2168 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { projects as allProjects } from '../data/projects.js';
+
+const svcProjects = allProjects.slice(0, 5);
+---
+
+<Layout
+  title="About All Masonry Services — Chicago's Trusted Masonry Experts Since 2007"
+  description="Family-owned masonry company serving Chicagoland since 2007. Licensed, insured, own crew only. Brick, stone, chimney, tuckpointing, and more across 19+ cities. Free on-site estimates. Call 773-656-2107."
+>
+  <Navbar />
+
+  <!-- ─── 1. HERO — KEYSTONE LOCK (same animation as Natural Stone, different image) ─── -->
+  <section class="ab-hero" id="ab-hero" aria-label="About All Masonry Services hero">
+    <div class="ab-hero-base" aria-hidden="true"></div>
+    <div class="ab-arch" aria-hidden="true">
+      <div class="ab-arch-left" id="ab-arch-left">
+        <div class="ab-arch-img ab-img-left"></div>
+        <div class="ab-arch-overlay"></div>
+      </div>
+      <div class="ab-arch-right" id="ab-arch-right">
+        <div class="ab-arch-img ab-img-right"></div>
+        <div class="ab-arch-overlay"></div>
+      </div>
+      <div class="ab-arch-keystone" id="ab-arch-keystone">
+        <div class="ab-arch-img ab-img-key"></div>
+      </div>
+    </div>
+    <div class="ab-vignette" aria-hidden="true"></div>
+
+    <div class="ab-content">
+      <div class="ab-label" id="ab-label">
+        <span class="ab-label-line" aria-hidden="true"></span>
+        All Masonry Services · Chicago &amp; Chicagoland · Est. 2007
+      </div>
+      <h1 class="ab-h1">
+        <div class="ab-h1-row"><span id="ab-r1">Built on Craft.</span></div>
+        <div class="ab-h1-row"><span id="ab-r2">Backed by 19 Years.</span></div>
+      </h1>
+      <p class="ab-sub" id="ab-sub">
+        Family-owned since 2007. Own crew, no subcontractors. Serving Chicagoland homeowners who expect the repair to last — not just survive one more winter.
+      </p>
+      <div class="ab-actions" id="ab-act">
+        <a href="/contact#form" class="ab-btn-primary">
+          <span class="ab-btn-bg" aria-hidden="true"></span>
+          <span>Get a Free Estimate</span>
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="tel:7736562107" class="ab-btn-ghost">
+          <span class="ab-btn-bg" aria-hidden="true"></span>
+          <span>Call 773-656-2107</span>
+        </a>
+      </div>
+      <div class="ab-badges" id="ab-bdg">
+        <div class="ab-badge"><strong>500+</strong><span>Projects Done</span></div>
+        <div class="ab-badge-sep" aria-hidden="true"></div>
+        <div class="ab-badge"><strong>4.8★</strong><span>92 Google Reviews</span></div>
+        <div class="ab-badge-sep" aria-hidden="true"></div>
+        <div class="ab-badge"><strong>19+</strong><span>Years Experience</span></div>
+      </div>
+    </div>
+
+    <div class="ab-scroll" id="ab-scroll">
+      <div class="ab-scroll-mouse"><div class="ab-scroll-dot"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <script is:inline>
+  (function() {
+    function initAbHero() {
+      var gsap = window.__gsap;
+      if (!gsap) return;
+      var heroEl = document.getElementById('ab-hero');
+      if (!heroEl) return;
+      var imgs = heroEl.querySelectorAll('.ab-arch-img');
+      var mouseYNorm = 0;
+      var scrollProg = 0;
+      function applyParallax() {
+        var pct = 50 + (mouseYNorm * 12) + (scrollProg * 10);
+        pct = Math.max(25, Math.min(75, pct));
+        gsap.to(imgs, { backgroundPositionY: pct + '%', duration: 0.9, ease: 'power2.out', overwrite: 'auto' });
+      }
+      heroEl.addEventListener('mousemove', function(e) {
+        var b = heroEl.getBoundingClientRect();
+        mouseYNorm = ((e.clientY - b.top) / b.height - 0.5) * 2;
+        applyParallax();
+      }, { passive: true });
+      heroEl.addEventListener('mouseleave', function() { mouseYNorm = 0; applyParallax(); });
+      heroEl.addEventListener('touchmove', function(e) {
+        var b = heroEl.getBoundingClientRect();
+        mouseYNorm = ((e.touches[0].clientY - b.top) / b.height - 0.5) * 2;
+        applyParallax();
+      }, { passive: true });
+      heroEl.addEventListener('touchend', function() { mouseYNorm = 0; applyParallax(); }, { passive: true });
+      window.addEventListener('scroll', function() {
+        scrollProg = Math.min(window.scrollY / window.innerHeight, 1);
+        applyParallax();
+      }, { passive: true });
+      var scrEl = document.getElementById('ab-scroll');
+      if (scrEl) {
+        scrEl.addEventListener('click', function() {
+          var next = document.querySelector('.ab-story');
+          if (next) next.scrollIntoView({ behavior: 'smooth' });
+          else window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+        });
+      }
+    }
+    if (window.__gsap) { initAbHero(); }
+    else { window.addEventListener('animations:ready', initAbHero, { once: true }); }
+  })();
+  </script>
+
+  <!-- ─── 2. OUR STORY ─── -->
+  <section class="ab-story">
+    <div class="ab-story-inner">
+
+      <!-- LEFT: image -->
+      <div class="ab-story-img-wrap" data-reveal>
+        <picture style="display:block;width:100%;height:100%;">
+          <source media="(max-width: 768px)" srcset="/images/about-story-m.webp" type="image/webp" />
+          <img src="/images/about-story.webp" alt="All Masonry Services craftsman at work" class="ab-story-img" loading="lazy" />
+        </picture>
+        <div class="ab-story-badge">
+          <span class="ab-story-badge-num">2007</span>
+          <span class="ab-story-badge-lbl">Year Founded</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: text -->
+      <div class="ab-story-text">
+        <div class="ab-eyebrow" data-reveal>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Our Story</span>
+        </div>
+        <h2 class="ab-story-h2" data-reveal style="--rd:60ms">A Family Business Built<br>on Doing It Right</h2>
+        <p class="ab-story-p" data-reveal style="--rd:120ms">
+          All Masonry Services was founded in 2007 with a single commitment: do the job right the first time, or don't take it. Over 19 years, that principle has guided every tuckpointing joint, every stone installation, and every chimney rebuild we've touched across Chicagoland.
+        </p>
+        <p class="ab-story-p" data-reveal style="--rd:160ms">
+          We're not a franchise, not a referral network, and not a company that subs out your project to whoever is available. When you call AMS, you deal with the owners — and the same crew that shows up for the estimate is the crew that does the work.
+        </p>
+        <p class="ab-story-p" data-reveal style="--rd:200ms">
+          We've served homeowners in Chicago, the North Shore, western suburbs, and beyond — matching mortar composition, joint depth, and material to original masonry so the repair lasts decades, not seasons.
+        </p>
+        <div class="ab-story-ctas" data-reveal style="--rd:260ms">
+          <a href="/contact#form" class="ab-story-btn-primary">Get a Free Estimate</a>
+          <a href="/projects" class="ab-story-btn-ghost">See Our Work</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 3. PROBLEM / CONSEQUENCE ─── -->
+  <section class="sp-problem">
+    <div class="sp-delay-inner">
+
+      <!-- Header -->
+      <div class="sp-delay-hdr">
+        <div class="sp-section-label">Why It Matters</div>
+        <h2 class="sp-delay-h2">What Goes Wrong When You <em>Hire the Wrong Mason</em></h2>
+        <p class="sp-delay-sub">Masonry mistakes are expensive — they're often invisible for years, then impossible to fix without opening walls. After 19 years across Chicagoland, here's what hiring the wrong mason really costs you.</p>
+      </div>
+
+      <div class="sp-delay-cols">
+
+        <!-- LEFT: dark stats sidebar -->
+        <div class="sp-delay-sidebar">
+          <p class="sp-delay-sidebar-label">The real cost of waiting</p>
+          <div class="sp-delay-stats">
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">$25k+</span>
+              <span class="sp-delay-stat-desc">Typical cost overrun when the wrong mason is hired</span>
+            </div>
+            <div class="sp-delay-stat-sep"></div>
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">5+ yrs</span>
+              <span class="sp-delay-stat-desc">Before hidden masonry defects surface and become costly to fix</span>
+            </div>
+            <div class="sp-delay-stat-sep"></div>
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">1st visit</span>
+              <span class="sp-delay-stat-desc">AMS passes every municipal inspection on the first visit</span>
+            </div>
+          </div>
+          <a href="/contact#form" class="sp-delay-sidebar-cta">
+            Get a free project estimate
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- RIGHT: consequence list -->
+        <div class="sp-delay-list">
+
+          <div class="sp-delay-rule"></div>
+
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Wrong Mortar = Cracked Brick</h3>
+            </div>
+            <p class="sp-delay-text">Using mortar that's too hard for your brick is the single most common mistake in new construction masonry. It looks fine for a few years — then bricks start spalling from freeze-thaw stress.</p>
+          </div>
+
+          <div class="sp-delay-rule"></div>
+
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Missing Flashing Causes Leaks</h3>
+            </div>
+            <p class="sp-delay-text">Flashing, weep holes, and drainage mats are code requirements for a reason. Skip them — or install them incorrectly — and water infiltrates your wall cavity, rotting framing from the inside out.</p>
+          </div>
+
+          <div class="sp-delay-rule"></div>
+
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Failed Inspections Cost Money</h3>
+            </div>
+            <p class="sp-delay-text">Masonry work that doesn’t meet code gets flagged at inspection — delaying your close date, frustrating your builder, and costing you in carrying costs and rework. We pass every inspection on the first visit.</p>
+            <div class="sp-delay-chart" aria-label="Cost escalation timeline">
+              <div class="sp-delay-chart-row">
+                <span class="sp-delay-chart-stage">Now</span>
+                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:20%"></div></div>
+                <span class="sp-delay-chart-cost">$</span>
+                <span class="sp-delay-chart-note">Planning</span>
+              </div>
+              <div class="sp-delay-chart-row">
+                <span class="sp-delay-chart-stage">1–2 yrs</span>
+                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:42%"></div></div>
+                <span class="sp-delay-chart-cost">$$</span>
+                <span class="sp-delay-chart-note">Joint failure</span>
+              </div>
+              <div class="sp-delay-chart-row">
+                <span class="sp-delay-chart-stage">3–4 yrs</span>
+                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:68%"></div></div>
+                <span class="sp-delay-chart-cost">$$$</span>
+                <span class="sp-delay-chart-note">Brick spalling</span>
+              </div>
+              <div class="sp-delay-chart-row">
+                <span class="sp-delay-chart-stage">5+ yrs</span>
+                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:100%"></div></div>
+                <span class="sp-delay-chart-cost">$$$$</span>
+                <span class="sp-delay-chart-note">Structural</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sp-delay-rule"></div>
+
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Subs Who Miss Schedule</h3>
+            </div>
+            <p class="sp-delay-text">Masonry is on the critical path. A crew that doesn’t show when promised pushes framing, roofing, windows — everything. We commit to a schedule in writing and show up as agreed, every time.</p>
+          </div>
+
+          <div class="sp-delay-rule"></div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS (ported sp-prc) ─── -->
+  <section id="sp-prc-section" style="background:#ffffff; position:relative;">
+    <div id="sp-prc-driver" style="position:relative; height:600vh;">
+      <div id="sp-prc-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-prc-grid">
+
+          <!-- LEFT: heading + CTA -->
+          <div id="sp-prc-left">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">How We Work</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(36px,3.5vw,54px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 20px;">How We Work With You</h2>
+
+            <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.65; color:#6A625A; margin:0 0 36px;">From your first call to the final walk-through — every step is documented, on schedule, and built to pass inspection. Here's exactly how an AMS project runs.</p>
+
+            <div class="sp-prc-desktop-cta">
+              <a href="/contact#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:28px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: steps -->
+          <div id="sp-prc-right">
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">01</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Free On-Site Estimate</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We come to you, assess the work in person, and hand you a written estimate with scope, materials, and timeline. No charge, no pressure to book.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>A real number requires real eyes on the masonry. Phone quotes are guesses — our on-site estimate is the price you can actually plan around.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">02</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Material Matching &amp; Selection</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We match mortar composition, color, and joint profile to your existing masonry — or help you choose new brick, stone, or limestone that suits your home and Chicago's climate.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Mortar that's too hard cracks your brick within a few winters. Matching it correctly is the difference between a repair that lasts decades and one that fails in years.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">03</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Written Schedule &amp; Site Prep</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">Before we start, you get a start date in writing. We protect your property, set up cleanly, and pull any permits the job requires.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>A crew that won't commit to a date in writing is a crew that will leave you waiting. We show up when we say we will.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">04</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">The Work — Done Right</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">The same crew that estimated your job does the work — no subcontractors. Daily cleanup, daily progress, and we never cut corners to save time.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Most masonry failures trace back to rushed work and revolving crews. One accountable crew, doing it properly, is why our work passes inspection the first time.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE; border-bottom:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">05</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Final Walk-Through</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We walk the finished work with you before any final payment. Every punch-list item is resolved before we close out.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>The walk-through is your leverage — we do it with you, not after you've already paid. That's the only walk-through that counts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile-only CTA -->
+            <div class="sp-prc-mobile-cta" style="display:none; padding-top:36px;">
+              <a href="/contact#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:20px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 4. WHY AMS ─── -->
+  <section class="sp-why">
+    <div class="sp-why-inner">
+      <div class="sp-section-label" data-reveal>What Sets Us Apart</div>
+      <h2 class="sp-section-h2" data-reveal style="--rd:80ms">Why Chicagoland Homeowners<br><em>Choose AMS Over Anyone Else</em></h2>
+      <div class="sp-why-grid">
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/proj-tuckpointing.webp" alt="AMS masonry crew showing up on schedule" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">01</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">We Show Up on Schedule</h3>
+              <p class="sp-why-body">We commit to a start date in writing and show up as agreed, every time — no vanishing acts, no excuses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/svc-commercial.webp" alt="Full scope masonry under one contractor" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">02</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Full Scope Under One Contractor</h3>
+              <p class="sp-why-body">Brick facade, stone accents, fireplace, chimney, retaining walls — we handle it all under one contract, one contact, one accountability line for you.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/why-limestone.webp" alt="Mortar matched to your existing brick" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">03</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Mortar Matched to Your Brick</h3>
+              <p class="sp-why-body">We match mortar composition, color, and joint profile to your existing masonry. The repair blends in — it doesn't announce itself.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/proj-brick-facade.webp" alt="Family owned masonry company" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">04</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Family-Owned — You Deal With the Owners</h3>
+              <p class="sp-why-body">Not a franchise, not a sub network — when you call AMS you reach the people doing the work, and the same crew that estimates is on your job site.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5. FEATURED PROJECTS ─── -->
+  <section id="sp-proj-section" style="background:#16120F; position:relative; overflow-x:clip;">
+    <div id="sp-proj-driver" style="position:relative; height:200vh;">
+      <div id="sp-proj-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-proj-grid">
+
+          <!-- LEFT: Polaroid card stack -->
+          <div id="sp-proj-stack" style="position:relative; height:520px; display:flex; align-items:center; justify-content:center;">
+
+            {svcProjects.map((p, i) => (
+              <div class="sp-proj-polaroid" data-i={String(i)} style="position:absolute; background:#ffffff; padding:14px 14px 56px; box-shadow:0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06); width:230px; will-change:transform; user-select:none; cursor:pointer; transition:box-shadow 0.25s ease;">
+                <div style="overflow:hidden; width:100%; height:290px;">
+                  <picture style="display:block;width:100%;height:100%;">
+                    <source media="(max-width: 768px)" srcset={p.heroImageSm} type="image/webp" />
+                    <img src={p.heroImage} alt={p.serviceType + ' in ' + p.city} class="sp-proj-img" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);" loading="lazy" />
+                  </picture>
+                </div>
+                <div style="padding-top:14px; text-align:center;">
+                  <p class="sp-proj-label" style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 3px; line-height:1.3; transition:color 0.25s ease;">{p.city}</p>
+                  <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">{p.county}, IL</p>
+                  <a href={'/projects/' + p.slug} style="display:inline-block; margin-top:6px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:#B85C38; text-decoration:none; letter-spacing:0.04em; text-transform:uppercase;" onclick="event.stopPropagation()">View →</a>
+                </div>
+              </div>
+            ))}
+
+          </div>
+
+          <!-- RIGHT: Text content -->
+          <div class="sp-proj-text">
+
+            <div class="sp-proj-text-top">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+                </svg>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">Recent Work</span>
+              </div>
+              <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#ffffff; letter-spacing:-0.02em; margin:0 0 20px;">
+                Masonry Projects<br><em style="font-style:normal;">Across Chicagoland</em>
+              </h2>
+              <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.65); margin:0; max-width:400px;">
+                From new brick facades to limestone features and fireplace builds — every project delivered on schedule and built to last.
+              </p>
+            </div>
+
+            <div class="sp-proj-text-bottom">
+              <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+                <a href="/projects"
+                  style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:16px; font-weight:500; padding:16px 30px; border-radius:14px; text-decoration:none; transition:background 0.2s;"
+                  onmouseenter="this.style.background='#8A3A22'"
+                  onmouseleave="this.style.background='#B85C38'">
+                  View more projects
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="/contact#form"
+                  style="font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,0.3); transition:color 0.2s;"
+                  onmouseenter="this.style.color='#fff'"
+                  onmouseleave="this.style.color='rgba(255,255,255,0.65)'">
+                  Get a free estimate →
+                </a>
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.4); margin:16px 0 0;">
+                500+ projects completed across Chicagoland
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="sp-proj-spacer"></div>
+  </section>
+
+  <!-- ─── 6. REVIEWS ─── -->
+  <section id="sp-rev-section" style="background:#ffffff; position:relative; overflow-x:clip;">
+
+    <div id="sp-rev-driver" style="position:relative; height:300vh;">
+      <div style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-rev-grid">
+
+          <!-- LEFT: heading + rating + neighbourhood cards -->
+          <div class="sp-rev-left">
+
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">What Homeowners Say</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 28px;">
+              Real Reviews from<br><em style="font-style:normal;">Chicagoland Clients</em>
+            </h2>
+
+            <div style="margin-bottom:40px;">
+              <p style="font-family:'Onest',sans-serif; font-size:48px; font-weight:700; color:#16120F; margin:0 0 8px; line-height:1;">4.8</p>
+              <div style="display:flex; gap:4px; margin-bottom:6px;">
+                {[1,2,3,4,5].map(() => (
+                  <svg width="18" height="18" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>
+                ))}
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:14px; color:#6A625A; margin:0;">92 verified Chicagoland homeowners</p>
+            </div>
+
+            <div id="sp-rev-nbhd-area" style="opacity:0; transform:translateY(16px);">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+                </svg>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Trusted across Chicagoland</span>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">North Shore</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Winnetka</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Lake Forest</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"AMS did our full limestone facade and both fireplaces. They showed up every day as promised and finished on schedule. Our builder was impressed."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Sarah M.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Winnetka, IL</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Western Suburbs</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Hinsdale</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Oak Brook</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"Three bids, one clear choice. AMS was the only masonry sub who gave our builder a written schedule — and kept it."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">David L.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Hinsdale, IL</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">DuPage Corridor</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Naperville</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Wheaton</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"Used AMS for full brick exterior on our custom build. Passed every inspection first visit. Exceptional quality throughout."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Christine H.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Naperville, IL</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: stacked review cards -->
+          <div style="display:flex; align-items:center; justify-content:center;">
+            <div id="sp-rev-stack" style="position:relative; width:340px; height:400px;">
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"AMS was the only masonry sub on our build that actually showed up when they said they would. The brick work on our Hinsdale custom home is perfect — every inspector commented on the quality."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">James T.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Hinsdale, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"We used AMS for our full limestone facade, fireplace, and chimney. They coordinated directly with our GC, sent progress photos daily, and finished three days ahead of schedule. Outstanding."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Patricia &amp; David K.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Winnetka, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"I'm a builder and I've used AMS on four custom homes. They're the only masonry crew I trust to stay on schedule without me having to babysit. The quality is consistent every time."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Robert S., General Contractor</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Chicagoland</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"AMS's written estimate was the most detailed we've ever received. Every material, every elevation priced out separately. No surprises — the final bill matched the estimate exactly."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Michael B.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Naperville, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Called three masonry contractors. AMS was the only one who sent a detailed written schedule with their estimate. That professionalism showed in every aspect of the work."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Karen W.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">La Grange, IL</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile-only neighbourhood card -->
+    <div class="sp-rev-mob-nbhd">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Trusted across Chicagoland</span>
+      </div>
+      <div style="border-radius:16px; padding:22px 20px 18px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07);">
+        <div style="display:flex; gap:4px; margin-bottom:14px;">
+          {[1,2,3,4,5].map(() => (<svg width="14" height="14" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}
+        </div>
+        <p style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.6; color:#4A433B; margin:0 0 18px; font-style:italic;">
+          "AMS did our full limestone facade and both fireplaces. They showed up every day as promised and finished on schedule. Our builder was impressed."
+        </p>
+        <div style="display:flex; align-items:center; gap:10px; padding-top:14px; border-top:1px solid #E4E2DE;">
+          <div style="width:32px; height:32px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="13" r="7" fill="#C4BDB5"/><ellipse cx="16" cy="28" rx="11" ry="7" fill="#C4BDB5"/></svg></div>
+          <div>
+            <p style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 2px;">Sarah M.</p>
+            <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">Winnetka, IL · North Shore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── 11-SERVICES — DARK NUMBERED GRID (new) ─── -->
+  <section class="absvc">
+    <div class="absvc-inner">
+      <div class="absvc-eyebrow" data-reveal>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span>Our Masonry Services</span>
+      </div>
+      <h2 class="absvc-h2" data-reveal style="--rd:60ms">All 11 Services <em>— One Trusted Crew</em></h2>
+      <p class="absvc-sub" data-reveal style="--rd:120ms">From tuckpointing a single wall to a full limestone facade — every masonry service we offer, handled by the same licensed, insured crew, with the same mortar-match guarantee on every job.</p>
+
+      <div class="absvc-grid" data-reveal style="--rd:180ms">
+        <a href="/services/tuckpointing-repointing" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">01</span>
+          <span class="absvc-cell-name">Tuckpointing &amp; Repointing</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/brick-installation" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">02</span>
+          <span class="absvc-cell-name">Brick Installation</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/damaged-brick-replacement" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">03</span>
+          <span class="absvc-cell-name">Damaged Brick Replacement</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/chimney-repair-rebuilding" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">04</span>
+          <span class="absvc-cell-name">Chimney Repair &amp; Rebuilding</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/chimney-fireplace" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">05</span>
+          <span class="absvc-cell-name">Chimney &amp; Fireplace Masonry</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/natural-stone-limestone" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">06</span>
+          <span class="absvc-cell-name">Natural Stone &amp; Limestone</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/brick-stone-veneers" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">07</span>
+          <span class="absvc-cell-name">Brick &amp; Stone Veneers</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/cmu-block-installation" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">08</span>
+          <span class="absvc-cell-name">CMU Block Installation</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/commercial-brick-stone" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">09</span>
+          <span class="absvc-cell-name">Commercial Brick &amp; Stone</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/commercial-masonry-veneers" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">10</span>
+          <span class="absvc-cell-name">Commercial Masonry Veneers</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/custom-home-masonry" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">11</span>
+          <span class="absvc-cell-name">Custom Home Masonry</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <div class="absvc-cell absvc-cell--empty" aria-hidden="true"></div>
+      </div>
+
+      <div class="absvc-foot" data-reveal>
+        <a href="/contact#form" class="absvc-foot-cta">Get a free estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ (ported sp-faqx) ─── -->
+  <section class="sp-faqx-section" id="faq-section">
+    <div class="sp-faqx-inner">
+
+      <div class="sp-faqx-header" id="faq-header">
+        <div class="sp-faqx-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Common Questions</span>
+        </div>
+        <h2 class="sp-faqx-heading">
+          Frequently Asked Questions<br>
+          <em class="sp-faqx-heading-accent">Answered Honestly</em>
+        </h2>
+        <p class="sp-faqx-desc">Everything you need to know about working with All Masonry Services.</p>
+      </div>
+
+      <div class="sp-faqx-body">
+
+        <nav class="sp-faqx-nav" id="faq-nav" aria-label="FAQ categories">
+          <button class="sp-faqx-tab active" data-cat="problems" aria-selected="true">
+            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>About AMS
+          </button>
+          <button class="sp-faqx-tab" data-cat="cost" aria-selected="false">
+            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Our Work
+          </button>
+          <button class="sp-faqx-tab" data-cat="repair" aria-selected="false">
+            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Pricing &amp; Estimates
+          </button>
+          <button class="sp-faqx-tab" data-cat="process" aria-selected="false">
+            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Service &amp; Areas
+          </button>
+        </nav>
+
+        <div class="sp-faqx-panels" id="faq-panels">
+
+          <!-- ABOUT AMS -->
+          <div class="sp-faqx-panel active" data-cat="problems" role="list">
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">How long has All Masonry Services been in business?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">We've served Chicagoland since 2007 — 19 years of brick, stone, and chimney work. AMS is family-owned and operated, and you deal directly with the owners on every project.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Are you licensed and insured?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Yes. AMS is fully licensed and insured in Illinois, carrying both liability and workers' comp coverage. We're happy to provide certificates before any work begins.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- OUR WORK -->
+          <div class="sp-faqx-panel" data-cat="cost" role="list">
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Do you use subcontractors?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">No. The crew that shows up for your estimate is the same crew that does the work. We never hand your project off to a sub network — that's how we keep quality consistent.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">What kinds of masonry do you do?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Everything from tuckpointing a single wall to full brick facades, natural stone, limestone, chimneys, fireplaces, veneers, CMU block, and full custom home masonry. One crew handles it all.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRICING & ESTIMATES -->
+          <div class="sp-faqx-panel" data-cat="repair" role="list">
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Do you charge for estimates?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">No. On-site estimates are always free across Chicagoland. We come out, assess the work, and give you a written quote with scope, materials, and timeline — with no pressure to book.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">Will the final price match the estimate?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">Yes. Your written estimate is the price you pay. We don't add mid-project fees or surprise material charges. If something unexpected comes up, we talk to you before any change.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SERVICE & AREAS -->
+          <div class="sp-faqx-panel" data-cat="process" role="list">
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">What areas do you serve?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">We work throughout Chicagoland — Chicago proper, the North Shore, the western suburbs, and surrounding communities. If you're not sure whether you're in range, just call.</div>
+              </div>
+            </div>
+            <div class="sp-faqx-item" role="listitem">
+              <button class="sp-faqx-q" aria-expanded="false">How soon can you start?</button>
+              <div class="sp-faqx-a" aria-hidden="true">
+                <div class="sp-faqx-a-inner">It depends on the season and scope, but we give you a start date in writing before the job begins — and we show up as agreed. Call 773-656-2107 to check current availability.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="sp-faqx-footer" id="faq-footer">
+        <p class="sp-faqx-footer-text">Still have questions? We're happy to talk through your specific situation.</p>
+        <a href="/contact#form" class="sp-faqx-footer-cta">Ask Us Directly →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── WHERE WE WORK (ported sp-areas) ─── -->
+  <section class="sp-areas">
+    <div class="sp-areas-inner">
+      <div class="sp-section-label">Where We Work</div>
+      <h2 class="sp-section-h2">Masonry Service Areas<br><em>Across Chicagoland</em></h2>
+      <p class="sp-areas-sub">
+        We serve homeowners throughout the Chicago metro — from the North Shore to the Western Suburbs and beyond.
+      </p>
+      <div class="sp-areas-grid">
+        {['Chicago','Hinsdale','Oak Brook','Winnetka','Highland Park','Elmhurst','Western Springs','Naperville','Wheaton','Downers Grove','La Grange','Clarendon Hills','Burr Ridge','Willowbrook','Evanston','Wilmette','Kenilworth','Glencoe','Northbrook'].map(city => (
+          <span class="sp-area">{city}</span>
+        ))}
+      </div>
+      <p class="sp-areas-note">Don't see your city? <a href="/contact#form" class="sp-areas-link">Contact us</a> — we likely serve your area.</p>
+    </div>
+  </section>
+
+  <!-- ─── ALSO CONSIDER (ported sp-related) ─── -->
+  <section class="sp-related">
+    <div class="sp-related-dark">
+
+      <!-- Header -->
+      <div class="sp-related-hdr">
+        <div class="sp-related-eyebrow" data-reveal>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Also Consider</span>
+        </div>
+        <h2 class="sp-related-heading" data-reveal style="--rd:80ms">Related Masonry<br><em>Services</em></h2>
+      </div>
+
+      <!-- Cards -->
+      <div class="sp-rsvc-grid">
+
+        <!-- Card 1: Chimney & Fireplace -->
+        <a href="/services/chimney-fireplace" class="sp-rsvc-card" data-reveal>
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-chimney-m.webp" type="image/webp" />
+                <img src="/images/svc-chimney.webp" alt="Chimney and fireplace masonry" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M7 19V10H15V19" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19H17" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round"/><rect x="8" y="4" width="6" height="6" rx="0.5" stroke="#B85C38" stroke-width="1.5"/><path d="M9 4V3M11 4V2M13 4V3" stroke="#B85C38" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">Chimney &amp; Fireplace</h3>
+            <p class="sp-rsvc-desc">Custom chimney construction and fireplace masonry for residential properties and custom homes.</p>
+          </div>
+        </a>
+
+        <!-- Card 2: Brick Installation -->
+        <a href="/services/brick-installation" class="sp-rsvc-card" data-reveal style="--rd:80ms">
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-brick-repair-m.webp" type="image/webp" />
+                <img src="/images/svc-brick-repair.webp" alt="Brick installation for new construction" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="2" y="5" width="8" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="12" y="5" width="8" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="6" y="11" width="10" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="2" y="11" width="2" height="4" rx="0.5" stroke="#B85C38" stroke-width="1.5"/><rect x="18" y="11" width="2" height="4" rx="0.5" stroke="#B85C38" stroke-width="1.5"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">Brick Installation</h3>
+            <p class="sp-rsvc-desc">New brick walls, additions, and features — precision bricklaying for residential and commercial projects.</p>
+          </div>
+        </a>
+
+        <!-- Card 3: Natural Stone & Limestone -->
+        <a href="/services/natural-stone-limestone" class="sp-rsvc-card" data-reveal style="--rd:160ms">
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-stone-install-m.webp" type="image/webp" />
+                <img src="/images/svc-stone-install.webp" alt="Natural stone and limestone installation" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M13 4L18 9L10 17L5 12L13 4Z" stroke="#B85C38" stroke-width="1.5" stroke-linejoin="round"/><path d="M5 12L3 19L10 17" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5L17 8" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">Natural Stone &amp; Limestone</h3>
+            <p class="sp-rsvc-desc">Premium natural stone and limestone installation for facades, accents, and architectural features.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 7. CTA BANNER ─── -->
+  <section class="sp-cta-banner">
+    <div class="sp-cta-banner-inner">
+      <div class="sp-cta-banner-text">
+        <h2 class="sp-cta-banner-h2">Ready to Start Your Masonry Project?</h2>
+        <p class="sp-cta-banner-sub">19 years of brick, stone, and limestone masonry across Chicagoland. Free estimates. No pressure. Just honest work done right.</p>
+      </div>
+      <div class="sp-cta-banner-actions">
+        <a href="/contact#form" class="sp-btn sp-btn--accent">Get a Free Estimate</a>
+        <a href="tel:7736562107" class="sp-btn sp-btn--ghost-light">Call 773-656-2107</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+* { box-sizing: border-box; }
+
+/* ─── HERO ──────────────────────────────────────────── */
+.ab-hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #F5F1E8;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.ab-hero-base { position: absolute; inset: 0; background: #F5F1E8; z-index: 0; }
+.ab-arch { position: absolute; inset: 0; z-index: 1; }
+.ab-arch-left  { position: absolute; top: 0; left: 0;   width: 45%; height: 100%; clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%); z-index: 2; }
+.ab-arch-right { position: absolute; top: 0; left: 55%; width: 45%; height: 100%; clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%); z-index: 2; }
+.ab-arch-keystone { position: absolute; top: -10%; left: 35%; width: 30%; height: 60%; clip-path: polygon(0 0, 100% 0, 66% 100%, 33% 100%); z-index: 3; }
+.ab-arch-img {
+  position: absolute; inset: 0;
+  background-image: url(/images/about-hero.webp);
+  background-size: auto 150%;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+}
+.ab-img-left  { background-position: left 50%; }
+.ab-img-right { background-position: right 50%; }
+.ab-img-key   { background-position: center 50%; filter: brightness(1.08); }
+.ab-arch-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.08); }
+.ab-vignette {
+  position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  background: linear-gradient(90deg, rgba(10,8,6,0.82) 0%, rgba(10,8,6,0.54) 40%, transparent 68%);
+}
+.ab-content {
+  position: relative; z-index: 10;
+  padding: 0 60px 72px 80px;
+  max-width: 780px;
+  margin-left: max(0px, calc((100vw - 1280px) / 2));
+  pointer-events: none;
+}
+.ab-label {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; color: rgba(255,255,255,0.55); text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.ab-label-line { display: block; width: 32px; height: 1px; background: #B85C38; flex-shrink: 0; }
+.ab-h1 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 700; color: #fff; line-height: 1.03;
+  letter-spacing: -0.03em; margin: 0 0 22px;
+}
+.ab-h1-row { display: block; overflow: hidden; padding-bottom: 0.05em; }
+.ab-sub {
+  font-family: 'Inter', sans-serif; font-size: 17px;
+  color: rgba(255,255,255,0.60); line-height: 1.6;
+  max-width: 500px; margin: 0 0 36px;
+}
+.ab-actions {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 40px; pointer-events: all;
+}
+.ab-btn-primary {
+  position: relative; display: inline-flex; align-items: center; gap: 8px;
+  height: 50px; padding: 0 28px;
+  background: #B85C38; color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500;
+  text-decoration: none; border-radius: 12px; overflow: hidden;
+  transition: background 0.2s;
+}
+.ab-btn-primary:hover { background: #8A3A22; }
+.ab-btn-ghost {
+  position: relative; display: inline-flex; align-items: center;
+  height: 50px; padding: 0 24px;
+  background: rgba(255,255,255,0.10); color: #fff;
+  border: 1px solid rgba(255,255,255,0.22);
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400;
+  text-decoration: none; border-radius: 12px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.ab-btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4); }
+.ab-badges {
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.ab-badge { display: flex; flex-direction: column; gap: 2px; }
+.ab-badge strong {
+  font-family: 'Onest', sans-serif; font-size: 22px; font-weight: 700; color: #B85C38; line-height: 1;
+}
+.ab-badge span { font-family: 'Inter', sans-serif; font-size: 11px; color: rgba(255,255,255,0.42); }
+.ab-badge-sep { width: 1px; height: 28px; background: rgba(255,255,255,0.18); align-self: center; }
+.ab-scroll {
+  position: absolute; bottom: 32px; right: 48px; z-index: 20;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  cursor: pointer;
+}
+.ab-scroll-mouse {
+  width: 20px; height: 32px; border: 1.5px solid rgba(255,255,255,0.30);
+  border-radius: 10px; display: flex; align-items: flex-start;
+  justify-content: center; padding-top: 5px;
+}
+.ab-scroll-dot {
+  width: 4px; height: 8px; background: #B85C38; border-radius: 2px;
+  animation: ab-scroll-anim 1.6s ease-in-out infinite;
+}
+@keyframes ab-scroll-anim { 0%,100%{transform:translateY(0);opacity:1} 60%{transform:translateY(8px);opacity:0} }
+.ab-scroll span { font-family: 'Inter', sans-serif; font-size: 10px; color: rgba(255,255,255,0.40); letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* ─── STORY ─────────────────────────────────────────── */
+.ab-story { background: #fff; padding: 100px 40px; }
+.ab-story-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.ab-story-img-wrap {
+  position: relative; border-radius: 20px; overflow: hidden;
+  aspect-ratio: 4/5; background: #E8DDD5;
+}
+.ab-story-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ab-story-badge {
+  position: absolute; bottom: 24px; left: 24px;
+  background: rgba(22,18,15,0.84); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.10); border-radius: 14px;
+  padding: 16px 22px; display: flex; flex-direction: column; gap: 4px;
+}
+.ab-story-badge-num {
+  font-family: 'Onest', sans-serif; font-size: 32px; font-weight: 700;
+  color: #B85C38; line-height: 1;
+}
+.ab-story-badge-lbl {
+  font-family: 'Inter', sans-serif; font-size: 12px;
+  color: rgba(255,255,255,0.65);
+}
+.ab-eyebrow {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 18px;
+}
+.ab-eyebrow span {
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.10em; color: #B85C38; text-transform: uppercase;
+}
+.ab-eyebrow--light span { color: #B85C38; }
+.ab-story-h2 {
+  font-family: 'Onest', sans-serif; font-size: clamp(32px,3.5vw,52px);
+  font-weight: 700; color: #16120F; letter-spacing: -0.02em;
+  line-height: 1.1; margin: 0 0 24px;
+}
+.ab-story-p {
+  font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7;
+  color: #4A433B; margin: 0 0 18px;
+}
+.ab-story-ctas { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+.ab-story-btn-primary {
+  display: inline-flex; align-items: center; height: 50px; padding: 0 26px;
+  background: #16120F; color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500;
+  text-decoration: none; border-radius: 12px; transition: background 0.2s;
+}
+.ab-story-btn-primary:hover { background: #B85C38; }
+.ab-story-btn-ghost {
+  display: inline-flex; align-items: center; height: 50px; padding: 0 22px;
+  background: transparent; color: #16120F;
+  border: 1.5px solid rgba(22,18,15,0.20);
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400;
+  text-decoration: none; border-radius: 12px; transition: border-color 0.2s, color 0.2s;
+}
+.ab-story-btn-ghost:hover { border-color: #B85C38; color: #B85C38; }
+
+/* ─── SHARED TOKENS (ported from custom-home-masonry) ─── */
+.sp-section-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase;
+  color: #B85C38; margin-bottom: 14px;
+}
+.sp-section-label--light { color: #B85C38; }
+.sp-section-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(36px, 3.5vw, 54px);
+  font-weight: 700; color: #16120F; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 16px 0;
+}
+.sp-section-h2 em { font-style: normal; color: #16120F; }
+.sp-section-sub {
+  font-family: 'Inter', sans-serif; font-size: 16px;
+  color: #4A433B; line-height: 1.75; max-width: 640px; margin: 0 0 48px 0;
+}
+
+/* ─── BUTTONS ─── */
+.sp-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+  letter-spacing: 0.04em; text-decoration: none;
+  padding: 0 28px; height: 52px; border-radius: 14px;
+  border: 2px solid transparent;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  white-space: nowrap; cursor: pointer;
+}
+.sp-btn--primary { background: #16120F; color: #ffffff; border-color: #16120F; }
+.sp-btn--primary:hover { background: #B85C38; border-color: #B85C38; }
+.sp-btn--accent { background: #B85C38; color: #ffffff; border-color: #B85C38; }
+.sp-btn--accent:hover { background: #8A3A22; border-color: #8A3A22; }
+.sp-btn--ghost { background: transparent; color: #B85C38; border-color: #B85C38; }
+.sp-btn--ghost:hover { background: #B85C38; color: #ffffff; }
+.sp-btn--ghost-light { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.sp-btn--ghost-light:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
+.sp-btn--outline { background: transparent; color: #16120F; border-color: #16120F; }
+.sp-btn--outline:hover { background: #16120F; color: #ffffff; }
+
+/* ─── 3. PROBLEM ─── */
+.sp-problem { background: #F5F5F5; padding: 100px 0; }
+.sp-delay-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.sp-delay-hdr { max-width: 700px; margin-bottom: 60px; }
+.sp-delay-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(34px, 3.6vw, 52px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.025em;
+  color: #16120F; margin: 0 0 18px;
+}
+.sp-delay-h2 em { font-style: normal; color: #16120F; }
+.sp-delay-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #4A433B; margin: 0; max-width: 560px; }
+/* Two-column layout */
+.sp-delay-cols { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: start; }
+/* LEFT: dark stats sidebar */
+.sp-delay-sidebar {
+  background: #16120F; border-radius: 20px; padding: 36px 32px 40px;
+  position: sticky; top: 100px;
+}
+.sp-delay-sidebar-label {
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.40);
+  margin: 0 0 28px;
+}
+.sp-delay-stats { display: flex; flex-direction: column; }
+.sp-delay-stat { padding: 20px 0; }
+.sp-delay-stat-val {
+  font-family: 'Onest', sans-serif; font-size: 40px; font-weight: 700;
+  color: #B85C38; line-height: 1; display: block; margin-bottom: 8px;
+}
+.sp-delay-stat-desc {
+  font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.6;
+  color: rgba(255,255,255,0.55); margin: 0;
+}
+.sp-delay-stat-sep { height: 1px; background: rgba(255,255,255,0.08); }
+.sp-delay-sidebar-cta {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 32px;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  color: #ffffff; text-decoration: none;
+  background: #B85C38; padding: 12px 20px; border-radius: 10px;
+  transition: background 200ms ease; width: 100%; justify-content: center;
+}
+.sp-delay-sidebar-cta:hover { background: #8A3A22; }
+/* RIGHT: consequence list */
+.sp-delay-list { display: flex; flex-direction: column; }
+.sp-delay-rule { height: 1px; background: rgba(0,0,0,0.08); }
+.sp-delay-item { padding: 32px 0; }
+.sp-delay-item-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.sp-delay-icon-wrap {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  border: 1px solid rgba(184,92,56,0.22); background: rgba(184,92,56,0.07);
+  display: flex; align-items: center; justify-content: center;
+}
+.sp-delay-title {
+  font-family: 'Onest', sans-serif; font-size: clamp(17px, 1.7vw, 20px);
+  font-weight: 700; color: #16120F; margin: 0; line-height: 1.2;
+}
+.sp-delay-text {
+  font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.75;
+  color: #4A433B; margin: 0; max-width: 600px;
+}
+/* Cost chart */
+.sp-delay-chart { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; max-width: 500px; }
+.sp-delay-chart-row { display: grid; grid-template-columns: 56px 1fr 36px 120px; align-items: center; gap: 10px; }
+.sp-delay-chart-stage { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: #6A625A; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+.sp-delay-chart-bar-wrap { height: 5px; background: rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden; }
+.sp-delay-chart-bar { height: 100%; width: var(--w, 100%); background: #B85C38; border-radius: 3px; transform-origin: left center; }
+.sp-delay-chart-cost { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #B85C38; text-align: right; }
+.sp-delay-chart-note { font-family: 'Inter', sans-serif; font-size: 11px; color: #6A625A; }
+@media (max-width: 960px) {
+  .sp-delay-cols { grid-template-columns: 1fr; gap: 48px; }
+  .sp-delay-sidebar { position: static; }
+}
+@media (max-width: 640px) {
+  .sp-problem { padding: 64px 0; }
+  .sp-delay-inner { padding: 0 20px; }
+  .sp-delay-hdr { margin-bottom: 40px; }
+  .sp-delay-chart-row { grid-template-columns: 52px 1fr 30px; }
+  .sp-delay-chart-note { display: none; }
+}
+
+/* ─── 5. WHY AMS ─── */
+.sp-why { background: #F5F5F5; padding: 100px 0; }
+.sp-why-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+.sp-why-item {
+  background: #fff; border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  opacity: 0; transform: translateY(40px);
+}
+@media (prefers-reduced-motion: reduce) { .sp-why-item { opacity: 1; transform: none; } }
+.sp-why-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+  border-color: rgba(184,92,56,0.25);
+}
+.sp-why-img-wrap { width: 100%; height: 200px; overflow: hidden; }
+.sp-why-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 500ms ease; }
+.sp-why-item:hover .sp-why-img-wrap img { transform: scale(1.05); }
+.sp-why-card-body { display: flex; gap: 20px; align-items: flex-start; padding: 28px 28px 32px; }
+.sp-why-num { font-family: 'Onest', sans-serif; font-size: 32px; font-weight: 700; color: #B85C38; opacity: 0.35; line-height: 1; flex-shrink: 0; padding-top: 2px; }
+.sp-why-content { display: flex; flex-direction: column; gap: 10px; }
+.sp-why-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #16120F; text-transform: uppercase; letter-spacing: 0.05em; margin: 0; }
+.sp-why-body { font-family: 'Inter', sans-serif; font-size: 15px; color: #4A433B; line-height: 1.7; margin: 0; }
+
+/* ─── 7. PROJECTS ─── */
+.sp-proj-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.sp-proj-text { display: flex; flex-direction: column; gap: 40px; }
+.sp-proj-spacer { height: 160px; }
+@media (max-width: 768px) {
+  #sp-proj-driver { height: auto !important; }
+  #sp-proj-sticky {
+    position: relative !important; top: auto !important;
+    height: auto !important; padding: 72px 0;
+  }
+  .sp-proj-grid {
+    display: flex !important; flex-direction: column !important;
+    gap: 28px !important; padding: 0 20px !important; align-items: stretch !important;
+  }
+  .sp-proj-text { display: contents; }
+  .sp-proj-text-top  { order: 1; }
+  #sp-proj-stack     { order: 2; height: 300px !important; }
+  .sp-proj-text-bottom { order: 3; margin-top: 40px; }
+  .sp-proj-polaroid  { width: 160px !important; }
+  .sp-proj-polaroid > div:first-child { height: 200px !important; }
+  .sp-proj-spacer    { height: 60px; }
+}
+
+/* ─── 9. REVIEWS ─── */
+.sp-rev-mob-nbhd { display: none; }
+.sp-rev-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+@media (max-width: 768px) {
+  .sp-rev-mob-nbhd { display: block; padding: 0 20px 60px; margin-top: -80px; }
+  .sp-rev-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; align-items: center !important; }
+  #sp-rev-nbhd-area { display: none !important; }
+  .sp-rev-left h2 { font-size: 32px !important; margin-bottom: 16px !important; }
+  #sp-rev-stack { width: 290px !important; height: 340px !important; margin: 0 auto;
+    clip-path: polygon(-40px -600px, calc(100% + 40px) -600px, calc(100% + 40px) calc(100% + 35px), -40px calc(100% + 35px));
+  }
+}
+
+/* ─── 14. CTA BANNER ─── */
+.sp-cta-banner { background: linear-gradient(90deg, #16120F 0%, #6E2A19 40%, #B85C38 100%); padding: 80px 0; }
+.sp-cta-banner-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 30px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.sp-cta-banner-h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px, 3vw, 40px); font-weight: 700; color: #ffffff; margin: 0 0 10px 0; line-height: 1.2; }
+.sp-cta-banner-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0; max-width: 520px; }
+.sp-cta-banner-actions { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
+
+/* ─── RESPONSIVE (ported) ─── */
+@media (max-width: 1100px) {
+  .sp-why-inner, .sp-cta-banner-inner { padding: 0 40px; }
+}
+@media (max-width: 900px) {
+  .sp-why-grid { grid-template-columns: 1fr; }
+  .sp-why-img-wrap { height: 220px; }
+  .sp-cta-banner-inner { flex-direction: column; align-items: flex-start; }
+  /* Mobile animation fix: never hide content behind opacity:0 on mobile */
+  .sp-why-item { opacity: 1 !important; transform: translateY(0) !important; }
+  #sp-rev-nbhd-area, .sp-rev-nbhd-card { opacity: 1 !important; transform: translateY(0) !important; }
+}
+@media (max-width: 640px) {
+  .sp-why-inner, .sp-cta-banner-inner { padding: 0 20px; }
+  .sp-why, .sp-cta-banner { padding: 56px 0; }
+  .sp-why-grid { grid-template-columns: 1fr; }
+  .sp-cta-banner-actions { flex-direction: column; }
+  .sp-btn { width: 100%; text-align: center; }
+}
+
+/* ─── ABOUT PAGE RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .ab-story-inner { grid-template-columns: 1fr; gap: 48px; }
+  .ab-story-img-wrap { aspect-ratio: 3/2; }
+  .ab-story { padding: 72px 24px; }
+}
+@media (max-width: 768px) {
+  .ab-content { padding: 0 24px 100px; margin-left: 0; }
+  .ab-arch-keystone { left: 28%; width: 44%; }
+}
+
+/* ─── PROCESS (ported sp-prc) ─── */
+.sp-prc-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1.65fr; gap: 80px; align-items: start;
+}
+#sp-prc-left { align-self: center; }
+#sp-prc-sticky {
+  align-items: flex-start !important;
+  padding-top: 80px !important;
+  padding-bottom: 60px !important;
+}
+@media (max-width: 768px) {
+  #sp-prc-driver { height: auto !important; }
+  #sp-prc-sticky { position: relative !important; top: auto !important; height: auto !important; padding: 72px 0 !important; align-items: center !important; }
+  .sp-prc-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; }
+  .sp-prc-desktop-cta { display: none !important; }
+  .sp-prc-mobile-cta { display: block !important; }
+  .sp-prc-item { padding: 28px 0 !important; }
+  .sp-prc-num { font-size: 36px !important; }
+}
+@media (max-width: 480px) {
+  #sp-prc-sticky { padding: 56px 0 !important; }
+  .sp-prc-grid { padding: 0 16px !important; }
+}
+
+/* ─── 11-SERVICES GRID (new — absvc) ─── */
+.absvc { background: #16120F; padding: 110px 0; }
+.absvc-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.absvc-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.absvc-eyebrow span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #B85C38; }
+.absvc-h2 { font-family: 'Onest', sans-serif; font-size: clamp(34px, 3.6vw, 52px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #FFFFFF; margin: 0 0 18px; }
+.absvc-h2 em { font-style: normal; color: rgba(255,255,255,0.45); }
+.absvc-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.62); max-width: 680px; margin: 0 0 48px; }
+
+/* Numbered 2-column bordered grid */
+.absvc-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.absvc-cell {
+  position: relative; display: grid; grid-template-columns: 46px 1fr 22px; align-items: center;
+  gap: 16px; padding: 26px 16px 26px 4px; text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  transition: background 240ms ease, padding 240ms ease;
+}
+.absvc-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.12); padding-right: 40px; }
+.absvc-cell:not(.absvc-cell--empty):hover { background: rgba(255,255,255,0.035); padding-left: 16px; }
+.absvc-cell-num {
+  font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 700; color: #B85C38;
+  letter-spacing: 0.04em; line-height: 1;
+}
+.absvc-cell-name {
+  font-family: 'Onest', sans-serif; font-size: clamp(16px, 1.4vw, 19px); font-weight: 600;
+  color: #FFFFFF; line-height: 1.3; letter-spacing: -0.01em;
+}
+.absvc-cell-arrow { display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.30); transition: color 240ms ease, transform 240ms ease; }
+.absvc-cell:hover .absvc-cell-arrow { color: #B85C38; transform: translateX(4px); }
+.absvc-cell--empty { background: rgba(255,255,255,0.025); pointer-events: none; }
+
+/* Footer actions */
+.absvc-foot {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px;
+  margin-top: 40px;
+}
+.absvc-all-link {
+  font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+  color: rgba(255,255,255,0.7); text-decoration: none; letter-spacing: 0.02em; transition: color 200ms ease;
+}
+.absvc-all-link:hover { color: #fff; }
+.absvc-foot-cta {
+  display: inline-flex; align-items: center; gap: 8px; background: #B85C38; color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500;
+  padding: 14px 28px; border-radius: 12px; text-decoration: none; transition: background 0.2s;
+}
+.absvc-foot-cta:hover { background: #8A3A22; }
+
+@media (max-width: 760px) {
+  .absvc { padding: 72px 0; }
+  .absvc-inner { padding: 0 20px; }
+  .absvc-grid { grid-template-columns: 1fr; }
+  .absvc-cell:nth-child(odd) { border-right: none; padding-right: 16px; }
+  .absvc-cell { grid-template-columns: 38px 1fr 20px; gap: 12px; padding: 20px 8px 20px 4px; }
+  .absvc-cell--empty { display: none; }
+}
+
+/* ─── FAQ (ported sp-faqx) ─── */
+.sp-faqx-section { background: #ffffff; padding: 100px 24px; }
+.sp-faqx-inner { max-width: 1200px; margin: 0 auto; }
+.sp-faqx-header { max-width: 560px; margin-bottom: 60px; }
+.sp-faqx-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.sp-faqx-eyebrow span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #B85C38; }
+.sp-faqx-heading { font-family: 'Onest', sans-serif; font-size: clamp(36px, 4.5vw, 60px); font-weight: 700; line-height: 1.1; color: #16120F; letter-spacing: -0.02em; margin: 0 0 24px; }
+.sp-faqx-heading-accent { font-style: normal; color: #16120F; }
+.sp-faqx-desc { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.65; color: #4A433B; margin: 0; }
+.sp-faqx-body { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; }
+.sp-faqx-nav { display: flex; flex-direction: column; gap: 0; border: 1px solid #D9D9D9; border-radius: 14px; overflow: hidden; }
+.sp-faqx-tab { display: flex; align-items: center; gap: 12px; width: 100%; padding: 14px 18px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: #6A625A; background: #ffffff; border: none; border-bottom: 1px solid #D9D9D9; cursor: pointer; text-align: left; transition: background 180ms ease, color 180ms ease; }
+.sp-faqx-tab:last-child { border-bottom: none; }
+.sp-faqx-tab:hover:not(.active) { background: #F5F5F5; color: #16120F; }
+.sp-faqx-tab.active { background: #16120F; color: #ffffff; }
+.sp-faqx-tab.active .sp-faqx-tab-dot { background: #B85C38; }
+.sp-faqx-tab-dot { width: 6px; height: 6px; border-radius: 50%; background: #D9D9D9; flex-shrink: 0; transition: background 180ms ease; }
+.sp-faqx-tab:hover:not(.active) .sp-faqx-tab-dot { background: #B85C38; }
+.sp-faqx-panels { min-width: 0; }
+.sp-faqx-panel { display: none; }
+.sp-faqx-panel.active { display: block; }
+.sp-faqx-item { border-bottom: 1px solid #D9D9D9; }
+.sp-faqx-item:first-child { border-top: 1px solid #D9D9D9; }
+.sp-faqx-q { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 20px 0; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600; color: #16120F; background: none; border: none; cursor: pointer; text-align: left; gap: 16px; transition: color 200ms ease; }
+.sp-faqx-q:hover { color: #B85C38; }
+.sp-faqx-q::after { content: ''; display: block; width: 20px; height: 20px; flex-shrink: 0; background: #F5F5F5; border-radius: 6px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236A625A' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; transition: transform 280ms ease, background 200ms ease; }
+.sp-faqx-item.open .sp-faqx-q::after { transform: rotate(180deg); background-color: #B85C38; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E"); }
+.sp-faqx-a { height: 0; overflow: hidden; }
+.sp-faqx-a-inner { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400; line-height: 1.7; color: #4A433B; padding: 0 40px 20px 0; }
+.sp-faqx-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 56px; padding-top: 32px; border-top: 1px solid #D9D9D9; flex-wrap: wrap; }
+.sp-faqx-footer-text { font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 400; color: #4A433B; margin: 0; }
+.sp-faqx-footer-cta { display: inline-flex; align-items: center; height: 50px; padding: 0 28px; background: #16120F; color: #ffffff; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; text-decoration: none; border-radius: 14px; white-space: nowrap; flex-shrink: 0; transition: background 200ms ease; }
+.sp-faqx-footer-cta:hover { background: #B85C38; }
+@media (max-width: 900px) {
+  .sp-faqx-body { grid-template-columns: 1fr; gap: 24px; }
+  .sp-faqx-nav { display: grid; grid-template-columns: repeat(2, 1fr); border-radius: 12px; }
+  .sp-faqx-tab { font-size: 11px; padding: 12px 14px; }
+  .sp-faqx-section { padding: 72px 20px; }
+}
+@media (max-width: 560px) {
+  .sp-faqx-nav { grid-template-columns: 1fr; }
+  .sp-faqx-heading { font-size: clamp(28px, 8vw, 40px); }
+  .sp-faqx-footer { flex-direction: column; align-items: flex-start; }
+  .sp-faqx-footer-cta { width: 100%; justify-content: center; }
+}
+
+/* ─── WHERE WE WORK (ported sp-areas) ─── */
+.sp-areas { background: #F5F5F5; padding: 100px 0; }
+.sp-areas-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-areas-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: #4A433B; line-height: 1.75; margin: 0 0 40px 0; max-width: 560px; }
+.sp-areas-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.sp-area {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #16120F;
+  background: #fff; border: 1px solid #D9D9D9; border-bottom: 2px solid #B85C38;
+  padding: 8px 16px; text-decoration: none; display: inline-block; border-radius: 8px 8px 0 0;
+  transition: border-color 150ms ease, color 150ms ease, background 150ms ease; cursor: default;
+}
+.sp-areas-note { font-family: 'Inter', sans-serif; font-size: 13px; color: #6A625A; }
+.sp-areas-link { color: #B85C38; text-decoration: underline; }
+
+/* ─── ALSO CONSIDER (ported sp-related / sp-rsvc) ─── */
+.sp-related { background: #ffffff; padding: 0 12px 80px; }
+.sp-related-dark {
+  background: #16120F; border-radius: 24px;
+  padding: 80px 40px; max-width: 1224px; margin: 0 auto;
+}
+.sp-related-hdr { margin-bottom: 56px; }
+.sp-related-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.sp-related-eyebrow span { font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; color: #B85C38; text-transform: uppercase; }
+.sp-related-heading { font-family: 'Onest',sans-serif; font-size: clamp(36px,4vw,54px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #ffffff; margin: 0; }
+.sp-related-heading em { font-style: normal; color: #ffffff; }
+.sp-rsvc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sp-rsvc-card { background: #ffffff; border-radius: 20px; overflow: visible; text-decoration: none; display: flex; flex-direction: column; transition: transform 240ms ease, box-shadow 240ms ease; height: 100%; }
+.sp-rsvc-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.40); }
+.sp-rsvc-img-wrap { position: relative; width: 100%; flex-shrink: 0; padding: 10px 10px 0; }
+.sp-rsvc-img-clip { overflow: hidden; border-radius: 14px 14px 0 0; width: 100%; }
+.sp-rsvc-img { width: 100%; height: 260px; object-fit: cover; display: block; transform: scale(1); transition: transform 500ms cubic-bezier(0.25,0.46,0.45,0.94); }
+.sp-rsvc-card:hover .sp-rsvc-img { transform: scale(1.06); }
+.sp-rsvc-notch { position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); z-index: 3; width: 160px; height: 40px; pointer-events: none; }
+.sp-rsvc-notch-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sp-rsvc-icon-inner { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; }
+.sp-rsvc-body { padding: 16px 20px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; background: #ffffff; border-radius: 0 0 20px 20px; }
+.sp-rsvc-title { font-family: 'Onest',sans-serif; font-size: 16px; font-weight: 700; color: #16120F; margin: 0 0 6px; line-height: 1.2; letter-spacing: -0.01em; transition: color 200ms ease; }
+.sp-rsvc-card:hover .sp-rsvc-title { color: #B85C38; }
+.sp-rsvc-desc { font-family: 'Inter',sans-serif; font-size: 13px; line-height: 1.5; color: #4A433B; margin: 0; max-width: 260px; }
+@media (max-width: 900px) {
+  .sp-areas-inner { padding: 0 40px; }
+  .sp-rsvc-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .sp-areas-inner { padding: 0 20px; }
+  .sp-areas { padding: 56px 0; }
+  .sp-related { padding: 0 8px 48px; }
+  .sp-related-dark { padding: 48px 20px; border-radius: 16px; }
+  .sp-rsvc-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero text entrance
+const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+tl.fromTo('#ab-label',  { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.1)
+  .fromTo('#ab-r1',     { yPercent: 110 }, { yPercent: 0, duration: 0.75 }, 0.25)
+  .fromTo('#ab-r2',     { yPercent: 110 }, { yPercent: 0, duration: 0.75 }, 0.38)
+  .fromTo('#ab-sub',    { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6 }, 0.55)
+  .fromTo('#ab-act',    { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.70)
+  .fromTo('#ab-bdg',    { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 }, 0.82)
+  .fromTo('#ab-scroll', { opacity: 0 },         { opacity: 1, duration: 0.5 }, 1.0);
+
+// Scroll reveal for data-reveal elements
+const reveals = Array.from(document.querySelectorAll('[data-reveal]')) as HTMLElement[];
+reveals.forEach(el => {
+  const delay = parseFloat(getComputedStyle(el).getPropertyValue('--rd') || '0') / 1000;
+  gsap.fromTo(el,
+    { opacity: 0, y: 28 },
+    {
+      opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay,
+      scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+    }
+  );
+});
+</script>
+
+<!-- ─── PROBLEM / CONSEQUENCE ANIMATION (ported verbatim) ─── -->
+<script is:inline>
+  (function() {
+    function initDelayAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+      if (window.innerWidth <= 900) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var section = document.querySelector('.sp-problem');
+      if (!section) return;
+      var label   = section.querySelector('.sp-section-label');
+      var h2      = section.querySelector('.sp-delay-h2');
+      var sub     = section.querySelector('.sp-delay-sub');
+      var sidebar = section.querySelector('.sp-delay-sidebar');
+      var stats   = Array.from(section.querySelectorAll('.sp-delay-stat'));
+      var items   = Array.from(section.querySelectorAll('.sp-delay-item'));
+      var rules   = Array.from(section.querySelectorAll('.sp-delay-rule'));
+      var bars    = Array.from(section.querySelectorAll('.sp-delay-chart-bar'));
+
+      // Initial states
+      gsap.set([label, h2, sub].filter(Boolean), { opacity: 0, y: 24 });
+      if (sidebar) gsap.set(sidebar, { opacity: 0, x: -32 });
+      gsap.set(stats, { opacity: 0, y: 16 });
+      gsap.set(rules, { scaleX: 0, transformOrigin: 'left center' });
+      gsap.set(items, { opacity: 0, y: 28 });
+      if (bars.length) gsap.set(bars, { scaleX: 0, transformOrigin: 'left center' });
+
+      // Header
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 78%',
+        onEnter: function() {
+          gsap.to([label, h2, sub].filter(Boolean), {
+            opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', stagger: 0.12, overwrite: true
+          });
+        },
+        onLeaveBack: function() {
+          gsap.set([label, h2, sub].filter(Boolean), { opacity: 0, y: 24 });
+        }
+      });
+
+      // Sidebar slides in from left
+      if (sidebar) {
+        ScrollTrigger.create({
+          trigger: '.sp-delay-cols',
+          start: 'top 82%',
+          onEnter: function() {
+            gsap.to(sidebar, { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', overwrite: true });
+            gsap.to(stats, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.12, delay: 0.3, overwrite: true });
+          },
+          onLeaveBack: function() {
+            gsap.set(sidebar, { opacity: 0, x: -32 });
+            gsap.set(stats, { opacity: 0, y: 16 });
+          }
+        });
+      }
+
+      // List items: rules draw, then items fade in
+      items.forEach(function(item, i) {
+        var prevRule = rules[i];
+        ScrollTrigger.create({
+          trigger: item,
+          start: 'top 88%',
+          onEnter: function() {
+            if (prevRule) gsap.to(prevRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true });
+            gsap.to(item, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.15, overwrite: true });
+            if (i === 2 && bars.length) {
+              gsap.to(bars, { scaleX: 1, duration: 0.5, ease: 'power2.inOut', stagger: 0.12, delay: 0.5, overwrite: true });
+            }
+          },
+          onLeaveBack: function() {
+            if (prevRule) gsap.set(prevRule, { scaleX: 0 });
+            gsap.set(item, { opacity: 0, y: 28 });
+            if (i === 2 && bars.length) gsap.set(bars, { scaleX: 0 });
+          }
+        });
+      });
+
+      // Last rule
+      var lastRule = rules[rules.length - 1];
+      if (lastRule) {
+        ScrollTrigger.create({
+          trigger: lastRule,
+          start: 'top 92%',
+          onEnter: function() { gsap.to(lastRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true }); },
+          onLeaveBack: function() { gsap.set(lastRule, { scaleX: 0 }); }
+        });
+      }
+    }
+    window.removeEventListener('animations:ready', window.__spProblemAnimReady);
+    window.__spProblemAnimReady = initDelayAnim;
+    window.addEventListener('animations:ready', window.__spProblemAnimReady);
+  })();
+</script>
+
+<!-- ─── WHY AMS CARD ANIMATION (ported verbatim) ─── -->
+<script is:inline>
+  (function() {
+    function initWhyAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+      if (window.innerWidth <= 900) return;
+      var cards = Array.from(document.querySelectorAll('.sp-why-item'));
+      if (!cards.length) return;
+      var isMobile = window.innerWidth < 768;
+      cards.forEach(function(card, i) {
+        var yFrom = isMobile ? 30 : 40;
+        var delay = isMobile ? 0 : (i % 2) * 0.12;
+        ScrollTrigger.create({
+          trigger: card,
+          start: 'top 88%',
+          onEnter: function() {
+            gsap.fromTo(card,
+              { opacity: 0, y: yFrom },
+              { opacity: 1, y: 0, duration: 0.7, ease: 'power2.out', delay: delay, overwrite: true }
+            );
+          },
+          onLeaveBack: function() {
+            gsap.set(card, { opacity: 0, y: yFrom });
+          }
+        });
+      });
+    }
+    window.removeEventListener('animations:ready', window.__spWhyAnimReady);
+    window.__spWhyAnimReady = initWhyAnim;
+    window.addEventListener('animations:ready', window.__spWhyAnimReady);
+  })();
+</script>
+
+<!-- ─── PROJECTS POLAROID ANIMATION (ported verbatim) ─── -->
+<script is:inline>
+  (function() {
+    function initProjAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+
+      var driver = document.getElementById('sp-proj-driver');
+      var cards  = gsap.utils.toArray('.sp-proj-polaroid');
+      var N      = cards.length;
+      if (!driver || !N) return;
+
+      var FAN_ROTATIONS = [-24, -12, 0, 12, 24];
+
+      gsap.set(cards, {
+        transformOrigin: '50% 100%',
+        rotation: 0,
+        scale: 1,
+        zIndex: function(i) { return i + 1; }
+      });
+
+      var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+      cards.forEach(function(card, i) {
+        tl.to(card, { rotation: FAN_ROTATIONS[i], duration: 1 }, 0);
+      });
+
+      ScrollTrigger.create({
+        trigger: driver,
+        start:   'top top',
+        end:     'bottom bottom',
+        scrub:   0.6,
+        animation: tl
+      });
+
+      var SHADOW_DEFAULT = '0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06)';
+      var SHADOW_HOVER   = '0 20px 60px rgba(22,18,15,0.22), 0 6px 16px rgba(22,18,15,0.10)';
+      var SHADOW_ACTIVE  = '0 28px 80px rgba(22,18,15,0.26), 0 8px 20px rgba(22,18,15,0.12)';
+
+      var activeCard = null;
+
+      cards.forEach(function(card, i) {
+        var title = card.querySelector('.sp-proj-label');
+        var img   = card.querySelector('.sp-proj-img');
+
+        card.addEventListener('mouseenter', function() {
+          if (card === activeCard) return;
+          card.style.boxShadow = SHADOW_HOVER;
+          card.style.zIndex    = String(N + 5);
+          if (title) title.style.color   = '#B85C38';
+          if (img)   img.style.transform = 'scale(1.06)';
+          gsap.to(card, { y: -28, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+        });
+
+        card.addEventListener('mouseleave', function() {
+          if (card === activeCard) return;
+          card.style.boxShadow = SHADOW_DEFAULT;
+          card.style.zIndex    = String(i + 1);
+          if (title) title.style.color   = '#16120F';
+          if (img)   img.style.transform = 'scale(1)';
+          gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+        });
+
+        card.addEventListener('click', function() {
+          if (card === activeCard) {
+            activeCard = null;
+            card.style.boxShadow = SHADOW_DEFAULT;
+            card.style.zIndex    = String(i + 1);
+            gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+            return;
+          }
+          if (activeCard) {
+            var prevI = parseInt(activeCard.dataset.i || '0');
+            activeCard.style.boxShadow = SHADOW_DEFAULT;
+            activeCard.style.zIndex    = String(prevI + 1);
+            gsap.to(activeCard, { y: 0, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+          }
+          activeCard = card;
+          card.style.zIndex    = String(N + 10);
+          card.style.boxShadow = SHADOW_ACTIVE;
+          gsap.to(card, { y: -48, duration: 0.35, ease: 'back.out(1.6)', overwrite: 'auto' });
+        });
+      });
+    }
+
+    window.removeEventListener('animations:ready', window.__spProjAnimReady);
+    window.__spProjAnimReady = initProjAnim;
+    window.addEventListener('animations:ready', window.__spProjAnimReady);
+  })();
+</script>
+
+<!-- ─── REVIEWS ANIMATION (ported verbatim) ─── -->
+<script is:inline>
+  (function() {
+    function initRevAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+      if (window.innerWidth <= 900) return;
+
+      var driver     = document.getElementById('sp-rev-driver');
+      var nbhdArea   = document.getElementById('sp-rev-nbhd-area');
+      var tCards     = gsap.utils.toArray('.sp-rev-card');
+      var nbhdCards  = gsap.utils.toArray('.sp-rev-nbhd-card');
+      var N = tCards.length;
+
+      if (!driver || !N) return;
+
+      var ROTATIONS = [12, 20, 28, 34, 38];
+      var SCALES    = [1, 0.97, 0.94, 0.91, 0.88];
+
+      tCards.forEach(function(card, i) {
+        gsap.set(card, {
+          zIndex:          N - i,
+          rotation:        ROTATIONS[i] || 0,
+          scale:           SCALES[i]    || 0.85,
+          transformOrigin: 'center center'
+        });
+      });
+
+      gsap.set(nbhdArea,  { opacity: 0, y: 16 });
+      gsap.set(nbhdCards, { opacity: 0, y: 16 });
+
+      // Card deck scroll animation
+      var tl = gsap.timeline();
+      for (var i = 0; i < N - 1; i++) {
+        var s = i / (N - 1);
+        var e = (i + 1) / (N - 1);
+        var d = e - s;
+        tl.to(tCards[i], { yPercent: -110, opacity: 0, duration: d, ease: 'power2.in' }, s);
+        for (var j = i + 1; j < N; j++) {
+          var newPos = j - (i + 1);
+          tl.to(tCards[j], {
+            rotation: ROTATIONS[newPos] || 0,
+            scale:    SCALES[newPos]    || 0.85,
+            duration: d, ease: 'power2.out'
+          }, s);
+        }
+      }
+
+      ScrollTrigger.create({
+        trigger:   driver,
+        start:     'top top',
+        end:       'bottom bottom',
+        scrub:     1.2,
+        animation: tl
+      });
+
+      // Neighbourhood cards reveal at 60% scroll
+      ScrollTrigger.create({
+        trigger: driver,
+        start:   '60% bottom',
+        end:     '80% bottom',
+        scrub:   1,
+        onEnter: function() {
+          gsap.to(nbhdArea,  { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+          gsap.to(nbhdCards, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.12, delay: 0.15 });
+        },
+        onLeaveBack: function() {
+          gsap.to(nbhdArea,  { opacity: 0, y: 16, duration: 0.35 });
+          gsap.to(nbhdCards, { opacity: 0, y: 16, duration: 0.25 });
+        }
+      });
+    }
+
+    window.removeEventListener('animations:ready', window.__spRevAnimReady);
+    window.__spRevAnimReady = initRevAnim;
+    window.addEventListener('animations:ready', window.__spRevAnimReady);
+  })();
+</script>
+
+<!-- ─── PROCESS SCROLL ANIMATION (ported verbatim) ─── -->
+<script is:inline>
+    (function() {
+      function initProcessAnim() {
+        var gsap = window.__gsap;
+        var ScrollTrigger = window.__ScrollTrigger;
+        if (!gsap || !ScrollTrigger) return;
+
+        var driver   = document.getElementById('sp-prc-driver');
+        var leftCol  = document.getElementById('sp-prc-left');
+        var items    = Array.from(document.querySelectorAll('.sp-prc-item'));
+        var nums     = Array.from(document.querySelectorAll('.sp-prc-num'));
+        if (!driver || !leftCol || !items.length) return;
+
+        var isMobile = window.innerWidth < 900;
+        // Skip entrance fades on mobile — content always visible, no blank spaces
+        if (isMobile) {
+          items.forEach(function(item, i) {
+            var stepTl = gsap.timeline({ defaults: { ease: 'none' } });
+            var n = nums[i];
+            stepTl
+              .fromTo(n, { opacity: 0.22 }, { opacity: 1, duration: 0.5 }, 0)
+              .fromTo(item, { backgroundColor: 'rgba(184,92,56,0)' }, { backgroundColor: 'rgba(184,92,56,0.06)', duration: 0.5 }, 0)
+              .to(n, { opacity: 0.22, duration: 0.5 }, 0.5)
+              .to(item, { backgroundColor: 'rgba(184,92,56,0)', duration: 0.5 }, 0.5);
+            ScrollTrigger.create({ trigger: item, start: 'top 65%', end: 'bottom 35%', scrub: 0.4, animation: stepTl });
+          });
+          return;
+        }
+
+        // Desktop: left column entrance
+        gsap.from(leftCol, {
+          opacity: 0, x: -24,
+          duration: 0.9, ease: 'power2.out',
+          scrollTrigger: { trigger: driver, start: 'top 80%', once: true },
+        });
+
+        // Desktop: steps fade in
+        gsap.from(items, {
+          opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', stagger: 0.08,
+          scrollTrigger: { trigger: driver, start: 'top 70%', once: true },
+        });
+
+        // Desktop: scrub active-step highlight
+        var tl  = gsap.timeline({ defaults: { ease: 'none' } });
+        var seg = 1 / items.length;
+
+        items.forEach(function(item, i) {
+          var s  = i * seg;
+          var fi = seg * 0.25;
+          var fo = seg * 0.25;
+
+          tl.fromTo(nums[i],  { opacity: 0.22 }, { opacity: 1,                           duration: fi }, s);
+          tl.to(nums[i],                          { opacity: 0.22,                        duration: fo }, s + seg - fo);
+          tl.fromTo(items[i], { backgroundColor: 'rgba(184,92,56,0)' },
+                              { backgroundColor: 'rgba(184,92,56,0.06)', duration: fi }, s);
+          tl.to(items[i],     { backgroundColor: 'rgba(184,92,56,0)',    duration: fo }, s + seg - fo);
+        });
+
+        ScrollTrigger.create({
+          trigger: driver, start: 'top top', end: 'bottom bottom',
+          scrub: 1.2, animation: tl,
+        });
+      }
+
+      window.removeEventListener('animations:ready', window.__spPrcAnimReady);
+      window.__spPrcAnimReady = initProcessAnim;
+      window.addEventListener('animations:ready', window.__spPrcAnimReady);
+    })();
+</script>
+
+<!-- ─── FAQ ACCORDION + TABS + SCROLL ANIM (ported verbatim) ─── -->
+<script is:inline>
+  (function () {
+
+    function openItem(item) {
+      var body  = item.querySelector('.sp-faqx-a');
+      var inner = item.querySelector('.sp-faqx-a-inner');
+      var btn   = item.querySelector('.sp-faqx-q');
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      body.setAttribute('aria-hidden', 'false');
+      var gsap = window.__gsap;
+      if (gsap) {
+        gsap.killTweensOf(body);
+        gsap.fromTo(body, { height: 0, overflow: 'hidden' }, {
+          height: inner.scrollHeight, duration: 0.38, ease: 'power3.out',
+          onComplete: function () { body.style.height = 'auto'; body.style.overflow = ''; }
+        });
+      } else { body.style.height = inner.scrollHeight + 'px'; }
+    }
+
+    function closeItem(item) {
+      var body = item.querySelector('.sp-faqx-a');
+      var btn  = item.querySelector('.sp-faqx-q');
+      item.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      body.setAttribute('aria-hidden', 'true');
+      var gsap = window.__gsap;
+      if (gsap) {
+        gsap.killTweensOf(body);
+        gsap.to(body, { height: body.offsetHeight, duration: 0,
+          onComplete: function () { gsap.to(body, { height: 0, duration: 0.28, ease: 'power3.in', overflow: 'hidden' }); }
+        });
+      } else { body.style.height = '0'; }
+    }
+
+    function initAccordion() {
+      var items = document.querySelectorAll('.sp-faqx-item');
+      items.forEach(function (item) {
+        var btn = item.querySelector('.sp-faqx-q');
+        if (!btn || btn.dataset.faqInit) return;
+        btn.dataset.faqInit = '1';
+        var body = item.querySelector('.sp-faqx-a');
+        if (!item.classList.contains('open')) body.style.height = '0';
+        btn.addEventListener('click', function () {
+          var isOpen = item.classList.contains('open');
+          var panel  = item.closest('.sp-faqx-panel');
+          panel.querySelectorAll('.sp-faqx-item.open').forEach(function (o) {
+            if (o !== item) closeItem(o);
+          });
+          if (isOpen) { closeItem(item); } else { openItem(item); }
+        });
+      });
+    }
+
+    function initTabs() {
+      var tabs = document.querySelectorAll('.sp-faqx-tab');
+      if (!tabs.length || tabs[0].dataset.tabInit) return;
+      tabs[0].dataset.tabInit = '1';
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var cat = tab.dataset.cat;
+          tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+          tab.classList.add('active'); tab.setAttribute('aria-selected', 'true');
+          document.querySelectorAll('.sp-faqx-panel').forEach(function (p) { p.classList.remove('active'); });
+          var activePanel = document.querySelector('.sp-faqx-panel[data-cat="' + cat + '"]');
+          if (activePanel) {
+            activePanel.classList.add('active');
+            var gsap = window.__gsap;
+            if (gsap) {
+              gsap.fromTo(activePanel.querySelectorAll('.sp-faqx-item'),
+                { opacity: 0, y: 12 },
+                { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.06 }
+              );
+            }
+          }
+        });
+      });
+    }
+
+    function initScrollAnims() {
+      var gsap = window.__gsap;
+      var ST   = window.__ScrollTrigger;
+      if (!gsap || !ST) return;
+      if (window.innerWidth <= 900) return;
+      var section = document.getElementById('faq-section');
+      if (!section || section.dataset.faqAnimDone) return;
+      section.dataset.faqAnimDone = '1';
+      var defaults = { ease: 'power3.out', duration: 0.7 };
+      gsap.from('#faq-header .sp-faqx-eyebrow', { ...defaults, y: 24, opacity: 0, scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true } });
+      gsap.from('#faq-header .sp-faqx-heading',  { ...defaults, y: 32, opacity: 0, delay: 0.1, scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true } });
+      gsap.from('#faq-header .sp-faqx-desc',     { ...defaults, y: 20, opacity: 0, delay: 0.2, scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true } });
+      gsap.from('#faq-nav .sp-faqx-tab', { x: -24, opacity: 0, duration: 0.5, ease: 'power2.out', stagger: 0.08, scrollTrigger: { trigger: '#faq-nav', start: 'top 85%', once: true } });
+      var initItems = document.querySelectorAll('.sp-faqx-panel.active .sp-faqx-item');
+      gsap.from(initItems, { y: 16, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.07, scrollTrigger: { trigger: '#faq-panels', start: 'top 85%', once: true } });
+      gsap.from('#faq-footer', { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: '#faq-footer', start: 'top 90%', once: true } });
+    }
+
+    function init() { initAccordion(); initTabs(); initScrollAnims(); }
+
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+    if (window.__gsap && window.__ScrollTrigger) { initScrollAnims(); } else { window.addEventListener('animations:ready', initScrollAnims); }
+
+  })();
+</script>

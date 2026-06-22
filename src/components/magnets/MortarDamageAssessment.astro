@@ -1,0 +1,500 @@
+---
+---
+
+<div class="td-wrap" id="td-root">
+  <div class="td-header">
+    <span class="td-badge">FREE ASSESSMENT</span>
+    <h2 class="td-title">Tuckpointing &amp; Repointing — <em>Mortar Damage Assessment</em></h2>
+    <p class="td-sub">Answer 8 questions about your mortar — get a personalized assessment: tuckpointing, repointing, or full replacement.</p>
+    <div class="td-progress"><div class="td-progress-fill" id="td-progress-fill"></div></div>
+  </div>
+
+  <!-- STEP 1: Damage Inputs -->
+  <div class="step active" id="td-step1">
+    <p class="step-label">Step 1 of 3 — Mortar Condition</p>
+    <p class="step-desc">Check every condition that currently applies:</p>
+
+    <div class="checklist">
+      <label class="check-item">
+        <input type="checkbox" class="td-check" value="Mortar joints recessed more than 1/4 inch from brick face" />
+        <span class="check-box"></span>
+        <span class="check-text">Mortar joints recessed more than 1/4 inch from brick face</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="td-check" value="Mortar crumbling, cracking, or falling out when touched" />
+        <span class="check-box"></span>
+        <span class="check-text">Mortar crumbling, cracking, or falling out when touched</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="td-check" value="White powder (efflorescence) visible on brick surface" />
+        <span class="check-box"></span>
+        <span class="check-text">White powder (efflorescence) visible on brick surface</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="td-check" value="Water seeping through wall or appearing inside after rain" />
+        <span class="check-box"></span>
+        <span class="check-text">Water seeping through wall or appearing inside after rain</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="td-check" value="Mortar color darkened or uneven compared to original" />
+        <span class="check-box"></span>
+        <span class="check-text">Mortar color darkened or uneven compared to original</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="td-check" value="Noticeable gaps or voids between bricks" />
+        <span class="check-box"></span>
+        <span class="check-text">Noticeable gaps or voids between bricks</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="td-check" value="Brickwork is on chimney, retaining wall, or below-grade" />
+        <span class="check-box"></span>
+        <span class="check-text">Brickwork is on chimney, retaining wall, or below-grade location</span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="td-check" value="Last tuckpointing was 15+ years ago (or never done)" />
+        <span class="check-box"></span>
+        <span class="check-text">Last tuckpointing was 15+ years ago (or never done)</span>
+      </label>
+    </div>
+    <div class="check-counter" id="td-counter">0 of 8 conditions checked</div>
+
+    <div class="select-row">
+      <div class="field-group">
+        <label class="field-label" for="td-material">Wall Material</label>
+        <select class="td-input td-select" id="td-material">
+          <option value="Brick">Brick</option>
+          <option value="Stone">Stone</option>
+          <option value="Mixed brick and stone">Mixed</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="td-area">Approximate Affected Area</label>
+        <select class="td-input td-select" id="td-area">
+          <option value="Under 50 sq ft">Under 50 sq ft</option>
+          <option value="50–200 sq ft">50 – 200 sq ft</option>
+          <option value="200–500 sq ft">200 – 500 sq ft</option>
+          <option value="Over 500 sq ft">Over 500 sq ft</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="td-notes">Additional Notes</label>
+      <textarea class="td-input td-textarea" id="td-notes" placeholder="Location of damage, when you first noticed it, any past repairs, etc."></textarea>
+    </div>
+
+    <button class="td-btn td-btn-primary" id="td-to-step2">Next — Your Information →</button>
+  </div>
+
+  <!-- STEP 2: Contact Form -->
+  <div class="step" id="td-step2">
+    <p class="step-label">Step 2 of 3 — Your Contact Information</p>
+    <p class="step-desc">We'll include your details in the personalized mortar damage report.</p>
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="td-name">Full Name <span class="req">*</span></label>
+        <input class="td-input" type="text" id="td-name" placeholder="Tom Homeowner" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="td-phone">Phone <span class="req">*</span></label>
+        <input class="td-input" type="tel" id="td-phone" placeholder="(773) 555-0100" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="td-email">Email <span class="req">*</span></label>
+        <input class="td-input" type="email" id="td-email" placeholder="tom@home.com" required />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="td-address">Property Address <span class="req">*</span></label>
+        <input class="td-input" type="text" id="td-address" placeholder="123 Oak St, Chicago, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="td-zip">Zip Code <span class="req">*</span></label>
+        <input class="td-input" type="text" id="td-zip" placeholder="60625" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="td-btn td-btn-outline" id="td-back-to-step1">← Back</button>
+      <button class="td-btn td-btn-primary" id="td-submit">Generate Damage Assessment →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="td-step3">
+    <div class="spinner-wrap" id="td-spinner">
+      <div class="spinner"></div>
+      <p class="spinner-text">Your Personal Masonry Assistant is reviewing your data…</p>
+      <p class="spinner-sub">Building your property-specific report</p>
+    </div>
+    <div class="result-wrap" id="td-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="result-title">Your Report Is Ready</h3>
+      <p class="result-sub">Your personalized Mortar Damage Assessment is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary report is an estimate based on the information you provided. It is not a substitute for a professional on-site inspection. Actual conditions, costs, and repair scope may vary. For a 100% accurate assessment, contact All Masonry Services Inc. for a free on-site evaluation at no cost to you.
+      </div>
+      <div class="result-actions">
+        <button class="td-btn td-btn-primary" id="td-pdf-btn">Download PDF Report</button>
+        <a class="td-btn td-btn-outline" href="/contact#form">Book Free On-Site Inspection</a>
+      </div>
+    </div>
+    <div class="error-wrap" id="td-error" style="display:none">
+      <p class="error-msg" id="td-error-msg"></p>
+      <button class="td-btn td-btn-outline" id="td-retry">← Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (async () => {
+    const GEMINI_KEY = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+
+    async function td_fetchWithRetry(opts: RequestInit, retries = 1): Promise<Response> {
+      const resp = await fetch(GEMINI_URL, opts);
+      if (resp.status === 429 && retries > 0) {
+        await new Promise(r => setTimeout(r, 35000));
+        return td_fetchWithRetry(opts, retries - 1);
+      }
+      return resp;
+    }
+
+    let td_reportText = "";
+    let td_contactData: Record<string, string> = {};
+
+    function td_getVal(id: string): string {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      return el ? el.value.trim() : "";
+    }
+
+    function td_setProgress(pct: number) {
+      const bar = document.getElementById("td-progress-fill") as HTMLElement | null;
+      if (bar) bar.style.width = pct + "%";
+    }
+
+    function td_showStep(n: number) {
+      [1, 2, 3].forEach(i => {
+        const el = document.getElementById(`td-step${i}`);
+        if (el) el.classList.toggle("active", i === n);
+      });
+      td_setProgress(n === 1 ? 10 : n === 2 ? 50 : 100);
+    }
+
+    document.querySelectorAll(".td-check").forEach(cb => {
+      cb.addEventListener("change", () => {
+        const checked = document.querySelectorAll(".td-check:checked").length;
+        const counter = document.getElementById("td-counter");
+        if (counter) counter.textContent = `${checked} of 8 conditions checked`;
+      });
+    });
+
+    function td_getChecked(): string[] {
+      return Array.from(document.querySelectorAll<HTMLInputElement>(".td-check:checked")).map(c => c.value);
+    }
+
+    function td_parseReport(text: string): string {
+      const lines = text.split("\n");
+      let html = "";
+      let inSection = false;
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) continue;
+        const isHeading = (trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 90 && !trimmed.includes("•") && !trimmed.match(/^\d/) && !trimmed.match(/^\$/)) || trimmed.match(/^#+\s/);
+        if (isHeading) {
+          if (inSection) html += `</div>`;
+          const heading = trimmed.replace(/^#+\s*/, "").replace(/\*\*/g, "");
+          html += `<div class="report-section"><div class="section-accent"></div><h4 class="section-heading">${heading}</h4>`;
+          inSection = true;
+        } else {
+          const cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/^[-•]\s+/, "");
+          if (trimmed.startsWith("-") || trimmed.startsWith("•")) {
+            html += `<li class="report-li">${cleaned}</li>`;
+          } else {
+            html += `<p class="report-p">${cleaned}</p>`;
+          }
+        }
+      }
+      if (inSection) html += `</div>`;
+      return html;
+    }
+
+    async function td_generate() {
+      const checked = td_getChecked();
+      const material = td_getVal("td-material");
+      const area = td_getVal("td-area");
+      const notes = td_getVal("td-notes");
+      const zip = td_contactData.zip;
+
+      const severity = checked.length === 0 ? "NONE" : checked.length <= 2 ? "MINOR" : checked.length <= 4 ? "MODERATE" : checked.length <= 6 ? "SEVERE" : "CRITICAL";
+      const hasWaterIntrusion = checked.some(c => c.includes("Water seeping") || c.includes("efflorescence") || c.includes("voids"));
+      const hasStructural = checked.some(c => c.includes("chimney") || c.includes("retaining") || c.includes("below-grade"));
+      const isOverdue = checked.some(c => c.includes("15+ years"));
+
+      const now = new Date();
+      const season = now.getMonth() < 9 ? "upcoming winter" : "recent winter";
+
+      const prompt = `You are a senior masonry inspector at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED mortar damage report for a specific homeowner at zip code ${zip}.
+
+HOMEOWNER PROFILE:
+- Name: ${td_contactData.name}
+- Property: ${td_contactData.address}, IL ${zip}
+- Wall Material: ${material}
+- Affected Area: ${area}
+- Conditions Flagged: ${checked.length} of 8
+- Damage Severity: ${severity}
+- Water Intrusion Risk: ${hasWaterIntrusion ? "YES — active water pathway detected" : "No active water intrusion flagged"}
+- High-Risk Location: ${hasStructural ? "YES — chimney, retaining wall, or below-grade involved" : "Standard exterior wall"}
+- Maintenance Overdue: ${isOverdue ? "YES — 15+ years since last tuckpointing" : "Unknown maintenance history"}
+- Additional Notes from Homeowner: ${notes || "None provided"}
+
+FLAGGED CONDITIONS:
+${checked.length > 0 ? checked.map((c, i) => `${i + 1}. ${c}`).join("\n") : "No conditions flagged — homeowner may be doing a precautionary check."}
+
+TASK: Write a specific, personalized mortar damage report for THIS homeowner at THIS property. Do NOT write generic advice. Every recommendation must reference their specific conditions, material type (${material}), area size (${area}), and Chicago's climate context. If no conditions are flagged, explain what a healthy mortar inspection looks like and recommend a free professional evaluation timeline.
+
+Use exactly these ALL CAPS section headings in this order:
+
+DAMAGE SEVERITY — ${severity}
+(State severity clearly. Explain what ${checked.length}/8 flagged conditions means for ${material} construction in Chicago's freeze-thaw climate. Be specific about what happens to ${material} with ${severity.toLowerCase()} mortar deterioration.)
+
+CONDITION-BY-CONDITION ANALYSIS
+(For each flagged condition, explain specifically what it means for THIS wall — not generically. If water intrusion is present, describe the freeze-thaw expansion cycle destroying mortar from inside. If efflorescence is present, explain what salts being drawn out tells us about moisture paths. If none flagged, write one paragraph confirming what to monitor.)
+
+RECOMMENDED SERVICE FOR ${area} OF ${material}
+(Recommend tuckpointing, repointing, or full replacement — and explain the DIFFERENCE between these three services in plain language. Be specific: "For ${area} of ${material} with ${checked.length} flagged conditions, we recommend…")
+
+COST ESTIMATE — ${area} IN ZIP ${zip}
+(Give a realistic labor + material range in Chicago Metro pricing. Break it down: labor per sq ft, material cost, mobilization. Give LOW and HIGH estimate. Example format: "$X,XXX – $X,XXX for ${area} of ${material}." Do NOT say "varies" — give real numbers based on current Chicago contractor rates.)
+
+URGENCY TIMELINE
+(Tell them EXACTLY when damage becomes exponentially more expensive. If water intrusion or freeze-thaw risk is present, explain the March-April frost heave damage window. If ${severity} is CRITICAL or SEVERE, say "do not wait past [specific season]." Give a specific month recommendation.)
+
+CHICAGO FREEZE-THAW IMPACT ON YOUR PROPERTY
+(Explain specifically how Chicago's ${season} freeze-thaw cycles affect ${material} with these specific conditions. Mention that Chicago sees 30–40 freeze-thaw cycles per year and what that means for mortar with ${checked.length > 0 ? "the gaps and cracks already present" : "aging mortar joints"}.)
+
+WHAT HAPPENS IF YOU DELAY 12 MONTHS
+(Paint a specific picture of what this property looks like in one year if nothing is done. Include: structural implications, water damage progression, cost escalation. Be direct and specific — not generic.)
+
+YOUR NEXT STEP
+(Recommend they call 773-656-2107 or visit allmasonryservices.com for a FREE on-site mortar analysis. Mention that AMS serves the ${zip} area and has been doing so since 2007. Mention that an on-site inspection takes 20–30 minutes and costs nothing.)
+
+Write in plain English for a homeowner, not a contractor. Be direct, specific, and actionable. Every section must reference the homeowner's actual inputs — never write generic placeholder advice.`;
+
+      const resp = await td_fetchWithRetry({
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+        })
+      });
+      if (!resp.ok) throw new Error(`API error: ${resp.status}`);
+      const data = await resp.json();
+      td_reportText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No report generated.";
+    }
+
+    function td_renderReport() {
+      const spinner = document.getElementById("td-spinner");
+      const result = document.getElementById("td-result");
+      if (spinner) spinner.style.display = "none";
+      if (result) result.style.display = "block";
+    }
+
+    async function td_downloadPDF() {
+      await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"); const jsPDF = (window as any).jspdf.jsPDF; const GState = (window as any).jspdf.GState;
+      const doc = new jsPDF({ unit: "pt", format: "letter" });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const margin = 48;
+      let y = 0;
+
+      function td_checkPage(needed: number) {
+        if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
+      }
+
+      // Header bar — ink
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, 0, pageW, 72, "F");
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES INC", margin, 26);
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(15);
+      doc.text("Tuckpointing & Repointing — Mortar Damage Assessment Report", margin, 52);
+      y = 96;
+
+      doc.setTextColor(74, 67, 59);
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Prepared for: ${td_contactData.name}  |  ${td_contactData.phone}  |  ${td_contactData.email}`, margin, y);
+      y += 14;
+      doc.text(`Property: ${td_contactData.address}, ${td_contactData.zip}`, margin, y);
+      y += 14;
+      const checked = td_getChecked();
+      doc.text(`Conditions Flagged: ${checked.length} of 8  |  Area: ${td_getVal("td-area")}  |  Material: ${td_getVal("td-material")}`, margin, y);
+      y += 14;
+      const now = new Date();
+      doc.text(`Date: ${now.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`, margin, y);
+      y += 24;
+
+      const lines = td_reportText.split("\n");
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) { y += 6; continue; }
+        const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 90 && !trimmed.includes("•") && !trimmed.match(/^\d/) && !trimmed.match(/^\$/);
+        if (isHeading) {
+          td_checkPage(36);
+          doc.setFillColor(184, 92, 56);
+          doc.rect(margin, y, 3, 16, "F");
+          doc.setTextColor(22, 18, 15);
+          doc.setFontSize(11);
+          doc.setFont("helvetica", "bold");
+          doc.text(trimmed, margin + 10, y + 12);
+          y += 24;
+        } else {
+          td_checkPage(18);
+          doc.setTextColor(74, 67, 59);
+          doc.setFontSize(9.5);
+          doc.setFont("helvetica", "normal");
+          const cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/^[-•]\s+/, "• ");
+          const wrapped = doc.splitTextToSize(cleaned, pageW - margin * 2);
+          doc.text(wrapped, margin, y);
+          y += wrapped.length * 13;
+        }
+      }
+
+      td_checkPage(80);
+      doc.setDrawColor(184, 92, 56);
+      doc.setLineWidth(0.5);
+      doc.line(margin, y, pageW - margin, y);
+      y += 12;
+      doc.setTextColor(106, 98, 90);
+      doc.setFontSize(8);
+      doc.setFont("helvetica", "bolditalic");
+      doc.text("DISCLAIMER", margin, y);
+      y += 12;
+      doc.setFont("helvetica", "normal");
+      const disclaimerText = "This report is a preliminary estimate based on information provided by the homeowner through an online self-assessment tool. It is not a substitute for a professional on-site inspection by a licensed masonry contractor. Actual conditions, structural integrity, repair scope, and costs may differ significantly from this estimate. All Masonry Services Inc. does not warrant the accuracy of this preliminary report. For a definitive assessment, contact All Masonry Services Inc. for a FREE on-site evaluation at 773-656-2107 or allmasonryservices.com.";
+      const disclaimerWrapped = doc.splitTextToSize(disclaimerText, pageW - margin * 2);
+      doc.text(disclaimerWrapped, margin, y);
+      y += disclaimerWrapped.length * 11 + 16;
+
+      const totalPages = (doc.internal as any).getNumberOfPages();
+      for (let p = 1; p <= totalPages; p++) {
+        doc.setPage(p);
+        doc.saveGraphicsState();
+        doc.setGState(new GState({ opacity: 0.07 }));
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(52);
+        doc.setFont("helvetica", "bold");
+        doc.text("ALL MASONRY SERVICES", pageW / 2, pageH / 2, { align: "center", angle: 45 });
+        doc.restoreGraphicsState();
+        doc.setFillColor(22, 18, 15);
+        doc.rect(0, pageH - 36, pageW, 36, "F");
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "bold");
+        doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+        doc.setTextColor(180, 180, 180);
+        doc.text(`Page ${p} of ${totalPages}`, pageW - margin - 40, pageH - 14);
+      }
+      doc.save(`MortarDamageReport-${td_contactData.name.replace(/\s+/g, "-")}.pdf`);
+    }
+
+    document.getElementById("td-to-step2")?.addEventListener("click", () => td_showStep(2));
+    document.getElementById("td-back-to-step1")?.addEventListener("click", () => td_showStep(1));
+
+    document.getElementById("td-submit")?.addEventListener("click", async () => {
+      const name = td_getVal("td-name");
+      const phone = td_getVal("td-phone");
+      const email = td_getVal("td-email");
+      const address = td_getVal("td-address");
+      const zip = td_getVal("td-zip");
+      if (!name || !phone || !email || !address || !zip) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+      td_contactData = { name, phone, email, address, zip };
+      td_showStep(3);
+      const spinner = document.getElementById("td-spinner");
+      const result = document.getElementById("td-result");
+      const errWrap = document.getElementById("td-error");
+      if (spinner) spinner.style.display = "flex";
+      if (result) result.style.display = "none";
+      if (errWrap) errWrap.style.display = "none";
+      try {
+        await td_generate();
+        td_renderReport();
+      } catch (e: any) {
+        if (spinner) spinner.style.display = "none";
+        if (errWrap) errWrap.style.display = "block";
+        const msg = document.getElementById("td-error-msg");
+        if (msg) msg.textContent = "Error generating report: " + (e.message || "Please try again.");
+      }
+    });
+
+    document.getElementById("td-pdf-btn")?.addEventListener("click", td_downloadPDF);
+    document.getElementById("td-retry")?.addEventListener("click", () => td_showStep(1));
+  })();
+</script>
+
+<style>
+  .td-wrap { font-family: 'Inter', sans-serif; background: #ffffff; color: #16120F; max-width: 720px; width: 100%; margin: 0 auto; box-sizing: border-box; }
+  .td-header { background: #16120F; padding: 32px 36px 0; }
+  .td-badge { display: inline-block; background: #B85C38; color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 4px 10px; margin-bottom: 14px; border-radius: 4px; }
+  .td-title { font-family: 'Onest', sans-serif; color: #F5F1E8; font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.25; }
+  .td-title em { color: #B85C38; font-style: normal; }
+  .td-sub { color: #6A625A; font-size: 14px; margin: 0 0 24px; line-height: 1.5; }
+  .td-progress { height: 3px; background: rgba(255,255,255,0.10); }
+  .td-progress-fill { height: 3px; background: #B85C38; width: 10%; transition: width .4s ease; }
+  .step { display: none; padding: 32px 36px; }
+  .step.active { display: block; }
+  .step-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #6A625A; text-transform: uppercase; margin: 0 0 8px; }
+  .step-desc { font-size: 14px; color: #4A433B; margin: 0 0 16px; }
+  .checklist { display: flex; flex-direction: column; gap: 0; border: 2px solid #16120F; }
+  .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 13px 16px; cursor: pointer; border-bottom: 1px solid #D9D9D9; background: #fff; transition: background .15s; }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:hover { background: #FCFAF4; }
+  .check-item input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .check-box { width: 20px; height: 20px; border: 2px solid #16120F; flex-shrink: 0; margin-top: 1px; background: #fff; position: relative; transition: background .15s; border-radius: 4px; }
+  .check-item input:checked ~ .check-box { background: #B85C38; border-color: #B85C38; }
+  .check-item input:checked ~ .check-box::after { content: ""; position: absolute; left: 5px; top: 2px; width: 6px; height: 10px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg); }
+  .check-text { font-size: 14px; color: #4A433B; line-height: 1.45; }
+  .check-counter { margin-top: 10px; font-size: 13px; font-weight: 700; color: #B85C38; text-align: right; }
+  .select-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .field-group { margin-bottom: 16px; }
+  .field-full { grid-column: 1 / -1; }
+  .field-label { display: block; font-size: 13px; font-weight: 600; color: #16120F; margin-bottom: 6px; }
+  .req { color: #B85C38; }
+  .td-input { width: 100%; height: 44px; border: 1px solid #D9D9D9; background: #fff; color: #16120F; font-family: 'Inter', sans-serif; font-size: 14px; padding: 0 12px; box-sizing: border-box; outline: none; border-radius: 10px; appearance: none; }
+  .td-input:focus { border-color: #B85C38; }
+  .td-select { cursor: pointer; }
+  .td-textarea { height: 80px; resize: vertical; padding: 10px 12px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .td-btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; border: none; border-radius: 14px; letter-spacing: .04em; text-decoration: none; transition: opacity .2s, background .2s; }
+  .td-btn:hover { opacity: .88; }
+  .td-btn-primary { background: #B85C38; color: #ffffff; }
+  .td-btn-outline { background: transparent; color: #16120F; border: 2px solid #16120F; }
+  .nav-row { display: flex; gap: 12px; margin-top: 8px; }
+  #td-to-step2 { width: 100%; margin-top: 8px; }
+  .spinner-wrap { display: flex; flex-direction: column; align-items: center; padding: 48px 0; gap: 16px; }
+  .spinner { width: 44px; height: 44px; border: 3px solid #D9D9D9; border-top-color: #B85C38; border-radius: 50%; animation: td-spin .8s linear infinite; }
+  @keyframes td-spin { to { transform: rotate(360deg); } }
+  .spinner-text { color: #6A625A; font-size: 14px; }
+  .spinner-sub { color: #6A625A; font-size: 12px; margin-top: 4px; }
+  .result-wrap { text-align: center; padding: 8px 0; }
+  .success-icon { width: 56px; height: 56px; background: #B85C38; color: #ffffff; font-size: 28px; font-weight: 900; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .result-title { font-family: 'Onest', sans-serif; font-size: 22px; color: #16120F; margin: 0 0 8px; }
+  .result-sub { font-size: 14px; color: #4A433B; margin: 0 0 20px; line-height: 1.5; }
+  .disclaimer-box { background: #FEF3EF; border: 1px solid #B85C38; border-left: 4px solid #B85C38; padding: 14px 16px; font-size: 12px; color: #4A433B; line-height: 1.6; text-align: left; margin-bottom: 20px; border-radius: 8px; }
+  .disclaimer-box strong { color: #16120F; display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+  .result-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .error-wrap { padding: 32px; text-align: center; }
+  .error-msg { color: #c0392b; font-size: 14px; margin-bottom: 16px; }
+  @media (max-width: 600px) {
+    .td-header, .step { padding: 24px 20px; }
+    .select-row, .contact-grid { grid-template-columns: 1fr; }
+    .td-title { font-size: 20px; }
+    .field-full { grid-column: 1; }
+  }
+</style>

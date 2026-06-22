@@ -1,0 +1,680 @@
+---
+// FAQ — Categorized accordion with GSAP scroll & height animations
+---
+
+<section class="faq-section" id="faq-section">
+  <div class="faq-inner">
+
+    <!-- Header -->
+    <div class="faq-header" id="faq-header">
+      <div class="faq-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span>COMMON QUESTIONS</span>
+      </div>
+      <h2 class="faq-heading">
+        Answers for Illinois<br>
+        <em class="faq-heading-accent">Homeowners.</em>
+      </h2>
+      <p class="faq-desc">Everything about masonry repair and how we work — before you pick up the phone.</p>
+    </div>
+
+    <!-- Body: Tabs + Panels -->
+    <div class="faq-body">
+
+      <!-- Left: Category tabs -->
+      <nav class="faq-nav" id="faq-nav" aria-label="FAQ categories">
+        <button class="faq-tab active" data-cat="problems" aria-selected="true">
+          <span class="faq-tab-dot" aria-hidden="true"></span>Common Problems
+        </button>
+        <button class="faq-tab" data-cat="services" aria-selected="false">
+          <span class="faq-tab-dot" aria-hidden="true"></span>Our Services
+        </button>
+        <button class="faq-tab" data-cat="tools" aria-selected="false">
+          <span class="faq-tab-dot" aria-hidden="true"></span>Free Diagnostic Tools
+        </button>
+        <button class="faq-tab" data-cat="areas" aria-selected="false">
+          <span class="faq-tab-dot" aria-hidden="true"></span>Service Areas
+        </button>
+        <button class="faq-tab" data-cat="process" aria-selected="false">
+          <span class="faq-tab-dot" aria-hidden="true"></span>How We Work
+        </button>
+      </nav>
+
+      <!-- Right: Accordion panels -->
+      <div class="faq-panels" id="faq-panels">
+
+        <!-- COMMON PROBLEMS -->
+        <div class="faq-panel active" data-cat="problems" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">My mortar joints are crumbling. How serious is it?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Crumbling mortar joints mean water is already entering your wall. Freeze-thaw cycles widen the gap every winter — what's a $500–$1,500 tuckpointing job today becomes a $5,000+ wall rebuild after two more winters. The repair is straightforward if caught early.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">There's a white powder on my brick. What is that?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                That's efflorescence — mineral salts left behind as water moves through brick and evaporates on the surface. The powder itself isn't structural damage, but the water causing it is. We clean it and then address the source: failed mortar joints, missing caulk, or a cracked cap.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">My chimney bricks look fine but the cap is cracked. Do I really need to fix it?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Yes — and soon. A cracked crown is the #1 way water enters a chimney. Water runs down the flue, destroys the clay liner, rots the wood framing around the fireplace, and creates a fire hazard. A crown repair today runs a few hundred dollars. A full chimney rebuild after liner failure runs $5,000–$15,000.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">One brick fell out of my front steps. Can I just replace that one brick?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                You can, but the real question is why it fell. If the surrounding mortar has also failed, neighboring bricks are next. We always inspect the area first — if the mortar is soft or crumbling, we repoint the full section so the repair lasts rather than needing to be redone in two years.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- OUR SERVICES -->
+        <div class="faq-panel" data-cat="services" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Do you do both residential and commercial masonry?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Yes. We work on single-family homes, multi-unit buildings, storefronts, and commercial properties across Chicagoland. The same crew handles both — we don't split into separate residential and commercial teams.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Can you match my existing brick color and mortar?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Matching is one of the harder parts of masonry repair and where many contractors cut corners. We sample your existing mortar to match the composition — not just the color — and we source brick from the same regional manufacturers common in Chicagoland when your home was built.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Do you handle chimney liner replacement?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Yes. We install stainless steel flexible liners for gas and oil appliances, and repair or replace clay tile liners for wood-burning fireplaces. All liner work meets current Illinois building code.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">What's included in the free inspection?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                We assess all visible masonry — brick condition, mortar joint depth and composition, chimney crown and cap, flashing, weep holes, and any spalling. You get a written report with photos and a line-item estimate. No obligation, no sales pressure.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FREE DIAGNOSTIC TOOLS -->
+        <div class="faq-panel" data-cat="tools" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">What is the Mortar Damage Score tool?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                It's a quick self-assessment on our tuckpointing page. You answer 5 questions about what you see on your masonry — joint depth, crumbling, staining — and the tool estimates whether your damage is minor, moderate, or urgent. It's not a substitute for an inspection, but it helps you understand what you're looking at before you call.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">What is the Brick Damage Counter?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                On our brick repair page, you input how many damaged or spalled bricks you can count. The tool gives a rough cost range and tells you when spot patching makes sense versus when a larger repair is more cost-effective long-term.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Is the Chimney Risk Score free to use?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Yes, completely free. It asks about your chimney's visible condition — crown cracks, efflorescence, loose bricks, staining — and calculates a risk level. High-risk results link directly to scheduling a free inspection.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE AREAS -->
+        <div class="faq-panel" data-cat="areas" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Do you serve the North Shore suburbs?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Yes. We work in Winnetka, Glencoe, Highland Park, Lake Forest, Wilmette, Kenilworth, and Evanston regularly. North Shore homes — especially pre-1960 construction — are some of the most common masonry repair work we do.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">How far west do you go in the suburbs?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                We cover Naperville, Wheaton, Glen Ellyn, Lombard, Downers Grove, and the Route 83 corridor. For larger jobs further west, contact us and we'll let you know if we can accommodate.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Do you work in Chicago proper?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Yes. We work throughout Chicago, with particular frequency in Lincoln Park, Lakeview, Bucktown, Logan Square, and Hyde Park — neighborhoods with a lot of older brick construction that needs regular maintenance.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Is there a travel fee for distant suburbs?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                No travel fee for any area within our standard coverage zone. If you're at the edge of our coverage area, we'll tell you upfront before scheduling.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOW WE WORK -->
+        <div class="faq-panel" data-cat="process" role="list">
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">How long does a tuckpointing job take?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                A standard single-wall tuckpointing job takes 1–2 days. A full chimney repoint takes 1 day. Larger projects — full exterior repointing on a two-story home — typically run 3–5 days depending on square footage and access.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Do I need to be home during the repair?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Not for exterior work. We need access to your yard or property, but you don't need to be present. We'll send photos at the start and end of each day and call you if we find anything unexpected.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">What happens if you find more damage than expected?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                We stop and call you before going further. We don't expand the scope of work without your explicit approval. The written estimate you receive is a ceiling, not a starting point for add-ons.
+              </div>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button class="faq-q" aria-expanded="false">Do you offer a warranty on your work?</button>
+            <div class="faq-a" aria-hidden="true">
+              <div class="faq-a-inner">
+                Yes. Tuckpointing and repointing carries a 5-year workmanship warranty. Brick replacement carries a 3-year warranty. Chimney crown repairs carry a 2-year warranty. We document any pre-existing conditions before starting so there's no ambiguity.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /faq-panels -->
+    </div><!-- /faq-body -->
+
+    <!-- Bottom bar -->
+    <div class="faq-footer" id="faq-footer">
+      <p class="faq-footer-text">Still have questions? We're happy to talk through your specific situation.</p>
+      <a href="/contact#form" class="faq-footer-cta">Ask Us Directly →</a>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+(function () {
+
+  /* ── Accordion open/close ──────────────────────── */
+  function openItem(item) {
+    var body  = item.querySelector('.faq-a');
+    var inner = item.querySelector('.faq-a-inner');
+    var btn   = item.querySelector('.faq-q');
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    body.setAttribute('aria-hidden', 'false');
+
+    var gsap = window.__gsap;
+    if (gsap) {
+      gsap.killTweensOf(body);
+      gsap.fromTo(body, { height: 0, overflow: 'hidden' }, {
+        height: inner.scrollHeight,
+        duration: 0.38,
+        ease: 'power3.out',
+        onComplete: function () { body.style.height = 'auto'; body.style.overflow = ''; }
+      });
+    } else {
+      body.style.height = inner.scrollHeight + 'px';
+    }
+  }
+
+  function closeItem(item) {
+    var body = item.querySelector('.faq-a');
+    var btn  = item.querySelector('.faq-q');
+    item.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    body.setAttribute('aria-hidden', 'true');
+
+    var gsap = window.__gsap;
+    if (gsap) {
+      gsap.killTweensOf(body);
+      gsap.to(body, {
+        height: body.offsetHeight,
+        duration: 0,
+        onComplete: function () {
+          gsap.to(body, { height: 0, duration: 0.28, ease: 'power3.in', overflow: 'hidden' });
+        }
+      });
+    } else {
+      body.style.height = '0';
+    }
+  }
+
+  function initAccordion() {
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function (item) {
+      var btn = item.querySelector('.faq-q');
+      if (!btn || btn.dataset.faqInit) return;
+      btn.dataset.faqInit = '1';
+
+      /* Ensure body starts collapsed */
+      var body = item.querySelector('.faq-a');
+      if (!item.classList.contains('open')) body.style.height = '0';
+
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        var panel  = item.closest('.faq-panel');
+
+        /* Close all siblings */
+        panel.querySelectorAll('.faq-item.open').forEach(function (o) {
+          if (o !== item) closeItem(o);
+        });
+
+        if (isOpen) { closeItem(item); } else { openItem(item); }
+      });
+    });
+  }
+
+  /* ── Tab switching ─────────────────────────────── */
+  function initTabs() {
+    var tabs = document.querySelectorAll('.faq-tab');
+    if (!tabs.length || tabs[0].dataset.tabInit) return;
+    tabs[0].dataset.tabInit = '1';
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var cat = tab.dataset.cat;
+
+        tabs.forEach(function (t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        document.querySelectorAll('.faq-panel').forEach(function (p) {
+          p.classList.remove('active');
+        });
+        var activePanel = document.querySelector('.faq-panel[data-cat="' + cat + '"]');
+        if (activePanel) {
+          activePanel.classList.add('active');
+
+          /* Stagger-in the new items */
+          var gsap = window.__gsap;
+          if (gsap) {
+            gsap.fromTo(
+              activePanel.querySelectorAll('.faq-item'),
+              { opacity: 0, y: 12 },
+              { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', stagger: 0.06 }
+            );
+          }
+        }
+      });
+    });
+  }
+
+  /* ── GSAP scroll animations ────────────────────── */
+  function initScrollAnims() {
+    var gsap = window.__gsap;
+    var ST   = window.__ScrollTrigger;
+    if (!gsap || !ST) return;
+
+    var section = document.getElementById('faq-section');
+    if (!section || section.dataset.faqAnimDone) return;
+    section.dataset.faqAnimDone = '1';
+
+    var defaults = { ease: 'power3.out', duration: 0.7 };
+
+    /* Header */
+    gsap.from('#faq-header .faq-eyebrow', {
+      ...defaults, y: 24, opacity: 0,
+      scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true }
+    });
+    gsap.from('#faq-header .faq-heading', {
+      ...defaults, y: 32, opacity: 0, delay: 0.1,
+      scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true }
+    });
+    gsap.from('#faq-header .faq-desc', {
+      ...defaults, y: 20, opacity: 0, delay: 0.2,
+      scrollTrigger: { trigger: '#faq-header', start: 'top 82%', once: true }
+    });
+
+    /* Nav tabs — slide from left */
+    gsap.from('#faq-nav .faq-tab', {
+      x: -24, opacity: 0, duration: 0.5, ease: 'power2.out',
+      stagger: 0.08,
+      scrollTrigger: { trigger: '#faq-nav', start: 'top 85%', once: true }
+    });
+
+    /* Initial panel items — stagger up */
+    var initItems = document.querySelectorAll('.faq-panel.active .faq-item');
+    gsap.from(initItems, {
+      y: 16, opacity: 0, duration: 0.45, ease: 'power2.out', stagger: 0.07,
+      scrollTrigger: { trigger: '#faq-panels', start: 'top 85%', once: true }
+    });
+
+    /* Footer */
+    gsap.from('#faq-footer', {
+      y: 20, opacity: 0, duration: 0.6, ease: 'power2.out',
+      scrollTrigger: { trigger: '#faq-footer', start: 'top 90%', once: true }
+    });
+  }
+
+  function init() {
+    initAccordion();
+    initTabs();
+    initScrollAnims();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  if (window.__gsap && window.__ScrollTrigger) {
+    initScrollAnims();
+  } else {
+    window.addEventListener('animations:ready', initScrollAnims);
+  }
+
+  document.addEventListener('astro:page-load', function () {
+    /* Reset guards so animations re-run after ViewTransition */
+    var s = document.getElementById('faq-section');
+    if (s) delete s.dataset.faqAnimDone;
+    var t = document.querySelector('.faq-tab');
+    if (t) delete t.dataset.tabInit;
+    init();
+  });
+
+})();
+</script>
+
+<style>
+/* ══════════════════════════════════════
+   SECTION
+══════════════════════════════════════ */
+.faq-section {
+  background: #ffffff;
+  padding: 100px 24px;
+}
+
+.faq-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════
+   HEADER
+══════════════════════════════════════ */
+.faq-header {
+  max-width: 560px;
+  margin-bottom: 60px;
+}
+
+.faq-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.faq-eyebrow span {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #B85C38;
+}
+
+.faq-heading {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #16120F;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+}
+.faq-heading-accent {
+  font-style: normal;
+  color: #16120F;
+}
+
+.faq-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #4A433B;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════
+   BODY: NAV + PANELS
+══════════════════════════════════════ */
+.faq-body {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* ── Left nav ── */
+.faq-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #D9D9D9;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.faq-tab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #6A625A;
+  background: #ffffff;
+  border: none;
+  border-bottom: 1px solid #D9D9D9;
+  cursor: pointer;
+  text-align: left;
+  transition: background 180ms ease, color 180ms ease;
+}
+.faq-tab:last-child { border-bottom: none; }
+.faq-tab:hover:not(.active) {
+  background: #F5F5F5;
+  color: #16120F;
+}
+.faq-tab.active {
+  background: #16120F;
+  color: #ffffff;
+}
+.faq-tab.active .faq-tab-dot { background: #B85C38; }
+.faq-tab:focus-visible { outline: 2px solid #B85C38; outline-offset: -2px; z-index: 1; position: relative; }
+
+.faq-tab-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D9D9D9;
+  flex-shrink: 0;
+  transition: background 180ms ease;
+}
+.faq-tab:hover:not(.active) .faq-tab-dot { background: #B85C38; }
+
+/* ── Right panels ── */
+.faq-panels {
+  min-width: 0;
+}
+
+.faq-panel {
+  display: none;
+}
+.faq-panel.active {
+  display: block;
+}
+
+/* ── Accordion item ── */
+.faq-item {
+  border-bottom: 1px solid #D9D9D9;
+}
+.faq-item:first-child { border-top: 1px solid #D9D9D9; }
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #16120F;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+  transition: color 200ms ease;
+}
+.faq-q:hover { color: #B85C38; }
+.faq-q:focus-visible { outline: 2px solid #B85C38; outline-offset: 2px; border-radius: 4px; }
+
+/* Chevron icon */
+.faq-q::after {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background: #F5F5F5;
+  border-radius: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236A625A' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 280ms ease, background 200ms ease;
+}
+.faq-item.open .faq-q::after {
+  transform: rotate(180deg);
+  background-color: #B85C38;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+}
+
+.faq-a {
+  height: 0;
+  overflow: hidden;
+}
+
+.faq-a-inner {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #4A433B;
+  padding: 0 40px 20px 0;
+}
+
+/* ══════════════════════════════════════
+   FOOTER BAR
+══════════════════════════════════════ */
+.faq-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid #D9D9D9;
+  flex-wrap: wrap;
+}
+
+.faq-footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #4A433B;
+  margin: 0;
+}
+
+.faq-footer-cta {
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 28px;
+  background: #16120F;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 200ms ease;
+}
+.faq-footer-cta:hover { background: #B85C38; }
+.faq-footer-cta:focus-visible { outline: 2px solid #B85C38; outline-offset: 2px; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 860px) {
+  .faq-body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .faq-nav {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-radius: 12px;
+  }
+  .faq-tab { font-size: 11px; padding: 12px 14px; }
+  .faq-section { padding: 72px 20px; }
+}
+
+@media (max-width: 560px) {
+  .faq-nav { grid-template-columns: 1fr; }
+  .faq-heading { font-size: clamp(28px, 8vw, 40px); }
+  .faq-footer { flex-direction: column; align-items: flex-start; }
+  .faq-footer-cta { width: 100%; justify-content: center; }
+}
+</style>

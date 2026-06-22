@@ -1,0 +1,469 @@
+---
+---
+
+<div class="bd-wrap" id="bd-root">
+  <div class="bd-header">
+    <span class="bd-badge">FREE TOOL</span>
+    <h2 class="bd-title">Damaged Brick Replacement — <em>Damage Assessment Tool</em></h2>
+    <p class="bd-sub">Count your damaged bricks by type — get a repair cost estimate, urgency rating, and exactly what to do next.</p>
+    <div class="bd-progress"><div class="bd-progress-fill" id="bd-progress-fill"></div></div>
+  </div>
+
+  <!-- STEP 1: Damage Counts -->
+  <div class="step active" id="bd-step1">
+    <p class="step-label">Step 1 of 3 — Count Your Damaged Bricks</p>
+    <p class="step-desc">Enter your best count for each damage type. Zero is fine if that type doesn't apply.</p>
+
+    <div class="counter-grid">
+      <div class="counter-card">
+        <div class="counter-icon">🧱</div>
+        <div class="counter-info">
+          <span class="counter-title">Spalled / Flaking Bricks</span>
+          <span class="counter-desc">Surface layers breaking off, crumbling edges</span>
+        </div>
+        <input class="bd-input bd-count" type="number" id="bd-spalled" placeholder="0" min="0" value="0" />
+      </div>
+      <div class="counter-card">
+        <div class="counter-icon">💔</div>
+        <div class="counter-info">
+          <span class="counter-title">Cracked Bricks</span>
+          <span class="counter-desc">Hairline to full-depth cracks through the brick</span>
+        </div>
+        <input class="bd-input bd-count" type="number" id="bd-cracked" placeholder="0" min="0" value="0" />
+      </div>
+      <div class="counter-card">
+        <div class="counter-icon">🕳</div>
+        <div class="counter-info">
+          <span class="counter-title">Broken / Missing Bricks</span>
+          <span class="counter-desc">Completely broken or fallen out entirely</span>
+        </div>
+        <input class="bd-input bd-count" type="number" id="bd-missing" placeholder="0" min="0" value="0" />
+      </div>
+      <div class="counter-card">
+        <div class="counter-icon">🤍</div>
+        <div class="counter-info">
+          <span class="counter-title">Stained / Efflorescence Bricks</span>
+          <span class="counter-desc">White salt deposits, heavy staining</span>
+        </div>
+        <input class="bd-input bd-count" type="number" id="bd-stained" placeholder="0" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="total-bar" id="bd-total-bar">
+      <span class="total-label">Total Damaged Bricks:</span>
+      <span class="total-count" id="bd-total">0</span>
+    </div>
+
+    <div class="select-row">
+      <div class="field-group">
+        <label class="field-label" for="bd-location">Damage Location</label>
+        <select class="bd-input bd-select" id="bd-location">
+          <option value="Exterior Wall">Exterior Wall</option>
+          <option value="Chimney">Chimney</option>
+          <option value="Foundation">Foundation</option>
+          <option value="Retaining Wall">Retaining Wall</option>
+          <option value="Interior">Interior</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="bd-duration">How Long Visible</label>
+        <select class="bd-input bd-select" id="bd-duration">
+          <option value="Under 6 months">Under 6 months</option>
+          <option value="6 months–2 years">6 months – 2 years</option>
+          <option value="2+ years">2+ years</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="bd-notes">Additional Notes</label>
+      <textarea class="bd-input bd-textarea" id="bd-notes" placeholder="Describe location, pattern of damage, any known history of water or structural issues, etc."></textarea>
+    </div>
+
+    <button class="bd-btn bd-btn-primary" id="bd-to-step2">Next — Your Information →</button>
+  </div>
+
+  <!-- STEP 2: Contact Form -->
+  <div class="step" id="bd-step2">
+    <p class="step-label">Step 2 of 3 — Your Contact Information</p>
+    <p class="step-desc">We'll include your details in the personalized brick damage report.</p>
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="bd-name">Full Name <span class="req">*</span></label>
+        <input class="bd-input" type="text" id="bd-name" placeholder="Sarah Homeowner" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="bd-phone">Phone <span class="req">*</span></label>
+        <input class="bd-input" type="tel" id="bd-phone" placeholder="(773) 555-0100" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="bd-email">Email <span class="req">*</span></label>
+        <input class="bd-input" type="email" id="bd-email" placeholder="sarah@home.com" required />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="bd-address">Property Address <span class="req">*</span></label>
+        <input class="bd-input" type="text" id="bd-address" placeholder="456 Maple Ave, Chicago, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="bd-zip">Zip Code <span class="req">*</span></label>
+        <input class="bd-input" type="text" id="bd-zip" placeholder="60618" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="bd-btn bd-btn-outline" id="bd-back-to-step1">← Back</button>
+      <button class="bd-btn bd-btn-primary" id="bd-submit">Generate Damage Report →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="bd-step3">
+    <div class="spinner-wrap" id="bd-spinner">
+      <div class="spinner"></div>
+      <p class="spinner-text">Your Personal Masonry Assistant is reviewing your data…</p>
+      <p class="spinner-sub">Building your property-specific report</p>
+    </div>
+    <div class="result-wrap" id="bd-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="result-title">Your Report Is Ready</h3>
+      <p class="result-sub">Your personalized Brick Damage Assessment is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary report is an estimate based on the brick counts and information you provided. It is not a substitute for a professional on-site inspection. Actual repair scope, brick matching difficulty, and costs may differ. For a 100% accurate assessment, contact All Masonry Services Inc. for a FREE on-site evaluation — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="bd-btn bd-btn-primary" id="bd-pdf-btn">Download PDF Report</button>
+        <a class="bd-btn bd-btn-outline" href="/contact#form">Book Free On-Site Inspection</a>
+      </div>
+    </div>
+    <div class="error-wrap" id="bd-error" style="display:none">
+      <p class="error-msg" id="bd-error-msg"></p>
+      <button class="bd-btn bd-btn-outline" id="bd-retry">← Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (async () => {
+    const GEMINI_KEY = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+
+    let bd_reportText = "";
+    let bd_contactData: Record<string, string> = {};
+
+    function bd_getVal(id: string): string {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      return el ? el.value.trim() : "";
+    }
+
+    function bd_getNum(id: string): number {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      return el ? (parseInt(el.value) || 0) : 0;
+    }
+
+    function bd_setProgress(pct: number) {
+      const bar = document.getElementById("bd-progress-fill") as HTMLElement | null;
+      if (bar) bar.style.width = pct + "%";
+    }
+
+    function bd_showStep(n: number) {
+      [1, 2, 3].forEach(i => {
+        const el = document.getElementById(`bd-step${i}`);
+        if (el) el.classList.toggle("active", i === n);
+      });
+      bd_setProgress(n === 1 ? 10 : n === 2 ? 50 : 100);
+    }
+
+    function bd_updateTotal() {
+      const total = bd_getNum("bd-spalled") + bd_getNum("bd-cracked") + bd_getNum("bd-missing") + bd_getNum("bd-stained");
+      const el = document.getElementById("bd-total");
+      if (el) el.textContent = String(total);
+    }
+
+    document.querySelectorAll(".bd-count").forEach(input => {
+      input.addEventListener("input", bd_updateTotal);
+    });
+
+    async function bd_generate() {
+      const spalled = bd_getNum("bd-spalled");
+      const cracked = bd_getNum("bd-cracked");
+      const missing = bd_getNum("bd-missing");
+      const stained = bd_getNum("bd-stained");
+      const total = spalled + cracked + missing + stained;
+      const location = bd_getVal("bd-location");
+      const duration = bd_getVal("bd-duration");
+      const notes = bd_getVal("bd-notes");
+      const zip = bd_contactData.zip;
+
+      const urgency = missing > 5 || (total > 20) ? "CRITICAL" : missing > 0 || total > 10 ? "HIGH" : total > 3 ? "MEDIUM" : "LOW";
+      const dominantType = spalled >= cracked && spalled >= missing && spalled >= stained ? "spalling" : cracked >= missing && cracked >= stained ? "cracking" : missing >= stained ? "missing/broken" : "efflorescence/staining";
+
+      const prompt = `You are a senior brick restoration expert at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED brick damage report for a specific homeowner at zip code ${zip}.
+
+PROPERTY DAMAGE PROFILE:
+- Homeowner: ${bd_contactData.name}
+- Property: ${bd_contactData.address}, IL ${zip}
+- Damage Location: ${location}
+- Duration Visible: ${duration}
+- Spalled/Flaking Bricks: ${spalled} units
+- Cracked Bricks: ${cracked} units
+- Broken/Missing Bricks: ${missing} units
+- Stained/Efflorescence Bricks: ${stained} units
+- TOTAL DAMAGED: ${total} bricks
+- Primary Damage Type: ${dominantType}
+- Urgency Level: ${urgency}
+- Additional Notes: ${notes || "None provided"}
+
+TASK: Write a SPECIFIC, PERSONALIZED brick damage report for THIS homeowner at THIS ${location}. Every section must address their specific mix of damage types, the ${location} location context, and how long damage has been visible (${duration}). Chicago freeze-thaw context must be specific to their damage pattern — not generic.
+
+Use exactly these ALL CAPS section headings:
+
+DAMAGE SUMMARY — ${total} BRICKS / ${urgency} URGENCY
+(Summarize this homeowner's specific damage profile. Explain why ${total} damaged bricks at a ${location} with ${dominantType} as the dominant type represents ${urgency} urgency. Be direct: "Your wall has X bricks showing [type], which means [specific structural consequence].")
+
+BRICK-BY-BRICK DAMAGE ANALYSIS
+(Analyze each damage type that is > 0, in order of structural severity. For MISSING bricks: explain water is actively entering the wall cavity right now. For SPALLED bricks: explain freeze-thaw pressure cycling causing delamination and what happens next winter. For CRACKED bricks: explain the crack propagation path and load transfer implications. For STAINED bricks: explain what the efflorescence pattern reveals about moisture source and path. Skip types with 0 count.)
+
+REPAIR COST ESTIMATE — ${location} IN ZIP ${zip}
+(Give specific per-unit and total costs. Format:
+- Spalled brick replacement: $X–$X per brick (${spalled} bricks = $XXX–$XXX)
+- Cracked brick replacement: $X–$X per brick (${cracked} bricks = $XXX–$XXX)
+- Missing brick replacement: $X–$X per brick (${missing} bricks = $XXX–$XXX)
+- Efflorescence treatment: $X–$X per brick (${stained} bricks = $XXX–$XXX)
+- TOTAL ESTIMATE: $X,XXX – $X,XXX
+Use real Chicago Metro 2026 labor + material rates. Include 15% overage for mortar repair.)
+
+MATCHING BRICK NOTE FOR THIS PROPERTY
+(Explain the challenge of matching brick for a ${location} that has been damaged for ${duration}. If the property is in zip ${zip}, mention specific Chicago-area brick suppliers who carry historic Chicago brick types. Note that older Chicago homes (pre-1960) often used St. Louis or Joliet brick — different hardness than modern brick. Explain color matching and the "ghost joint" problem.)
+
+URGENCY TIMELINE — WHAT HAPPENS IF YOU WAIT
+(Be specific: if ${missing} bricks are missing, water is entering RIGHT NOW. Calculate: one Chicago winter with ${missing} open cavities = how many freeze-thaw cycles will expand that cavity. If damage has been visible for ${duration}, explain the acceleration that has already happened and what the next 6 months looks like. Give a specific deadline month for repair.)
+
+STRUCTURAL RISK ASSESSMENT FOR ${location.toUpperCase()}
+(Explain the specific structural implications of this damage count at a ${location}. Foundation walls and retaining walls have different risk profiles than exterior walls. Chimneys with missing bricks have fire risk in addition to structural risk. Be specific about load bearing and water barrier implications.)
+
+REPAIR PROCESS OVERVIEW
+(Explain exactly what the repair process looks like for this specific damage mix: sourcing matching brick, cutting out damaged units, re-tuckpointing surrounding mortar joints, waterproofing treatment. Timeline: how many days for ${total} bricks at ${location}.)
+
+YOUR NEXT STEP
+(Recommend calling 773-656-2107 or visiting allmasonryservices.com for a FREE on-site brick assessment. Mention AMS serves the ${zip} area and has completed 500+ brick restoration projects in Chicagoland since 2007. Free inspection, free written estimate, no obligation.)
+
+Write in plain English for a homeowner. Be specific and actionable. Every cost number must be a real range, not a placeholder.`;
+
+      const resp = await fetch(GEMINI_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+        })
+      });
+      if (!resp.ok) throw new Error(`API error: ${resp.status}`);
+      const data = await resp.json();
+      bd_reportText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No report generated.";
+    }
+
+    function bd_renderReport() {
+      const spinner = document.getElementById("bd-spinner");
+      const result = document.getElementById("bd-result");
+      if (spinner) spinner.style.display = "none";
+      if (result) result.style.display = "block";
+    }
+
+    async function bd_downloadPDF() {
+      await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"); const jsPDF = (window as any).jspdf.jsPDF; const GState = (window as any).jspdf.GState;
+      const doc = new jsPDF({ unit: "pt", format: "letter" });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const margin = 48;
+      let y = 0;
+
+      function bd_checkPage(needed: number) {
+        if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
+      }
+
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, 0, pageW, 72, "F");
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES INC", margin, 26);
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(15);
+      doc.text("Damaged Brick Replacement — Damage Assessment Report", margin, 52);
+      y = 96;
+
+      const total = bd_getNum("bd-spalled") + bd_getNum("bd-cracked") + bd_getNum("bd-missing") + bd_getNum("bd-stained");
+      doc.setTextColor(74, 74, 74);
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Prepared for: ${bd_contactData.name}  |  ${bd_contactData.phone}  |  ${bd_contactData.email}`, margin, y);
+      y += 14;
+      doc.text(`Property: ${bd_contactData.address}, ${bd_contactData.zip}`, margin, y);
+      y += 14;
+      doc.text(`Total Damaged Bricks: ${total}  |  Location: ${bd_getVal("bd-location")}  |  Duration: ${bd_getVal("bd-duration")}`, margin, y);
+      y += 14;
+      doc.text(`Date: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`, margin, y);
+      y += 24;
+
+      const lines = bd_reportText.split("\n");
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) { y += 6; continue; }
+        const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 90 && !trimmed.includes("•") && !trimmed.match(/^\d/) && !trimmed.match(/^\$/);
+        if (isHeading) {
+          bd_checkPage(36);
+          doc.setFillColor(184, 92, 56);
+          doc.rect(margin, y, 3, 16, "F");
+          doc.setTextColor(22, 18, 15);
+          doc.setFontSize(11);
+          doc.setFont("helvetica", "bold");
+          doc.text(trimmed, margin + 10, y + 12);
+          y += 24;
+        } else {
+          bd_checkPage(18);
+          doc.setTextColor(74, 74, 74);
+          doc.setFontSize(9.5);
+          doc.setFont("helvetica", "normal");
+          const cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/^[-•]\s+/, "• ");
+          const wrapped = doc.splitTextToSize(cleaned, pageW - margin * 2);
+          doc.text(wrapped, margin, y);
+          y += wrapped.length * 13;
+        }
+      }
+
+      bd_checkPage(80);
+      doc.setDrawColor(184, 92, 56);
+      doc.setLineWidth(0.5);
+      doc.line(margin, y, pageW - margin, y);
+      y += 12;
+      doc.setTextColor(140, 128, 112);
+      doc.setFontSize(8);
+      doc.setFont("helvetica", "bolditalic");
+      doc.text("DISCLAIMER", margin, y);
+      y += 12;
+      doc.setFont("helvetica", "normal");
+      const disclaimerText = "This report is a preliminary estimate based on brick counts and property information provided by the homeowner through an online self-assessment tool. It is not a substitute for a professional on-site inspection by a licensed masonry contractor. Actual brick matching, repair scope, structural conditions, and costs may differ significantly from this estimate. All Masonry Services Inc. does not warrant the accuracy of this preliminary report. For a definitive assessment, contact All Masonry Services Inc. for a FREE on-site evaluation at 773-656-2107 or allmasonryservices.com.";
+      const disclaimerWrapped = doc.splitTextToSize(disclaimerText, pageW - margin * 2);
+      doc.text(disclaimerWrapped, margin, y);
+      y += disclaimerWrapped.length * 11 + 16;
+
+      const totalPages = (doc.internal as any).getNumberOfPages();
+      for (let p = 1; p <= totalPages; p++) {
+        doc.setPage(p);
+        doc.saveGraphicsState();
+        doc.setGState(new GState({ opacity: 0.07 }));
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(52);
+        doc.setFont("helvetica", "bold");
+        doc.text("ALL MASONRY SERVICES", pageW / 2, pageH / 2, { align: "center", angle: 45 });
+        doc.restoreGraphicsState();
+        doc.setFillColor(22, 18, 15);
+        doc.rect(0, pageH - 36, pageW, 36, "F");
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "bold");
+        doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+        doc.setTextColor(180, 180, 180);
+        doc.text(`Page ${p} of ${totalPages}`, pageW - margin - 40, pageH - 14);
+      }
+      doc.save(`BrickDamageReport-${bd_contactData.name.replace(/\s+/g, "-")}.pdf`);
+    }
+
+    document.getElementById("bd-to-step2")?.addEventListener("click", () => bd_showStep(2));
+    document.getElementById("bd-back-to-step1")?.addEventListener("click", () => bd_showStep(1));
+
+    document.getElementById("bd-submit")?.addEventListener("click", async () => {
+      const name = bd_getVal("bd-name");
+      const phone = bd_getVal("bd-phone");
+      const email = bd_getVal("bd-email");
+      const address = bd_getVal("bd-address");
+      const zip = bd_getVal("bd-zip");
+      if (!name || !phone || !email || !address || !zip) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+      bd_contactData = { name, phone, email, address, zip };
+      bd_showStep(3);
+      const spinner = document.getElementById("bd-spinner");
+      const result = document.getElementById("bd-result");
+      const errWrap = document.getElementById("bd-error");
+      if (spinner) spinner.style.display = "flex";
+      if (result) result.style.display = "none";
+      if (errWrap) errWrap.style.display = "none";
+      try {
+        await bd_generate();
+        bd_renderReport();
+      } catch (e: any) {
+        if (spinner) spinner.style.display = "none";
+        if (errWrap) errWrap.style.display = "block";
+        const msg = document.getElementById("bd-error-msg");
+        if (msg) msg.textContent = "Error generating report: " + (e.message || "Please try again.");
+      }
+    });
+
+    document.getElementById("bd-pdf-btn")?.addEventListener("click", bd_downloadPDF);
+    document.getElementById("bd-retry")?.addEventListener("click", () => bd_showStep(1));
+  })();
+</script>
+
+<style>
+  .bd-wrap { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #16120F; max-width: 720px; width: 100%; margin: 0 auto; box-sizing: border-box; }
+  .bd-header { background: #16120F; padding: 32px 36px 0; }
+  .bd-badge { display: inline-block; background: #B85C38; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 4px 10px; margin-bottom: 14px; border-radius: 4px; }
+  .bd-title { font-family: 'Onest', sans-serif; color: #F5F3EF; font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.25; }
+  .bd-title em { color: #B85C38; font-style: normal; }
+  .bd-sub { color: #6A625A; font-size: 14px; margin: 0 0 24px; line-height: 1.5; }
+  .bd-progress { height: 3px; background: #2A2A2A; }
+  .bd-progress-fill { height: 3px; background: #B85C38; width: 10%; transition: width .4s ease; }
+  .step { display: none; padding: 32px 36px; }
+  .step.active { display: block; }
+  .step-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #6A625A; text-transform: uppercase; margin: 0 0 8px; }
+  .step-desc { font-size: 14px; color: #4A433B; margin: 0 0 20px; }
+  .counter-grid { display: flex; flex-direction: column; gap: 0; border: 2px solid #16120F; }
+  .counter-card { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: #fff; border-bottom: 1px solid #E0DDD8; }
+  .counter-card:last-child { border-bottom: none; }
+  .counter-icon { font-size: 22px; flex-shrink: 0; }
+  .counter-info { flex: 1; }
+  .counter-title { display: block; font-size: 14px; font-weight: 700; color: #16120F; }
+  .counter-desc { display: block; font-size: 12px; color: #6A625A; margin-top: 2px; }
+  .bd-input { height: 44px; border: 1px solid #D9D9D9; background: #fff; color: #16120F; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700; padding: 0 12px; box-sizing: border-box; outline: none; border-radius: 10px; appearance: none; text-align: center; width: 72px; }
+  .bd-input:focus { border-color: #B85C38; }
+  .bd-input.bd-select, .bd-input.bd-textarea { width: 100%; text-align: left; font-weight: 400; }
+  .bd-select { cursor: pointer; }
+  .bd-textarea { height: 80px; resize: vertical; padding: 10px 12px; }
+  .total-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #16120F; margin-top: 0; }
+  .total-label { font-size: 13px; font-weight: 600; color: #F5F3EF; }
+  .total-count { font-size: 22px; font-weight: 800; color: #B85C38; font-family: 'Onest', sans-serif; }
+  .select-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .field-group { margin-bottom: 16px; }
+  .field-full { grid-column: 1 / -1; }
+  .field-label { display: block; font-size: 13px; font-weight: 600; color: #16120F; margin-bottom: 6px; }
+  .req { color: #B85C38; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .bd-btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border: none; border-radius: 14px; letter-spacing: .04em; text-decoration: none; transition: opacity .2s; }
+  .bd-btn:hover { opacity: .85; }
+  .bd-btn-primary { background: #B85C38; color: #FFFFFF; }
+  .bd-btn-outline { background: transparent; color: #16120F; border: 2px solid #16120F; }
+  .nav-row { display: flex; gap: 12px; margin-top: 8px; }
+  #bd-to-step2 { width: 100%; margin-top: 8px; }
+  .spinner-wrap { display: flex; flex-direction: column; align-items: center; padding: 48px 0; gap: 16px; }
+  .spinner { width: 44px; height: 44px; border: 3px solid #E0DDD8; border-top-color: #B85C38; border-radius: 50%; animation: bd-spin .8s linear infinite; }
+  @keyframes bd-spin { to { transform: rotate(360deg); } }
+  .spinner-text { color: #6A625A; font-size: 14px; }
+  .spinner-sub { color: #B0A898; font-size: 12px; margin-top: 4px; }
+  .result-wrap { text-align: center; padding: 8px 0; }
+  .success-icon { width: 56px; height: 56px; background: #B85C38; color: #FFFFFF; font-size: 28px; font-weight: 900; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .result-title { font-family: 'Onest', sans-serif; font-size: 22px; color: #16120F; margin: 0 0 8px; }
+  .result-sub { font-size: 14px; color: #4A433B; margin: 0 0 20px; line-height: 1.5; }
+  .disclaimer-box { background: #FEF3EF; border: 1px solid #B85C38; border-left: 4px solid #B85C38; padding: 14px 16px; font-size: 12px; color: #4A433B; line-height: 1.6; text-align: left; margin-bottom: 20px; }
+  .disclaimer-box strong { color: #16120F; display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+  .result-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .error-wrap { padding: 32px; text-align: center; }
+  .error-msg { color: #c0392b; font-size: 14px; margin-bottom: 16px; }
+  @media (max-width: 600px) {
+    .bd-header, .step { padding: 24px 20px; }
+    .select-row, .contact-grid { grid-template-columns: 1fr; }
+    .bd-title { font-size: 20px; }
+    .field-full { grid-column: 1; }
+    .counter-card { flex-wrap: wrap; }
+  }
+</style>

@@ -1,0 +1,1146 @@
+﻿---
+// Navbar — All Masonry Services Inc
+// Announcement Strip + Fixed Nav + Services Mega Dropdown + Mobile Menu
+// Zero JS hydration cost — vanilla script deferred, LCP/FCP/TBT unaffected
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<!-- ═══════════════════════════════════════════════
+     ANNOUNCEMENT STRIP
+═══════════════════════════════════════════════ -->
+<div class="announce-strip" id="announce-strip" role="region" aria-label="Site announcement">
+  <div class="announce-inner">
+    <span class="announce-icon" aria-hidden="true">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L11 10H1L6 1Z" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linejoin="round"/><path d="M6 5V7" stroke="rgba(255,255,255,0.85)" stroke-width="1.5" stroke-linecap="square"/><circle cx="6" cy="9" r="0.5" fill="rgba(255,255,255,0.85)"/></svg>
+    </span>
+    <span class="announce-text announce-text--desktop">
+      Cracked brick &amp; mortar damage worsens every winter — Get a FREE inspection before it's too late
+    </span>
+    <span class="announce-text announce-text--mobile">
+      Free masonry inspection — limited slots
+    </span>
+    <a href="/contact#form" class="announce-cta" aria-label="Get a free masonry inspection" id="announce-cta-link">Get Free Inspection</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MAIN NAVBAR
+═══════════════════════════════════════════════ -->
+<header class="navbar" id="navbar" role="banner">
+
+  <!-- TROWEL ANIMATION LAYER -->
+  <div class="navbar-anim-layer" aria-hidden="true">
+    <!-- Brick texture overlay -->
+    <div class="brick-texture"></div>
+    <!-- Trowel that travels across on hover -->
+    <div class="trowel-wrap" id="nav-trowel">
+      <div class="trowel-blade"></div>
+      <div class="trowel-ferrule"></div>
+      <div class="trowel-handle"></div>
+    </div>
+    <!-- Mortar smear line -->
+    <div class="mortar-line"></div>
+  </div>
+
+  <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+
+    <!-- LEFT: Logo -->
+    <a href="/" class="nav-logo" aria-label="All Masonry Services Inc — Home">
+      <img src="/images/logo.png" alt="All Masonry Services Inc" class="nav-logo-img" width="150" height="50" />
+    </a>
+
+    <!-- CENTER: Nav Links -->
+    <ul class="nav-links" role="list" id="nav-links">
+      <li><a href="/" class="nav-link" aria-current={isActive('/') ? 'page' : undefined}>Home</a></li>
+
+      <!-- Services Dropdown Trigger -->
+      <li class="nav-item-dropdown" id="services-item">
+        <button
+          class="nav-link nav-link-dropdown"
+          id="services-btn"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls="services-dropdown"
+          aria-current={isActive('/services') ? 'page' : undefined}
+        >
+          Services
+          <svg class="dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+          </svg>
+        </button>
+
+        <!-- MEGA DROPDOWN -->
+        <div class="nav-dropdown" id="services-dropdown" role="menu" aria-label="Services menu">
+          <div class="dropdown-inner">
+
+            <!-- Column 1 -->
+            <div class="dropdown-col">
+              <div class="dropdown-col-header">Residential</div>
+              <ul role="list">
+                <li><a href="/services/custom-home-masonry" class="dropdown-link" role="menuitem">Custom Home Masonry</a></li>
+                <li><a href="/services/brick-installation" class="dropdown-link" role="menuitem">Brick Installation</a></li>
+                <li><a href="/services/natural-stone-limestone" class="dropdown-link" role="menuitem">Natural Stone & Limestone</a></li>
+                <li><a href="/services/brick-stone-veneers" class="dropdown-link" role="menuitem">Brick & Stone Veneers</a></li>
+                <li><a href="/services/chimney-fireplace" class="dropdown-link" role="menuitem">Chimney & Fireplace</a></li>
+              </ul>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="dropdown-col">
+              <div class="dropdown-col-header">Commercial</div>
+              <ul role="list">
+                <li><a href="/services/cmu-block-installation" class="dropdown-link" role="menuitem">CMU Block Installation</a></li>
+                <li><a href="/services/commercial-brick-stone" class="dropdown-link" role="menuitem">Commercial Brick & Stone</a></li>
+                <li><a href="/services/commercial-masonry-veneers" class="dropdown-link" role="menuitem">Full Masonry Veneers</a></li>
+              </ul>
+
+              <div class="dropdown-col-header" style="margin-top:16px">Restoration</div>
+              <ul role="list">
+                <li><a href="/services/tuckpointing-repointing" class="dropdown-link" role="menuitem">Tuckpointing & Repointing</a></li>
+                <li><a href="/services/damaged-brick-replacement" class="dropdown-link" role="menuitem">Damaged Brick Replacement</a></li>
+                <li><a href="/services/chimney-repair-rebuilding" class="dropdown-link" role="menuitem">Chimney Repair & Rebuilding</a></li>
+              </ul>
+            </div>
+
+            <!-- Column 3: Trust / CTA -->
+            <div class="dropdown-col dropdown-col-trust">
+              <div class="trust-block">
+                <div class="trust-stat">
+                  <span class="trust-num">19+</span>
+                  <span class="trust-label">Years Experience</span>
+                </div>
+                <div class="trust-stat">
+                  <span class="trust-num">500+</span>
+                  <span class="trust-label">Projects Completed</span>
+                </div>
+                <div class="trust-badges">
+                  <span class="trust-badge"><svg class="trust-check" width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L9 1" stroke="#B85C38" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg> Licensed &amp; Insured</span>
+                  <span class="trust-badge"><svg class="trust-check" width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L9 1" stroke="#B85C38" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg> Free Estimates</span>
+                  <span class="trust-badge"><svg class="trust-check" width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L9 1" stroke="#B85C38" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg> Chicagoland Since 2007</span>
+                </div>
+                <a href="/contact#form" class="dropdown-cta">Get a Free Quote →</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </li>
+
+      <li><a href="/service-areas" class="nav-link" aria-current={isActive('/service-areas') ? 'page' : undefined}>Service Areas</a></li>
+      <li><a href="/projects" class="nav-link" aria-current={isActive('/projects') ? 'page' : undefined}>Projects</a></li>
+      <li><a href="/about" class="nav-link" aria-current={isActive('/about') ? 'page' : undefined}>About</a></li>
+      <li><a href="/contact#form" class="nav-link" aria-current={isActive('/contact') ? 'page' : undefined}>Contact</a></li>
+    </ul>
+
+    <!-- RIGHT: CTA + Phone -->
+    <div class="nav-right">
+      <a
+        href="tel:7736562107"
+        class="nav-phone"
+        aria-label="Call All Masonry Services at 773-656-2107"
+      >
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M2 1h3l1.5 3.5-1.8 1.1A9.5 9.5 0 007.4 9.3l1.1-1.8L12 9v3a1 1 0 01-1 1C5.4 13 1 8.6 1 3a1 1 0 011-2z" fill="currentColor"/>
+        </svg>
+        773-656-2107
+      </a>
+      <a href="/contact#form" class="nav-cta">
+        Get a Free Quote
+      </a>
+    </div>
+
+    <!-- MOBILE: Hamburger -->
+    <button
+      class="nav-hamburger"
+      id="nav-hamburger"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+      <span class="ham-line"></span>
+    </button>
+
+  </nav>
+</header>
+
+<!-- ═══════════════════════════════════════════════
+     MOBILE MENU
+═══════════════════════════════════════════════ -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Mobile navigation">
+  <div class="mobile-menu-inner">
+
+    <!-- Mobile Header -->
+    <div class="mobile-menu-header">
+      <img src="/images/logo.png" alt="All Masonry Services Inc" class="mobile-logo-img" width="120" height="40" />
+      <button class="mobile-close" id="mobile-close" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M2 2L18 18M18 2L2 18" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Links -->
+    <nav aria-label="Mobile navigation">
+      <a href="/" class="mobile-link">Home</a>
+
+      <!-- Mobile Services Accordion -->
+      <button class="mobile-link mobile-accordion-btn" id="mobile-services-btn" aria-expanded="false">
+        Services
+        <svg class="mobile-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+        </svg>
+      </button>
+      <div class="mobile-accordion" id="mobile-services-accordion">
+        <div class="mobile-submenu-header">Residential</div>
+        <a href="/services/custom-home-masonry" class="mobile-sublink">Custom Home Masonry</a>
+        <a href="/services/brick-installation" class="mobile-sublink">Brick Installation</a>
+        <a href="/services/natural-stone-limestone" class="mobile-sublink">Natural Stone & Limestone</a>
+        <a href="/services/brick-stone-veneers" class="mobile-sublink">Brick & Stone Veneers</a>
+        <a href="/services/chimney-fireplace" class="mobile-sublink">Chimney & Fireplace</a>
+        <div class="mobile-submenu-header">Commercial</div>
+        <a href="/services/cmu-block-installation" class="mobile-sublink">CMU Block Installation</a>
+        <a href="/services/commercial-brick-stone" class="mobile-sublink">Commercial Brick & Stone</a>
+        <a href="/services/commercial-masonry-veneers" class="mobile-sublink">Full Masonry Veneers</a>
+        <div class="mobile-submenu-header">Restoration</div>
+        <a href="/services/tuckpointing-repointing" class="mobile-sublink">Tuckpointing & Repointing</a>
+        <a href="/services/damaged-brick-replacement" class="mobile-sublink">Damaged Brick Replacement</a>
+        <a href="/services/chimney-repair-rebuilding" class="mobile-sublink">Chimney Repair & Rebuilding</a>
+      </div>
+
+      <a href="/service-areas" class="mobile-link">Service Areas</a>
+      <a href="/projects" class="mobile-link">Projects</a>
+      <a href="/about" class="mobile-link">About</a>
+      <a href="/contact#form" class="mobile-link">Contact</a>
+    </nav>
+
+    <!-- Mobile CTA -->
+    <div class="mobile-cta-block">
+      <a href="/contact#form" class="mobile-cta-btn">Get a Free Quote →</a>
+      <a href="tel:7736562107" class="mobile-phone-btn" aria-label="Call All Masonry Services at 773-656-2107">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style="flex-shrink:0">
+          <path d="M2 1h3l1.5 3.5-1.8 1.1A9.5 9.5 0 007.4 9.3l1.1-1.8L12 9v3a1 1 0 01-1 1C5.4 13 1 8.6 1 3a1 1 0 011-2z" fill="currentColor"/>
+        </svg>
+        773-656-2107
+      </a>
+    </div>
+
+    <!-- Mobile Trust -->
+    <div class="mobile-trust">
+      <span><svg width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L9 1" stroke="#8B8070" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg> 19+ Years</span>
+      <span><svg width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L9 1" stroke="#8B8070" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg> Licensed &amp; Insured</span>
+      <span><svg width="10" height="8" viewBox="0 0 10 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L9 1" stroke="#8B8070" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/></svg> Free Estimates</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay" id="mobile-overlay" aria-hidden="true"></div>
+
+<!-- Spacer so content doesn't hide under fixed navbar -->
+<div class="nav-spacer" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════════════
+     SCRIPT — deferred, no TBT impact
+═══════════════════════════════════════════════ -->
+<script is:inline>
+  function initNavbar() {
+    var hamburger = document.getElementById('nav-hamburger');
+    if (!hamburger || hamburger.dataset.navInit) return;
+    hamburger.dataset.navInit = '1';
+
+    var navbar = document.getElementById('navbar');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var mobileOverlay = document.getElementById('mobile-overlay');
+    var mobileClose = document.getElementById('mobile-close');
+    var servicesBtn = document.getElementById('services-btn');
+    var servicesDropdown = document.getElementById('services-dropdown');
+    var servicesItem = document.getElementById('services-item');
+    var mobileServicesBtn = document.getElementById('mobile-services-btn');
+    var mobileAccordion = document.getElementById('mobile-services-accordion');
+    var announceStrip = document.getElementById('announce-strip');
+    var announceCta = document.getElementById('announce-cta-link');
+
+    if (!navbar || !hamburger || !mobileMenu || !servicesBtn || !servicesDropdown || !servicesItem) return;
+
+    var STRIP_HEIGHT = 36;
+    var ticking = false;
+    var dropdownTimeout;
+
+    // ── Scroll ───────────────────────────────────────
+    function updateNavbar() {
+      var scrolled = window.scrollY > STRIP_HEIGHT;
+      navbar.classList.toggle('scrolled', scrolled);
+      navbar.classList.toggle('strip-hidden', scrolled);
+      if (announceStrip) announceStrip.classList.toggle('hidden', scrolled);
+      if (announceCta) announceCta.setAttribute('tabindex', scrolled ? '-1' : '0');
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(updateNavbar);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    updateNavbar();
+
+    // ── Desktop Dropdown ─────────────────────────────
+    function openDropdown() {
+      clearTimeout(dropdownTimeout);
+      servicesDropdown.classList.add('open');
+      servicesBtn.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDropdown() {
+      dropdownTimeout = setTimeout(function() {
+        servicesDropdown.classList.remove('open');
+        servicesBtn.setAttribute('aria-expanded', 'false');
+      }, 120);
+    }
+
+    servicesItem.addEventListener('mouseenter', openDropdown);
+    servicesItem.addEventListener('mouseleave', closeDropdown);
+    servicesBtn.addEventListener('click', function() {
+      servicesDropdown.classList.contains('open') ? closeDropdown() : openDropdown();
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!servicesItem.contains(e.target)) {
+        servicesDropdown.classList.remove('open');
+        servicesBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        servicesDropdown.classList.remove('open');
+        servicesBtn.setAttribute('aria-expanded', 'false');
+        closeMobileMenu();
+      }
+    });
+
+    // ── Mobile Menu ───────────────────────────────────
+    function openMobileMenu() {
+      mobileMenu.style.willChange = 'transform';
+      mobileMenu.classList.add('open');
+      mobileOverlay.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+      mobileMenu.addEventListener('transitionend', function() {
+        mobileMenu.style.willChange = 'auto';
+      }, { once: true });
+    }
+
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
+    });
+    if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+    if (mobileOverlay) mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    if (mobileServicesBtn && mobileAccordion) {
+      mobileServicesBtn.addEventListener('click', function() {
+        var isOpen = mobileAccordion.classList.contains('open');
+        mobileAccordion.classList.toggle('open', !isOpen);
+        mobileServicesBtn.setAttribute('aria-expanded', String(!isOpen));
+        mobileServicesBtn.classList.toggle('accordion-open', !isOpen);
+      });
+    }
+  }
+
+  initNavbar();
+
+  // Re-run on every Astro ViewTransition page load (new DOM = new hamburger element = no dataset.navInit)
+  document.addEventListener('astro:page-load', initNavbar);
+</script>
+
+<style>
+/* ══════════════════════════════════════════
+   ANNOUNCEMENT STRIP
+══════════════════════════════════════════ */
+.announce-strip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  background: #B85C38;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 300ms ease;
+}
+.announce-strip.hidden {
+  transform: translateY(-100%);
+}
+.announce-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 16px;
+  justify-content: center;
+}
+.announce-icon {
+  font-size: 11px;
+  color: rgba(255,255,255,0.85);
+  flex-shrink: 0;
+}
+.announce-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.announce-text--mobile { display: none; }
+.announce-sep {
+  opacity: 0.5;
+  margin: 0 4px;
+}
+.announce-cta {
+  display: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 8px;
+  padding: 3px 12px;
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+.announce-cta:hover { background: rgba(255,255,255,0.15); }
+.announce-cta:focus-visible { outline: 2px solid rgba(255,255,255,0.6); outline-offset: 2px; }
+@media (min-width: 640px) {
+  .announce-cta { display: block; }
+}
+
+/* ══════════════════════════════════════════
+   NAVBAR BASE
+══════════════════════════════════════════ */
+.navbar {
+  position: fixed;
+  top: 36px; /* below announce strip */
+  left: 0;
+  width: 100%;
+  height: 72px;
+  z-index: 100;
+  background: #16120F;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  border-bottom: 1px solid rgba(184,92,56,0.2);
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+  transform: translateZ(0);
+}
+.navbar.strip-hidden {
+  transform: translateY(-36px);
+}
+.navbar.scrolled {
+  box-shadow: 0 2px 16px rgba(0,0,0,0.16);
+  border-bottom-color: rgba(184,92,56,0.3);
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Logo ── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 32px;
+}
+.nav-logo-img {
+  height: 68px;
+  width: auto;
+  display: block;
+  margin-top: 6px;
+}
+
+
+/* ── Nav Links ── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  transition: color 200ms ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 72px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background: #B85C38;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link[aria-current="page"] {
+  color: #B85C38;
+  outline: none;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+.dropdown-chevron {
+  transition: transform 250ms ease;
+  flex-shrink: 0;
+}
+.nav-link-dropdown[aria-expanded="true"] .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Right: Phone + CTA ── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.nav-phone {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #B85C38;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: color 200ms ease;
+  flex-shrink: 0;
+}
+.nav-phone:hover { color: #FFFFFF; }
+.nav-phone:focus-visible {
+  outline: 2px solid #B85C38;
+  outline-offset: 2px;
+}
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 22px;
+  background: #B85C38;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  border-radius: 14px;
+  transition: background 200ms ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-cta:hover { background: #8A3A22; }
+.nav-cta:active { background: #8A3A22; }
+.nav-cta:focus-visible { outline: 2px solid #B85C38; outline-offset: 2px; }
+
+/* ── Hamburger ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 11px;
+  background: none;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: auto;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+.ham-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #FFFFFF;
+  transition: transform 250ms ease, opacity 250ms ease, background 250ms ease;
+}
+.nav-hamburger.active .ham-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-hamburger.active .ham-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-hamburger.active .ham-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+.nav-hamburger:focus-visible {
+  outline: 2px solid #B85C38;
+  outline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════
+   DROPDOWN MENU
+══════════════════════════════════════════ */
+.nav-item-dropdown {
+  position: relative;
+}
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% - 1px);
+  left: -20px;
+  min-width: 680px;
+  background: #16120F;
+  border: 1px solid rgba(184,92,56,0.35);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.24);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease;
+  pointer-events: none;
+}
+.nav-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.dropdown-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 180px;
+  gap: 0;
+}
+.dropdown-col {
+  padding: 20px 20px 20px 20px;
+  border-right: 1px solid #2A2117;
+}
+.dropdown-col:last-child { border-right: none; }
+.dropdown-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dropdown-col-header {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #B85C38;
+  padding: 6px 10px 6px 10px;
+  background: rgba(184,92,56,0.08);
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+.dropdown-link {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #CCCCCC;
+  text-decoration: none;
+  padding: 7px 10px;
+  border-left: 2px solid transparent;
+  transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
+}
+.dropdown-link:hover {
+  color: #B85C38;
+  border-left-color: #B85C38;
+  background: rgba(184,92,56,0.05);
+}
+.dropdown-link:focus-visible {
+  outline: 2px solid #B85C38;
+  outline-offset: 2px;
+}
+/* Trust column */
+.dropdown-col-trust {
+  background: #0D0B09;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.trust-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.trust-stat {
+  display: flex;
+  flex-direction: column;
+}
+.trust-num {
+  font-family: 'Onest', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: #B85C38;
+  line-height: 1;
+}
+.trust-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8B8070;
+}
+.trust-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.trust-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #CCCCCC;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.trust-check {
+  flex-shrink: 0;
+}
+.dropdown-cta {
+  display: block;
+  background: #B85C38;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 11px 12px;
+  text-align: center;
+  border-radius: 10px;
+  transition: background 200ms ease;
+  margin-top: 8px;
+}
+.dropdown-cta:hover { background: #8A3A22; }
+.dropdown-cta:focus-visible { outline: 2px solid #B85C38; outline-offset: 2px; }
+
+/* ══════════════════════════════════════════
+   MOBILE MENU
+══════════════════════════════════════════ */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 149;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+.mobile-overlay.open {
+  display: block;
+  opacity: 1;
+}
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(320px, 85vw);
+  height: 100dvh;
+  background: #16120F;
+  border-left: 2px solid rgba(184,92,56,0.4);
+  border-radius: 0;
+  z-index: 150;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: translateX(100%);
+  transition: transform 300ms ease;
+  visibility: hidden;
+}
+.mobile-menu.open {
+  visibility: visible;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+  border-bottom: 1px solid #2A2117;
+  flex-shrink: 0;
+}
+.mobile-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.mobile-close {
+  background: none;
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  color: #CCCCCC;
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 150ms ease, color 150ms ease;
+  flex-shrink: 0;
+}
+.mobile-close:hover {
+  border-color: #B85C38;
+  color: #B85C38;
+}
+.mobile-close:focus-visible {
+  outline: 2px solid #B85C38;
+  outline-offset: 2px;
+}
+.mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  border-bottom: 1px solid #2A2117;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  cursor: pointer;
+  transition: color 150ms ease, background 150ms ease, transform 150ms ease;
+  min-height: 44px; /* tap target ≥44px */
+}
+.mobile-link:hover {
+  color: #B85C38;
+  background: rgba(184,92,56,0.05);
+  transform: translateX(8px);
+}
+.mobile-link:focus-visible {
+  outline: 2px solid #B85C38;
+  outline-offset: 2px;
+}
+.mobile-chevron {
+  transition: transform 250ms ease;
+  flex-shrink: 0;
+  color: #8B8070;
+}
+.mobile-accordion-btn.accordion-open .mobile-chevron {
+  transform: rotate(180deg);
+}
+.mobile-accordion {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 350ms ease;
+  background: #0D0B09;
+  border-radius: 0px;
+}
+.mobile-accordion.open {
+  max-height: 600px;
+}
+.mobile-submenu-header {
+  font-family: 'Inter', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #B85C38;
+  padding: 12px 20px 6px 20px;
+  background: #0D0B09;
+}
+.mobile-sublink {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 28px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #AAAAAA;
+  text-decoration: none;
+  border-bottom: 0.5px solid #16120F;
+  transition: color 150ms ease, border-left-color 150ms ease, transform 150ms ease;
+  border-left: 2px solid transparent;
+  min-height: 44px;
+}
+.mobile-sublink:hover {
+  color: #B85C38;
+  border-left-color: #B85C38;
+  transform: translateX(4px);
+}
+.mobile-sublink:focus-visible {
+  outline: 2px solid #B85C38;
+  outline-offset: 2px;
+}
+.mobile-cta-block {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  border-top: 1px solid #2A2117;
+}
+.mobile-cta-btn {
+  display: block;
+  background: #B85C38;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 20px;
+  text-align: center;
+  border-radius: 14px;
+  transition: background 200ms ease;
+}
+.mobile-cta-btn:hover { background: #8A3A22; }
+.mobile-cta-btn:focus-visible { outline: 2px solid #B85C38; outline-offset: 2px; }
+.mobile-phone-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: #B85C38;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 20px;
+  text-align: center;
+  border: 2px solid #B85C38;
+  border-radius: 14px;
+  transition: background 200ms ease, color 200ms ease;
+}
+.mobile-phone-btn:hover { background: #B85C38; color: #ffffff; }
+.mobile-phone-btn:focus-visible { outline: 2px solid #B85C38; outline-offset: 2px; }
+.mobile-trust {
+  padding: 16px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid #2A2117;
+  flex-shrink: 0;
+}
+.mobile-trust span {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: #8B8070;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ══════════════════════════════════════════
+   SPACER — accounts for fixed announce+nav
+══════════════════════════════════════════ */
+.nav-spacer {
+  height: 108px; /* 36px strip + 72px nav */
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .nav-inner { padding: 0 40px; }
+  .nav-phone { display: none; }
+  .nav-links { gap: 2px; }
+  .nav-link { padding: 8px 10px; font-size: 11px; }
+  .nav-logo { margin-right: 20px; }
+}
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-right { display: none; }
+  .nav-hamburger { display: flex; }
+  .navbar { height: 60px; }
+  .nav-spacer { height: 96px; } /* 36px strip + 60px nav */
+}
+@media (max-width: 640px) {
+  .announce-text--desktop { display: none; }
+  .announce-text--mobile { display: inline; }
+}
+
+/* Focus visible for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #B85C38;
+  outline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════
+   TROWEL ANIMATION LAYER
+══════════════════════════════════════════ */
+.navbar-anim-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Brick joint texture — dark charcoal bricks, gold-tinted mortar joints */
+.brick-texture {
+  position: absolute;
+  inset: 0;
+  background-color: #16120F;
+  background-image:
+    linear-gradient(335deg, rgba(184,92,56,0.12) 23px, transparent 23px),
+    linear-gradient(155deg, rgba(184,92,56,0.12) 23px, transparent 23px),
+    linear-gradient(335deg, rgba(184,92,56,0.12) 23px, transparent 23px),
+    linear-gradient(155deg, rgba(184,92,56,0.12) 23px, transparent 23px);
+  background-size: 58px 58px;
+  background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+  background-repeat: repeat;
+  will-change: auto;
+}
+
+/* Trowel wrapper — starts off-screen left, animates to right on hover */
+.trowel-wrap {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 56px;
+  height: 28px;
+  transform: translateY(-50%) translateX(-120px) rotate(-12deg);
+  transition: transform 0s, opacity 0s;
+  opacity: 0;
+}
+.navbar:hover .trowel-wrap {
+  transform: translateY(-50%) translateX(calc(100vw + 60px)) rotate(-12deg);
+  opacity: 1;
+  transition: transform 2200ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms ease;
+}
+
+/* Trowel blade — diamond shape */
+.trowel-blade {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 28px;
+  height: 20px;
+  background: linear-gradient(135deg, #d0d0d0 0%, #a0a0a0 50%, #888 100%);
+  clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
+  transform: translateY(-50%);
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+}
+
+/* Trowel ferrule (collar between blade and handle) */
+.trowel-ferrule {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: #888;
+  border: 1px solid #555;
+  transform: translateY(-50%);
+}
+
+/* Trowel handle */
+.trowel-handle {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  width: 30px;
+  height: 7px;
+  background: linear-gradient(to bottom, #6b3a1f 0%, #4a2810 50%, #6b3a1f 100%);
+  border: 1px solid #2a1508;
+  border-radius: 0;
+  transform: translateY(-50%) translateX(-100%);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Mortar smear line — appears as trowel passes */
+.mortar-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(180, 160, 120, 0.15) 20%,
+    rgba(180, 160, 120, 0.25) 50%,
+    rgba(180, 160, 120, 0.15) 80%,
+    transparent 100%
+  );
+  transform: translateY(-50%) rotate(-1deg);
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+.navbar:hover .mortar-line {
+  opacity: 1;
+  transition: opacity 400ms ease 300ms;
+}
+
+/* Ensure nav content sits above animation layer */
+.nav-inner {
+  position: relative;
+  z-index: 1;
+}
+</style>

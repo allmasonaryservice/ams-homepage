@@ -1,0 +1,1337 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const pageUrl = 'https://allmasonryservices.com/faq';
+
+const categories = [
+  {
+    id: 'common-problems',
+    label: 'Common Problems',
+    faqs: [
+      { q: 'My mortar joints are crumbling. How urgent is it?', a: 'Very urgent. Freeze-thaw cycles in Chicago winters worsen damage fast — mortar that crumbles today can open your wall to water infiltration by spring. Tuckpointing now costs 3–5× less than future structural repairs. If mortar scrapes out easily with a key, call immediately.' },
+      { q: "There's white powder on my brick. Should I be worried?", a: "Yes — this is efflorescence, signaling water migration through masonry. Mineral salts reach the surface as water moves through and evaporates. The powder itself isn't structural damage, but the water movement causing it is. The source must be identified and fixed to prevent recurrence and worsening." },
+      { q: 'I see cracks forming between brick and mortar. What does that mean?', a: 'Bond failure has occurred, creating a direct water entry path. In Chicagoland, cracks widen significantly by spring as freeze-thaw cycles work them open. Prompt repointing prevents freeze-thaw damage from converting a $400 repair into a $3,000 rebuild.' },
+    ],
+  },
+  {
+    id: 'tuckpointing',
+    label: 'Tuckpointing',
+    faqs: [
+      { q: 'What exactly is tuckpointing and do I actually need it?', a: 'Tuckpointing means removing deteriorated mortar to a depth of ¾\" or more and packing fresh mortar to specification. It\'s the most critical preventive maintenance for masonry structures. Mortar older than 25 years in Chicagoland\'s climate almost certainly needs evaluation, and often replacement.' },
+      { q: 'How much does tuckpointing cost in Chicago?', a: 'Typically $8–$25 per linear foot depending on access, joint depth, and mortar condition. Full facade work on a 3-flat runs $3,000–$12,000. We provide free written estimates following on-site assessments — we never quote from photos because mortar condition can\'t be assessed without a hands-on evaluation.' },
+      { q: "How long does tuckpointing last in Chicago's climate?", a: 'Correctly executed tuckpointing lasts 20–30 years in Chicagoland when using matched mortar composition and proper joint profile. Improperly executed work — wrong mortar hardness, insufficient depth, wrong joint profile — fails in 3–5 years and damages the surrounding brick in the process.' },
+    ],
+  },
+  {
+    id: 'brick-repair',
+    label: 'Brick Repair',
+    faqs: [
+      { q: 'One brick fell out. Can I just replace that one brick?', a: 'Possibly, but single brick failure typically signals broader moisture or settling issues. We assess the surrounding structure before any work — brick color, size, texture, and mortar must all match for an invisible repair. Sourcing matched brick for discontinued profiles from Chicagoland homes built in the 1920s–1960s is part of what we do.' },
+      { q: 'My brick is spalling (surface flaking off). Is it structural?', a: 'Spalling results from freeze-thaw damage — water infiltrates porous brick, freezes, and spalls off the face. It escalates rapidly: early-stage spalling is a cosmetic repair, but late-stage requires full wythe (layer) replacement at 10× the cost. Don\'t defer assessment.' },
+      { q: 'Can you match old brick that\'s no longer manufactured?', a: 'Yes. We source from salvage brick dealers and regional historic suppliers. Discontinued profiles from the 1920s–1960s common on Oak Park and North Shore homes have been matched successfully. Repairs weather to invisibility within one season in most cases.' },
+    ],
+  },
+  {
+    id: 'chimney-repair',
+    label: 'Chimney Repair',
+    faqs: [
+      { q: 'My chimney cap is cracked. How serious is that?', a: 'Very serious — cracked caps are the primary water entry point for flues. Water runs down the liner, destroys clay tiles, and rots wood framing around the fireplace. A $400 cap repair now prevents $6,000–$10,000 rebuilds within 2–3 years. This is a repair that has a clear, documentable ROI.' },
+      { q: 'Do I need a full chimney rebuild or just repairs?', a: 'Usually repairs suffice. Crown repair, flashing replacement, and tuckpointing address the majority of situations. Full rebuilds are necessary only when bricks have shifted and created structural instability, the liner has failed completely, or water penetration has been extensive and long-standing.' },
+      { q: 'When is the best time to repair a chimney in Chicago?', a: 'Late summer through fall, before freeze-thaw season. Mortar cures optimally above 40°F and needs full set before the first freeze. Spring is acceptable. Attempting mortar repairs in winter without heated enclosures is ineffective — the mortar can\'t cure properly and will fail within a season.' },
+    ],
+  },
+  {
+    id: 'masonry-repair',
+    label: 'Masonry Repair',
+    faqs: [
+      { q: 'How do I know if my masonry damage is structural or cosmetic?', a: 'Diagonal cracks radiating from corners, outward bowing of the wall face, or mortar failure across multiple continuous joints indicate structural damage requiring immediate assessment. Hairline cracks in isolated locations, surface efflorescence, and minor spalling are typically cosmetic — serious, but not immediately threatening stability.' },
+      { q: "What's the difference between cosmetic and structural masonry repair?", a: 'Cosmetic repair addresses surface deterioration: spalling, staining, efflorescence, isolated joint failure. Structural repair addresses load-bearing failure — bowing walls, failed lintels, foundation cracks, chimney separation from the structure. The distinction matters because structural repairs require different techniques, permitting, and urgency levels.' },
+      { q: 'Will my insurance cover masonry repair?', a: 'Sometimes. Sudden storm damage, impact damage, or hail damage is typically covered. Gradual deterioration from deferred maintenance is not. Detailed written documentation — photos, inspection reports, and a clear timeline — significantly aids insurance claims. We can provide documentation if needed.' },
+    ],
+  },
+  {
+    id: 'concrete-services',
+    label: 'Concrete Services',
+    faqs: [
+      { q: 'My concrete driveway has cracks. Repair or replace?', a: 'Hairline cracks under ¼" with no vertical displacement between sections warrant repair and sealing. Wide cracks, significant heaving where one slab has risen above another, or pervasive crumbling at edges justify replacement. Patching severely damaged concrete delays the inevitable and doesn\'t address the underlying cause.' },
+      { q: 'Can concrete be poured in Chicago winters?', a: 'Not in freezing temperatures — chemical curing halts below 40°F. Heated enclosures and blankets enable late-season pours in some situations, but April–October scheduling ensures optimal results. Concrete poured in cold conditions without proper protection fails prematurely and voids most contractor warranties.' },
+      { q: 'How long does concrete last in Chicagoland?', a: 'Properly poured, reinforced, and sealed concrete lasts 30–50 years. Water infiltration and freeze-thaw cycling are the primary enemies. Control joint placement and periodic surface sealing are critical. Concrete installed without proper drainage or with inadequate reinforcement fails in 10–15 years in Chicago\'s climate.' },
+    ],
+  },
+  {
+    id: 'stone-masonry',
+    label: 'Stone Masonry',
+    faqs: [
+      { q: 'Can you repair natural stone without replacing it?', a: 'Mostly yes. Natural stone outlasts mortar by decades — repairs typically involve repointing failed mortar joints rather than replacing stone. Stone replacement is necessary only when freeze-thaw damage has caused significant face loss or when stones have shifted due to foundation settlement.' },
+      { q: 'I have a limestone facade. What do I need to know?', a: 'Limestone appears frequently on Chicago and North Shore homes built 1890–1950. It\'s a soft, porous stone reactive to Portland-heavy mortar — modern masonry cement is often too hard and causes cracking as the softer stone flexes. Lime-based mortars are essential, not optional, on historic limestone.' },
+      { q: 'What\'s the cost of stone masonry repair in Chicago?', a: 'Range spans $500 for isolated joint repair to $15,000+ for full facade repointing on large historic structures. Material sourcing drives the most variable costs — matching regional stone types for color and texture can be straightforward or complex depending on the original stone\'s provenance.' },
+    ],
+  },
+  {
+    id: 'power-washing',
+    label: 'Power Washing',
+    faqs: [
+      { q: 'Is power washing safe for brick and masonry?', a: 'High PSI damages soft historic brick and forces water deep into mortar joints, accelerating freeze-thaw deterioration. Low-pressure soft washing under 500 PSI safely removes dirt, algae, biological growth, and surface staining. We always assess brick hardness before recommending any cleaning method.' },
+      { q: 'Will power washing remove efflorescence from my brick?', a: 'Washing removes the surface deposits, but without addressing the water source driving them up, recurrence happens within months. Effective treatment combines a pH-appropriate cleaning solution that dissolves the mineral deposits with identification and correction of the underlying water source.' },
+      { q: 'How often should I have my masonry cleaned?', a: 'Every 3–5 years for most Chicagoland homes, more frequently after major water events or if significant biological growth appears. North-facing walls and tree-shaded areas accumulate algae and moss faster. Annual visual inspection is the best practice — cleaning when you see growth rather than on a fixed schedule.' },
+    ],
+  },
+  {
+    id: 'commercial-masonry',
+    label: 'Commercial Masonry',
+    faqs: [
+      { q: 'Do you work on commercial buildings and multi-family properties?', a: 'Yes — from 2-flats through mid-rise commercial buildings. Our experience includes occupied buildings, business-hour coordination, property manager liaison, and documentation for building maintenance records. The same crew that does residential work handles commercial — no handoffs or subcontractors.' },
+      { q: 'What commercial masonry services do you provide?', a: 'Full facade tuckpointing and repointing, brick replacement, lintel assessment and repair, parapet wall restoration, chimney work on commercial buildings, concrete flatwork, and historic restoration on protected commercial structures. We also provide written condition reports for property managers and building owners.' },
+      { q: 'How do you handle commercial projects with tenants in the building?', a: 'Work schedules are built around occupancy — early starts, weekend shifts when required, and section-by-section completion to minimize disruption. Dust containment is used when working near occupied units. We coordinate directly with property managers and maintain a daily progress log for building records.' },
+    ],
+  },
+  {
+    id: 'historic-restoration',
+    label: 'Historic Restoration',
+    faqs: [
+      { q: 'Why does historic masonry require different techniques?', a: 'Pre-1950 masonry used softer brick and lime-based mortar designed for flexibility and breathability. Modern Portland cement mortars are significantly harder — when used on older brick, they lock walls rigidly and force movement stress into the brick face rather than the joint, causing spalling and cracking that can\'t be undone.' },
+      { q: 'Do you work with historic preservation requirements?', a: 'Yes — Illinois historic preservation standards and Secretary of the Interior\'s Standards for Rehabilitation are understood and followed. We can provide guidance on acceptable materials and methods before permit applications, and our documentation of original material composition supports historic approval processes.' },
+      { q: 'Can you match 100-year-old mortar and brick on a North Shore estate?', a: 'Yes. Matching original mortar profiles — both composition and joint profile — and sourcing period-appropriate brick grades on homes dating to 1892 has been successfully completed. Repairs weather to visual invisibility within six months in most cases. We document original mortar composition before any work begins.' },
+    ],
+  },
+  {
+    id: 'limestone-restoration',
+    label: 'Limestone Restoration',
+    faqs: [
+      { q: 'My limestone steps are crumbling at the edges. What\'s happening?', a: 'Edge spalling results from freeze-thaw damage — water infiltrates the porous stone, freezes, expands, and breaks away the face. Early-stage repair involves consolidation with lime-based consolidant and stone dust fill. Late-stage edge loss may require stone replacement to restore structural stability and appearance.' },
+      { q: 'Can you restore the color and surface of stained limestone?', a: 'Yes — pH-neutral masonry cleaners designed specifically for limestone remove most staining without damaging the stone surface. Poultice treatment can extract deep oil-based or organic staining. Full color restoration isn\'t guaranteed on heavily weathered limestone, and we\'ll give you an honest assessment before starting.' },
+      { q: 'How do you repair cracked limestone without replacing it?', a: 'Stable cracks — those not actively growing — receive lime-based consolidant and matching limestone dust fill. Active cracks require underlying structural assessment first; patching moving cracks without addressing the cause is wasted effort. We monitor crack growth before recommending a repair approach.' },
+    ],
+  },
+  {
+    id: 'lintel-repair',
+    label: 'Lintel Repair',
+    faqs: [
+      { q: 'What is a lintel and how do I know if mine is failing?', a: 'Lintels are structural beams spanning window and door openings, carrying masonry load above. Failure shows as diagonal cracks radiating from opening corners, visibly dropping or sagging bricks above a window, or rust staining bleeding through mortar joints from a corroding steel lintel. This is a structural issue requiring prompt assessment.' },
+      { q: 'How much does lintel replacement cost in Chicago?', a: 'Steel lintel replacement typically runs $800–$2,500 per opening depending on size, access, and how much masonry above needs to be shored and rebuilt. The masonry above must be carefully supported, the failed lintel removed, and the opening rebuilt to match. Estimates are provided after on-site assessment.' },
+      { q: 'Can you replace a lintel without tearing out all the surrounding brick?', a: 'In most cases, yes. Only brick immediately above the opening is removed, the lintel is replaced, and surrounding masonry is rebuilt to match. The repair becomes visually invisible within one weathering season in most cases. Extensive corrosion or significant deflection may require a larger repair area.' },
+    ],
+  },
+  {
+    id: 'parapet-wall',
+    label: 'Parapet Wall Repair',
+    faqs: [
+      { q: 'My parapet wall is leaning. How serious is that?', a: 'Extremely serious — leaning parapets present an active falling masonry risk and require immediate assessment. A parapet that has moved is no longer stable and can fail suddenly. This is a life-safety issue. We treat leaning parapet inquiries as emergency situations and respond accordingly.' },
+      { q: 'Why do parapet walls fail so often in Chicago?', a: 'Parapets are fully exposed without roof overhang protection, experiencing freeze-thaw cycles from all four sides simultaneously. Most failures result from 10–20 years of deferred tuckpointing accumulating until the structural threshold is crossed. The damage is slow and invisible until it isn\'t.' },
+      { q: 'What does parapet wall repair involve?', a: 'Early-stage failures: tuckpointing and cap repair. Moderate failures: partial rebuilding of leaning or shifted sections. Severe failures: full parapet rebuild matching original profile, including proper through-wall flashing installation at the roof connection. We assess and quote each stage individually.' },
+    ],
+  },
+  {
+    id: 'retaining-wall',
+    label: 'Retaining Wall Repair',
+    faqs: [
+      { q: 'My retaining wall is bulging outward. What\'s causing it?', a: 'Hydrostatic pressure — water accumulating behind the wall without adequate drainage outlets — is the primary cause of bulging retaining walls. Chicago\'s clay-heavy soils retain water effectively, making drainage design critical. Bulging indicates the wall is approaching failure and requires prompt evaluation.' },
+      { q: 'Can a bulging retaining wall be pushed back and repaired?', a: 'Only if structural integrity remains largely intact and the movement is recent. Walls that have shifted significantly, lost substantial mortar, or been compromised by root penetration require complete rebuilding with corrected drainage. Attempting to push back and repoint a significantly shifted wall rarely holds.' },
+      { q: 'What\'s the lifespan of a properly built masonry retaining wall?', a: '40–60 years with proper drainage design and periodic tuckpointing of mortar joints. Water infiltration — particularly from inadequate weep hole design or drainage aggregate — and deferred mortar maintenance are the two primary failure causes. The drainage system is as important as the masonry itself.' },
+    ],
+  },
+  {
+    id: 'brick-paving',
+    label: 'Brick Paving',
+    faqs: [
+      { q: 'My brick paver driveway is sinking in sections. What\'s the fix?', a: 'Base failure causes the majority of settling in brick paver driveways. The solution is to remove the affected pavers, regrade and recompact the base aggregate, and reinstall the pavers. This costs significantly less than full replacement if the pavers themselves remain intact and undamaged.' },
+      { q: 'Can brick pavers handle Chicago winters?', a: 'Yes — properly installed clay brick pavers offer freeze-thaw resistance superior to concrete because they flex as a system rather than cracking as a monolithic slab. The keys are proper base preparation (6–8\" of compacted aggregate) and properly installed and maintained locking joint sand.' },
+      { q: 'How do you match existing brick pavers for repair?', a: 'We work with salvage suppliers and maintain relationships with manufacturers who stock discontinued grades. Eighty-year-old Chicago street-grade pavers — the dense, dark-fired units used on Chicago streets and driveways — can typically be matched from salvage stock.' },
+    ],
+  },
+  {
+    id: 'waterproofing',
+    label: 'Masonry Waterproofing',
+    faqs: [
+      { q: 'Should I waterproof my brick exterior?', a: 'It depends on the brick age and condition. Breathable silane/siloxane penetrating sealers are appropriate for most Chicagoland brick — they repel water while allowing vapor transmission. Film-forming sealers that create a surface barrier trap moisture and can accelerate spalling on historic brick. We assess each situation before recommending any product.' },
+      { q: 'Will waterproofing stop my basement from getting wet?', a: 'Exterior sealer application is one component of a moisture management system, not a complete solution. Basement water has multiple sources — wall permeation, failed mortar joints, foundation cracks, or footing-level groundwater entry — and each requires a different approach. We identify the source before recommending any treatment.' },
+      { q: 'How long does masonry waterproofing last?', a: 'Quality silane/siloxane penetrating sealers last 7–10 years in Chicago\'s climate. Application must follow thorough cleaning and completion of any mortar repair — sealing over deteriorated mortar traps moisture rather than preventing it. We do not apply sealer over unrepaired masonry.' },
+    ],
+  },
+  {
+    id: 'foundation-basement',
+    label: 'Foundation & Basement',
+    faqs: [
+      { q: 'I see cracks in my foundation wall. How serious is it?', a: 'It depends on the crack pattern. Hairline vertical cracks indicate concrete shrinkage — low concern. Horizontal cracks in block foundations signal lateral soil pressure — serious and requiring structural assessment. Stair-step cracks through block or brick indicate differential settlement — urgent. Crack width and whether the crack is actively growing matter significantly.' },
+      { q: 'Can a cracked masonry foundation be repaired without underpinning?', a: 'Mostly yes. Crack injection with polyurethane or epoxy, wall anchors, and carbon fiber strap systems can stabilize many foundation conditions without the disruption and expense of underpinning. We provide an honest assessment of which approach is appropriate — we don\'t recommend underpinning unless the situation requires it.' },
+      { q: 'How do I know if my foundation crack is getting worse?', a: 'Mark both endpoints of the crack with pencil and date it. Monthly monitoring reveals whether the crack is growing. A stable crack unchanged for 12+ months typically indicates completed settlement and may only require sealing. Growing cracks require structural assessment. We can help establish a monitoring baseline during a free inspection.' },
+    ],
+  },
+  {
+    id: 'gap-stoop',
+    label: 'Gap & Stoop Repair',
+    faqs: [
+      { q: "There's a growing gap between my front steps and the house. What's happening?", a: 'Stoops settling away from house foundations is extremely common on Chicago homes — perhaps the most common masonry complaint we receive. Steps rest on their own footings, which move independently from house foundations as soil moisture levels change seasonally. The gap is the stoop settling, not the house sinking.' },
+      { q: 'Can the gap between my stoop and house be just filled and sealed?', a: 'Temporarily — it buys a winter or two. Filling the gap without addressing the underlying settlement means the repair cracks again as movement continues, typically within 1–2 winters. Permanent solutions involve either tying the stoop back to the foundation with structural anchors or rebuilding on improved footings with better drainage.' },
+      { q: 'My front steps are pulling away and crumbling. Repair or replace?', a: 'Sound structures with good brick but failed mortar warrant repair. Steps with failed footings, significant structural settlement, or deteriorated brick to the point of structural weakness justify replacement. A well-built replacement lasts 40+ years; patching a structurally compromised stoop buys 3–5 years at best.' },
+    ],
+  },
+  {
+    id: 'free-tools',
+    label: 'Free Diagnostic Tools',
+    faqs: [
+      { q: 'What free tools does All Masonry Services offer?', a: 'Three tools: (1) Chimney Risk Score — a 12-point structural checklist you complete in 2 minutes that rates your chimney\'s condition; (2) Brick Damage Counter — upload photos or describe damage to get a repair estimate and urgency rating; (3) Veneer Coverage Calculator — material and labor ranges for veneer projects. All free, no login required, no follow-up calls unless you request them.' },
+      { q: 'How accurate are the estimates from your free tools?', a: 'They provide honest ballpark figures that help you assess whether contractor quotes are in a reasonable range. Real pricing always requires an in-person evaluation — no responsible contractor quotes masonry work from photos alone because joint depth, mortar hardness, and access can only be assessed in person. The tools prevent you from going into those conversations blind.' },
+      { q: 'Who are these tools built for?', a: 'Illinois homeowners who want to understand their masonry situation and its urgency before calling a contractor. They\'re designed to help you have a more informed conversation, not to replace the inspection. If a tool indicates urgent damage, that\'s a signal to schedule an inspection promptly — not to start work based on the tool alone.' },
+    ],
+  },
+  {
+    id: 'how-we-work',
+    label: 'How We Work',
+    faqs: [
+      { q: 'Do you use subcontractors?', a: 'Never. Every job from Naperville to Winnetka is completed by our own crew. No handoffs, no third parties on property, no markup on subcontractor work. This is how we\'ve maintained a zero-callback record across 500+ projects since 2007 — the people who sell the job are the people who do the job.' },
+      { q: 'How do I get a quote?', a: 'Call 773-656-2107 or submit the contact form. Free on-site assessments are scheduled at your convenience and result in written estimates with no obligation and no sales pressure. We do not quote from photos — structural masonry requires hands-on evaluation.' },
+      { q: 'How far in advance should I book?', a: 'Spring fills 4–6 weeks out by late April — reach out before March if you want spring scheduling. Fall books up by August. Emergency structural work — leaning walls, fallen brick, life-safety situations — receives priority scheduling year-round regardless of the queue.' },
+      { q: 'What warranty do you provide?', a: 'Failed work within the warranty period receives free correction. Terms vary by scope and are provided in writing in the estimate before any project is approved. We\'ve been in Chicagoland since 2007 — we\'re here to back up our work, not to disappear after the check clears.' },
+    ],
+  },
+];
+
+const locations = [
+  {
+    city: 'Chicago',
+    slug: 'chicago',
+    faqs: [
+      { q: 'What masonry issues are most common in Chicago?', a: 'Tuckpointing on pre-1940 brick buildings, chimney repair on 2-flats and 3-flats, and stoop/gap repair on greystones and bungalows. Chicago\'s freeze-thaw cycles — 50+ per year in the city — are the primary driver of all masonry deterioration.' },
+      { q: 'Do you work in all Chicago neighborhoods?', a: 'Yes — Rogers Park through Beverly, Logan Square through Hyde Park. We\'re based in Chicago and serve the entire city. Historic greystone and brick architecture is our specialty, and it\'s what most Chicago neighborhoods have.' },
+    ],
+  },
+  {
+    city: 'Hinsdale',
+    slug: 'hinsdale',
+    faqs: [
+      { q: 'What masonry work is most common on Hinsdale homes?', a: 'Historic brick and limestone restoration on estate properties, chimney rebuilding, and matching period-appropriate mortar on homes built between 1900–1940. Many Hinsdale properties have architectural masonry details that require careful sourcing to match.' },
+    ],
+  },
+  {
+    city: 'Winnetka',
+    slug: 'winnetka',
+    faqs: [
+      { q: 'Does lakefront proximity affect masonry on Winnetka homes?', a: 'Yes — lakefront exposure increases moisture cycling and salt deposition, both of which accelerate mortar deterioration. Historic estate masonry on Winnetka properties often requires lime-based mortars for compatibility with early-twentieth-century brick.' },
+    ],
+  },
+  {
+    city: 'Evanston',
+    slug: 'evanston',
+    faqs: [
+      { q: 'Do historic preservation requirements in Evanston affect masonry repairs?', a: 'Evanston has active historic preservation districts covering many residential blocks. Work on contributing structures in these districts requires material-appropriate repairs — lime-based mortars, period brick sourcing, and sometimes permit approval. We\'re familiar with Evanston\'s requirements and work within them regularly.' },
+    ],
+  },
+  {
+    city: 'Oak Brook',
+    slug: 'oak-brook',
+    faqs: [
+      { q: 'What types of masonry projects do you handle in Oak Brook?', a: 'Retaining wall repair and construction, brick veneer work on commercial and residential properties, chimney rebuilding, and concrete flatwork. Oak Brook\'s newer construction stock means fewer historic restoration projects and more veneer and concrete-focused work.' },
+    ],
+  },
+  {
+    city: 'Wilmette',
+    slug: 'wilmette',
+    faqs: [
+      { q: 'What masonry issues are most common on Wilmette homes?', a: 'Tuckpointing and chimney repair on pre-war brick colonials and Tudors, limestone step repair, and stucco-over-masonry assessment on mixed-material homes. Wilmette\'s housing stock dates largely to 1910–1955 and requires period-sensitive repair approaches.' },
+    ],
+  },
+  {
+    city: 'Kenilworth',
+    slug: 'kenilworth',
+    faqs: [
+      { q: 'Do you handle historic estate masonry in Kenilworth?', a: 'Yes — Kenilworth\'s estate properties include some of the most significant historic masonry on the North Shore, with brick and limestone work dating to the 1890s. Matching original material and replicating period joint profiles is something we\'ve done extensively in Kenilworth.' },
+    ],
+  },
+  {
+    city: 'Glencoe',
+    slug: 'glencoe',
+    faqs: [
+      { q: 'What masonry services are most requested in Glencoe?', a: 'Chimney repair, tuckpointing on historic brick homes, and natural stone repair on lakefront and estate properties. Glencoe\'s wooded setting means additional moisture exposure and biological growth on north-facing masonry.' },
+    ],
+  },
+  {
+    city: 'Highland Park',
+    slug: 'highland-park',
+    faqs: [
+      { q: 'How does Highland Park\'s terrain affect masonry work?', a: 'Highland Park\'s ravine topography creates significant grade changes, making retaining wall construction and repair a frequent project type. Lakefront bluff properties also face elevated moisture exposure. We handle both retaining wall work and historic masonry restoration regularly in Highland Park.' },
+    ],
+  },
+  {
+    city: 'Northbrook',
+    slug: 'northbrook',
+    faqs: [
+      { q: 'What masonry work is most common in Northbrook?', a: 'Chimney repair, tuckpointing on mid-century brick ranch homes, and concrete driveway and flatwork repair. Northbrook\'s housing stock is primarily 1960s–1980s construction, which is now at the age where chimneys and mortar require attention.' },
+    ],
+  },
+  {
+    city: 'Elmhurst',
+    slug: 'elmhurst',
+    faqs: [
+      { q: 'What types of masonry projects do you handle in Elmhurst?', a: 'Tuckpointing on brick bungalows and colonials, stoop and step repair, chimney work, and brick paver repair. Elmhurst\'s housing stock spans 1920s bungalows through 1960s ranch homes — each era requires different mortar formulations for proper matching.' },
+    ],
+  },
+  {
+    city: 'Western Springs',
+    slug: 'western-springs',
+    faqs: [
+      { q: 'Are there historic preservation requirements for masonry in Western Springs?', a: 'Western Springs has a historic district covering portions of the downtown and surrounding residential areas. Repairs on contributing structures require material-appropriate approaches. We can assess whether a property falls within the district and what requirements apply.' },
+    ],
+  },
+  {
+    city: 'La Grange',
+    slug: 'la-grange',
+    faqs: [
+      { q: 'What masonry work is most common on La Grange homes?', a: 'Tuckpointing on Victorian-era and early-twentieth-century brick homes, chimney repair, and limestone step restoration. La Grange\'s older housing stock includes some of the region\'s most significant historic residential masonry.' },
+    ],
+  },
+  {
+    city: 'Naperville',
+    slug: 'naperville',
+    faqs: [
+      { q: 'Do you handle both residential and commercial masonry in Naperville?', a: 'Yes — residential chimney and tuckpointing work, brick veneer on newer construction, concrete flatwork, and commercial facade repair. Naperville\'s growth means a mix of older downtown historic buildings and newer suburban construction, each requiring different approaches.' },
+    ],
+  },
+  {
+    city: 'Downers Grove',
+    slug: 'downers-grove',
+    faqs: [
+      { q: 'What masonry issues are most common in Downers Grove?', a: 'Chimney repair, tuckpointing on brick bungalows and two-stories, and stoop and step repair. Downers Grove\'s housing stock ranges from 1920s brick homes to 1970s construction — mortar formulation matching across this range requires experience.' },
+    ],
+  },
+  {
+    city: 'Burr Ridge',
+    slug: 'burr-ridge',
+    faqs: [
+      { q: 'What masonry services are most requested in Burr Ridge?', a: 'Retaining wall construction and repair, brick and stone veneer on newer custom homes, chimney work, and concrete flatwork. Burr Ridge\'s topography and newer luxury construction make retaining walls and veneer systems common project types.' },
+    ],
+  },
+  {
+    city: 'Clarendon Hills',
+    slug: 'clarendon-hills',
+    faqs: [
+      { q: 'What masonry work do you do in Clarendon Hills?', a: 'Tuckpointing on mid-century brick homes, chimney repair, stoop and step work, and brick paver repair. Clarendon Hills\' compact residential neighborhoods include well-maintained brick homes whose mortar is now reaching age where maintenance is needed.' },
+    ],
+  },
+  {
+    city: 'Willowbrook',
+    slug: 'willowbrook',
+    faqs: [
+      { q: 'Do you handle commercial masonry in Willowbrook?', a: 'Yes — commercial facade repair, tuckpointing on multi-unit residential, and concrete flatwork. Willowbrook\'s commercial corridor includes properties where facade maintenance is deferred longer than on residential, creating more significant repair scopes.' },
+    ],
+  },
+  {
+    city: 'Wheaton',
+    slug: 'wheaton',
+    faqs: [
+      { q: 'What masonry work is most common in Wheaton?', a: 'Tuckpointing on older brick homes in the historic downtown neighborhoods, chimney repair, and stoop work. Wheaton\'s downtown historic district includes brick commercial and residential buildings with mortar from the 1890s–1930s requiring lime-compatible repair approaches.' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Masonry FAQ — All Your Questions Answered | All Masonry Services"
+  description="Every question about brick repair, tuckpointing, chimney work, stone masonry, and more — answered by All Masonry Services, Chicago's trusted masonry contractor since 2007."
+>
+  <Navbar />
+
+  <!-- ── Hero ── -->
+  <section class="faqp-hero" aria-label="FAQ hero">
+    <div class="faqp-hero-inner">
+      <div class="faqp-eyebrow" id="faqp-eyebrow">
+        <span class="faqp-ey-line" aria-hidden="true"></span>
+        Frequently Asked Questions
+      </div>
+      <h1 class="faqp-h1" id="faqp-h1">
+        All Your Masonry<br>
+        Questions, <span class="faqp-h1-accent">Answered.</span>
+      </h1>
+      <p class="faqp-hero-sub" id="faqp-sub">
+        20 categories. 60+ questions. Everything homeowners ask before calling a masonry contractor.
+      </p>
+      <div class="faqp-search-wrap" id="faqp-search-wrap">
+        <svg class="faqp-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input
+          class="faqp-search"
+          id="faqp-search"
+          type="search"
+          placeholder="Search questions…"
+          autocomplete="off"
+          aria-label="Search FAQ"
+        />
+        <button class="faqp-search-clear" id="faqp-search-clear" aria-label="Clear search" hidden>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 2l10 10M12 2L2 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ Body ── -->
+  <section class="faqp-body" id="faqp-body">
+
+    <!-- Search results overlay -->
+    <div class="faqp-search-results" id="faqp-search-results" aria-live="polite" hidden>
+      <div class="faqp-sr-inner" id="faqp-sr-inner"></div>
+    </div>
+
+    <!-- Main FAQ: sidebar + panel -->
+    <div class="faqp-main" id="faqp-main">
+
+      <!-- Left: category nav -->
+      <nav class="faqp-sidebar" id="faqp-sidebar" aria-label="FAQ categories">
+        {categories.map((cat, i) => (
+          <button
+            class={`faqp-cat${i === 0 ? ' active' : ''}`}
+            data-cat={cat.id}
+            aria-selected={i === 0 ? 'true' : 'false'}
+          >
+            <span class="faqp-cat-dot" aria-hidden="true"></span>
+            {cat.label}
+            <span class="faqp-cat-count">{cat.faqs.length}</span>
+          </button>
+        ))}
+      </nav>
+
+      <!-- Right: accordion panels -->
+      <div class="faqp-panels" id="faqp-panels">
+        {categories.map((cat, ci) => (
+          <div
+            class={`faqp-panel${ci === 0 ? ' active' : ''}`}
+            data-cat={cat.id}
+            role="list"
+          >
+            <div class="faqp-panel-head">
+              <h2 class="faqp-panel-title">{cat.label}</h2>
+              <span class="faqp-panel-count">{cat.faqs.length} questions</span>
+            </div>
+            {cat.faqs.map((faq, fi) => (
+              <div class="faqp-item" role="listitem" data-q={faq.q.toLowerCase()} data-cat={cat.id}>
+                <button class="faqp-q" aria-expanded="false">
+                  <span class="faqp-q-text">{faq.q}</span>
+                  <span class="faqp-q-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path class="faqp-plus-h" d="M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                      <path class="faqp-plus-v" d="M10 4v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                </button>
+                <div class="faqp-a" aria-hidden="true">
+                  <div class="faqp-a-inner">{faq.a}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Location FAQs ── -->
+  <section class="faqp-loc" id="faqp-loc" aria-label="FAQ by location">
+    <div class="faqp-loc-inner">
+      <div class="faqp-loc-head">
+        <div class="faqp-loc-eyebrow">By Location</div>
+        <h2 class="faqp-loc-h2">Serving 19 Chicagoland Communities</h2>
+        <p class="faqp-loc-sub">Questions specific to your area — historic districts, terrain, local building codes, and common project types.</p>
+      </div>
+
+      <div class="faqp-city-grid" id="faqp-city-grid">
+        {locations.map((loc) => (
+          <button
+            class="faqp-city-btn"
+            data-city={loc.slug}
+            aria-expanded="false"
+          >
+            {loc.city}
+            <svg class="faqp-city-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        ))}
+      </div>
+
+      <!-- Location FAQ expanded panels -->
+      {locations.map((loc) => (
+        <div class="faqp-loc-panel" id={`faqp-loc-${loc.slug}`} data-city={loc.slug} hidden>
+          <div class="faqp-loc-panel-head">
+            <h3 class="faqp-loc-panel-city">{loc.city}</h3>
+            <button class="faqp-loc-close" data-city={loc.slug} aria-label={`Close ${loc.city} FAQ`}>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M2 2l12 12M14 2L2 14"/>
+              </svg>
+            </button>
+          </div>
+          {loc.faqs.map((faq) => (
+            <div class="faqp-loc-item">
+              <button class="faqp-q faqp-loc-q" aria-expanded="false">
+                <span class="faqp-q-text">{faq.q}</span>
+                <span class="faqp-q-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path class="faqp-plus-h" d="M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path class="faqp-plus-v" d="M10 4v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faqp-a faqp-loc-a" aria-hidden="true">
+                <div class="faqp-a-inner">{faq.a}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ))}
+
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="faqp-cta" aria-label="Contact CTA">
+    <div class="faqp-cta-inner">
+      <div class="faqp-cta-eyebrow">Still Have Questions?</div>
+      <h2 class="faqp-cta-h2">Get a Free On-Site Assessment</h2>
+      <p class="faqp-cta-sub">We assess all visible masonry and provide a written report with photos and a line-item estimate. No obligation, no sales pressure.</p>
+      <div class="faqp-cta-actions">
+        <a href="/contact#form" class="faqp-cta-btn-primary">
+          Schedule Free Estimate
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="tel:7736562107" class="faqp-cta-btn-ghost">Call 773-656-2107</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+/* ── Global Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Hero ── */
+.faqp-hero {
+  background: #16120F;
+  padding: 120px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.faqp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(184,92,56,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 30%, rgba(184,92,56,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.faqp-hero-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.faqp-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 28px;
+  opacity: 0;
+  transform: translateY(12px);
+}
+.faqp-ey-line {
+  width: 36px;
+  height: 1px;
+  background: rgba(184,92,56,0.55);
+  display: block;
+}
+.faqp-h1 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 22px;
+  opacity: 0;
+  transform: translateY(18px);
+}
+.faqp-h1-accent {
+  color: #B85C38;
+}
+.faqp-hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+  max-width: 520px;
+  margin: 0 auto 40px;
+  opacity: 0;
+  transform: translateY(12px);
+}
+.faqp-search-wrap {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(12px);
+}
+.faqp-search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255,255,255,0.35);
+  pointer-events: none;
+}
+.faqp-search {
+  width: 100%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 50px;
+  padding: 16px 48px 16px 52px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #FFFFFF;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.faqp-search::placeholder { color: rgba(255,255,255,0.3); }
+.faqp-search:focus {
+  border-color: rgba(184,92,56,0.5);
+  background: rgba(255,255,255,0.09);
+}
+.faqp-search-clear {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.35);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.faqp-search-clear:hover { color: rgba(255,255,255,0.7); }
+
+/* ── FAQ Body ── */
+.faqp-body {
+  background: #F5F3EF;
+  min-height: 600px;
+  position: relative;
+}
+
+/* Search results overlay */
+.faqp-search-results {
+  background: #F5F3EF;
+  min-height: 400px;
+}
+.faqp-sr-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+.faqp-sr-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #B85C38;
+  margin-bottom: 24px;
+}
+.faqp-sr-empty {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #6B6259;
+  padding: 40px 0;
+  text-align: center;
+}
+.faqp-sr-cat {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(184,92,56,0.7);
+  margin: 28px 0 8px;
+}
+
+/* ── Main Layout ── */
+.faqp-main {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 600px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  gap: 0;
+}
+
+/* ── Sidebar ── */
+.faqp-sidebar {
+  padding: 48px 0 48px;
+  border-right: 1px solid rgba(22,18,15,0.08);
+  position: sticky;
+  top: 80px;
+  height: calc(100vh - 80px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.faqp-sidebar::-webkit-scrollbar { display: none; }
+.faqp-cat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 9px 16px 9px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #6B6259;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: color 0.18s, background 0.18s;
+  line-height: 1.3;
+}
+.faqp-cat:hover { color: #16120F; }
+.faqp-cat.active { color: #16120F; font-weight: 700; }
+.faqp-cat-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(22,18,15,0.18);
+  flex-shrink: 0;
+  transition: background 0.18s;
+}
+.faqp-cat.active .faqp-cat-dot { background: #B85C38; }
+.faqp-cat-count {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(22,18,15,0.3);
+  background: rgba(22,18,15,0.06);
+  border-radius: 20px;
+  padding: 1px 7px;
+  flex-shrink: 0;
+}
+.faqp-cat.active .faqp-cat-count { color: rgba(184,92,56,0.7); background: rgba(184,92,56,0.1); }
+
+/* ── Panels ── */
+.faqp-panels {
+  padding: 48px 0 48px 48px;
+}
+.faqp-panel { display: none; }
+.faqp-panel.active { display: block; }
+.faqp-panel-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(22,18,15,0.08);
+}
+.faqp-panel-title {
+  font-family: 'Onest', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #16120F;
+  letter-spacing: -0.02em;
+}
+.faqp-panel-count {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #9A9086;
+}
+
+/* ── Accordion Items ── */
+.faqp-item {
+  border-bottom: 1px solid rgba(22,18,15,0.07);
+}
+.faqp-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 22px 0;
+  cursor: pointer;
+  text-align: left;
+}
+.faqp-q-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #16120F;
+  line-height: 1.45;
+  transition: color 0.18s;
+}
+.faqp-q:hover .faqp-q-text { color: #B85C38; }
+.faqp-item.open .faqp-q-text { color: #B85C38; }
+.faqp-q-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(22,18,15,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9A9086;
+  transition: border-color 0.2s, color 0.2s, transform 0.3s;
+}
+.faqp-item.open .faqp-q-icon {
+  border-color: rgba(184,92,56,0.35);
+  color: #B85C38;
+}
+.faqp-plus-v {
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.faqp-item.open .faqp-plus-v {
+  transform: scaleY(0);
+}
+.faqp-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
+}
+.faqp-item.open .faqp-a {
+  max-height: 600px;
+}
+.faqp-a-inner {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4A433B;
+  padding: 0 0 24px;
+  border-left: 2px solid rgba(184,92,56,0.3);
+  padding-left: 18px;
+  margin-left: 2px;
+}
+
+/* ── Location Section ── */
+.faqp-loc {
+  background: #16120F;
+  padding: 100px 0;
+}
+.faqp-loc-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.faqp-loc-head {
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+.faqp-loc-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #B85C38;
+  margin-bottom: 16px;
+}
+.faqp-loc-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.faqp-loc-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.45);
+}
+.faqp-city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.faqp-city-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.18s, border-color 0.18s, color 0.18s;
+}
+.faqp-city-btn:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.18);
+  color: #FFFFFF;
+}
+.faqp-city-btn.active {
+  background: rgba(184,92,56,0.15);
+  border-color: rgba(184,92,56,0.4);
+  color: #FFFFFF;
+}
+.faqp-city-arrow {
+  color: rgba(255,255,255,0.3);
+  flex-shrink: 0;
+  transition: transform 0.25s ease, color 0.18s;
+}
+.faqp-city-btn.active .faqp-city-arrow {
+  transform: rotate(180deg);
+  color: #B85C38;
+}
+
+/* Location panel */
+.faqp-loc-panel {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  padding: 36px 40px;
+  margin-bottom: 16px;
+  animation: faqp-slide-in 0.3s ease forwards;
+}
+@keyframes faqp-slide-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.faqp-loc-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.faqp-loc-panel-city {
+  font-family: 'Onest', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+.faqp-loc-close {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 8px;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.18s, color 0.18s;
+}
+.faqp-loc-close:hover { background: rgba(255,255,255,0.12); color: #FFFFFF; }
+.faqp-loc-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
+.faqp-loc-item:last-child { border-bottom: none; }
+.faqp-loc-q .faqp-q-text { color: rgba(255,255,255,0.85); }
+.faqp-loc-q:hover .faqp-q-text { color: #FFFFFF; }
+.faqp-loc-item.open .faqp-loc-q .faqp-q-text { color: #FFFFFF; }
+.faqp-loc-q .faqp-q-icon { border-color: rgba(255,255,255,0.15); color: rgba(255,255,255,0.4); }
+.faqp-loc-item.open .faqp-loc-q .faqp-q-icon { border-color: rgba(184,92,56,0.5); color: #B85C38; }
+.faqp-loc-a .faqp-a-inner {
+  color: rgba(255,255,255,0.6);
+  border-left-color: rgba(184,92,56,0.4);
+}
+
+/* ── CTA ── */
+.faqp-cta {
+  background: #1C1714;
+  padding: 96px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.faqp-cta-inner { max-width: 560px; margin: 0 auto; }
+.faqp-cta-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 16px;
+}
+.faqp-cta-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.faqp-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 36px;
+}
+.faqp-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.faqp-cta-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #B85C38;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.faqp-cta-btn-primary:hover { background: #A04E2E; transform: translateY(-1px); }
+.faqp-cta-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.8);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.14);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.faqp-cta-btn-ghost:hover { background: rgba(255,255,255,0.11); color: #FFFFFF; }
+
+/* ── Mobile tabs (replaces sidebar at ≤900px) ── */
+@media (max-width: 900px) {
+  .faqp-hero { padding: 96px 0 72px; }
+  .faqp-hero-inner { padding: 0 24px; }
+  .faqp-body { padding-bottom: 40px; }
+  .faqp-main {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  .faqp-sidebar {
+    position: static;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-direction: row;
+    padding: 16px 20px;
+    gap: 8px;
+    border-right: none;
+    border-bottom: 1px solid rgba(22,18,15,0.08);
+    scrollbar-width: none;
+    background: #FFFFFF;
+  }
+  .faqp-cat {
+    white-space: nowrap;
+    padding: 8px 14px;
+    border-radius: 50px;
+    border: 1px solid rgba(22,18,15,0.10);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .faqp-cat.active {
+    background: #16120F;
+    color: #FFFFFF;
+    border-color: #16120F;
+  }
+  .faqp-cat-dot { display: none; }
+  .faqp-panels { padding: 32px 20px; }
+  .faqp-panel-title { font-size: 22px; }
+  .faqp-loc-inner { padding: 0 20px; }
+  .faqp-city-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .faqp-loc-panel { padding: 24px 20px; }
+  .faqp-sr-inner { padding: 40px 20px; }
+}
+
+@media (max-width: 640px) {
+  .faqp-hero { padding: 80px 0 60px; }
+  .faqp-search { font-size: 14px; padding: 14px 40px 14px 44px; }
+  .faqp-cta { padding: 72px 24px; }
+  .faqp-loc { padding: 72px 0; }
+  .faqp-city-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<script is:inline>
+(function () {
+  /* ── Hero entrance animation ── */
+  function animateHero() {
+    var els = [
+      document.getElementById('faqp-eyebrow'),
+      document.getElementById('faqp-h1'),
+      document.getElementById('faqp-sub'),
+      document.getElementById('faqp-search-wrap'),
+    ];
+    els.forEach(function (el, i) {
+      if (!el) return;
+      el.style.transition = 'opacity 0.55s ease ' + (i * 0.10) + 's, transform 0.55s ease ' + (i * 0.10) + 's';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(animateHero, 80); });
+  } else {
+    setTimeout(animateHero, 80);
+  }
+
+  /* ── Category tab switching ── */
+  var cats = document.querySelectorAll('.faqp-cat');
+  var panels = document.querySelectorAll('.faqp-panel');
+
+  cats.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = btn.dataset.cat;
+      cats.forEach(function (b) {
+        b.classList.toggle('active', b.dataset.cat === target);
+        b.setAttribute('aria-selected', b.dataset.cat === target ? 'true' : 'false');
+      });
+      panels.forEach(function (p) {
+        p.classList.toggle('active', p.dataset.cat === target);
+      });
+      // On mobile, scroll sidebar to keep active tab in view
+      if (window.innerWidth <= 900) {
+        btn.scrollIntoView({ inline: 'center', behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  });
+
+  /* ── Accordion ── */
+  function bindAccordion(container) {
+    var items = container.querySelectorAll('.faqp-item');
+    items.forEach(function (item) {
+      var btn = item.querySelector('.faqp-q');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        // Close all sibling items
+        items.forEach(function (i) {
+          i.classList.remove('open');
+          var q = i.querySelector('.faqp-q');
+          if (q) q.setAttribute('aria-expanded', 'false');
+          var a = i.querySelector('.faqp-a');
+          if (a) a.setAttribute('aria-hidden', 'true');
+        });
+        // Open clicked unless it was already open
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          var ans = item.querySelector('.faqp-a');
+          if (ans) ans.setAttribute('aria-hidden', 'false');
+        }
+      });
+    });
+  }
+
+  // Main accordion
+  document.querySelectorAll('.faqp-panel').forEach(function (panel) {
+    bindAccordion(panel);
+  });
+
+  /* ── Location panels ── */
+  var cityBtns = document.querySelectorAll('.faqp-city-btn');
+  var locPanels = document.querySelectorAll('.faqp-loc-panel');
+
+  cityBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var city = btn.dataset.city;
+      var panel = document.getElementById('faqp-loc-' + city);
+      if (!panel) return;
+
+      var isOpen = !panel.hidden;
+      if (isOpen) {
+        // Close this panel
+        panel.hidden = true;
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        // Close all other panels
+        locPanels.forEach(function (p) { p.hidden = true; });
+        cityBtns.forEach(function (b) {
+          b.classList.remove('active');
+          b.setAttribute('aria-expanded', 'false');
+        });
+        // Open this panel
+        panel.hidden = false;
+        btn.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        // Bind accordion inside
+        bindAccordion(panel);
+        // Smooth scroll to panel
+        setTimeout(function () {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 50);
+      }
+    });
+  });
+
+  // Location close buttons
+  document.querySelectorAll('.faqp-loc-close').forEach(function (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+      var city = closeBtn.dataset.city;
+      var panel = document.getElementById('faqp-loc-' + city);
+      if (panel) panel.hidden = true;
+      var cityBtn = document.querySelector('.faqp-city-btn[data-city="' + city + '"]');
+      if (cityBtn) {
+        cityBtn.classList.remove('active');
+        cityBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  /* ── Search ── */
+  var searchInput = document.getElementById('faqp-search');
+  var searchClear = document.getElementById('faqp-search-clear');
+  var searchResults = document.getElementById('faqp-search-results');
+  var srInner = document.getElementById('faqp-sr-inner');
+  var faqMain = document.getElementById('faqp-main');
+
+  // Build flat index from all FAQ items
+  var allItems = [];
+  document.querySelectorAll('.faqp-panel .faqp-item').forEach(function (item) {
+    var qEl = item.querySelector('.faqp-q-text');
+    var aEl = item.querySelector('.faqp-a-inner');
+    var cat = item.dataset.cat;
+    if (qEl && aEl) {
+      allItems.push({ q: qEl.textContent.trim(), a: aEl.textContent.trim(), cat: cat, el: item });
+    }
+  });
+
+  function getCatLabel(catId) {
+    var btn = document.querySelector('.faqp-cat[data-cat="' + catId + '"]');
+    return btn ? btn.textContent.replace(/\d+$/, '').trim() : catId;
+  }
+
+  function doSearch(query) {
+    var q = query.trim().toLowerCase();
+    if (!q) {
+      searchResults.hidden = true;
+      faqMain.style.display = '';
+      searchClear.hidden = true;
+      return;
+    }
+    searchClear.hidden = false;
+    faqMain.style.display = 'none';
+    searchResults.hidden = false;
+
+    var matches = allItems.filter(function (item) {
+      return item.q.toLowerCase().includes(q) || item.a.toLowerCase().includes(q);
+    });
+
+    if (!matches.length) {
+      srInner.innerHTML = '<p class="faqp-sr-empty">No questions found for "<strong>' + escHtml(query) + '</strong>". Try different keywords.</p>';
+      return;
+    }
+
+    // Group by category
+    var grouped = {};
+    matches.forEach(function (m) {
+      if (!grouped[m.cat]) grouped[m.cat] = [];
+      grouped[m.cat].push(m);
+    });
+
+    var html = '<p class="faqp-sr-heading">' + matches.length + ' result' + (matches.length !== 1 ? 's' : '') + ' for "' + escHtml(query) + '"</p>';
+    Object.keys(grouped).forEach(function (cat) {
+      html += '<p class="faqp-sr-cat">' + escHtml(getCatLabel(cat)) + '</p>';
+      grouped[cat].forEach(function (m) {
+        html += '<div class="faqp-item" style="border-bottom:1px solid rgba(22,18,15,0.07);">' +
+          '<button class="faqp-q" aria-expanded="false">' +
+          '<span class="faqp-q-text">' + highlight(escHtml(m.q), q) + '</span>' +
+          '<span class="faqp-q-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path class="faqp-plus-h" d="M4 10h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="faqp-plus-v" d="M10 4v12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>' +
+          '</button>' +
+          '<div class="faqp-a" aria-hidden="true"><div class="faqp-a-inner">' + highlight(escHtml(m.a), q) + '</div></div>' +
+          '</div>';
+      });
+    });
+
+    srInner.innerHTML = html;
+    bindAccordion(srInner);
+  }
+
+  function escHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function highlight(text, query) {
+    var re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+    return text.replace(re, '<mark style="background:rgba(184,92,56,0.2);color:#16120F;border-radius:3px;padding:0 2px;">$1</mark>');
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function () { doSearch(this.value); });
+  }
+  if (searchClear) {
+    searchClear.addEventListener('click', function () {
+      searchInput.value = '';
+      doSearch('');
+      searchInput.focus();
+    });
+  }
+
+  /* ── Scroll reveal for location cards ── */
+  if ('IntersectionObserver' in window) {
+    var locHead = document.querySelector('.faqp-loc-head');
+    var cityBtnsList = document.querySelectorAll('.faqp-city-btn');
+
+    if (locHead) {
+      locHead.style.opacity = '0';
+      locHead.style.transform = 'translateY(20px)';
+      locHead.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    }
+    cityBtnsList.forEach(function (btn, i) {
+      btn.style.opacity = '0';
+      btn.style.transform = 'translateY(12px)';
+      btn.style.transition = 'opacity 0.4s ease ' + (i * 0.03) + 's, transform 0.4s ease ' + (i * 0.03) + 's, background 0.18s, border-color 0.18s, color 0.18s';
+    });
+
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        revealObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.15 });
+
+    if (locHead) revealObs.observe(locHead);
+    cityBtnsList.forEach(function (btn) { revealObs.observe(btn); });
+  }
+})();
+</script>

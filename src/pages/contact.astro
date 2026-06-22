@@ -1,0 +1,1445 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { projects as allProjects } from '../data/projects.js';
+
+const siteUrl = 'https://allmasonryservices.com';
+const svcProjects = allProjects.slice(0, 5);
+
+const serviceAreas = [
+  'Chicago', 'Evanston', 'Wilmette', 'Winnetka', 'Glencoe', 'Naperville',
+  'Burr Ridge', 'Oak Park', 'Hinsdale', 'Highland Park', 'Northbrook',
+  'Skokie', 'Lake Forest', 'Glenview', 'Western Springs', 'Park Ridge',
+  'Elmhurst', 'La Grange', 'Kenilworth'
+];
+
+const faqItems = [
+  {
+    q: 'How fast can you come out for an estimate?',
+    a: 'We typically schedule a free on-site estimate within 24–48 hours of your call. For urgent structural or water-intrusion issues, we prioritize same-day or next-day visits when possible.'
+  },
+  {
+    q: 'Is the estimate really free?',
+    a: 'Yes — every on-site estimate is free with no obligation. We assess every visible problem, explain what we find, and give you a written estimate before any work begins.'
+  },
+  {
+    q: 'What areas do you serve?',
+    a: 'We serve Chicago, the North Shore, and the western suburbs — 19+ cities across Chicagoland. If you are not sure whether we cover your area, just call and ask.'
+  },
+  {
+    q: 'Do you charge for travel or consultation?',
+    a: 'No. There are no travel fees, no consultation fees, and no hidden charges. The written estimate is your final price.'
+  }
+];
+---
+
+<Layout
+  title="Contact All Masonry Services — Free Estimates Across Chicagoland | 773-656-2107"
+  description="Contact All Masonry Services for a free on-site masonry estimate in Chicago and Chicagoland. Call 773-656-2107 or request a quote online. Licensed, insured, family-owned since 2007."
+>
+  <!-- Schema: ContactPage / LocalBusiness -->
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "All Masonry Services",
+    "url": siteUrl + "/contact",
+    "telephone": "+1-773-656-2107",
+    "areaServed": "Chicago, Chicagoland, IL",
+    "priceRange": "$$",
+    "address": { "@type": "PostalAddress", "addressRegion": "IL", "addressCountry": "US", "addressLocality": "Chicago" }
+  })}</script>
+
+  <Navbar />
+
+  <!-- ─── 1. HERO — CHIMNEY-SHAPE IMAGE ANIMATION (image swapped to contact-masonry) ─── -->
+  <section class="cth-hero" id="cth-hero" aria-label="Contact All Masonry Services hero">
+    <div class="cth-hero-base" aria-hidden="true"></div>
+
+    <!-- Chimney-shaped image grid — right side -->
+    <div class="cth-chimney-wrap" aria-hidden="true">
+      <div id="cth-image-container" class="cth-chimney-shape">
+        <div id="cth-physics-container"></div>
+      </div>
+    </div>
+
+    <!-- Left vignette for text contrast -->
+    <div class="cth-vignette" aria-hidden="true"></div>
+
+    <!-- Text content — bottom left -->
+    <div class="cth-content">
+      <!-- Heading block: label + h1 -->
+      <div class="cth-ct" id="cth-ct">
+        <div class="cth-label" id="cth-label">
+          <span class="cth-label-line" aria-hidden="true"></span>
+          Get In Touch · Chicago &amp; Chicagoland
+        </div>
+        <h1 class="cth-h1">
+          <div class="cth-h1-row"><span id="cth-r1">Let's Talk About</span></div>
+          <div class="cth-h1-row"><span id="cth-r2">Your Masonry Project</span></div>
+        </h1>
+      </div>
+      <!-- Body block: sub + actions + badges -->
+      <div class="cth-cb" id="cth-cb">
+        <p class="cth-sub" id="cth-sub">
+          Free on-site estimates across Chicagoland. Tell us what you need — we'll assess every visible problem and give you an honest, written estimate before any work begins.
+        </p>
+        <div class="cth-actions" id="cth-act">
+          <a href="#form" class="cth-btn cth-btn-primary">
+            <span class="cth-btn-bg" aria-hidden="true"></span>
+            <span class="cth-btn-label">Request a Free Estimate</span>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="tel:7736562107" class="cth-btn cth-btn-ghost">
+            <span class="cth-btn-bg" aria-hidden="true"></span>
+            <span class="cth-btn-label">Call 773-656-2107</span>
+          </a>
+        </div>
+        <div class="cth-badges" id="cth-bdg">
+          <div class="cth-badge"><strong>24hr</strong><span>Estimate Response</span></div>
+          <div class="cth-badge-sep" aria-hidden="true"></div>
+          <div class="cth-badge"><strong>4.8★</strong><span>92 Google Reviews</span></div>
+          <div class="cth-badge-sep" aria-hidden="true"></div>
+          <div class="cth-badge"><strong>$0</strong><span>Hidden Fees</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cth-scroll" id="cth-scroll">
+      <div class="cth-scroll-mouse"><div class="cth-scroll-dot"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <script is:inline>
+  (function() {
+    function initCth() {
+      var gsap = window.__gsap;
+      if (!gsap) return;
+      var container = document.getElementById('cth-physics-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      var W = 460, H = 540;
+      var cols = 8, rows = 10;
+      var blockW = W / cols;
+      var blockH = H / rows;
+      var blocks = [];
+
+      for (var r = 0; r < rows; r++) {
+        for (var c = 0; c < cols; c++) {
+          var block = document.createElement('div');
+          block.style.cssText = [
+            'position:absolute',
+            'width:' + blockW + 'px',
+            'height:' + blockH + 'px',
+            "background-image:url('/images/contact-masonry.webp')",
+            'background-size:' + W + 'px ' + H + 'px',
+            'background-repeat:no-repeat',
+            'background-position:-' + (c * blockW) + 'px -' + (r * blockH) + 'px',
+            'left:' + (c * blockW) + 'px',
+            'top:' + (r * blockH) + 'px'
+          ].join(';');
+          container.appendChild(block);
+          blocks.push(block);
+        }
+      }
+
+      gsap.set(blocks, { scale: 0.85, filter: 'brightness(0.9)' });
+
+      var heroEl = document.getElementById('cth-hero');
+
+      var quickTos = blocks.map(function(b, i) {
+        return gsap.quickTo(b, 'x', { duration: 0.6 + (i % 8) * 0.08, ease: 'power2.out' });
+      });
+      var mults = blocks.map(function(b, i) { return 0.15 + (i % 7) * 0.06; });
+
+      function shiftBlocks(clientX) {
+        var bounds = heroEl.getBoundingClientRect();
+        var relX = ((clientX - bounds.left) / bounds.width - 0.5) * 2;
+        for (var i = 0; i < blocks.length; i++) { quickTos[i](relX * 22 * mults[i]); }
+      }
+      function resetBlocks() { for (var i = 0; i < blocks.length; i++) { quickTos[i](0); } }
+
+      heroEl.addEventListener('mousemove', function(e) { shiftBlocks(e.clientX); }, { passive: true });
+      heroEl.addEventListener('mouseleave', resetBlocks);
+      heroEl.addEventListener('touchmove', function(e) { shiftBlocks(e.touches[0].clientX); }, { passive: true });
+      heroEl.addEventListener('touchend', resetBlocks, { passive: true });
+
+      var scrEl = document.getElementById('cth-scroll');
+      if (scrEl) {
+        scrEl.addEventListener('click', function() {
+          var next = document.querySelector('.cth-methods');
+          if (next) next.scrollIntoView({ behavior: 'smooth' });
+          else window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+        });
+      }
+
+      // Hero text entrance
+      var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.fromTo('#cth-label', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.1)
+        .fromTo('#cth-r1',    { yPercent: 110 },      { yPercent: 0, duration: 0.75 },    0.25)
+        .fromTo('#cth-r2',    { yPercent: 110 },      { yPercent: 0, duration: 0.75 },    0.38)
+        .fromTo('#cth-sub',   { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6 }, 0.55)
+        .fromTo('#cth-act',   { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5 }, 0.70)
+        .fromTo('#cth-bdg',   { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 }, 0.82)
+        .fromTo('#cth-scroll',{ opacity: 0 },         { opacity: 1, duration: 0.5 },      1.0);
+    }
+
+    if (window.__gsap) { initCth(); }
+    else { window.addEventListener('animations:ready', initCth, { once: true }); }
+
+    window.addEventListener('resize', function() {
+      clearTimeout(window._cthTimer);
+      window._cthTimer = setTimeout(initCth, 300);
+    });
+  })();
+  </script>
+
+  <!-- ─── 2. CONTACT METHODS ─── -->
+  <section class="cth-methods">
+    <div class="cth-methods-inner">
+
+      <a href="tel:7736562107" class="cth-method" data-reveal>
+        <div class="cth-method-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.7" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <span class="cth-method-label">Call Us</span>
+        <span class="cth-method-val">773-656-2107</span>
+        <span class="cth-method-note">7 days a week</span>
+      </a>
+
+      <a href="mailto:info@allmasonryservices.com" class="cth-method" data-reveal style="--rd:80ms">
+        <div class="cth-method-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.7" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/>
+          </svg>
+        </div>
+        <span class="cth-method-label">Email Us</span>
+        <span class="cth-method-val">info@allmasonryservices.com</span>
+        <span class="cth-method-note">Reply within 1 business day</span>
+      </a>
+
+      <div class="cth-method cth-method--static" data-reveal style="--rd:160ms">
+        <div class="cth-method-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.7" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <span class="cth-method-label">Service Area</span>
+        <span class="cth-method-val">Chicago &amp; Chicagoland</span>
+        <span class="cth-method-note">19+ cities served</span>
+      </div>
+
+      <div class="cth-method cth-method--static" data-reveal style="--rd:240ms">
+        <div class="cth-method-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.7" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <span class="cth-method-label">Hours</span>
+        <span class="cth-method-val">Mon–Sun · 7am–7pm</span>
+        <span class="cth-method-note">Emergency calls anytime</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 3. MAIN FORM + INFO ─── -->
+  <section class="cth-form-section" id="form">
+    <div class="cth-form-grid">
+
+      <!-- LEFT: info column -->
+      <div class="cth-form-info" data-reveal>
+        <div class="cth-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Free Inspection</span>
+        </div>
+        <h2 class="cth-form-h2">Request Your<br>Written Estimate</h2>
+        <p class="cth-form-lead">
+          No obligation. We assess every visible problem and give you a written estimate before any work begins — and the number we quote is the number you pay.
+        </p>
+
+        <ul class="cth-form-bullets">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#B85C38" stroke-width="1.4"/><path d="M5.5 9L7.5 11L12.5 6.5" stroke="#B85C38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Free on-site estimate within 24–48 hours
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#B85C38" stroke-width="1.4"/><path d="M5.5 9L7.5 11L12.5 6.5" stroke="#B85C38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Licensed &amp; insured in Illinois
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#B85C38" stroke-width="1.4"/><path d="M5.5 9L7.5 11L12.5 6.5" stroke="#B85C38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Own crew — no subcontractors
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#B85C38" stroke-width="1.4"/><path d="M5.5 9L7.5 11L12.5 6.5" stroke="#B85C38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Written estimate = your final price
+          </li>
+        </ul>
+
+        <div class="cth-form-call">
+          <span class="cth-form-call-label">Prefer to talk now?</span>
+          <a href="tel:7736562107" class="cth-form-call-num">773-656-2107</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: form card -->
+      <div class="cth-card">
+        <form class="cth-form" id="cth-form" novalidate>
+          <div class="cth-row">
+            <div class="cth-field">
+              <label class="cth-flabel" for="cth-name">Full name <span class="cth-req">*</span></label>
+              <input class="cth-input" type="text" id="cth-name" name="fullName" placeholder="John Carter" required autocomplete="name"/>
+            </div>
+            <div class="cth-field">
+              <label class="cth-flabel" for="cth-phone">Phone number</label>
+              <input class="cth-input" type="tel" id="cth-phone" name="phone" placeholder="(555) 247-8901" autocomplete="tel"/>
+            </div>
+          </div>
+          <div class="cth-row">
+            <div class="cth-field">
+              <label class="cth-flabel" for="cth-email">Email address <span class="cth-req">*</span></label>
+              <input class="cth-input" type="email" id="cth-email" name="email" placeholder="john@example.com" required autocomplete="email"/>
+            </div>
+            <div class="cth-field">
+              <label class="cth-flabel" for="cth-service">Service type</label>
+              <div class="cth-select-wrap">
+                <select class="cth-select" id="cth-service" name="service">
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="tuckpointing">Tuckpointing &amp; Repointing</option>
+                  <option value="brick-installation">Brick Installation</option>
+                  <option value="brick-replacement">Damaged Brick Replacement</option>
+                  <option value="chimney-repair">Chimney Repair &amp; Rebuilding</option>
+                  <option value="chimney-fireplace">Chimney &amp; Fireplace Masonry</option>
+                  <option value="natural-stone">Natural Stone &amp; Limestone</option>
+                  <option value="veneers">Brick &amp; Stone Veneers</option>
+                  <option value="cmu-block">CMU Block Installation</option>
+                  <option value="commercial">Commercial Masonry</option>
+                  <option value="custom-home">Custom Home Masonry</option>
+                  <option value="other">Other / Not Sure</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="cth-field">
+            <label class="cth-flabel" for="cth-city">City / Town</label>
+            <input class="cth-input" type="text" id="cth-city" name="city" placeholder="e.g. Evanston, Naperville" autocomplete="address-level2"/>
+          </div>
+          <div class="cth-field">
+            <label class="cth-flabel" for="cth-message">Message</label>
+            <textarea class="cth-textarea" id="cth-message" name="message"
+              placeholder="Briefly describe your masonry needs — wall, chimney, steps, facade, etc."></textarea>
+          </div>
+          <button class="cth-submit" type="submit">
+            <span class="cth-submit-text">Schedule Free Inspection →</span>
+            <span class="cth-submit-spinner" aria-hidden="true"></span>
+          </button>
+          <p class="cth-form-disclaimer">By submitting, you agree to be contacted about your estimate. We never share your information.</p>
+        </form>
+
+        <div class="cth-success" id="cth-success" hidden>
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="22" r="22" fill="#B85C38"/>
+            <path d="M13 22l7 7 11-11" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="cth-success-title">Request Received!</p>
+          <p class="cth-success-body">We'll reach out within one business day to schedule your free inspection. Thank you.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── 4. PROCESS ─── -->
+  <section id="sp-prc-section" style="background:#F5F5F5; position:relative;">
+    <div id="sp-prc-driver" style="position:relative; height:600vh;">
+      <div id="sp-prc-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-prc-grid">
+
+          <!-- LEFT: heading + CTA -->
+          <div id="sp-prc-left">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">How We Work</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(36px,3.5vw,54px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 20px;">How We Work With You</h2>
+
+            <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.65; color:#6A625A; margin:0 0 36px;">From your first call to the final walk-through — every step is documented, on schedule, and built to pass inspection. Here's exactly how an AMS project runs.</p>
+
+            <div class="sp-prc-desktop-cta">
+              <a href="#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:28px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: steps -->
+          <div id="sp-prc-right">
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">01</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Free On-Site Estimate</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We come to you, assess the work in person, and hand you a written estimate with scope, materials, and timeline. No charge, no pressure to book.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>A real number requires real eyes on the masonry. Phone quotes are guesses — our on-site estimate is the price you can actually plan around.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">02</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Material Matching &amp; Selection</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We match mortar composition, color, and joint profile to your existing masonry — or help you choose new brick, stone, or limestone that suits your home and Chicago's climate.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Mortar that's too hard cracks your brick within a few winters. Matching it correctly is the difference between a repair that lasts decades and one that fails in years.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">03</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Written Schedule &amp; Site Prep</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">Before we start, you get a start date in writing. We protect your property, set up cleanly, and pull any permits the job requires.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>A crew that won't commit to a date in writing is a crew that will leave you waiting. We show up when we say we will.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">04</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">The Work — Done Right</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">The same crew that estimated your job does the work — no subcontractors. Daily cleanup, daily progress, and we never cut corners to save time.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Most masonry failures trace back to rushed work and revolving crews. One accountable crew, doing it properly, is why our work passes inspection the first time.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE; border-bottom:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">05</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Final Walk-Through</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We walk the finished work with you before any final payment. Every punch-list item is resolved before we close out.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>The walk-through is your leverage — we do it with you, not after you've already paid. That's the only walk-through that counts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile-only CTA -->
+            <div class="sp-prc-mobile-cta" style="display:none; padding-top:36px;">
+              <a href="#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:20px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 5. FEATURED PROJECTS ─── -->
+  <section id="sp-proj-section" style="background:#16120F; position:relative; overflow-x:clip;">
+    <div id="sp-proj-driver" style="position:relative; height:200vh;">
+      <div id="sp-proj-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-proj-grid">
+
+          <!-- LEFT: Polaroid card stack -->
+          <div id="sp-proj-stack" style="position:relative; height:520px; display:flex; align-items:center; justify-content:center;">
+
+            {svcProjects.map((p, i) => (
+              <div class="sp-proj-polaroid" data-i={String(i)} style="position:absolute; background:#ffffff; padding:14px 14px 56px; box-shadow:0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06); width:230px; will-change:transform; user-select:none; cursor:pointer; transition:box-shadow 0.25s ease;">
+                <div style="overflow:hidden; width:100%; height:290px;">
+                  <picture style="display:block;width:100%;height:100%;">
+                    <source media="(max-width: 768px)" srcset={p.heroImageSm} type="image/webp" />
+                    <img src={p.heroImage} alt={p.serviceType + ' in ' + p.city} class="sp-proj-img" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);" loading="lazy" />
+                  </picture>
+                </div>
+                <div style="padding-top:14px; text-align:center;">
+                  <p class="sp-proj-label" style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 3px; line-height:1.3; transition:color 0.25s ease;">{p.city}</p>
+                  <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">{p.county}, IL</p>
+                  <a href={'/projects/' + p.slug} style="display:inline-block; margin-top:6px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:#B85C38; text-decoration:none; letter-spacing:0.04em; text-transform:uppercase;" onclick="event.stopPropagation()">View →</a>
+                </div>
+              </div>
+            ))}
+
+          </div>
+
+          <!-- RIGHT: Text content -->
+          <div class="sp-proj-text">
+
+            <div class="sp-proj-text-top">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+                </svg>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">Recent Work</span>
+              </div>
+              <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#ffffff; letter-spacing:-0.02em; margin:0 0 20px;">
+                Masonry Projects<br><em style="font-style:normal;">Across Chicagoland</em>
+              </h2>
+              <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.65); margin:0; max-width:400px;">
+                From new brick facades to limestone features and fireplace builds — every project delivered on schedule and built to last.
+              </p>
+            </div>
+
+            <div class="sp-proj-text-bottom">
+              <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+                <a href="/projects"
+                  style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:16px; font-weight:500; padding:16px 30px; border-radius:14px; text-decoration:none; transition:background 0.2s;"
+                  onmouseenter="this.style.background='#8A3A22'"
+                  onmouseleave="this.style.background='#B85C38'">
+                  View more projects
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="#form"
+                  style="font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,0.3); transition:color 0.2s;"
+                  onmouseenter="this.style.color='#fff'"
+                  onmouseleave="this.style.color='rgba(255,255,255,0.65)'">
+                  Get a free estimate →
+                </a>
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.4); margin:16px 0 0;">
+                500+ projects completed across Chicagoland
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="sp-proj-spacer"></div>
+  </section>
+
+  <!-- ─── 6. REVIEWS ─── -->
+  <section id="sp-rev-section" style="background:#ffffff; position:relative; overflow-x:clip;">
+
+    <div id="sp-rev-driver" style="position:relative; height:300vh;">
+      <div style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-rev-grid">
+
+          <!-- LEFT: heading + rating + neighbourhood cards -->
+          <div class="sp-rev-left">
+
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">What Homeowners Say</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 28px;">
+              Real Reviews from<br><em style="font-style:normal;">Chicagoland Clients</em>
+            </h2>
+
+            <div style="margin-bottom:40px;">
+              <p style="font-family:'Onest',sans-serif; font-size:48px; font-weight:700; color:#16120F; margin:0 0 8px; line-height:1;">4.8</p>
+              <div style="display:flex; gap:4px; margin-bottom:6px;">
+                {[1,2,3,4,5].map(() => (
+                  <svg width="18" height="18" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>
+                ))}
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:14px; color:#6A625A; margin:0;">92 verified Chicagoland homeowners</p>
+            </div>
+
+            <div id="sp-rev-nbhd-area" style="opacity:0; transform:translateY(16px);">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+                </svg>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Trusted across Chicagoland</span>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">North Shore</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Winnetka</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Lake Forest</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"AMS did our full limestone facade and both fireplaces. They showed up every day as promised and finished on schedule. Our builder was impressed."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Sarah M.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Winnetka, IL</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Western Suburbs</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Hinsdale</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Oak Brook</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"Three bids, one clear choice. AMS was the only masonry sub who gave our builder a written schedule — and kept it."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">David L.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Hinsdale, IL</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">DuPage Corridor</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Naperville</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Wheaton</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"Used AMS for full brick exterior on our custom build. Passed every inspection first visit. Exceptional quality throughout."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Christine H.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Naperville, IL</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: stacked review cards -->
+          <div style="display:flex; align-items:center; justify-content:center;">
+            <div id="sp-rev-stack" style="position:relative; width:340px; height:400px;">
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"AMS was the only masonry sub on our build that actually showed up when they said they would. The brick work on our Hinsdale custom home is perfect — every inspector commented on the quality."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">James T.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Hinsdale, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"We used AMS for our full limestone facade, fireplace, and chimney. They coordinated directly with our GC, sent progress photos daily, and finished three days ahead of schedule. Outstanding."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Patricia &amp; David K.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Winnetka, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"I'm a builder and I've used AMS on four custom homes. They're the only masonry crew I trust to stay on schedule without me having to babysit. The quality is consistent every time."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Robert S., General Contractor</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Chicagoland</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"AMS's written estimate was the most detailed we've ever received. Every material, every elevation priced out separately. No surprises — the final bill matched the estimate exactly."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Michael B.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Naperville, IL</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Called three masonry contractors. AMS was the only one who sent a detailed written schedule with their estimate. That professionalism showed in every aspect of the work."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Karen W.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">La Grange, IL</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile-only neighbourhood card -->
+    <div class="sp-rev-mob-nbhd">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Trusted across Chicagoland</span>
+      </div>
+      <div style="border-radius:16px; padding:22px 20px 18px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07);">
+        <div style="display:flex; gap:4px; margin-bottom:14px;">
+          {[1,2,3,4,5].map(() => (<svg width="14" height="14" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}
+        </div>
+        <p style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.6; color:#4A433B; margin:0 0 18px; font-style:italic;">
+          "AMS did our full limestone facade and both fireplaces. They showed up every day as promised and finished on schedule. Our builder was impressed."
+        </p>
+        <div style="display:flex; align-items:center; gap:10px; padding-top:14px; border-top:1px solid #E4E2DE;">
+          <div style="width:32px; height:32px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="13" r="7" fill="#C4BDB5"/><ellipse cx="16" cy="28" rx="11" ry="7" fill="#C4BDB5"/></svg></div>
+          <div>
+            <p style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 2px;">Sarah M.</p>
+            <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">Winnetka, IL · North Shore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── 7. SERVICE AREAS ─── -->
+  <section class="cth-areas">
+    <div class="cth-areas-inner">
+      <div class="cth-eyebrow cth-eyebrow--center" data-reveal>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span>Where We Work</span>
+      </div>
+      <h2 class="cth-areas-h2" data-reveal style="--rd:60ms">Serving 19+ Cities Across Chicagoland</h2>
+      <p class="cth-areas-sub" data-reveal style="--rd:120ms">From the North Shore to the western suburbs — if you're in Chicagoland, we've probably worked on your block.</p>
+      <div class="cth-areas-grid" data-reveal style="--rd:180ms">
+        {serviceAreas.map(city => (
+          <span class="cth-area-pill">{city}</span>
+        ))}
+      </div>
+      <p class="cth-areas-note" data-reveal>Not sure if we cover your area? <a href="tel:7736562107">Call 773-656-2107</a> — we'll let you know.</p>
+    </div>
+  </section>
+
+  <!-- ─── 5. FAQ ─── -->
+  <section class="cth-faq">
+    <div class="cth-faq-inner">
+      <div class="cth-eyebrow" data-reveal>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span>Common Questions</span>
+      </div>
+      <h2 class="cth-faq-h2" data-reveal style="--rd:60ms">Before You Reach Out</h2>
+      <div class="cth-faq-list">
+        {faqItems.map((item, i) => (
+          <details class="cth-faq-item" data-reveal style={`--rd:${i * 60}ms`}>
+            <summary class="cth-faq-q">
+              {item.q}
+              <svg class="cth-faq-chev" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 7l5 5 5-5" stroke="#B85C38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <p class="cth-faq-a">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA BANNER ─── -->
+  <section class="sp-cta-banner">
+    <div class="sp-cta-banner-inner">
+      <div class="sp-cta-banner-text">
+        <h2 class="sp-cta-banner-h2">Ready to Start Your Masonry Project?</h2>
+        <p class="sp-cta-banner-sub">19 years of brick, stone, and limestone masonry across Chicagoland. Free estimates. No pressure. Just honest work done right.</p>
+      </div>
+      <div class="sp-cta-banner-actions">
+        <a href="#form" class="sp-btn sp-btn--accent">Get a Free Estimate</a>
+        <a href="tel:7736562107" class="sp-btn sp-btn--ghost-light">Call 773-656-2107</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<!-- ─── REVIEWS ANIMATION ─── -->
+<script is:inline>
+  (function() {
+    function initRevAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+      if (window.innerWidth <= 900) return;
+
+      var driver     = document.getElementById('sp-rev-driver');
+      var nbhdArea   = document.getElementById('sp-rev-nbhd-area');
+      var tCards     = gsap.utils.toArray('.sp-rev-card');
+      var nbhdCards  = gsap.utils.toArray('.sp-rev-nbhd-card');
+      var N = tCards.length;
+      if (!driver || !N) return;
+
+      var ROTATIONS = [12, 20, 28, 34, 38];
+      var SCALES    = [1, 0.97, 0.94, 0.91, 0.88];
+
+      tCards.forEach(function(card, i) {
+        gsap.set(card, {
+          zIndex:          N - i,
+          rotation:        ROTATIONS[i] || 0,
+          scale:           SCALES[i]    || 0.85,
+          transformOrigin: 'center center'
+        });
+      });
+
+      gsap.set(nbhdArea,  { opacity: 0, y: 16 });
+      gsap.set(nbhdCards, { opacity: 0, y: 16 });
+
+      var tl = gsap.timeline();
+      for (var i = 0; i < N - 1; i++) {
+        var s = i / (N - 1);
+        var e = (i + 1) / (N - 1);
+        var d = e - s;
+        tl.to(tCards[i], { yPercent: -110, opacity: 0, duration: d, ease: 'power2.in' }, s);
+        for (var j = i + 1; j < N; j++) {
+          var newPos = j - (i + 1);
+          tl.to(tCards[j], {
+            rotation: ROTATIONS[newPos] || 0,
+            scale:    SCALES[newPos]    || 0.85,
+            duration: d, ease: 'power2.out'
+          }, s);
+        }
+      }
+
+      ScrollTrigger.create({
+        trigger:   driver,
+        start:     'top top',
+        end:       'bottom bottom',
+        scrub:     1.2,
+        animation: tl
+      });
+
+      ScrollTrigger.create({
+        trigger: driver,
+        start:   '60% bottom',
+        end:     '80% bottom',
+        scrub:   1,
+        onEnter: function() {
+          gsap.to(nbhdArea,  { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+          gsap.to(nbhdCards, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.12, delay: 0.15 });
+        },
+        onLeaveBack: function() {
+          gsap.to(nbhdArea,  { opacity: 0, y: 16, duration: 0.35 });
+          gsap.to(nbhdCards, { opacity: 0, y: 16, duration: 0.25 });
+        }
+      });
+    }
+
+    window.removeEventListener('animations:ready', window.__cthRevAnimReady);
+    window.__cthRevAnimReady = initRevAnim;
+    window.addEventListener('animations:ready', window.__cthRevAnimReady);
+  })();
+</script>
+
+<!-- ─── PROJECTS POLAROID ANIMATION ─── -->
+<script is:inline>
+  (function() {
+    function initProjAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+
+      var driver = document.getElementById('sp-proj-driver');
+      var cards  = gsap.utils.toArray('.sp-proj-polaroid');
+      var N      = cards.length;
+      if (!driver || !N) return;
+
+      var FAN_ROTATIONS = [-24, -12, 0, 12, 24];
+
+      gsap.set(cards, {
+        transformOrigin: '50% 100%',
+        rotation: 0,
+        scale: 1,
+        zIndex: function(i) { return i + 1; }
+      });
+
+      var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+      cards.forEach(function(card, i) {
+        tl.to(card, { rotation: FAN_ROTATIONS[i], duration: 1 }, 0);
+      });
+
+      ScrollTrigger.create({
+        trigger: driver,
+        start:   'top top',
+        end:     'bottom bottom',
+        scrub:   0.6,
+        animation: tl
+      });
+
+      var SHADOW_DEFAULT = '0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06)';
+      var SHADOW_HOVER   = '0 20px 60px rgba(22,18,15,0.22), 0 6px 16px rgba(22,18,15,0.10)';
+      var SHADOW_ACTIVE  = '0 28px 80px rgba(22,18,15,0.26), 0 8px 20px rgba(22,18,15,0.12)';
+      var activeCard = null;
+
+      cards.forEach(function(card, i) {
+        var title = card.querySelector('.sp-proj-label');
+        var img   = card.querySelector('.sp-proj-img');
+
+        card.addEventListener('mouseenter', function() {
+          if (card === activeCard) return;
+          card.style.boxShadow = SHADOW_HOVER;
+          card.style.zIndex    = String(N + 5);
+          if (title) title.style.color   = '#B85C38';
+          if (img)   img.style.transform = 'scale(1.06)';
+          gsap.to(card, { y: -28, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+        });
+
+        card.addEventListener('mouseleave', function() {
+          if (card === activeCard) return;
+          card.style.boxShadow = SHADOW_DEFAULT;
+          card.style.zIndex    = String(i + 1);
+          if (title) title.style.color   = '#16120F';
+          if (img)   img.style.transform = 'scale(1)';
+          gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+        });
+
+        card.addEventListener('click', function() {
+          if (card === activeCard) {
+            activeCard = null;
+            card.style.boxShadow = SHADOW_DEFAULT;
+            card.style.zIndex    = String(i + 1);
+            gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+            return;
+          }
+          if (activeCard) {
+            var prevI = parseInt(activeCard.dataset.i || '0');
+            activeCard.style.boxShadow = SHADOW_DEFAULT;
+            activeCard.style.zIndex    = String(prevI + 1);
+            gsap.to(activeCard, { y: 0, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+          }
+          activeCard = card;
+          card.style.zIndex    = String(N + 10);
+          card.style.boxShadow = SHADOW_ACTIVE;
+          gsap.to(card, { y: -48, duration: 0.35, ease: 'back.out(1.6)', overwrite: 'auto' });
+        });
+      });
+    }
+
+    window.removeEventListener('animations:ready', window.__cthProjAnimReady);
+    window.__cthProjAnimReady = initProjAnim;
+    window.addEventListener('animations:ready', window.__cthProjAnimReady);
+  })();
+</script>
+
+<!-- ─── PROCESS SCROLL ANIMATION ─── -->
+<script is:inline>
+  (function() {
+    function initProcessAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+
+      var driver   = document.getElementById('sp-prc-driver');
+      var leftCol  = document.getElementById('sp-prc-left');
+      var items    = Array.from(document.querySelectorAll('.sp-prc-item'));
+      var nums     = Array.from(document.querySelectorAll('.sp-prc-num'));
+      if (!driver || !leftCol || !items.length) return;
+
+      var isMobile = window.innerWidth < 900;
+      if (isMobile) {
+        items.forEach(function(item, i) {
+          var stepTl = gsap.timeline({ defaults: { ease: 'none' } });
+          var n = nums[i];
+          stepTl
+            .fromTo(n, { opacity: 0.22 }, { opacity: 1, duration: 0.5 }, 0)
+            .fromTo(item, { backgroundColor: 'rgba(184,92,56,0)' }, { backgroundColor: 'rgba(184,92,56,0.06)', duration: 0.5 }, 0)
+            .to(n, { opacity: 0.22, duration: 0.5 }, 0.5)
+            .to(item, { backgroundColor: 'rgba(184,92,56,0)', duration: 0.5 }, 0.5);
+          ScrollTrigger.create({ trigger: item, start: 'top 65%', end: 'bottom 35%', scrub: 0.4, animation: stepTl });
+        });
+        return;
+      }
+
+      gsap.from(leftCol, {
+        opacity: 0, x: -24, duration: 0.9, ease: 'power2.out',
+        scrollTrigger: { trigger: driver, start: 'top 80%', once: true },
+      });
+
+      gsap.from(items, {
+        opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', stagger: 0.08,
+        scrollTrigger: { trigger: driver, start: 'top 70%', once: true },
+      });
+
+      var tl  = gsap.timeline({ defaults: { ease: 'none' } });
+      var seg = 1 / items.length;
+
+      items.forEach(function(item, i) {
+        var s  = i * seg;
+        var fi = seg * 0.25;
+        var fo = seg * 0.25;
+        tl.fromTo(nums[i],  { opacity: 0.22 }, { opacity: 1,                           duration: fi }, s);
+        tl.to(nums[i],                          { opacity: 0.22,                        duration: fo }, s + seg - fo);
+        tl.fromTo(items[i], { backgroundColor: 'rgba(184,92,56,0)' },
+                            { backgroundColor: 'rgba(184,92,56,0.06)', duration: fi }, s);
+        tl.to(items[i],     { backgroundColor: 'rgba(184,92,56,0)',    duration: fo }, s + seg - fo);
+      });
+
+      ScrollTrigger.create({
+        trigger: driver, start: 'top top', end: 'bottom bottom',
+        scrub: 1.2, animation: tl,
+      });
+    }
+
+    window.removeEventListener('animations:ready', window.__cthPrcAnimReady);
+    window.__cthPrcAnimReady = initProcessAnim;
+    window.addEventListener('animations:ready', window.__cthPrcAnimReady);
+  })();
+</script>
+
+<script is:inline>
+(function () {
+  var form    = document.getElementById('cth-form');
+  var success = document.getElementById('cth-success');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var btn = form.querySelector('.cth-submit');
+      if (btn) { btn.classList.add('loading'); btn.disabled = true; }
+      setTimeout(function () {
+        form.hidden = true;
+        if (success) success.hidden = false;
+        if (btn) { btn.classList.remove('loading'); btn.disabled = false; }
+      }, 1100);
+    });
+  }
+})();
+</script>
+
+<script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+const reveals = Array.from(document.querySelectorAll('[data-reveal]')) as HTMLElement[];
+reveals.forEach(el => {
+  const delay = parseFloat(getComputedStyle(el).getPropertyValue('--rd') || '0') / 1000;
+  gsap.fromTo(el,
+    { opacity: 0, y: 28 },
+    {
+      opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay,
+      scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+    }
+  );
+});
+</script>
+
+<style>
+* { box-sizing: border-box; }
+
+/* ─── HERO (chimney-shape image animation) ──────────── */
+.cth-hero {
+  position: relative; width: 100%; height: 100svh; min-height: 600px;
+  overflow: hidden; background: #16120F;
+  display: flex; align-items: flex-end; justify-content: flex-start;
+}
+.cth-hero-base { position: absolute; inset: 0; background: #16120F; z-index: 0; }
+.cth-chimney-wrap {
+  position: absolute; right: 7%; top: 50%; transform: translateY(-50%);
+  z-index: 2; width: 460px; height: 540px;
+}
+.cth-chimney-shape {
+  position: relative; width: 100%; height: 100%;
+  background: #000; box-shadow: 0 0 80px rgba(0,0,0,0.8);
+  clip-path: polygon(20% 0%,80% 0%,80% 5%,70% 5%,70% 50%,90% 100%,10% 100%,30% 50%,30% 5%,20% 5%);
+}
+#cth-physics-container { position: absolute; inset: 0; }
+.cth-vignette {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: linear-gradient(90deg, rgba(22,18,15,0.85) 38%, rgba(22,18,15,0.45) 62%, transparent 80%);
+}
+.cth-content {
+  position: relative; z-index: 10; padding: 0 60px 72px 80px;
+  pointer-events: none; max-width: 780px;
+  margin-left: max(0px, calc((100vw - 1280px) / 2));
+  display: flex; flex-direction: column;
+}
+.cth-label {
+  display: inline-flex; align-items: center; gap: 12px;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 20px;
+}
+.cth-label-line { display: block; width: 32px; height: 1px; background: #B85C38; }
+.cth-h1 {
+  color: #FFFFFF; font-family: 'Onest', sans-serif; font-weight: 700;
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem); line-height: 1.0;
+  letter-spacing: -0.03em; margin: 0 0 24px;
+}
+.cth-h1-row { display: block; overflow: hidden; padding-bottom: 0.06em; }
+.cth-sub {
+  max-width: 480px; color: rgba(255,255,255,0.75);
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem); line-height: 1.65; margin: 0 0 28px;
+}
+.cth-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; pointer-events: auto; }
+.cth-btn {
+  position: relative; display: inline-flex; align-items: center; gap: 9px;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500;
+  padding: 16px 30px; border-radius: 14px; text-decoration: none;
+  overflow: hidden; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease;
+}
+.cth-btn-bg { display: none; }
+.cth-btn-label, .cth-btn svg { position: relative; z-index: 1; }
+.cth-btn-primary { background: #B85C38; color: #fff; border: none; }
+.cth-btn-primary:hover { background: #8A3A22; }
+.cth-btn-ghost { background: rgba(255,255,255,0.10); color: #fff; border: 1.5px solid rgba(255,255,255,0.22); }
+.cth-btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4); }
+.cth-badges { display: flex; align-items: center; }
+.cth-badge { display: flex; flex-direction: column; gap: 3px; padding: 0 22px; border-left: 1px solid rgba(255,255,255,0.12); }
+.cth-badge:first-child { padding-left: 0; border-left: none; }
+.cth-badge strong { font-family: 'Onest', sans-serif; font-size: 24px; font-weight: 800; color: #B85C38; line-height: 1; }
+.cth-badge span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.cth-badge-sep { width: 1px; height: 28px; background: rgba(255,255,255,0.2); align-self: center; margin: 0 4px; }
+.cth-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  z-index: 20; cursor: pointer;
+}
+.cth-scroll-mouse { width: 21px; height: 33px; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 11px; position: relative; }
+.cth-scroll-dot {
+  position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 6px; background: #B85C38; border-radius: 2px;
+  animation: cthScrollDot 1.9s ease-in-out infinite;
+}
+@keyframes cthScrollDot { 0%{opacity:1;top:5px} 60%{opacity:0;top:20px} 100%{opacity:0;top:20px} }
+.cth-scroll span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+/* ─── EYEBROW (shared) ──────────────────────────────── */
+.cth-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; }
+.cth-eyebrow span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; color: #B85C38; text-transform: uppercase; }
+.cth-eyebrow--center { justify-content: center; }
+
+/* ─── CONTACT METHODS ───────────────────────────────── */
+.cth-methods { background: #ffffff; padding: 48px 40px 0; }
+.cth-methods-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+}
+.cth-method {
+  background: #fff; border-radius: 18px; padding: 26px 24px;
+  display: flex; flex-direction: column; gap: 4px; text-decoration: none;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.18); border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cth-method:not(.cth-method--static):hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.28); }
+.cth-method-icon {
+  width: 48px; height: 48px; background: rgba(184,92,56,0.10);
+  border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
+}
+.cth-method-label { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #B85C38; }
+.cth-method-val { font-family: 'Onest', sans-serif; font-size: 16px; font-weight: 700; color: #16120F; line-height: 1.3; word-break: break-word; }
+.cth-method-note { font-family: 'Inter', sans-serif; font-size: 12px; color: #6A625A; }
+
+/* ─── FORM SECTION ──────────────────────────────────── */
+.cth-form-section { background: #fff; padding: 80px 40px 100px; scroll-margin-top: 72px; }
+.cth-form-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: start;
+}
+.cth-form-h2 {
+  font-family: 'Onest', sans-serif; font-size: clamp(30px,3.4vw,46px);
+  font-weight: 700; color: #16120F; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 20px;
+}
+.cth-form-lead { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #4A433B; margin: 0 0 28px; }
+.cth-form-bullets { list-style: none; margin: 0 0 32px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.cth-form-bullets li { display: flex; align-items: center; gap: 12px; font-family: 'Inter', sans-serif; font-size: 14.5px; font-weight: 500; color: #16120F; }
+.cth-form-bullets svg { flex-shrink: 0; }
+.cth-form-call { border-top: 1px solid rgba(0,0,0,0.08); padding-top: 24px; display: flex; flex-direction: column; gap: 4px; }
+.cth-form-call-label { font-family: 'Inter', sans-serif; font-size: 13px; color: #6A625A; }
+.cth-form-call-num { font-family: 'Onest', sans-serif; font-size: 28px; font-weight: 700; color: #B85C38; text-decoration: none; }
+.cth-form-call-num:hover { text-decoration: underline; }
+
+/* Form card */
+.cth-card {
+  background: #fff; border-radius: 24px; padding: 32px 32px 28px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 16px 64px rgba(0,0,0,0.10);
+}
+.cth-form { display: flex; flex-direction: column; gap: 16px; }
+.cth-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.cth-field { display: flex; flex-direction: column; gap: 6px; }
+.cth-flabel { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: #16120F; }
+.cth-req { color: #B85C38; }
+.cth-input, .cth-select, .cth-textarea {
+  font-family: 'Inter', sans-serif; font-size: 14px; color: #4A433B;
+  background: #fff; border: 1px solid #D9D9D9; border-radius: 10px;
+  padding: 0 13px; outline: none; width: 100%;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cth-input, .cth-select { height: 48px; }
+.cth-input::placeholder, .cth-textarea::placeholder { color: #B0A89F; }
+.cth-input:focus, .cth-select:focus, .cth-textarea:focus { border-color: #B85C38; box-shadow: 0 0 0 3px rgba(184,92,56,0.10); }
+.cth-select-wrap { position: relative; }
+.cth-select {
+  appearance: none; -webkit-appearance: none; padding-right: 32px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236A625A' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+}
+.cth-textarea { height: auto; min-height: 100px; padding: 12px 13px; resize: vertical; line-height: 1.6; }
+.cth-submit {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; height: 52px; margin-top: 4px; background: #16120F; color: #fff;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+  border: none; border-radius: 14px; cursor: pointer; transition: background 0.2s, transform 0.1s;
+}
+.cth-submit:hover:not(:disabled) { background: #B85C38; }
+.cth-submit:active:not(:disabled) { transform: scale(0.99); }
+.cth-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+.cth-submit-spinner { display: none; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: cthSpin 0.7s linear infinite; }
+.cth-submit.loading .cth-submit-text { display: none; }
+.cth-submit.loading .cth-submit-spinner { display: block; }
+@keyframes cthSpin { to { transform: rotate(360deg); } }
+.cth-form-disclaimer { font-family: 'Inter', sans-serif; font-size: 11.5px; color: #8A8178; line-height: 1.5; margin: 4px 0 0; text-align: center; }
+.cth-success { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 40px 16px; gap: 14px; }
+.cth-success[hidden] { display: none; }
+.cth-success-title { font-family: 'Onest', sans-serif; font-size: 22px; font-weight: 700; color: #16120F; margin: 0; }
+.cth-success-body { font-family: 'Inter', sans-serif; font-size: 14px; color: #4A433B; line-height: 1.65; margin: 0; max-width: 320px; }
+
+/* ─── SERVICE AREAS ─────────────────────────────────── */
+.cth-areas { background: #ffffff; padding: 90px 40px; }
+.cth-areas-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+.cth-areas-h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px,3.2vw,44px); font-weight: 700; color: #16120F; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 16px; }
+.cth-areas-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: #6A625A; margin: 0 auto 36px; max-width: 540px; }
+.cth-areas-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 32px; }
+.cth-area-pill {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #16120F;
+  background: #fff; border: 1px solid #D9D9D9; border-bottom: 2px solid #B85C38;
+  padding: 8px 16px; display: inline-block; border-radius: 8px 8px 0 0;
+}
+.cth-areas-note { font-family: 'Inter', sans-serif; font-size: 14px; color: #6A625A; margin: 0; }
+.cth-areas-note a { color: #B85C38; font-weight: 600; text-decoration: none; }
+.cth-areas-note a:hover { text-decoration: underline; }
+
+/* ─── FAQ ───────────────────────────────────────────── */
+.cth-faq { background: #fff; padding: 90px 40px; }
+.cth-faq-inner { max-width: 760px; margin: 0 auto; }
+.cth-faq-h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px,3.2vw,44px); font-weight: 700; color: #16120F; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 36px; }
+.cth-faq-list { display: flex; flex-direction: column; gap: 12px; }
+.cth-faq-item { background: #F5F3EF; border: 1px solid rgba(0,0,0,0.06); border-radius: 14px; padding: 0 22px; }
+.cth-faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  font-family: 'Onest', sans-serif; font-size: 16px; font-weight: 700; color: #16120F;
+  padding: 20px 0; cursor: pointer; list-style: none;
+}
+.cth-faq-q::-webkit-details-marker { display: none; }
+.cth-faq-chev { flex-shrink: 0; transition: transform 0.25s; }
+.cth-faq-item[open] .cth-faq-chev { transform: rotate(180deg); }
+.cth-faq-a { font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.7; color: #4A433B; margin: 0; padding: 0 0 20px; }
+
+/* ─── CTA BANNER ─── */
+.sp-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+  letter-spacing: 0.04em; text-decoration: none;
+  padding: 0 28px; height: 52px; border-radius: 14px;
+  border: 2px solid transparent;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  white-space: nowrap; cursor: pointer;
+}
+.sp-btn--accent { background: #B85C38; color: #ffffff; border-color: #B85C38; }
+.sp-btn--accent:hover { background: #8A3A22; border-color: #8A3A22; }
+.sp-btn--ghost-light { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.sp-btn--ghost-light:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
+.sp-cta-banner { background: linear-gradient(90deg, #16120F 0%, #6E2A19 40%, #B85C38 100%); padding: 80px 0; }
+.sp-cta-banner-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.sp-cta-banner-h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px, 3vw, 40px); font-weight: 700; color: #ffffff; margin: 0 0 10px 0; line-height: 1.2; }
+.sp-cta-banner-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0; max-width: 520px; }
+.sp-cta-banner-actions { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
+
+/* ─── RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .cth-methods-inner { grid-template-columns: repeat(2,1fr); }
+  .cth-form-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 900px) {
+  .cth-hero { display: flex; flex-direction: column; align-items: stretch; height: auto; min-height: 100svh; }
+  .cth-content { display: contents; }
+  .cth-ct { order: 1; padding: 88px 24px 0; position: relative; z-index: 10; pointer-events: none; }
+  .cth-chimney-wrap { order: 2; position: relative; right: auto; top: auto; transform: none; width: min(260px, 78vw); height: 300px; margin: 12px auto 0; z-index: 2; }
+  .cth-cb { order: 3; padding: 16px 24px 48px; position: relative; z-index: 10; pointer-events: none; }
+  .cth-h1 { margin-bottom: 0; }
+  .cth-vignette { display: none; }
+  .cth-form-section { padding: 64px 24px 80px; }
+  .cth-areas { padding: 72px 24px; }
+  .cth-faq { padding: 72px 24px; }
+  .sp-cta-banner { padding: 56px 0; }
+  .sp-cta-banner-inner { padding: 0 24px; flex-direction: column; align-items: flex-start; }
+  .sp-cta-banner-actions { flex-direction: column; }
+  .sp-btn { width: 100%; text-align: center; }
+}
+@media (max-width: 768px) {
+  .cth-methods { padding: 32px 24px 0; }
+  .cth-scroll { display: none; }
+}
+@media (max-width: 560px) {
+  .cth-methods-inner { grid-template-columns: 1fr; }
+  .cth-row { grid-template-columns: 1fr; }
+  .cth-card { padding: 24px 20px; }
+  .cth-badge { padding: 0 14px; }
+  .cth-badge strong { font-size: 20px; }
+  .cth-actions { flex-direction: column; }
+  .cth-btn { width: 100%; justify-content: center; }
+}
+
+/* ─── PROCESS ─── */
+.sp-prc-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1.65fr; gap: 80px; align-items: start;
+}
+#sp-prc-left { align-self: center; }
+#sp-prc-sticky {
+  align-items: flex-start !important;
+  padding-top: 80px !important;
+  padding-bottom: 60px !important;
+}
+@media (max-width: 768px) {
+  #sp-prc-driver { height: auto !important; }
+  #sp-prc-sticky { position: relative !important; top: auto !important; height: auto !important; padding: 72px 0 !important; align-items: center !important; }
+  .sp-prc-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; }
+  .sp-prc-desktop-cta { display: none !important; }
+  .sp-prc-mobile-cta { display: block !important; }
+  .sp-prc-item { padding: 28px 0 !important; }
+  .sp-prc-num { font-size: 36px !important; }
+}
+@media (max-width: 480px) {
+  #sp-prc-sticky { padding: 56px 0 !important; }
+  .sp-prc-grid { padding: 0 16px !important; }
+}
+
+/* ─── REVIEWS ─── */
+.sp-rev-mob-nbhd { display: none; }
+.sp-rev-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+@media (max-width: 768px) {
+  .sp-rev-mob-nbhd { display: block; padding: 0 20px 60px; margin-top: -80px; }
+  .sp-rev-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; align-items: center !important; }
+  #sp-rev-nbhd-area { display: none !important; }
+  .sp-rev-left h2 { font-size: 32px !important; margin-bottom: 16px !important; }
+  #sp-rev-stack { width: 290px !important; height: 340px !important; margin: 0 auto;
+    clip-path: polygon(-40px -600px, calc(100% + 40px) -600px, calc(100% + 40px) calc(100% + 35px), -40px calc(100% + 35px));
+  }
+}
+@media (max-width: 900px) {
+  #sp-rev-nbhd-area, .sp-rev-nbhd-card { opacity: 1 !important; transform: translateY(0) !important; }
+}
+
+/* ─── PROJECTS ─── */
+.sp-proj-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.sp-proj-text { display: flex; flex-direction: column; gap: 40px; }
+.sp-proj-spacer { height: 160px; }
+@media (max-width: 768px) {
+  #sp-proj-driver { height: auto !important; }
+  #sp-proj-sticky {
+    position: relative !important; top: auto !important;
+    height: auto !important; padding: 72px 0;
+  }
+  .sp-proj-grid {
+    display: flex !important; flex-direction: column !important;
+    gap: 28px !important; padding: 0 20px !important; align-items: stretch !important;
+  }
+  .sp-proj-text { display: contents; }
+  .sp-proj-text-top  { order: 1; }
+  #sp-proj-stack     { order: 2; height: 300px !important; }
+  .sp-proj-text-bottom { order: 3; margin-top: 40px; }
+  .sp-proj-polaroid  { width: 160px !important; }
+  .sp-proj-polaroid > div:first-child { height: 200px !important; }
+  .sp-proj-spacer    { height: 60px; }
+}
+</style>

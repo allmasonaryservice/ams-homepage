@@ -1,0 +1,481 @@
+---
+---
+
+<div class="vc-wrap" id="vc-root">
+  <div class="vc-header">
+    <span class="vc-badge">FREE AI CALCULATOR</span>
+    <h2 class="vc-title">Brick &amp; Stone Veneers — <em>Coverage Calculator</em></h2>
+    <p class="vc-sub">Enter your wall dimensions — get AI-calculated veneer coverage, material count, cost range, and installation assessment.</p>
+    <div class="vc-progress"><div class="vc-progress-fill" id="vc-progress-fill"></div></div>
+  </div>
+
+  <!-- STEP 1: Tool Inputs -->
+  <div class="step active" id="vc-step1">
+    <p class="step-label">Step 1 of 3 — Wall Dimensions</p>
+    <div class="dim-grid">
+      <div class="dim-group">
+        <span class="dim-label">Front Facade</span>
+        <div class="dim-row">
+          <input class="vc-input" type="number" id="vc-front-w" placeholder="Width (ft)" min="0" />
+          <span class="dim-x">×</span>
+          <input class="vc-input" type="number" id="vc-front-h" placeholder="Height (ft)" min="0" />
+        </div>
+      </div>
+      <div class="dim-group">
+        <span class="dim-label">Side Wall 1</span>
+        <div class="dim-row">
+          <input class="vc-input" type="number" id="vc-side1-w" placeholder="Width (ft)" min="0" />
+          <span class="dim-x">×</span>
+          <input class="vc-input" type="number" id="vc-side1-h" placeholder="Height (ft)" min="0" />
+        </div>
+      </div>
+      <div class="dim-group">
+        <span class="dim-label">Side Wall 2</span>
+        <div class="dim-row">
+          <input class="vc-input" type="number" id="vc-side2-w" placeholder="Width (ft)" min="0" />
+          <span class="dim-x">×</span>
+          <input class="vc-input" type="number" id="vc-side2-h" placeholder="Height (ft)" min="0" />
+        </div>
+      </div>
+      <div class="dim-group">
+        <span class="dim-label">Other / Accent</span>
+        <div class="dim-row">
+          <input class="vc-input" type="number" id="vc-other-w" placeholder="Width (ft)" min="0" />
+          <span class="dim-x">×</span>
+          <input class="vc-input" type="number" id="vc-other-h" placeholder="Height (ft)" min="0" />
+        </div>
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="vc-veneer-type">Veneer Type</label>
+      <select class="vc-input vc-select" id="vc-veneer-type">
+        <option value="Thin Brick Veneer">Thin Brick Veneer</option>
+        <option value="Natural Stone Veneer">Natural Stone Veneer</option>
+        <option value="Limestone Veneer">Limestone Veneer</option>
+        <option value="Manufactured Stone Veneer">Manufactured Stone Veneer</option>
+      </select>
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="vc-openings">Openings to Subtract (sq ft)</label>
+      <input class="vc-input" type="number" id="vc-openings" placeholder="e.g. 45" min="0" />
+    </div>
+    <div class="field-group">
+      <label class="field-label" for="vc-notes">Additional Notes</label>
+      <textarea class="vc-input vc-textarea" id="vc-notes" placeholder="Any special requirements, existing conditions, etc."></textarea>
+    </div>
+    <button class="vc-btn vc-btn-primary" id="vc-to-step2">Next — Your Information →</button>
+  </div>
+
+  <!-- STEP 2: Contact Form -->
+  <div class="step" id="vc-step2">
+    <p class="step-label">Step 2 of 3 — Your Contact Information</p>
+    <p class="step-desc">We'll include your details in the personalized PDF report.</p>
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="vc-name">Full Name <span class="req">*</span></label>
+        <input class="vc-input" type="text" id="vc-name" placeholder="Jane Smith" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="vc-phone">Phone <span class="req">*</span></label>
+        <input class="vc-input" type="tel" id="vc-phone" placeholder="(773) 555-0100" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="vc-email">Email <span class="req">*</span></label>
+        <input class="vc-input" type="email" id="vc-email" placeholder="jane@example.com" required />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="vc-address">Property Address <span class="req">*</span></label>
+        <input class="vc-input" type="text" id="vc-address" placeholder="123 Main St, Chicago, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="vc-zip">Zip Code <span class="req">*</span></label>
+        <input class="vc-input" type="text" id="vc-zip" placeholder="60601" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="vc-btn vc-btn-outline" id="vc-back-to-step1">← Back</button>
+      <button class="vc-btn vc-btn-primary" id="vc-submit">Generate My Report →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="vc-step3">
+    <div class="spinner-wrap" id="vc-spinner">
+      <div class="spinner"></div>
+      <p class="spinner-text">Calculating your coverage report…</p>
+    </div>
+    <div class="result-wrap" id="vc-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="result-title">Your Coverage Report Is Ready</h3>
+      <p class="result-sub">Your personalized Veneer Coverage Analysis is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary report is an estimate based on dimensions you provided. It is not a substitute for a professional on-site assessment. Actual coverage, material quantities, substrate requirements, and costs may differ based on site conditions. Contact All Masonry Services Inc. for a FREE on-site evaluation — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="vc-btn vc-btn-primary" id="vc-pdf-btn">Download PDF Report</button>
+        <a class="vc-btn vc-btn-outline" href="/contact#form">Book Free Consultation</a>
+      </div>
+    </div>
+    <div class="error-wrap" id="vc-error" style="display:none">
+      <p class="error-msg" id="vc-error-msg"></p>
+      <button class="vc-btn vc-btn-outline" id="vc-retry">← Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (async () => {
+    const GEMINI_KEY = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+
+    let vc_reportText = "";
+    let vc_contactData: Record<string, string> = {};
+
+    function vc_getVal(id: string): string {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      return el ? el.value.trim() : "";
+    }
+
+    function vc_setProgress(pct: number) {
+      const bar = document.getElementById("vc-progress-fill") as HTMLElement | null;
+      if (bar) bar.style.width = pct + "%";
+    }
+
+    function vc_showStep(n: number) {
+      [1, 2, 3].forEach(i => {
+        const el = document.getElementById(`vc-step${i}`);
+        if (el) el.classList.toggle("active", i === n);
+      });
+      vc_setProgress(n === 1 ? 10 : n === 2 ? 50 : 100);
+    }
+
+    function vc_parseReport(text: string): string {
+      const lines = text.split("\n");
+      let html = "";
+      let inSection = false;
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) continue;
+        const sectionMatchArr = trimmed.match(/^#+\s*(.+)$/) || trimmed.match(/^\*\*([A-Z][A-Z\s&\/—-]+)\*\*$/);
+        const sectionMatchBool = !sectionMatchArr && trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 80 && !trimmed.includes("•");
+        const sectionMatch = sectionMatchArr || sectionMatchBool;
+        if (sectionMatch) {
+          if (inSection) html += `</div>`;
+          const heading = sectionMatchArr ? (sectionMatchArr[1] || trimmed.replace(/\*/g, "")) : trimmed.replace(/\*/g, "");
+          html += `<div class="report-section"><div class="section-accent"></div><h4 class="section-heading">${heading}</h4>`;
+          inSection = true;
+        } else {
+          const cleaned = trimmed
+            .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+            .replace(/\*(.+?)\*/g, "<em>$1</em>")
+            .replace(/^[-•]\s+/, "");
+          if (trimmed.startsWith("-") || trimmed.startsWith("•")) {
+            html += `<li class="report-li">${cleaned}</li>`;
+          } else {
+            html += `<p class="report-p">${cleaned}</p>`;
+          }
+        }
+      }
+      if (inSection) html += `</div>`;
+      return html;
+    }
+
+    async function vc_generate() {
+      const fw = parseFloat(vc_getVal("vc-front-w")) || 0;
+      const fh = parseFloat(vc_getVal("vc-front-h")) || 0;
+      const s1w = parseFloat(vc_getVal("vc-side1-w")) || 0;
+      const s1h = parseFloat(vc_getVal("vc-side1-h")) || 0;
+      const s2w = parseFloat(vc_getVal("vc-side2-w")) || 0;
+      const s2h = parseFloat(vc_getVal("vc-side2-h")) || 0;
+      const ow = parseFloat(vc_getVal("vc-other-w")) || 0;
+      const oh = parseFloat(vc_getVal("vc-other-h")) || 0;
+      const openings = parseFloat(vc_getVal("vc-openings")) || 0;
+      const veneerType = vc_getVal("vc-veneer-type");
+      const notes = vc_getVal("vc-notes");
+      const zip = vc_contactData.zip;
+
+      const frontArea = fw * fh;
+      const side1Area = s1w * s1h;
+      const side2Area = s2w * s2h;
+      const otherArea = ow * oh;
+      const totalRaw = frontArea + side1Area + side2Area + otherArea;
+      const netArea = Math.max(0, totalRaw - openings);
+      const materialWithWaste = Math.ceil(netArea * 1.15);
+
+      const prompt = `You are a masonry veneer specialist at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED veneer coverage report for a specific homeowner at zip code ${zip}.
+
+HOMEOWNER PROFILE:
+- Name: ${vc_contactData.name}
+- Property: ${vc_contactData.address}, IL ${zip}
+- Veneer Type: ${veneerType}
+
+PRECISE WALL MEASUREMENTS:
+- Front Facade: ${fw} ft × ${fh} ft = ${frontArea} sq ft
+- Side Wall 1: ${s1w} ft × ${s1h} ft = ${side1Area} sq ft
+- Side Wall 2: ${s2w} ft × ${s2h} ft = ${side2Area} sq ft
+- Other/Accent Area: ${ow} ft × ${oh} ft = ${otherArea} sq ft
+- Gross Total Area: ${totalRaw} sq ft
+- Openings/Deductions: ${openings} sq ft
+- NET COVERAGE AREA: ${netArea} sq ft
+- Material With 15% Waste: ${materialWithWaste} sq ft
+- Additional Notes: ${notes || "None provided"}
+
+TASK: Write a SPECIFIC, PERSONALIZED veneer coverage report for THIS homeowner at THIS property. Reference their exact measurements in every section. Do NOT give generic veneer advice — base every number and recommendation on their actual inputs: ${netArea} sq ft of ${veneerType} at ${vc_contactData.address}.
+
+Use exactly these ALL CAPS headings:
+
+COVERAGE SUMMARY — ${netArea} SQ FT ${veneerType.toUpperCase()}
+(Confirm the measurements and explain what ${netArea} sq ft of ${veneerType} means for THIS property. Break down which surface each number represents. Explain why the 15% waste factor is important for ${veneerType} specifically — cuts, breakage, color matching.)
+
+MATERIAL CALCULATION — PRECISE BREAKDOWN
+(Give exact material quantities:
+- Net coverage: ${netArea} sq ft
+- With 15% waste: ${materialWithWaste} sq ft of ${veneerType} needed
+- Adhesive mortar: [calculate bags based on coverage rate]
+- Scratch coat/wire lath (if applicable): [calculate for ${netArea} sq ft]
+- Grout/joint fill: [calculate]
+- Waterproofing membrane: [calculate for ${netArea} sq ft]
+- Sealant: [calculate]
+Explain what each material does and why it's needed for ${veneerType} in Chicago's climate.)
+
+COST ESTIMATE — ZIP ${zip} AREA / 2026 CHICAGO PRICING
+(Give specific dollar ranges:
+- ${veneerType} material cost: $X.XX – $X.XX per sq ft × ${materialWithWaste} sq ft = $X,XXX – $X,XXX
+- Substrate prep and waterproofing: $XXX – $XXX
+- Labor for ${veneerType} installation: $X.XX – $X.XX per sq ft × ${netArea} sq ft = $X,XXX – $X,XXX
+- TOTAL INSTALLED: $X,XXX – $XX,XXX
+- Cost per sq ft installed: $XX – $XX/sq ft
+Explain what drives the LOW vs. HIGH in cost for ${veneerType}.)
+
+VENEER SYSTEM SPECIFICATIONS
+(Describe the complete ${veneerType} system: backing requirements, moisture barrier, lath type, setting mortar, joint type and width, sealing schedule. Be specific to ${veneerType} — not generic veneer advice. Address Chicago freeze-thaw requirements for exterior applications.)
+
+SUBSTRATE & INSTALLATION REQUIREMENTS FOR THIS PROPERTY
+(Based on the surface breakdown — front facade ${frontArea} sq ft, sides ${side1Area + side2Area} sq ft — explain specific prep requirements. Different surfaces may have different substrates. Address: existing material removal if needed, flashing at transitions, weep screed at base, expansion joints for ${totalRaw} sq ft total area.)
+
+CHICAGO FREEZE-THAW SPECIFICATION FOR ${veneerType.toUpperCase()}
+(Explain specifically how Chicago's 30–40 annual freeze-thaw cycles affect ${veneerType}. Required mortar type (Type S for exterior), moisture barrier specification, drainage plane requirements. Best installation window for this project. What happens to ${veneerType} if installed incorrectly in Chicago's climate — be specific and educational.)
+
+INSTALLATION TIMELINE
+(Specific timeline for ${netArea} sq ft of ${veneerType}: prep days, installation days per surface, cure time, sealing schedule. Total project calendar from mobilization to completion. Crew size recommendation.)
+
+YOUR NEXT STEP
+(Recommend a FREE on-site assessment from All Masonry Services Inc. at 773-656-2107 or allmasonryservices.com. Mention AMS serves zip ${zip} and has installed ${veneerType} on 500+ Chicagoland properties since 2007. Free estimate includes written material breakdown and timeline.)
+
+Write for a homeowner making a buying decision. Every cost must be a real number range, not a placeholder.`;
+
+      const resp = await fetch(GEMINI_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+        })
+      });
+      if (!resp.ok) throw new Error(`API error: ${resp.status}`);
+      const data = await resp.json();
+      vc_reportText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No report generated.";
+    }
+
+    function vc_renderReport() {
+      const spinner = document.getElementById("vc-spinner");
+      const result = document.getElementById("vc-result");
+      if (spinner) spinner.style.display = "none";
+      if (result) result.style.display = "block";
+    }
+
+    async function vc_downloadPDF() {
+      await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"); const jsPDF = (window as any).jspdf.jsPDF; const GState = (window as any).jspdf.GState;
+      const doc = new jsPDF({ unit: "pt", format: "letter" });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const margin = 48;
+      let y = 0;
+
+      function vc_checkPage(needed: number) {
+        if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
+      }
+
+      // Header bar
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, 0, pageW, 72, "F");
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES INC", margin, 26);
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(16);
+      doc.text("Brick & Stone Veneers — Coverage Calculator Report", margin, 52);
+      y = 96;
+
+      // Contact info
+      doc.setTextColor(74, 74, 74);
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Prepared for: ${vc_contactData.name}  |  ${vc_contactData.phone}  |  ${vc_contactData.email}`, margin, y);
+      y += 14;
+      doc.text(`Property: ${vc_contactData.address}, ${vc_contactData.zip}`, margin, y);
+      y += 14;
+      doc.text(`Date: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`, margin, y);
+      y += 24;
+
+      // Report sections
+      const lines = vc_reportText.split("\n");
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) { y += 6; continue; }
+        const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 80 && !trimmed.includes("•") && !trimmed.match(/^\d/);
+        if (isHeading) {
+          vc_checkPage(36);
+          doc.setFillColor(184, 92, 56);
+          doc.rect(margin, y, 3, 16, "F");
+          doc.setTextColor(22, 18, 15);
+          doc.setFontSize(11);
+          doc.setFont("helvetica", "bold");
+          doc.text(trimmed.replace(/\*\*/g, ""), margin + 10, y + 12);
+          y += 24;
+        } else {
+          vc_checkPage(18);
+          doc.setTextColor(74, 74, 74);
+          doc.setFontSize(9.5);
+          doc.setFont("helvetica", "normal");
+          const cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/^[-•]\s+/, "• ");
+          const wrapped = doc.splitTextToSize(cleaned, pageW - margin * 2);
+          doc.text(wrapped, margin, y);
+          y += wrapped.length * 13;
+        }
+      }
+
+      // Disclaimer
+      vc_checkPage(80);
+      doc.setDrawColor(184, 92, 56);
+      doc.setLineWidth(0.5);
+      doc.line(margin, y, pageW - margin, y);
+      y += 12;
+      doc.setTextColor(140, 128, 112);
+      doc.setFontSize(8);
+      doc.setFont("helvetica", "bolditalic");
+      doc.text("DISCLAIMER", margin, y);
+      y += 12;
+      doc.setFont("helvetica", "normal");
+      const vcDisclaimer = "This report is a preliminary estimate based on dimensions and project information provided by the homeowner through an online self-assessment tool. It is not a substitute for a professional on-site inspection by a licensed masonry contractor. Actual coverage, material quantities, substrate requirements, site conditions, and final costs may differ significantly. All Masonry Services Inc. does not warrant the accuracy of this preliminary report. For a definitive assessment, contact All Masonry Services Inc. for a FREE on-site evaluation at 773-656-2107 or allmasonryservices.com.";
+      const vcDiscWrapped = doc.splitTextToSize(vcDisclaimer, pageW - margin * 2);
+      doc.text(vcDiscWrapped, margin, y);
+
+      // Watermark + footer on every page
+      const totalPages = (doc.internal as any).getNumberOfPages();
+      for (let p = 1; p <= totalPages; p++) {
+        doc.setPage(p);
+        doc.saveGraphicsState();
+        doc.setGState(new GState({ opacity: 0.07 }));
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(52);
+        doc.setFont("helvetica", "bold");
+        doc.text("ALL MASONRY SERVICES", pageW / 2, pageH / 2, { align: "center", angle: 45 });
+        doc.restoreGraphicsState();
+        doc.setFillColor(22, 18, 15);
+        doc.rect(0, pageH - 36, pageW, 36, "F");
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "bold");
+        doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+        doc.setTextColor(180, 180, 180);
+        doc.text(`Page ${p} of ${totalPages}`, pageW - margin - 40, pageH - 14);
+      }
+
+      doc.save(`VeneerCoverageReport-${vc_contactData.name.replace(/\s+/g, "-")}.pdf`);
+    }
+
+    // Event listeners
+    document.getElementById("vc-to-step2")?.addEventListener("click", () => vc_showStep(2));
+    document.getElementById("vc-back-to-step1")?.addEventListener("click", () => vc_showStep(1));
+
+    document.getElementById("vc-submit")?.addEventListener("click", async () => {
+      const name = vc_getVal("vc-name");
+      const phone = vc_getVal("vc-phone");
+      const email = vc_getVal("vc-email");
+      const address = vc_getVal("vc-address");
+      const zip = vc_getVal("vc-zip");
+      if (!name || !phone || !email || !address || !zip) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+      vc_contactData = { name, phone, email, address, zip };
+      vc_showStep(3);
+      const spinner = document.getElementById("vc-spinner");
+      const result = document.getElementById("vc-result");
+      const errWrap = document.getElementById("vc-error");
+      if (spinner) spinner.style.display = "flex";
+      if (result) result.style.display = "none";
+      if (errWrap) errWrap.style.display = "none";
+      try {
+        await vc_generate();
+        vc_renderReport();
+      } catch (e: any) {
+        if (spinner) spinner.style.display = "none";
+        if (errWrap) errWrap.style.display = "block";
+        const msg = document.getElementById("vc-error-msg");
+        if (msg) msg.textContent = "Error generating report: " + (e.message || "Please try again.");
+      }
+    });
+
+    document.getElementById("vc-pdf-btn")?.addEventListener("click", vc_downloadPDF);
+    document.getElementById("vc-retry")?.addEventListener("click", () => vc_showStep(1));
+  })();
+</script>
+
+<style>
+  .vc-wrap { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #16120F; max-width: 720px; margin: 0 auto; }
+  .vc-header { background: #16120F; padding: 32px 36px 0; }
+  .vc-badge { display: inline-block; background: #B85C38; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 4px 10px; margin-bottom: 14px; border-radius: 4px; }
+  .vc-title { font-family: 'Onest', sans-serif; color: #F5F3EF; font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.25; }
+  .vc-title em { color: #B85C38; font-style: normal; }
+  .vc-sub { color: #6A625A; font-size: 14px; margin: 0 0 24px; line-height: 1.5; }
+  .vc-progress { height: 3px; background: #2A2A2A; }
+  .vc-progress-fill { height: 3px; background: #B85C38; width: 10%; transition: width .4s ease; }
+  .step { display: none; padding: 32px 36px; }
+  .step.active { display: block; }
+  .step-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #6A625A; text-transform: uppercase; margin: 0 0 20px; }
+  .step-desc { font-size: 14px; color: #4A433B; margin: -12px 0 20px; }
+  .dim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .dim-group { background: #fff; border: 1px solid #E0DDD8; padding: 14px; }
+  .dim-label { display: block; font-size: 12px; font-weight: 600; color: #4A433B; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .05em; }
+  .dim-row { display: flex; align-items: center; gap: 8px; }
+  .dim-x { color: #6A625A; font-size: 16px; flex-shrink: 0; }
+  .field-group { margin-bottom: 16px; }
+  .field-full { grid-column: 1 / -1; }
+  .field-label { display: block; font-size: 13px; font-weight: 600; color: #16120F; margin-bottom: 6px; }
+  .req { color: #B85C38; }
+  .vc-input { width: 100%; height: 44px; border: 1px solid #D9D9D9; background: #fff; color: #16120F; font-family: 'Inter', sans-serif; font-size: 14px; padding: 0 12px; box-sizing: border-box; outline: none; border-radius: 10px; appearance: none; }
+  .vc-input:focus { border-color: #B85C38; }
+  .vc-select { cursor: pointer; }
+  .vc-textarea { height: 88px; resize: vertical; padding: 10px 12px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .vc-btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border: none; border-radius: 14px; letter-spacing: .04em; text-decoration: none; transition: opacity .2s; }
+  .vc-btn:hover { opacity: .85; }
+  .vc-btn-primary { background: #B85C38; color: #FFFFFF; }
+  .vc-btn-outline { background: transparent; color: #16120F; border: 2px solid #16120F; }
+  .nav-row { display: flex; gap: 12px; margin-top: 8px; }
+  #vc-to-step2 { width: 100%; }
+  .spinner-wrap { display: flex; flex-direction: column; align-items: center; padding: 48px 0; gap: 16px; }
+  .spinner { width: 44px; height: 44px; border: 3px solid #E0DDD8; border-top-color: #B85C38; border-radius: 50%; animation: vc-spin .8s linear infinite; }
+  @keyframes vc-spin { to { transform: rotate(360deg); } }
+  .spinner-text { color: #6A625A; font-size: 14px; }
+  .result-header { margin-bottom: 24px; }
+  .result-title { font-family: 'Onest', sans-serif; font-size: 22px; color: #16120F; margin: 8px 0 0; }
+  .report-section { margin-bottom: 24px; padding: 20px; background: #fff; border: 1px solid #E0DDD8; }
+  .section-accent { width: 32px; height: 3px; background: #B85C38; margin-bottom: 10px; }
+  .section-heading { font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 700; color: #16120F; margin: 0 0 10px; text-transform: uppercase; letter-spacing: .04em; }
+  .report-p { font-size: 14px; color: #4A433B; line-height: 1.65; margin: 0 0 8px; }
+  .report-li { font-size: 14px; color: #4A433B; line-height: 1.65; margin: 0 0 6px 16px; list-style: disc; }
+  .result-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  .error-wrap { padding: 32px; text-align: center; }
+  .error-msg { color: #c0392b; font-size: 14px; margin-bottom: 16px; }
+  @media (max-width: 600px) {
+    .vc-header, .step { padding: 24px 20px; }
+    .dim-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .vc-title { font-size: 20px; }
+    .field-full { grid-column: 1; }
+  }
+</style>

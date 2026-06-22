@@ -1,0 +1,274 @@
+---
+const northShore  = ['Winnetka', 'Wilmette', 'Kenilworth', 'Glencoe', 'Evanston', 'Highland Park', 'Northbrook'];
+const westSuburbs = ['Hinsdale', 'Oak Brook', 'Elmhurst', 'Western Springs', 'Naperville', 'Downers Grove', 'La Grange'];
+const southwest   = ['Burr Ridge', 'Clarendon Hills', 'Willowbrook', 'Wheaton', 'Chicago'];
+
+function citySlug(name: string) {
+  return name.toLowerCase().replace(/\s+/g, '-');
+}
+
+const residential = [
+  { label: 'Custom Home Masonry',       href: '/services/custom-home-masonry' },
+  { label: 'Brick Installation',         href: '/services/brick-installation' },
+  { label: 'Natural Stone & Limestone',  href: '/services/natural-stone-limestone' },
+  { label: 'Brick & Stone Veneers',      href: '/services/brick-stone-veneers' },
+  { label: 'Chimney & Fireplace',        href: '/services/chimney-fireplace' },
+];
+
+const commercial  = [
+  { label: 'CMU Block Installation',    href: '/services/cmu-block-installation' },
+  { label: 'Commercial Brick & Stone',  href: '/services/commercial-brick-stone' },
+  { label: 'Full Masonry Veneers',      href: '/services/commercial-masonry-veneers' },
+  { label: 'Tuckpointing & Repointing', href: '/services/tuckpointing-repointing' },
+  { label: 'Damaged Brick Replacement', href: '/services/damaged-brick-replacement' },
+  { label: 'Chimney Repair & Rebuilding', href: '/services/chimney-repair-rebuilding' },
+];
+
+const quickLinks  = [
+  { label: 'All Projects',  href: '/projects' },
+  { label: 'Service Areas', href: '/service-areas' },
+  { label: 'Blog',          href: '/blog' },
+  { label: 'FAQ',           href: '/faq' },
+  { label: 'About Us',      href: '/about' },
+];
+
+const DIVIDER = 'border-top:1px solid rgba(255,255,255,0.08);';
+const HEADING = "font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38; margin:0 0 4px;";
+---
+
+<style>
+  .ft-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .ft-link:hover { color: #B85C38; }
+
+  .ft-social {
+    width: 38px; height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .ft-social:hover { border-color: #B85C38; color: #B85C38; }
+
+  .ft-phone {
+    font-family: 'Onest', sans-serif;
+    font-size: 19px; font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .ft-phone:hover { color: #B85C38; }
+
+  .ft-email {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    line-height: 1.5;
+    word-break: break-all;
+    transition: color 0.2s;
+  }
+  .ft-email:hover { color: #ffffff; }
+
+  .ft-cta {
+    display: block; text-align: center;
+    background: #B85C38;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 15px 20px; border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .ft-cta:hover { background: #8A3A22; }
+
+  .ft-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.32);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .ft-meta:hover { color: rgba(255, 255, 255, 0.75); }
+
+  @media (max-width: 900px) {
+    .ft-grid {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 36px !important;
+    }
+  }
+  @media (max-width: 560px) {
+    .ft-grid {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+    }
+    .ft-inner {
+      padding: 0 20px !important;
+    }
+    footer {
+      padding-top: 48px !important;
+    }
+  }
+</style>
+
+<footer style="background:#16120F; padding-top:80px;">
+  <div class="ft-inner" style="max-width:1200px; width:100%; margin:0 auto; padding:0 40px;">
+
+    <!-- ── Main grid ───────────────────────────────────── -->
+    <div class="ft-grid" style="display:grid; grid-template-columns:1.15fr 1fr 1.25fr 1fr; gap:52px; align-items:start; padding-bottom:64px; border-bottom:1px solid rgba(255,255,255,0.08);">
+
+      <!-- COL 1 · Brand + North Shore ──────────────────── -->
+      <div>
+        <div style="margin-bottom:10px;">
+          <img src="/images/logo.png" alt="All Masonry Services Inc" width="150" height="50" style="height:80px;width:auto;display:block;" />
+        </div>
+        <p style="font-family:'Inter',sans-serif; font-size:12px; color:rgba(255,255,255,0.38); margin:0 0 16px; letter-spacing:0.01em;">Trusted Masonry Partner for Custom Home Builders</p>
+
+        <p style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.7; color:rgba(255,255,255,0.55); margin:0 0 22px;">
+          19 years of brick, stone, and limestone masonry across Chicagoland. We treat every project as if it were our own.
+        </p>
+
+        <!-- Social -->
+        <div style="display:flex; gap:10px; margin-bottom:22px;">
+          <a href="#" aria-label="Facebook" class="ft-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="ft-social">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Trust badges -->
+        <div style="display:flex; flex-direction:column; gap:7px; margin-bottom:32px;">
+          {['Licensed & Insured', 'Free Estimates'].map(badge => (
+            <span style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.55); display:flex; align-items:center; gap:8px;">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M2 6.5l3.2 3.2 5.8-5.8" stroke="#B85C38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {badge}
+            </span>
+          ))}
+        </div>
+
+        <!-- North Shore -->
+        <p style={HEADING}>North Shore</p>
+        <div>
+          {northShore.map(city => (
+            <div style={`${DIVIDER} padding:9px 0;`}>
+              <a href={`/locations/${citySlug(city)}`} class="ft-link">{city}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- COL 2 · Residential + West Suburbs ───────────── -->
+      <div>
+        <p style={HEADING}>Residential Services</p>
+        <div style="margin-bottom:32px;">
+          {residential.map(s => (
+            <div style={`${DIVIDER} padding:9px 0;`}>
+              <a href={s.href} class="ft-link">{s.label}</a>
+            </div>
+          ))}
+        </div>
+
+        <p style={HEADING}>West Suburbs</p>
+        <div>
+          {westSuburbs.map(city => (
+            <div style={`${DIVIDER} padding:9px 0;`}>
+              <a href={`/locations/${citySlug(city)}`} class="ft-link">{city}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- COL 3 · Commercial + Southwest & City ─────────── -->
+      <div>
+        <p style={HEADING}>Commercial &amp; Restoration</p>
+        <div style="margin-bottom:32px;">
+          {commercial.map(s => (
+            <div style={`${DIVIDER} padding:9px 0;`}>
+              <a href={s.href} class="ft-link">{s.label}</a>
+            </div>
+          ))}
+        </div>
+
+        <p style={HEADING}>Southwest &amp; City</p>
+        <div>
+          {southwest.map(city => (
+            <div style={`${DIVIDER} padding:9px 0;`}>
+              <a href={`/locations/${citySlug(city)}`} class="ft-link">{city}</a>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- COL 4 · Contact + Quick Links + CTA ─────────── -->
+      <div>
+        <p style={HEADING}>Contact Us</p>
+
+        <!-- Phone -->
+        <div style="display:flex; align-items:center; gap:12px; margin:16px 0 14px;">
+          <div style="width:34px; height:34px; background:rgba(184,92,56,0.14); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <path d="M4.5 3h3.4l1.6 4-2 1.2a10.5 10.5 0 005.3 5.3L14 11.5l4 1.6V16.5A2 2 0 0116 18.5C8.5 18.5 3.5 13.5 3.5 6A2 2 0 014.5 3Z" stroke="#B85C38" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <a href="tel:+17736562107" class="ft-phone">773-656-2107</a>
+        </div>
+
+        <!-- Email -->
+        <div style="display:flex; align-items:flex-start; gap:12px; margin-bottom:32px;">
+          <div style="width:34px; height:34px; background:rgba(184,92,56,0.14); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
+            <svg width="15" height="15" viewBox="0 0 22 18" fill="none" aria-hidden="true">
+              <rect x="1" y="1" width="20" height="16" rx="2" stroke="#B85C38" stroke-width="1.5"/>
+              <path d="M1 5l10 7 10-7" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <a href="mailto:contact.allmasonryservices@gmail.com" class="ft-email">
+            contact.allmasonryservices@gmail.com
+          </a>
+        </div>
+
+        <!-- Quick Links -->
+        <p style={HEADING}>Quick Links</p>
+        <div style="margin-bottom:28px;">
+          {quickLinks.map(link => (
+            <div style={`${DIVIDER} padding:9px 0;`}>
+              <a href={link.href} class="ft-link">{link.label}</a>
+            </div>
+          ))}
+        </div>
+
+        <a href="/contact#form" class="ft-cta">Get a Free Quote</a>
+      </div>
+
+    </div>
+
+    <!-- ── Bottom bar ──────────────────────────────────── -->
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:20px 0; flex-wrap:wrap; gap:12px;">
+      <p style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.32); margin:0;">
+        © 2026 All Masonry Services Inc. All Rights Reserved. Licensed &amp; Insured.
+      </p>
+      <div style="display:flex; gap:20px;">
+        <a href="#" class="ft-meta">Privacy Policy</a>
+        <a href="/contact" class="ft-meta">Contact</a>
+      </div>
+    </div>
+
+  </div>
+</footer>

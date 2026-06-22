@@ -1,0 +1,343 @@
+---
+// Lead Magnet: Brick Installation — AI Cost & Material Estimator
+const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+---
+<div id="bie-cfg" data-key={geminiKey} style="display:none"></div>
+
+<div class="magnet" id="magnet-brick">
+  <div class="magnet-header">
+    <span class="badge badge-gold">FREE ESTIMATOR</span>
+    <h3 class="magnet-title">Brick Installation<br /><em>Cost & Material Estimator</em></h3>
+    <p class="magnet-sub">Enter your project dimensions — get brick count, material cost, labor range, and a professional installation assessment.</p>
+  </div>
+
+  <div class="step active" id="brick-step1">
+    <p class="step-label">Step 1 of 3 — Project Dimensions</p>
+    <div class="field-col">
+      <div class="field-row-2">
+        <div class="field-group">
+          <label class="field-label">Wall Length (ft)</label>
+          <input class="input" id="br-length" type="number" min="1" placeholder="e.g. 40" />
+        </div>
+        <div class="field-group">
+          <label class="field-label">Wall Height (ft)</label>
+          <input class="input" id="br-height" type="number" min="1" placeholder="e.g. 10" />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Brick Type</label>
+        <select class="select" id="br-type">
+          <option value="">— Select —</option>
+          <option value="Standard modular brick">Standard Modular Brick</option>
+          <option value="Oversized / jumbo brick">Oversized / Jumbo Brick</option>
+          <option value="Thin brick veneer">Thin Brick Veneer</option>
+          <option value="Custom / specialty brick">Custom / Specialty Brick</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Application / Location</label>
+        <select class="select" id="br-location">
+          <option value="">— Select —</option>
+          <option value="Exterior wall / facade">Exterior Wall / Facade</option>
+          <option value="Interior feature wall">Interior Feature Wall</option>
+          <option value="Fireplace surround">Fireplace Surround</option>
+          <option value="Driveway / patio">Driveway / Patio</option>
+          <option value="Garden / retaining wall">Garden / Retaining Wall</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Openings to subtract (sq ft, optional)</label>
+        <input class="input" id="br-openings" type="number" min="0" value="0" placeholder="Windows + doors" />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Additional details (optional)</label>
+        <textarea class="textarea" id="br-notes" rows="2" placeholder="Existing condition, style preferences, special requirements..."></textarea>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="brNext()">Next — Your Information →</button>
+  </div>
+
+  <div class="step" id="brick-step2">
+    <p class="step-label">Step 2 of 3 — Your Information</p>
+    <div class="field-col">
+      <div class="field-row-2">
+        <div class="field-group">
+          <label class="field-label">Full Name <span class="req">*</span></label>
+          <input class="input" id="br-name" type="text" placeholder="John Smith" required />
+        </div>
+        <div class="field-group">
+          <label class="field-label">Phone Number <span class="req">*</span></label>
+          <input class="input" id="br-phone" type="tel" placeholder="773-000-0000" required />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Email Address <span class="req">*</span></label>
+        <input class="input" id="br-email" type="email" placeholder="you@email.com" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Property Address <span class="req">*</span></label>
+        <input class="input" id="br-address" type="text" placeholder="123 Main St, Hinsdale, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Zip Code <span class="req">*</span></label>
+        <input class="input" id="br-zip" type="text" placeholder="60521" maxlength="10" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn btn-outline" onclick="brBack()">← Back</button>
+      <button class="btn btn-primary" id="br-submit" onclick="brSubmit()">Calculate My Estimate →</button>
+    </div>
+  </div>
+
+  <div class="step" id="brick-step3">
+    <div class="loading-state" id="br-loading">
+      <div class="spinner"></div>
+      <p class="loading-text">Your Personal Masonry Assistant is calculating your estimate…</p>
+    </div>
+    <div class="result-state" id="br-result" style="display:none">
+      <div class="success-icon-wrap">
+        <div class="result-check">✓</div>
+        <div>
+          <h4 class="result-title">Your Estimate Is Ready</h4>
+          <p class="result-sub">Your personalized Brick Installation Estimate is ready — click the button below to download your PDF.</p>
+        </div>
+      </div>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary estimate is based on dimensions and project details you provided. It is not a substitute for an on-site professional assessment. Actual material quantities, labor scope, and final costs may differ based on site conditions, access, substrate type, and local material availability. Contact All Masonry Services Inc. for a FREE on-site estimate — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="btn btn-primary" onclick="brDownloadPDF()">Download PDF Estimate →</button>
+        <a href="/contact#form" class="btn btn-outline">Book Free On-Site Quote →</a>
+      </div>
+    </div>
+    <div class="error-state" id="br-error" style="display:none">
+      <p class="error-text">Unable to generate estimate. <a href="/contact#form">Contact us directly →</a></p>
+    </div>
+  </div>
+
+  <div class="progress-track">
+    <div class="progress-fill" id="br-progress" style="width:33%"></div>
+  </div>
+</div>
+
+<script is:inline>
+const GKEY = document.getElementById('bie-cfg').dataset.key;
+const GURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GKEY}`;
+
+function brNext() {
+  const l = document.getElementById('br-length').value;
+  const h = document.getElementById('br-height').value;
+  const t = document.getElementById('br-type').value;
+  if (!l || !h || !t) { alert('Please fill in dimensions and brick type.'); return; }
+  document.getElementById('brick-step1').classList.remove('active');
+  document.getElementById('brick-step2').classList.add('active');
+  document.getElementById('br-progress').style.width = '66%';
+}
+function brBack() {
+  document.getElementById('brick-step2').classList.remove('active');
+  document.getElementById('brick-step1').classList.add('active');
+  document.getElementById('br-progress').style.width = '33%';
+}
+function brValidate() {
+  const ids = ['br-name','br-phone','br-email','br-address','br-zip'];
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.focus(); alert('Please fill in all required fields.'); return false; }
+  }
+  return true;
+}
+async function brSubmit() {
+  if (!brValidate()) return;
+  const btn = document.getElementById('br-submit');
+  btn.disabled = true; btn.textContent = 'Calculating...';
+
+  const length = parseFloat(document.getElementById('br-length').value) || 0;
+  const height = parseFloat(document.getElementById('br-height').value) || 0;
+  const openings = parseFloat(document.getElementById('br-openings').value) || 0;
+  const sqFt = Math.max(0, length * height - openings);
+  const brickType = document.getElementById('br-type').value;
+  const location = document.getElementById('br-location').value;
+  const notes = document.getElementById('br-notes').value;
+  const name = document.getElementById('br-name').value;
+  const address = document.getElementById('br-address').value;
+  const zip = document.getElementById('br-zip').value;
+
+  document.getElementById('brick-step2').classList.remove('active');
+  document.getElementById('brick-step3').classList.add('active');
+  document.getElementById('br-progress').style.width = '100%';
+
+  const bricksNeeded = Math.ceil(sqFt * 7 * 1.10);
+  const complexity = sqFt > 500 ? "large-scale" : sqFt > 200 ? "mid-size" : "small";
+  const prompt = `You are a senior masonry estimator at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED brick installation estimate for a specific homeowner at zip code ${zip}.
+
+PROJECT PROFILE:
+- Homeowner: ${name}
+- Property: ${address}, IL ${zip}
+- Wall Area: ${sqFt.toLocaleString()} sq ft (${length}ft × ${height}ft, minus ${openings} sq ft openings)
+- Brick Type: ${brickType}
+- Application: ${location}
+- Project Scale: ${complexity}
+- Estimated Brick Count (10% waste included): ~${bricksNeeded.toLocaleString()} bricks
+- Additional Notes: ${notes || 'None provided'}
+
+TASK: Write a SPECIFIC, PERSONALIZED brick installation estimate for THIS homeowner at THIS property. Every section must reference their actual dimensions, brick type (${brickType}), application (${location}), and Chicago's climate context. Do NOT write generic estimates — base every number on their specific inputs.
+
+Use exactly these ALL CAPS headings in order:
+
+PROJECT SCOPE — ${sqFt.toLocaleString()} SQ FT ${brickType.toUpperCase()}
+(Describe this specific project: a ${complexity} ${location} project using ${brickType} at ${address}. Explain what ${sqFt} sq ft of ${brickType} for a ${location} means in practical terms — is this a front-facade upgrade, a full exterior, a patio? What are the key considerations for this specific application type?)
+
+MATERIAL CALCULATION — PRECISE BREAKDOWN
+(Give exact numbers:
+- Net wall area: ${sqFt.toLocaleString()} sq ft
+- Bricks needed at 6.75/sq ft + 10% waste: ${bricksNeeded.toLocaleString()} bricks
+- Mortar bags: [calculate based on ${sqFt} sq ft at standard coverage]
+- Sand cubic yards: [calculate]
+- Tie wire / wall ties (if exterior): [calculate]
+- Waterproofing / sealer: [recommend for ${location} in Chicago climate]
+Explain why each material is needed for this specific application.)
+
+COST ESTIMATE — ZIP ${zip} AREA / 2026 CHICAGO METRO PRICING
+(Give specific dollar ranges — not ranges from online calculators. Use real Chicago Metro contractor pricing:
+- ${brickType} material cost: $X.XX – $X.XX per brick × ${bricksNeeded.toLocaleString()} bricks = $X,XXX – $X,XXX
+- Mortar + sand + supplies: $XXX – $XXX
+- Labor (${location}): $XX – $XX per sq ft × ${sqFt} sq ft = $X,XXX – $X,XXX
+- TOTAL INSTALLED COST: $X,XXX – $XX,XXX
+- Cost per sq ft installed: $XX – $XX/sq ft
+Explain what drives the difference between low and high estimates for THIS project type.)
+
+INSTALLATION ASSESSMENT — ${location.toUpperCase()}
+(Identify the 2–3 key challenges specific to installing ${brickType} at a ${location} in the Chicago Metro area. For exterior facades: substrate prep, drainage planes, weep holes. For driveways/patios: base depth for frost line, edge restraints, slope for drainage. For feature walls: tie requirements, anchoring. Be specific to their application type — not generic.)
+
+CHICAGO FREEZE-THAW SPECIFICATION
+(Explain what mortar mix is required for ${location} in zip ${zip} given Chicago's 30–40 freeze-thaw cycles per year. Specify: ASTM Type S vs Type N mortar and why for this application. Explain the difference between Chicago winters and milder climates and why it matters for ${brickType} specifically. Recommend the best installation season for this project.)
+
+INSTALLATION TIMELINE
+(Give a specific timeline: crew size needed, days to complete ${sqFt} sq ft of ${location} using ${brickType}, cure time before use/load, total project calendar from start to completion.)
+
+QUALITY INDICATORS
+(Explain 3 specific things that separate a professional ${brickType} installation from a substandard one for a ${location}. Include: mortar joint consistency, course alignment tolerance, waterproofing details. Mention that AMS has installed 500+ brick projects in Chicagoland and what quality assurance looks like.)
+
+YOUR NEXT STEP
+(Recommend a FREE on-site estimate from All Masonry Services Inc. at 773-656-2107 or allmasonryservices.com. Mention AMS serves the ${zip} area. Note that an on-site estimate takes 30 minutes and includes a written material breakdown and timeline at no cost.)
+
+Write for a homeowner who is comparing estimates. Be specific, credible, and actionable. Every cost must be a real number range.`;
+
+  try {
+    const res = await fetch(GURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { maxOutputTokens: 1000, temperature: 0.7 } })
+    });
+    const json = await res.json();
+    const text = json?.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!text) throw new Error('No response');
+    window.__brData = { text, name, address, zip, sqFt, brickType, location };
+    document.getElementById('br-loading').style.display = 'none';
+    document.getElementById('br-result').style.display = 'block';
+  } catch(e) {
+    document.getElementById('br-loading').style.display = 'none';
+    document.getElementById('br-error').style.display = 'block';
+  }
+}
+async function brDownloadPDF() {
+  const d = window.__brData;
+  if (!d) return;
+  await amsGeneratePDF('Brick Installation Estimate', `Client: ${d.name} | ${d.address}, ${d.zip} | ${d.sqFt.toLocaleString()} sq ft | ${d.brickType}`, d.text, 'AMS-Brick-Installation-Estimate.pdf');
+}
+async function amsGeneratePDF(title, meta, report, filename) {
+  await import('https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js'); const jsPDF = window.jspdf.jsPDF; const GState = window.jspdf.GState;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const pageW = 210, margin = 20, contentW = pageW - margin * 2;
+  let y = 20;
+  doc.setFillColor(22,18,15); doc.rect(0,0,pageW,45,'F');
+  doc.setTextColor(184,92,56); doc.setFont('helvetica','bold'); doc.setFontSize(18);
+  doc.text('ALL MASONRY SERVICES INC', margin, 18);
+  doc.setTextColor(255,255,255); doc.setFontSize(13);
+  doc.text(title, margin, 28);
+  doc.setFontSize(9); doc.setFont('helvetica','normal'); doc.setTextColor(200,200,200);
+  doc.text('Prepared by All Masonry Services Inc · allmasonryservices.com · 773-656-2107', margin, 36);
+  doc.text(meta, margin, 42);
+  y = 55;
+  doc.setDrawColor(184,92,56); doc.setLineWidth(0.5); doc.line(margin,y,pageW-margin,y); y += 8;
+  const sections = report.split('\n\n').filter(s => s.trim());
+  sections.forEach(section => {
+    const lines = section.trim().split('\n');
+    const heading = lines[0].trim();
+    const body = lines.slice(1).join('\n').trim();
+    if (y > 260) { doc.addPage(); y = 20; }
+    doc.setFillColor(184,92,56); doc.rect(margin,y-4,3,6,'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(22,18,15);
+    doc.text(heading, margin+6, y); y += 6;
+    if (body) {
+      doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(74,74,74);
+      const wrapped = doc.splitTextToSize(body.replace(/^[-•]\s*/gm,''), contentW-6);
+      wrapped.forEach(line => { if (y>270){doc.addPage();y=20;} doc.text(line,margin+6,y); y+=5; });
+    }
+    y += 5;
+  });
+  if (y > 250) { doc.addPage(); y = 20; }
+  doc.setDrawColor(184,92,56); doc.setLineWidth(0.3); doc.line(margin,y,pageW-margin,y); y+=5;
+  doc.setFont('helvetica','bolditalic'); doc.setFontSize(7); doc.setTextColor(140,128,112);
+  doc.text('DISCLAIMER', margin, y); y+=5;
+  doc.setFont('helvetica','normal');
+  const disc = 'This report is a preliminary estimate based on dimensions and project information provided by the homeowner. It is not a substitute for a professional on-site assessment. Actual material quantities, labor scope, site conditions, substrate type, and final costs may differ. All Masonry Services Inc. does not warrant the accuracy of this preliminary estimate. For a definitive quote, contact All Masonry Services Inc. for a FREE on-site estimate at 773-656-2107 or allmasonryservices.com.';
+  const discLines = doc.splitTextToSize(disc, contentW);
+  discLines.forEach(line => { if (y>275){doc.addPage();y=20;} doc.text(line,margin,y); y+=4; });
+
+  const pc = doc.getNumberOfPages();
+  for (let i=1;i<=pc;i++) {
+    doc.setPage(i);
+    doc.saveGraphicsState();
+    doc.setGState(new GState({ opacity: 0.07 }));
+    doc.setTextColor(184,92,56); doc.setFontSize(36); doc.setFont('helvetica','bold');
+    doc.text('ALL MASONRY SERVICES', pageW/2, 148, { align: 'center', angle: 45 });
+    doc.restoreGraphicsState();
+    doc.setFontSize(8); doc.setTextColor(139,128,112);
+    doc.text('© All Masonry Services Inc · allmasonryservices.com · 773-656-2107', margin, 288);
+    doc.text(`Page ${i} of ${pc}`, pageW-margin-20, 288);
+  }
+  doc.save(filename);
+}
+</script>
+
+<style>
+.magnet{background:#FFFFFF;padding:32px;max-width:580px;width:100%}
+.magnet-header{margin-bottom:24px}
+.badge-gold{display:inline-block;background:#B85C38;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 10px;border-radius:4px;margin-bottom:12px}
+.magnet-title{font-family:'Onest',sans-serif;font-weight:700;font-size:22px;color:#16120F;margin:10px 0 6px;line-height:1.2}
+.magnet-title em{font-style:italic;color:#B85C38}
+.magnet-sub{font-family:'Inter',sans-serif;font-size:13px;color:#4A433B;line-height:1.6;margin:0}
+.step{display:none}.step.active{display:block}
+.step-label{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6A625A;margin:0 0 16px}
+.field-col{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
+.field-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field-group{display:flex;flex-direction:column;gap:6px}
+.field-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#16120F}
+.req{color:#C0392B}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;border-radius:14px;letter-spacing:.04em;text-decoration:none;transition:opacity .2s}
+.btn:hover{opacity:.88}
+.btn-primary{background:#B85C38;color:#FFFFFF}
+.btn-outline{background:transparent;color:#16120F;border:2px solid #16120F}
+.input,.select,.textarea{width:100%;border:1px solid #D9D9D9;background:#fff;color:#16120F;font-family:'Inter',sans-serif;font-size:14px;padding:0 12px;box-sizing:border-box;outline:none;border-radius:10px;appearance:none}
+.input,.select{height:44px}
+.input:focus,.select:focus,.textarea:focus{border-color:#B85C38}
+.select{cursor:pointer}
+.textarea{height:80px;resize:vertical;padding:10px 12px}
+.nav-row{display:flex;gap:12px}
+.progress-track{height:3px;background:#E8E4DC;margin-top:20px}
+.progress-fill{height:3px;background:#B85C38;transition:width 400ms ease}
+.loading-state{text-align:center;padding:32px 0}
+.spinner{width:36px;height:36px;border:3px solid #E8E4DC;border-top-color:#B85C38;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-family:'Inter',sans-serif;font-size:13px;color:#6A625A}
+.success-icon-wrap{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px}
+.result-check{width:48px;height:48px;background:#B85C38;color:#FFFFFF;font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:50%}
+.result-title{font-family:'Onest',sans-serif;font-size:18px;font-weight:700;color:#16120F;margin:0 0 4px}
+.result-sub{font-family:'Inter',sans-serif;font-size:13px;color:#4A433B;margin:0;line-height:1.5}
+.disclaimer-box{background:#FEF3EF;border:1px solid #B85C38;border-left:4px solid #B85C38;padding:12px 14px;font-size:12px;color:#4A433B;line-height:1.6;margin-bottom:16px}
+.disclaimer-box strong{color:#16120F;display:block;margin-bottom:4px;font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.result-actions{display:flex;gap:12px;flex-wrap:wrap}
+.error-text{font-family:'Inter',sans-serif;font-size:13px;color:#C0392B;text-align:center;padding:24px}
+@media(max-width:480px){.field-row-2{grid-template-columns:1fr}.magnet{padding:20px}.result-actions{flex-direction:column}}
+</style>

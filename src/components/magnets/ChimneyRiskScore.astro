@@ -1,0 +1,532 @@
+---
+---
+
+<div class="cr-wrap" id="cr-root">
+  <div class="cr-header">
+    <span class="cr-badge">RISK ASSESSMENT</span>
+    <h2 class="cr-title">Chimney Repair &amp; Rebuilding — <em>Structural Risk Score</em></h2>
+    <p class="cr-sub">Answer 12 questions about your chimney — get a structural risk score and detailed repair recommendation.</p>
+    <div class="cr-progress"><div class="cr-progress-fill" id="cr-progress-fill"></div></div>
+  </div>
+
+  <!-- STEP 1: Risk Checklist -->
+  <div class="step active" id="cr-step1">
+    <p class="step-label">Step 1 of 3 — Chimney Condition Checklist</p>
+    <p class="step-desc">Check every condition that currently applies to your chimney. Items marked <span class="critical-label">CRITICAL</span> require immediate attention.</p>
+
+    <div class="checklist">
+      <!-- CRITICAL items -->
+      <label class="check-item critical-item">
+        <input type="checkbox" class="cr-check" value="Chimney leans, tilts, or is separating from house (CRITICAL)" data-critical="true" />
+        <span class="check-box"></span>
+        <span class="check-content">
+          <span class="check-text">Chimney leans, tilts, or is separating from house</span>
+          <span class="critical-tag">CRITICAL</span>
+        </span>
+      </label>
+      <label class="check-item critical-item">
+        <input type="checkbox" class="cr-check" value="Multiple brick courses loose, displaced, or missing near top (CRITICAL)" data-critical="true" />
+        <span class="check-box"></span>
+        <span class="check-content">
+          <span class="check-text">Multiple brick courses loose, displaced, or missing near top</span>
+          <span class="critical-tag">CRITICAL</span>
+        </span>
+      </label>
+
+      <!-- Standard items -->
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Chimney crown cracked, broken, or missing entirely" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Chimney crown cracked, broken, or missing entirely</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Large sections of mortar missing — gaps visible" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Large sections of mortar missing — gaps visible</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Water damage or staining on interior ceilings near chimney" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Water damage or staining on interior ceilings near chimney</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Chimney flashing rusted, lifted, or missing" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Chimney flashing rusted, lifted, or missing</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Bricks spalling on more than 1/3 of chimney face" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Bricks spalling on more than 1/3 of chimney face</span></span>
+      </label>
+
+      <!-- CRITICAL item #3 -->
+      <label class="check-item critical-item">
+        <input type="checkbox" class="cr-check" value="Chimney was struck by tree, wind, or hail (CRITICAL)" data-critical="true" />
+        <span class="check-box"></span>
+        <span class="check-content">
+          <span class="check-text">Chimney was struck by tree, wind, or hail</span>
+          <span class="critical-tag">CRITICAL</span>
+        </span>
+      </label>
+
+      <!-- More standard items -->
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Last professional inspection 5+ years ago" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Last professional inspection 5+ years ago</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Efflorescence on more than 50% of chimney exterior" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Efflorescence (white staining) on more than 50% of chimney exterior</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Fireplace produces smoke or odor back into the room" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Fireplace produces smoke or odor back into the room</span></span>
+      </label>
+      <label class="check-item">
+        <input type="checkbox" class="cr-check" value="Chimney built before 1980 (may lack modern flue lining)" />
+        <span class="check-box"></span>
+        <span class="check-content"><span class="check-text">Chimney built before 1980 (may lack modern flue lining)</span></span>
+      </label>
+    </div>
+
+    <div class="score-display" id="cr-score-display">
+      <div class="score-inner">
+        <span class="score-count" id="cr-score-count">0</span>
+        <span class="score-out">/ 12</span>
+      </div>
+      <span class="score-label">risk factors checked</span>
+    </div>
+
+    <div id="cr-critical-warning" class="critical-warning" style="display:none">
+      <strong>⚠ CRITICAL ITEM FLAGGED:</strong> One or more critical issues are checked. Do not use your fireplace until professionally inspected. Call <strong>773-656-2107</strong> immediately.
+    </div>
+
+    <div class="select-row">
+      <div class="field-group">
+        <label class="field-label" for="cr-height">Chimney Height</label>
+        <select class="cr-input cr-select" id="cr-height">
+          <option value="Under 15 ft">Under 15 ft</option>
+          <option value="15–25 ft">15 – 25 ft</option>
+          <option value="Over 25 ft">Over 25 ft</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cr-flues">Number of Flues</label>
+        <select class="cr-input cr-select" id="cr-flues">
+          <option value="1">1 Flue</option>
+          <option value="2">2 Flues</option>
+          <option value="3+">3+ Flues</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" for="cr-notes">Additional Notes</label>
+      <textarea class="cr-input cr-textarea" id="cr-notes" placeholder="Age of chimney, fuel type (wood/gas), recent weather events, any previous repairs, etc."></textarea>
+    </div>
+
+    <button class="cr-btn cr-btn-primary" id="cr-to-step2">Next — Your Information →</button>
+  </div>
+
+  <!-- STEP 2: Contact Form -->
+  <div class="step" id="cr-step2">
+    <p class="step-label">Step 2 of 3 — Your Contact Information</p>
+    <p class="step-desc">We'll include your details in the personalized structural risk report.</p>
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="cr-name">Full Name <span class="req">*</span></label>
+        <input class="cr-input" type="text" id="cr-name" placeholder="David Homeowner" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cr-phone">Phone <span class="req">*</span></label>
+        <input class="cr-input" type="tel" id="cr-phone" placeholder="(773) 555-0100" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cr-email">Email <span class="req">*</span></label>
+        <input class="cr-input" type="email" id="cr-email" placeholder="david@home.com" required />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="cr-address">Property Address <span class="req">*</span></label>
+        <input class="cr-input" type="text" id="cr-address" placeholder="789 Elm St, Chicago, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cr-zip">Zip Code <span class="req">*</span></label>
+        <input class="cr-input" type="text" id="cr-zip" placeholder="60622" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="cr-btn cr-btn-outline" id="cr-back-to-step1">← Back</button>
+      <button class="cr-btn cr-btn-primary" id="cr-submit">Generate Risk Score Report →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="cr-step3">
+    <div class="spinner-wrap" id="cr-spinner">
+      <div class="spinner"></div>
+      <p class="spinner-text">Your Personal Masonry Assistant is reviewing your data…</p>
+      <p class="spinner-sub">Building your property-specific report</p>
+    </div>
+    <div class="result-wrap" id="cr-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="result-title">Your Risk Score Report Is Ready</h3>
+      <p class="result-sub">Your personalized Chimney Structural Risk Assessment is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary report is an estimate based on the information you provided through self-assessment. It is not a substitute for a professional chimney inspection by a licensed masonry contractor. Structural conditions, fire risk, and repair costs may differ from this estimate. For a 100% accurate assessment, contact All Masonry Services Inc. for a FREE on-site evaluation — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="cr-btn cr-btn-primary" id="cr-pdf-btn">Download PDF Report</button>
+        <a class="cr-btn cr-btn-outline" href="/contact#form">Book Free On-Site Inspection</a>
+      </div>
+    </div>
+    <div class="error-wrap" id="cr-error" style="display:none">
+      <p class="error-msg" id="cr-error-msg"></p>
+      <button class="cr-btn cr-btn-outline" id="cr-retry">← Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (async () => {
+    const GEMINI_KEY = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+
+    let cr_reportText = "";
+    let cr_contactData: Record<string, string> = {};
+
+    function cr_getVal(id: string): string {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      return el ? el.value.trim() : "";
+    }
+
+    function cr_setProgress(pct: number) {
+      const bar = document.getElementById("cr-progress-fill") as HTMLElement | null;
+      if (bar) bar.style.width = pct + "%";
+    }
+
+    function cr_showStep(n: number) {
+      [1, 2, 3].forEach(i => {
+        const el = document.getElementById(`cr-step${i}`);
+        if (el) el.classList.toggle("active", i === n);
+      });
+      cr_setProgress(n === 1 ? 10 : n === 2 ? 50 : 100);
+    }
+
+    function cr_updateScore() {
+      const checked = document.querySelectorAll(".cr-check:checked").length;
+      const criticalChecked = document.querySelectorAll(".cr-check[data-critical='true']:checked").length;
+      const scoreEl = document.getElementById("cr-score-count");
+      const warning = document.getElementById("cr-critical-warning");
+      if (scoreEl) scoreEl.textContent = String(checked);
+      if (warning) warning.style.display = criticalChecked > 0 ? "block" : "none";
+    }
+
+    document.querySelectorAll(".cr-check").forEach(cb => {
+      cb.addEventListener("change", cr_updateScore);
+    });
+
+    function cr_getChecked(): string[] {
+      return Array.from(document.querySelectorAll<HTMLInputElement>(".cr-check:checked")).map(c => c.value);
+    }
+
+    function cr_getCriticalChecked(): string[] {
+      return Array.from(document.querySelectorAll<HTMLInputElement>(".cr-check[data-critical='true']:checked")).map(c => c.value);
+    }
+
+    async function cr_generate() {
+      const checked = cr_getChecked();
+      const criticalItems = cr_getCriticalChecked();
+      const height = cr_getVal("cr-height");
+      const flues = cr_getVal("cr-flues");
+      const notes = cr_getVal("cr-notes");
+      const zip = cr_contactData.zip;
+
+      const riskScore = Math.min(100, criticalItems.length * 30 + (checked.length - criticalItems.length) * 7);
+      const riskLevel = riskScore >= 70 ? "CRITICAL" : riskScore >= 50 ? "HIGH" : riskScore >= 25 ? "MEDIUM" : riskScore >= 10 ? "LOW" : "SAFE";
+      const hasWaterDamage = checked.some(c => c.includes("Water damage") || c.includes("Fireplace produces smoke"));
+      const hasCrownIssue = checked.some(c => c.includes("crown"));
+      const hasFlashing = checked.some(c => c.includes("flashing"));
+      const isOld = checked.some(c => c.includes("before 1980"));
+
+      const prompt = `You are a senior chimney structural inspector at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED structural risk report for a specific homeowner at zip code ${zip}.
+
+CHIMNEY PROFILE:
+- Homeowner: ${cr_contactData.name}
+- Property: ${cr_contactData.address}, IL ${zip}
+- Chimney Height: ${height}
+- Number of Flues: ${flues}
+- Risk Factors Flagged: ${checked.length} of 12
+- Critical Items Flagged: ${criticalItems.length}
+- Calculated Risk Score: ${riskScore}/100 — ${riskLevel}
+- Crown Damage Present: ${hasCrownIssue ? "YES" : "No"}
+- Flashing Issues: ${hasFlashing ? "YES — water entry risk at roof junction" : "No"}
+- Water/Smoke Intrusion: ${hasWaterDamage ? "YES — active hazard" : "No"}
+- Pre-1980 Construction: ${isOld ? "YES — may lack UL-listed liner" : "Unknown or modern"}
+- Additional Notes: ${notes || "None provided"}
+
+FLAGGED CONDITIONS:
+${checked.length > 0 ? checked.map((c, i) => `${i + 1}. ${c}`).join("\n") : "No conditions flagged — precautionary check."}
+
+${criticalItems.length > 0 ? `\nCRITICAL ITEMS (IMMEDIATE DANGER):\n${criticalItems.join("\n")}` : ""}
+
+TASK: Write a SPECIFIC, PERSONALIZED chimney structural risk report for THIS homeowner at THIS property. Every section must directly address their flagged conditions, their chimney's specific characteristics (${height} tall, ${flues} flue(s)), and Chicago's freeze-thaw climate context. Do NOT write generic chimney advice.
+
+Use exactly these ALL CAPS headings in this order:
+
+STRUCTURAL RISK SCORE — ${riskScore}/100 (${riskLevel})
+(Explain what this score means for a ${height} chimney with ${flues} flue(s) at this property. Break down HOW you calculated it from the flagged conditions. Compare to what a safe chimney score looks like.)
+
+${criticalItems.length > 0 ? "CRITICAL SAFETY WARNING — DO NOT USE FIREPLACE\n(Explain the specific danger from the critical items flagged. Include fire risk, structural collapse risk, and CO/smoke hazard. Use urgent but professional language. Repeat the phone number 773-656-2107.)" : "SAFETY STATUS SUMMARY\n(Explain the current safe/unsafe status based on flagged conditions. Mention what conditions would need to be true to make this chimney safe to use.)"}
+
+CONDITION-BY-CONDITION BREAKDOWN
+(For each flagged condition, explain specifically what it means for THIS chimney — structural implication, water damage pathway, or fire risk. For a ${height} chimney, explain how height amplifies certain risks. If no conditions were flagged, confirm what a clean chimney looks like and when to schedule professional inspection.)
+
+RECOMMENDED REPAIR SCOPE
+(Be specific: tuckpointing only, crown repair, flashing replacement, partial rebuild, or full rebuild. For each recommendation, say WHY based on the flagged conditions. Example: "Because the crown is damaged AND flashing is compromised, water is entering from two points — both must be addressed together or the repair will fail.")
+
+ESTIMATED REPAIR INVESTMENT — ZIP ${zip} AREA
+(Give specific dollar ranges for each repair type needed. Include: tuckpointing per linear foot, crown repair cost, flashing cost, liner replacement if applicable. Give a TOTAL PROJECT ESTIMATE range. Use real Chicago Metro 2026 pricing. Never say "varies" — give actual numbers.)
+
+CHICAGO WINTER URGENCY ASSESSMENT
+(Explain specifically how the ${riskLevel} risk level interacts with Chicago's 30–40 freeze-thaw cycles per year. If it's currently ${new Date().getMonth() >= 9 || new Date().getMonth() <= 2 ? "winter" : "pre-winter season"}, explain what is happening to this chimney right now. Give a specific deadline month for when repairs must be completed to avoid critical winter damage.)
+
+FIRE SAFETY & INSURANCE IMPLICATIONS
+(Explain the homeowner's insurance and fire safety exposure given this risk score. If liner issues or critical items are present, note that many insurers require documentation of chimney safety. Include NFPA 211 standard reference if applicable.)
+
+YOUR NEXT STEP
+(Recommend calling 773-656-2107 immediately for ${criticalItems.length > 0 ? "an emergency inspection" : "a free structural assessment"}. Mention AMS serves the ${zip} area and has inspected 500+ chimneys in Chicagoland since 2007. Free inspection takes 45 minutes.)
+
+Write for a homeowner, not a contractor. Be specific, direct, and safety-focused. Never pad with generic chimney information.`;
+
+      const resp = await fetch(GEMINI_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+        })
+      });
+      if (!resp.ok) throw new Error(`API error: ${resp.status}`);
+      const data = await resp.json();
+      cr_reportText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No report generated.";
+    }
+
+    function cr_renderReport() {
+      const spinner = document.getElementById("cr-spinner");
+      const result = document.getElementById("cr-result");
+      if (spinner) spinner.style.display = "none";
+      if (result) result.style.display = "block";
+    }
+
+    async function cr_downloadPDF() {
+      await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"); const jsPDF = (window as any).jspdf.jsPDF; const GState = (window as any).jspdf.GState;
+      const doc = new jsPDF({ unit: "pt", format: "letter" });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const margin = 48;
+      let y = 0;
+
+      function cr_checkPage(needed: number) {
+        if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
+      }
+
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, 0, pageW, 72, "F");
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES INC", margin, 26);
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(15);
+      doc.text("Chimney Repair & Rebuilding — Structural Risk Score Report", margin, 52);
+      y = 96;
+
+      const checked = cr_getChecked();
+      const criticalChecked = cr_getCriticalChecked();
+      doc.setTextColor(74, 67, 59);
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Prepared for: ${cr_contactData.name}  |  ${cr_contactData.phone}  |  ${cr_contactData.email}`, margin, y);
+      y += 14;
+      doc.text(`Property: ${cr_contactData.address}, ${cr_contactData.zip}`, margin, y);
+      y += 14;
+      doc.text(`Risk Factors: ${checked.length}/12 flagged  |  Critical Items: ${criticalChecked.length}  |  Height: ${cr_getVal("cr-height")}`, margin, y);
+      y += 14;
+      doc.text(`Date: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`, margin, y);
+      y += 24;
+
+      if (criticalChecked.length > 0) {
+        cr_checkPage(44);
+        doc.setFillColor(192, 57, 43);
+        doc.rect(margin, y, pageW - margin * 2, 32, "F");
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(10);
+        doc.setFont("helvetica", "bold");
+        doc.text("⚠  CRITICAL ITEMS FLAGGED — DO NOT USE FIREPLACE UNTIL PROFESSIONALLY INSPECTED", margin + 8, y + 20);
+        y += 44;
+      }
+
+      const lines = cr_reportText.split("\n");
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) { y += 6; continue; }
+        const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 90 && !trimmed.includes("•") && !trimmed.match(/^\d/) && !trimmed.match(/^\$/);
+        if (isHeading) {
+          cr_checkPage(36);
+          doc.setFillColor(184, 92, 56);
+          doc.rect(margin, y, 3, 16, "F");
+          doc.setTextColor(22, 18, 15);
+          doc.setFontSize(11);
+          doc.setFont("helvetica", "bold");
+          doc.text(trimmed, margin + 10, y + 12);
+          y += 24;
+        } else {
+          cr_checkPage(18);
+          doc.setTextColor(74, 67, 59);
+          doc.setFontSize(9.5);
+          doc.setFont("helvetica", "normal");
+          const cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/^[-•]\s+/, "• ");
+          const wrapped = doc.splitTextToSize(cleaned, pageW - margin * 2);
+          doc.text(wrapped, margin, y);
+          y += wrapped.length * 13;
+        }
+      }
+
+      const totalPages = (doc.internal as any).getNumberOfPages();
+      for (let p = 1; p <= totalPages; p++) {
+        doc.setPage(p);
+        doc.saveGraphicsState();
+        doc.setGState(new GState({ opacity: 0.07 }));
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(52);
+        doc.setFont("helvetica", "bold");
+        doc.text("ALL MASONRY SERVICES", pageW / 2, pageH / 2, { align: "center", angle: 45 });
+        doc.restoreGraphicsState();
+        doc.setFillColor(22, 18, 15);
+        doc.rect(0, pageH - 36, pageW, 36, "F");
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "bold");
+        doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+        doc.setTextColor(180, 180, 180);
+        doc.text(`Page ${p} of ${totalPages}`, pageW - margin - 40, pageH - 14);
+      }
+      doc.save(`ChimneyRiskReport-${cr_contactData.name.replace(/\s+/g, "-")}.pdf`);
+    }
+
+    document.getElementById("cr-to-step2")?.addEventListener("click", () => cr_showStep(2));
+    document.getElementById("cr-back-to-step1")?.addEventListener("click", () => cr_showStep(1));
+
+    document.getElementById("cr-submit")?.addEventListener("click", async () => {
+      const name = cr_getVal("cr-name");
+      const phone = cr_getVal("cr-phone");
+      const email = cr_getVal("cr-email");
+      const address = cr_getVal("cr-address");
+      const zip = cr_getVal("cr-zip");
+      if (!name || !phone || !email || !address || !zip) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+      cr_contactData = { name, phone, email, address, zip };
+      cr_showStep(3);
+      const spinner = document.getElementById("cr-spinner");
+      const result = document.getElementById("cr-result");
+      const errWrap = document.getElementById("cr-error");
+      if (spinner) spinner.style.display = "flex";
+      if (result) result.style.display = "none";
+      if (errWrap) errWrap.style.display = "none";
+      try {
+        await cr_generate();
+        cr_renderReport();
+      } catch (e: any) {
+        if (spinner) spinner.style.display = "none";
+        if (errWrap) errWrap.style.display = "block";
+        const msg = document.getElementById("cr-error-msg");
+        if (msg) msg.textContent = "Error generating report: " + (e.message || "Please try again.");
+      }
+    });
+
+    document.getElementById("cr-pdf-btn")?.addEventListener("click", cr_downloadPDF);
+    document.getElementById("cr-retry")?.addEventListener("click", () => cr_showStep(1));
+  })();
+</script>
+
+<style>
+  .cr-wrap { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #16120F; max-width: 720px; width: 100%; margin: 0 auto; box-sizing: border-box; }
+  .cr-header { background: #16120F; padding: 32px 36px 0; }
+  .cr-badge { display: inline-block; background: #B85C38; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 4px 10px; margin-bottom: 14px; border-radius: 4px; }
+  .cr-title { font-family: 'Onest', sans-serif; color: #F5F3EF; font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.25; }
+  .cr-title em { color: #B85C38; font-style: normal; }
+  .cr-sub { color: #6A625A; font-size: 14px; margin: 0 0 24px; line-height: 1.5; }
+  .cr-progress { height: 3px; background: #2A2A2A; }
+  .cr-progress-fill { height: 3px; background: #B85C38; width: 10%; transition: width .4s ease; }
+  .step { display: none; padding: 32px 36px; }
+  .step.active { display: block; }
+  .step-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #6A625A; text-transform: uppercase; margin: 0 0 8px; }
+  .step-desc { font-size: 14px; color: #4A433B; margin: 0 0 16px; line-height: 1.5; }
+  .critical-label { display: inline-block; background: #c0392b; color: #fff; font-size: 10px; font-weight: 800; padding: 2px 6px; letter-spacing: .06em; }
+  .checklist { display: flex; flex-direction: column; border: 2px solid #16120F; }
+  .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 13px 16px; cursor: pointer; border-bottom: 1px solid #E0DDD8; background: #fff; transition: background .15s; }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:hover { background: #FAF8F4; }
+  .critical-item { border-left: 4px solid #c0392b; background: #fdf5f5; }
+  .critical-item:hover { background: #fceaea; }
+  .check-item input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .check-box { width: 20px; height: 20px; border: 2px solid #16120F; flex-shrink: 0; margin-top: 1px; background: #fff; position: relative; transition: background .15s, border-color .15s; }
+  .check-item input:checked ~ .check-box { background: #B85C38; border-color: #B85C38; }
+  .critical-item .check-item input:checked ~ .check-box { background: #c0392b; border-color: #c0392b; }
+  .check-item input:checked ~ .check-box::after { content: ""; position: absolute; left: 5px; top: 2px; width: 6px; height: 10px; border: 2px solid #fff; border-top: none; border-left: none; transform: rotate(45deg); }
+  .check-content { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; flex: 1; }
+  .check-text { font-size: 14px; color: #4A433B; line-height: 1.45; }
+  .critical-tag { display: inline-block; background: #c0392b; color: #fff; font-size: 10px; font-weight: 800; padding: 2px 7px; letter-spacing: .06em; flex-shrink: 0; }
+  .score-display { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #16120F; margin-top: 0; }
+  .score-inner { display: flex; align-items: baseline; gap: 3px; }
+  .score-count { font-size: 32px; font-weight: 800; color: #B85C38; font-family: 'Onest', sans-serif; line-height: 1; }
+  .score-out { font-size: 18px; font-weight: 700; color: #6A625A; }
+  .score-label { font-size: 13px; color: #6A625A; }
+  .critical-warning { background: #c0392b; color: #fff; padding: 14px 18px; font-size: 13px; line-height: 1.5; margin-top: 0; border-top: 2px solid #fff; }
+  .select-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+  .field-group { margin-bottom: 16px; }
+  .field-full { grid-column: 1 / -1; }
+  .field-label { display: block; font-size: 13px; font-weight: 600; color: #16120F; margin-bottom: 6px; }
+  .req { color: #B85C38; }
+  .cr-input { width: 100%; height: 44px; border: 1px solid #D9D9D9; background: #fff; color: #16120F; font-family: 'Inter', sans-serif; font-size: 14px; padding: 0 12px; box-sizing: border-box; outline: none; border-radius: 10px; appearance: none; }
+  .cr-input:focus { border-color: #B85C38; }
+  .cr-select { cursor: pointer; }
+  .cr-textarea { height: 80px; resize: vertical; padding: 10px 12px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cr-btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border: none; border-radius: 14px; letter-spacing: .04em; text-decoration: none; transition: opacity .2s; }
+  .cr-btn:hover { opacity: .85; }
+  .cr-btn-primary { background: #B85C38; color: #FFFFFF; }
+  .cr-btn-outline { background: transparent; color: #16120F; border: 2px solid #16120F; }
+  .nav-row { display: flex; gap: 12px; margin-top: 8px; }
+  #cr-to-step2 { width: 100%; margin-top: 8px; }
+  .spinner-wrap { display: flex; flex-direction: column; align-items: center; padding: 48px 0; gap: 16px; }
+  .spinner { width: 44px; height: 44px; border: 3px solid #E0DDD8; border-top-color: #B85C38; border-radius: 50%; animation: cr-spin .8s linear infinite; }
+  @keyframes cr-spin { to { transform: rotate(360deg); } }
+  .spinner-text { color: #6A625A; font-size: 14px; }
+  .result-header { margin-bottom: 24px; }
+  .success-icon { background: #B85C38; color: #FFFFFF; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700; margin: 0 auto 12px; }
+  .result-title { font-family: 'Onest', sans-serif; font-size: 22px; color: #16120F; margin: 8px 0 0; }
+  .report-section { margin-bottom: 16px; padding: 20px; background: #fff; border: 1px solid #E0DDD8; }
+  .report-section.section-critical { border-left: 4px solid #c0392b; background: #fdf5f5; }
+  .section-accent { width: 32px; height: 3px; background: #B85C38; margin-bottom: 10px; }
+  .section-heading { font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 700; color: #16120F; margin: 0 0 10px; text-transform: uppercase; letter-spacing: .04em; }
+  .report-p { font-size: 14px; color: #4A433B; line-height: 1.65; margin: 0 0 8px; }
+  .report-li { font-size: 14px; color: #4A433B; line-height: 1.65; margin: 0 0 6px 16px; list-style: disc; }
+  .result-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  .disclaimer-box { background: #FEF3EF; border: 1px solid #B85C38; border-left: 4px solid #B85C38; padding: 14px 16px; font-size: 13px; color: #4A433B; line-height: 1.55; text-align: left; margin-top: 16px; }
+  .error-wrap { padding: 32px; text-align: center; }
+  .error-msg { color: #c0392b; font-size: 14px; margin-bottom: 16px; }
+  @media (max-width: 600px) {
+    .cr-header, .step { padding: 24px 20px; }
+    .select-row, .contact-grid { grid-template-columns: 1fr; }
+    .cr-title { font-size: 20px; }
+    .field-full { grid-column: 1; }
+    .check-content { gap: 4px; }
+  }
+</style>

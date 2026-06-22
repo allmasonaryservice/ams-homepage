@@ -1,0 +1,242 @@
+---
+const steps = [
+  {
+    num: '01',
+    title: 'Free Inspection',
+    body: 'We come to you within 24 hours — assess the damage, photograph the problem areas, and give you an honest evaluation with no pressure.',
+    why: 'Catching problems early prevents minor cracks from becoming structural failures that cost ten times more to fix.',
+  },
+  {
+    num: '02',
+    title: 'Written Quote',
+    body: 'Every line item explained in plain language. The price you see is the price you pay — no hidden fees, no surprises at the end.',
+    why: 'Vague estimates lead to disputes. A written quote protects you and holds us accountable to the exact scope of work.',
+  },
+  {
+    num: '03',
+    title: 'Expert Repair',
+    body: 'Our own crew — never subcontractors — completes the job using matched materials and proven techniques built to last decades.',
+    why: 'Subcontractors have no stake in your satisfaction. Our crew does — their reputation is on every job they touch.',
+  },
+  {
+    num: '04',
+    title: 'Quality Check',
+    body: 'Site cleaned, mortar joints inspected, and every surface checked before we call the job done.',
+    why: 'Most problems are found during inspection, not after. We look for issues before you do.',
+  },
+  {
+    num: '05',
+    title: 'Final Walkthrough',
+    body: 'You walk the job with us. You sign off only when satisfied. Workmanship warranty starts the day we finish.',
+    why: 'Your sign-off is your protection. We do not consider a job complete until you do.',
+  },
+];
+---
+
+<section id="prc-section" style="background:#ffffff; position:relative;">
+
+  <!-- ── Scroll driver: 600vh gives scroll budget for 5 steps ── -->
+  <div id="prc-driver" style="position:relative; height:600vh;">
+
+    <div id="prc-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+      <div class="prc-grid" style="max-width:1200px; width:100%; margin:0 auto; padding:0 40px; display:grid; grid-template-columns:1fr 1.65fr; gap:80px; align-items:start;">
+
+        <!-- ── LEFT: heading + CTA ──────────────────────────── -->
+        <div id="prc-left" style="align-self:center;">
+
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+              <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+              <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+              <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+            </svg>
+            <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">Our Process</span>
+          </div>
+
+          <h2 style="font-family:'Onest',sans-serif; font-size:clamp(36px,3.5vw,54px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 20px;">Masonry<br>made simple</h2>
+
+          <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.65; color:#6A625A; margin:0 0 36px;">From first call to final walkthrough — five steps, no surprises, and a warranty you can count on.</p>
+
+          <div class="prc-desktop-cta">
+            <a href="/contact#form"
+              style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+              onmouseenter="this.style.background='#8A3A22'"
+              onmouseleave="this.style.background='#B85C38'">
+              Get a free estimate
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:28px 0 0;">5 steps · 24 hrs to first visit</p>
+          </div>
+
+        </div>
+
+        <!-- ── RIGHT: steps list ───────────────────────────── -->
+        <div id="prc-right">
+          {steps.map((s, i) => (
+            <div
+              class="prc-item"
+              style={`padding:14px 0; border-top:1px solid #E4E2DE;${i === steps.length - 1 ? ' border-bottom:1px solid #E4E2DE;' : ''}`}
+            >
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+
+                <span
+                  class="prc-num"
+                  style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;"
+                >{s.num}</span>
+
+                <div class="prc-content" style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">{s.title}</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">{s.body}</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;">
+                      <strong style="font-family:'Inter',sans-serif; color:#B85C38; font-weight:700;">Why it matters: </strong>{s.why}
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          ))}
+
+          <!-- Mobile-only CTA — appears after all steps -->
+          <div class="prc-mobile-cta" style="display:none; padding-top:36px;">
+            <a href="/contact#form"
+              style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+              onmouseenter="this.style.background='#8A3A22'"
+              onmouseleave="this.style.background='#B85C38'">
+              Get a free estimate
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:20px 0 0;">5 steps · 24 hrs to first visit</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ── Mobile: collapse driver/sticky to normal flow ── */
+@media (max-width: 768px) {
+  #prc-driver {
+    height: auto !important;
+  }
+  #prc-sticky {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    padding: 72px 0;
+  }
+  .prc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding: 0 20px !important;
+  }
+  .prc-desktop-cta {
+    display: none !important;
+  }
+  .prc-mobile-cta {
+    display: block !important;
+  }
+  /* Restore original step padding on mobile */
+  .prc-item {
+    padding: 28px 0 !important;
+  }
+  .prc-num {
+    font-size: 36px !important;
+  }
+}
+@media (max-width: 480px) {
+  #prc-sticky {
+    padding: 56px 0 !important;
+  }
+  .prc-grid {
+    padding: 0 16px !important;
+  }
+}
+</style>
+
+<script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+const driver  = document.getElementById('prc-driver') as HTMLElement;
+const leftCol = document.getElementById('prc-left')   as HTMLElement;
+const items   = gsap.utils.toArray<HTMLElement>('.prc-item');
+const nums    = gsap.utils.toArray<HTMLElement>('.prc-num');
+const isMobile = window.innerWidth < 768;
+
+// ── Left column entrance ──────────────────────────────────────
+gsap.from(leftCol, {
+  opacity: 0,
+  x: isMobile ? 0 : -24,
+  y: isMobile ? 20 : 0,
+  duration: 0.9,
+  ease: 'power2.out',
+  scrollTrigger: { trigger: driver, start: 'top 80%', once: true },
+});
+
+if (!isMobile) {
+  // ── DESKTOP: sticky section + active-step highlight ──
+  // Inactive steps stay fully readable; active step gets bright num + warm bg.
+
+  gsap.from(items, {
+    opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', stagger: 0.08,
+    scrollTrigger: { trigger: driver, start: 'top 70%', once: true },
+  });
+
+  const tl  = gsap.timeline({ defaults: { ease: 'none' } });
+  const seg = 1 / items.length;
+
+  items.forEach((_, i) => {
+    const s  = i * seg;
+    const fi = seg * 0.25;
+    const fo = seg * 0.25;
+
+    // Num: dim orange → full bright orange
+    tl.fromTo(nums[i],  { opacity: 0.22 }, { opacity: 1,                          duration: fi }, s);
+    tl.to(nums[i],                          { opacity: 0.22,                       duration: fo }, s + seg - fo);
+
+    // Item bg: transparent → subtle warm tint
+    tl.fromTo(items[i], { backgroundColor: 'rgba(184,92,56,0)' },
+                        { backgroundColor: 'rgba(184,92,56,0.06)', duration: fi }, s);
+    tl.to(items[i],     { backgroundColor: 'rgba(184,92,56,0)',    duration: fo }, s + seg - fo);
+  });
+
+  ScrollTrigger.create({
+    trigger: driver, start: 'top top', end: 'bottom bottom',
+    scrub: 1.2, animation: tl,
+  });
+
+} else {
+  // ── MOBILE: per-step fade-in + scrub active highlight ──
+
+  items.forEach((item, i) => {
+    gsap.from(item, {
+      opacity: 0, y: 20, duration: 0.55, ease: 'power2.out',
+      scrollTrigger: { trigger: item, start: 'top 88%', once: true },
+    });
+
+    const stepTl = gsap.timeline({ defaults: { ease: 'none' } });
+    stepTl
+      .fromTo(nums[i],  { opacity: 0.22 }, { opacity: 1,                          duration: 0.5 }, 0)
+      .fromTo(item,     { backgroundColor: 'rgba(184,92,56,0)' },
+                        { backgroundColor: 'rgba(184,92,56,0.06)', duration: 0.5 }, 0)
+      .to(nums[i],      { opacity: 0.22,                          duration: 0.5 }, 0.5)
+      .to(item,         { backgroundColor: 'rgba(184,92,56,0)',   duration: 0.5 }, 0.5);
+
+    ScrollTrigger.create({
+      trigger: item, start: 'top 65%', end: 'bottom 35%',
+      scrub: 0.4, animation: stepTl,
+    });
+  });
+}
+</script>

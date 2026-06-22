@@ -1,0 +1,1685 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { projects as allProjects } from '../data/projects.js';
+import { cities } from '../data/cities.js';
+
+const siteUrl = 'https://allmasonryservices.com';
+const svcProjects = allProjects.slice(0, 5);
+
+
+const faqItems = [
+  {
+    q: 'What cities do you serve in Chicagoland?',
+    a: 'We serve 19 cities across four regions — the North Shore, western suburbs, DuPage County, and the City of Chicago. See the full directory on this page. If your city isn\'t listed, call us — we occasionally take projects in adjacent areas.'
+  },
+  {
+    q: 'Do you charge a travel or consultation fee?',
+    a: 'No. Every on-site estimate is completely free — no travel fee, no consultation charge, no obligation. The written estimate we give you is the only price commitment, and it doesn\'t change.'
+  },
+  {
+    q: 'How soon can you come out for an estimate?',
+    a: 'Typically within 24–48 hours of your call or online request. For urgent situations — active water infiltration, structural concerns, or an imminent sale — we prioritize same-day or next-day visits when possible.'
+  },
+  {
+    q: 'Do you serve all Chicago neighborhoods?',
+    a: 'Yes. We work throughout Chicago — North Side, South Side, West Side, and the lakefront. Lincoln Park, Bucktown, Logan Square, Hyde Park, Pilsen, Bridgeport — we\'ve completed projects in every major Chicago community area.'
+  },
+  {
+    q: 'Can you match original brick and mortar in older homes?',
+    a: 'Yes — brick and mortar matching is one of our specialties. We sample your existing material, source the closest replacement, and calibrate mortar hardness to your brick age. This is especially critical for pre-1940 construction, where too-hard mortar causes permanent brick spalling.'
+  },
+  {
+    q: 'Is AMS licensed in all of these areas?',
+    a: 'Yes. Illinois masonry license #MA-104-018887 covers all Chicagoland municipalities. We carry $2.5M general liability and workers\' compensation on every crew member. Proof of insurance is provided before any work begins — on every job, no exceptions.'
+  },
+];
+---
+
+<Layout
+  title="Service Areas — Masonry Contractor Across Chicagoland | All Masonry Services"
+  description="All Masonry Services serves 19 cities across Chicagoland — North Shore, western suburbs, DuPage County, and Chicago. Brick, stone, chimney, tuckpointing. Free estimates. Call 773-656-2107."
+>
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "All Masonry Services",
+    "url": siteUrl + "/service-areas",
+    "telephone": "+1-773-656-2107",
+    "areaServed": cities.map(c => ({ "@type": "City", "name": c.name + ", IL" })),
+    "priceRange": "$$",
+    "address": { "@type": "PostalAddress", "addressRegion": "IL", "addressCountry": "US", "addressLocality": "Chicago" }
+  })}</script>
+
+  <Navbar />
+
+  <!-- ─── 1. HERO ─── -->
+  <section class="sa-hero" id="sa-hero" aria-label="Service Areas hero">
+    <div class="sa-hero-bg" aria-hidden="true"></div>
+    <div class="sa-hero-overlay" aria-hidden="true"></div>
+
+    <div class="sa-hero-content">
+      <div class="sa-hero-label" id="sa-label">
+        <span class="sa-label-line" aria-hidden="true"></span>
+        Masonry Contractor · Chicago &amp; Chicagoland · Est. 2007
+      </div>
+
+      <h1 class="sa-h1">
+        <div class="sa-h1-row"><span id="sa-r1">Masonry Across</span></div>
+        <div class="sa-h1-row"><span id="sa-r2">Chicagoland</span></div>
+      </h1>
+
+      <p class="sa-sub" id="sa-sub">
+        19 communities. 19 years. Brick, stone, chimney, and tuckpointing — we come to you wherever you are across Chicagoland. Free on-site estimates. Own crew only.
+      </p>
+
+      <div class="sa-actions" id="sa-act">
+        <a href="/contact#form" class="sa-btn sa-btn--primary">
+          Get a Free Estimate
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="tel:7736562107" class="sa-btn sa-btn--ghost">Call 773-656-2107</a>
+      </div>
+
+      <div class="sa-badges" id="sa-bdg">
+        <div class="sa-badge"><strong>19</strong><span>Cities Served</span></div>
+        <div class="sa-badge-sep" aria-hidden="true"></div>
+        <div class="sa-badge"><strong>500+</strong><span>Projects Done</span></div>
+        <div class="sa-badge-sep" aria-hidden="true"></div>
+        <div class="sa-badge"><strong>4.8★</strong><span>92 Reviews</span></div>
+      </div>
+    </div>
+
+    <div class="sa-scroll" id="sa-scroll">
+      <div class="sa-scroll-mouse"><div class="sa-scroll-dot"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ─── 2. TRUST BAR ─── -->
+  <section class="sp-trust">
+    <div class="sp-trust-inner">
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Licensed &amp; Insured in Illinois
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Free On-Site Estimates
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Own Crew — No Subcontractors
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        19+ Years in Chicagoland
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3. ZONE OVERVIEW ─── -->
+  <section class="sa-zones">
+    <div class="sa-zones-inner">
+
+      <div class="sa-zones-header" data-reveal>
+        <div class="sa-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>19 Cities · 4 Regions</span>
+        </div>
+        <h2 class="sa-zones-h2">Serving Chicagoland<br><em>From the North Shore to DuPage</em></h2>
+        <p class="sa-zones-sub">Family-owned since 2007 — we've built a reputation across every corner of Chicagoland. Find your area below.</p>
+      </div>
+
+      <!-- MAP full-width -->
+      <div class="sap-map-wrap" data-reveal style="--rd:80ms">
+        <div id="sap-map" role="img" aria-label="Map showing All Masonry Services coverage across Chicagoland"></div>
+      </div>
+
+      <!-- REGION PILL GRID -->
+      <div class="sap-regions" data-reveal style="--rd:140ms">
+
+        <div class="sap-region-col">
+          <div class="sap-region-head" style="--rc:#B85C38">
+            <span class="sap-region-dot"></span>
+            North Shore
+            <span class="sap-region-count">7</span>
+          </div>
+          {cities.filter(c => c.region === 'North Shore').map(c => (
+            <a href={`/locations/${c.slug}`} class="sap-city-pill">{c.name}</a>
+          ))}
+        </div>
+
+        <div class="sap-region-col">
+          <div class="sap-region-head" style="--rc:#B85C38">
+            <span class="sap-region-dot"></span>
+            Western Suburbs
+            <span class="sap-region-count">6</span>
+          </div>
+          {cities.filter(c => c.region === 'Western Suburbs').map(c => (
+            <a href={`/locations/${c.slug}`} class="sap-city-pill">{c.name}</a>
+          ))}
+        </div>
+
+        <div class="sap-region-col">
+          <div class="sap-region-head" style="--rc:#B85C38">
+            <span class="sap-region-dot"></span>
+            DuPage County
+            <span class="sap-region-count">5</span>
+          </div>
+          {cities.filter(c => c.region === 'DuPage County').map(c => (
+            <a href={`/locations/${c.slug}`} class="sap-city-pill">{c.name}</a>
+          ))}
+        </div>
+
+        <div class="sap-region-col">
+          <div class="sap-region-head" style="--rc:#B85C38">
+            <span class="sap-region-dot"></span>
+            City of Chicago
+            <span class="sap-region-count">1</span>
+          </div>
+          {cities.filter(c => c.region === 'City of Chicago').map(c => (
+            <a href={`/locations/${c.slug}`} class="sap-city-pill">{c.name}</a>
+          ))}
+          <a href="/contact#form" class="sap-area-cta">Not in the list? Ask us →</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- ─── 4. CITY DIRECTORY ─── -->
+  <section class="sa-dir" id="sa-dir">
+    <div class="sa-dir-inner">
+
+      <div class="sa-dir-header" data-reveal>
+        <div class="sa-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Where We Work</span>
+        </div>
+        <h2 class="sa-dir-h2">All 19 Service Areas<br><em>Across Chicagoland</em></h2>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="sa-dir-tabs" id="sa-dir-tabs">
+        <button class="sa-dir-tab active" data-filter="All" onclick="setFilter('All')">All Cities</button>
+        <button class="sa-dir-tab" data-filter="North Shore" onclick="setFilter('North Shore')">North Shore</button>
+        <button class="sa-dir-tab" data-filter="Western Suburbs" onclick="setFilter('Western Suburbs')">Western Suburbs</button>
+        <button class="sa-dir-tab" data-filter="DuPage County" onclick="setFilter('DuPage County')">DuPage County</button>
+        <button class="sa-dir-tab" data-filter="City of Chicago" onclick="setFilter('City of Chicago')">Chicago</button>
+      </div>
+
+      <!-- City cards grid -->
+      <div class="sa-dir-grid" id="sa-dir-grid">
+        {cities.map(city => (
+          <a
+            href={`/locations/${city.slug}`}
+            class="sa-city-card"
+            data-region={city.region}
+          >
+            <div class="sa-city-card-top">
+              <span class="sa-city-region">{city.region}</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="#B85C38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="sa-city-name">{city.name}</h3>
+            <span class="sa-city-county">{city.county}</span>
+            <div class="sa-city-bottom">
+              <span class="sa-city-cta">View Page</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <p class="sa-dir-note" data-reveal>Don't see your city?
+        <a href="/contact#form">Call us at 773-656-2107</a> — we serve adjacent areas and take select projects outside our listed zones.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ─── 5. OUR MASONRY SERVICES ─── -->
+  <section class="absvc">
+    <div class="absvc-inner">
+      <div class="absvc-eyebrow" data-reveal>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span>Our Masonry Services</span>
+      </div>
+      <h2 class="absvc-h2" data-reveal style="--rd:60ms">All 11 Services <em>— One Trusted Crew</em></h2>
+      <p class="absvc-sub" data-reveal style="--rd:120ms">From tuckpointing a single wall to a full limestone facade — every masonry service we offer, handled by the same licensed, insured crew, with the same mortar-match guarantee on every job.</p>
+
+      <div class="absvc-grid" data-reveal style="--rd:180ms">
+        <a href="/services/tuckpointing-repointing" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">01</span>
+          <span class="absvc-cell-name">Tuckpointing &amp; Repointing</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/brick-installation" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">02</span>
+          <span class="absvc-cell-name">Brick Installation</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/damaged-brick-replacement" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">03</span>
+          <span class="absvc-cell-name">Damaged Brick Replacement</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/chimney-repair-rebuilding" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">04</span>
+          <span class="absvc-cell-name">Chimney Repair &amp; Rebuilding</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/chimney-fireplace" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">05</span>
+          <span class="absvc-cell-name">Chimney &amp; Fireplace Masonry</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/natural-stone-limestone" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">06</span>
+          <span class="absvc-cell-name">Natural Stone &amp; Limestone</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/brick-stone-veneers" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">07</span>
+          <span class="absvc-cell-name">Brick &amp; Stone Veneers</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/cmu-block-installation" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">08</span>
+          <span class="absvc-cell-name">CMU Block Installation</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/commercial-brick-stone" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">09</span>
+          <span class="absvc-cell-name">Commercial Brick &amp; Stone</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/commercial-masonry-veneers" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">10</span>
+          <span class="absvc-cell-name">Commercial Masonry Veneers</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <a href="/services/custom-home-masonry" class="absvc-cell">
+          <span class="absvc-cell-num" aria-hidden="true">11</span>
+          <span class="absvc-cell-name">Custom Home Masonry</span>
+          <span class="absvc-cell-arrow" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+        <div class="absvc-cell absvc-cell--empty" aria-hidden="true"></div>
+      </div>
+
+      <div class="absvc-foot" data-reveal>
+        <a href="/contact#form" class="absvc-foot-cta">Get a free estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 6. PROCESS ─── -->
+  <section id="sp-prc-section" style="background:#ffffff; position:relative;">
+    <div id="sp-prc-driver" style="position:relative; height:600vh;">
+      <div id="sp-prc-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-prc-grid">
+
+          <!-- LEFT: heading + CTA -->
+          <div id="sp-prc-left">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">How We Work</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(36px,3.5vw,54px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 20px;">How We Serve<br>Your Neighborhood</h2>
+
+            <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.65; color:#6A625A; margin:0 0 36px;">From your first call to final walk-through — every step is transparent, on schedule, and built to last through Chicago winters.</p>
+
+            <div class="sp-prc-desktop-cta">
+              <a href="/contact#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:28px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+          </div>
+
+          <!-- RIGHT: steps -->
+          <div id="sp-prc-right">
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">01</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Call or Request Online</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">Reach us by phone (773-656-2107) or our contact form. We'll schedule your free on-site estimate within 24–48 hours — same day or next day for urgent issues.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Every week of delayed tuckpointing accelerates mortar erosion. Getting the estimate done fast — for free — costs you nothing and saves you more every season you wait.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">02</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Free On-Site Assessment</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We come to your home, assess every visible problem — chimney, facade, joints, stoops — and explain what's urgent vs. cosmetic. No upsell, no pressure.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>You should know exactly what you're paying for before you commit. Our assessment gives you clarity on the full scope — and the ones that can wait.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">03</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Written Estimate — No Surprises</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">You receive a written estimate with a fixed price. What we quote is what you pay — no last-minute change orders, no scope creep, no vague "it depends."</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>A written estimate is your protection. Contractors who won't put the number in writing before starting are telling you something.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">04</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">The Work — Done Right</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">The same crew that estimated your job does the work — no subcontractors. Daily cleanup, daily progress, and we never cut corners to save time.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Most masonry failures trace back to rushed work and revolving crews. One accountable crew, doing it properly, is why our work passes inspection the first time.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE; border-bottom:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">05</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Final Walk-Through</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We walk the finished work with you before any final payment. Every punch-list item is resolved before we close out — no open items, no arguments.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>The walk-through is your leverage — we do it with you, not after you've already paid. That's the only walk-through that counts.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile-only CTA -->
+            <div class="sp-prc-mobile-cta" style="display:none; padding-top:36px;">
+              <a href="/contact#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:20px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 6. FEATURED PROJECTS ─── -->
+  <section id="sp-proj-section" style="background:#16120F; position:relative; overflow-x:clip;">
+    <div id="sp-proj-driver" style="position:relative; height:200vh;">
+      <div id="sp-proj-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-proj-grid">
+
+          <!-- LEFT: Polaroid card stack -->
+          <div id="sp-proj-stack" style="position:relative; height:520px; display:flex; align-items:center; justify-content:center;">
+            {svcProjects.map((p, i) => (
+              <div class="sp-proj-polaroid" data-i={String(i)} style="position:absolute; background:#ffffff; padding:14px 14px 56px; box-shadow:0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06); width:230px; will-change:transform; user-select:none; cursor:pointer; transition:box-shadow 0.25s ease;">
+                <div style="overflow:hidden; width:100%; height:290px;">
+                  <picture style="display:block;width:100%;height:100%;">
+                    <source media="(max-width: 768px)" srcset={p.heroImageSm} type="image/webp" />
+                    <img src={p.heroImage} alt={p.serviceType + ' in ' + p.city} class="sp-proj-img" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);" loading="lazy" />
+                  </picture>
+                </div>
+                <div style="padding-top:14px; text-align:center;">
+                  <p class="sp-proj-label" style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 3px; line-height:1.3; transition:color 0.25s ease;">{p.city}</p>
+                  <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">{p.county}, IL</p>
+                  <a href={'/projects/' + p.slug} style="display:inline-block; margin-top:6px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:#B85C38; text-decoration:none; letter-spacing:0.04em; text-transform:uppercase;" onclick="event.stopPropagation()">View →</a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- RIGHT: Text content -->
+          <div class="sp-proj-text">
+            <div class="sp-proj-text-top">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+                </svg>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">Recent Work</span>
+              </div>
+              <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#ffffff; letter-spacing:-0.02em; margin:0 0 20px;">
+                Masonry Projects<br><em style="font-style:normal;">Across Chicagoland</em>
+              </h2>
+              <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.65); margin:0; max-width:400px;">
+                From tuckpointed bungalows in Chicago to limestone estate facades on the North Shore — quality masonry in every community we serve.
+              </p>
+            </div>
+            <div class="sp-proj-text-bottom">
+              <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+                <a href="/projects"
+                  style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:16px; font-weight:500; padding:16px 30px; border-radius:14px; text-decoration:none; transition:background 0.2s;"
+                  onmouseenter="this.style.background='#8A3A22'"
+                  onmouseleave="this.style.background='#B85C38'">
+                  View more projects
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <a href="/contact#form"
+                  style="font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,0.3); transition:color 0.2s;"
+                  onmouseenter="this.style.color='#fff'"
+                  onmouseleave="this.style.color='rgba(255,255,255,0.65)'">
+                  Get a free estimate →
+                </a>
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.4); margin:16px 0 0;">
+                500+ projects completed across Chicagoland
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="sp-proj-spacer"></div>
+  </section>
+
+  <!-- ─── 7. REVIEWS ─── -->
+  <section id="sp-rev-section" style="background:#ffffff; position:relative; overflow-x:clip;">
+    <div id="sp-rev-driver" style="position:relative; height:300vh;">
+      <div style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-rev-grid">
+
+          <!-- LEFT: heading + rating + neighbourhood cards -->
+          <div class="sp-rev-left">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">What Homeowners Say</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 28px;">
+              Real Reviews from<br><em style="font-style:normal;">Chicagoland Clients</em>
+            </h2>
+
+            <div style="margin-bottom:40px;">
+              <p style="font-family:'Onest',sans-serif; font-size:48px; font-weight:700; color:#16120F; margin:0 0 8px; line-height:1;">4.8</p>
+              <div style="display:flex; gap:4px; margin-bottom:6px;">
+                {[1,2,3,4,5].map(() => (
+                  <svg width="18" height="18" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>
+                ))}
+              </div>
+              <p style="font-family:'Inter',sans-serif; font-size:14px; color:#6A625A; margin:0;">92 verified Chicagoland homeowners</p>
+            </div>
+
+            <div id="sp-rev-nbhd-area" style="opacity:0; transform:translateY(16px);">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                  <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                  <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+                </svg>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Trusted across Chicagoland</span>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">North Shore</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Winnetka</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Lake Forest</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"AMS matched the brick on our 1928 Tudor perfectly. You genuinely cannot tell where the original ends and the new begins."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Susan L.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Winnetka, IL</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Western Suburbs</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Hinsdale</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Oak Brook</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"AMS restored our 1930s estate's brick facade. They sourced antique brick to match the original and the result is flawless."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Elizabeth M.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Hinsdale, IL</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
+                  <div>
+                    <div style="margin-bottom:10px;"><span style="font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Chicago</span></div>
+                    <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:12px;">
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Lincoln Square</span>
+                      <span style="font-family:'Inter',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#B85C38; border:1px solid rgba(184,92,56,0.30); border-radius:4px; padding:2px 7px;">Logan Square</span>
+                    </div>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.55; color:#4A433B; margin:0; font-style:italic;">"Tuckpointing and chimney rebuild on our Lincoln Square two-flat. The mortar match on the original brick is perfect."</p>
+                  </div>
+                  <div style="display:flex; align-items:center; gap:8px; margin-top:14px; padding-top:12px; border-top:1px solid #E4E2DE;">
+                    <div style="width:28px; height:28px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="11" r="6" fill="#C4BDB5"/><ellipse cx="14" cy="24" rx="9" ry="6" fill="#C4BDB5"/></svg></div>
+                    <div>
+                      <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Sarah O.</p>
+                      <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Chicago, IL</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: stacked review cards -->
+          <div style="display:flex; align-items:center; justify-content:center;">
+            <div id="sp-rev-stack" style="position:relative; width:340px; height:400px;">
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"AMS matched the brick on our 1928 Tudor in Winnetka perfectly. You genuinely cannot tell where the original ends and the new work begins. Exceptional craftsmanship."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Susan L.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Winnetka, IL</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Our 1905 Victorian in Wilmette needed significant tuckpointing. AMS assessed every joint, explained what was urgent vs cosmetic, and completed the work in two days. Exactly what we needed."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Carol W.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Wilmette, IL</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Used AMS for our outdoor kitchen and stone retaining wall in Oak Brook. Professional crew, finished on schedule, and the stone work is exceptional. Would not use anyone else."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Paul R.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Oak Brook, IL</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Four quotes for chimney work in Naperville. AMS was the only contractor who explained exactly what mortar type they'd use and why. Worth every dollar — and they passed inspection first visit."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Jennifer C.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Naperville, IL</p>
+                  </div>
+                </div>
+              </div>
+              <div class="sp-rev-card" style="position:absolute; inset:0; border-radius:20px; padding:36px 32px 30px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; background:#F0EFED; border:1px solid #E4E2DE; box-shadow:0 4px 40px rgba(22,18,15,0.07); will-change:transform; backface-visibility:hidden; box-sizing:border-box; text-align:center;">
+                <div style="display:flex; flex-direction:column; align-items:center; gap:18px; flex:1;">
+                  <div style="display:flex; gap:4px;">{[1,2,3,4,5].map(() => (<svg width="17" height="17" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}</div>
+                  <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.5; color:#4A433B; margin:0;">"Tuckpointing on our Lincoln Square two-flat. AMS matched the original 1920s mortar color exactly. The crew was clean, fast, and showed up every day as promised."</p>
+                </div>
+                <div style="display:flex; align-items:center; gap:12px; margin-top:24px; width:100%; justify-content:flex-start;">
+                  <div style="width:42px; height:42px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="42" height="42" viewBox="0 0 42 42" fill="none"><circle cx="21" cy="17" r="9" fill="#C4BDB5"/><ellipse cx="21" cy="36" rx="14" ry="10" fill="#C4BDB5"/></svg></div>
+                  <div style="text-align:left;">
+                    <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Sarah O.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Chicago, IL</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile-only review card -->
+    <div class="sp-rev-mob-nbhd">
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; text-transform:uppercase; color:#B85C38;">Trusted across Chicagoland</span>
+      </div>
+      <div style="border-radius:16px; padding:22px 20px 18px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07);">
+        <div style="display:flex; gap:4px; margin-bottom:14px;">
+          {[1,2,3,4,5].map(() => (<svg width="14" height="14" viewBox="0 0 14 14" fill="#B85C38"><path d="M7 1l1.6 3.2 3.5.5-2.55 2.48.6 3.52L7 9.1 3.85 10.7l.6-3.52L2 4.7l3.5-.5L7 1z"/></svg>))}
+        </div>
+        <p style="font-family:'Inter',sans-serif; font-size:14px; line-height:1.6; color:#4A433B; margin:0 0 18px; font-style:italic;">
+          "AMS matched the brick on our 1928 Tudor in Winnetka perfectly. You genuinely cannot tell where the original ends and the new work begins."
+        </p>
+        <div style="display:flex; align-items:center; gap:10px; padding-top:14px; border-top:1px solid #E4E2DE;">
+          <div style="width:32px; height:32px; border-radius:50%; background:#E8E4DC; overflow:hidden; flex-shrink:0;"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="13" r="7" fill="#C4BDB5"/><ellipse cx="16" cy="28" rx="11" ry="7" fill="#C4BDB5"/></svg></div>
+          <div>
+            <p style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 2px;">Susan L.</p>
+            <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">Winnetka, IL · North Shore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── 8. FAQ ─── -->
+  <section class="sa-faq">
+    <div class="sa-faq-inner">
+      <div class="sa-eyebrow" style="justify-content:center; margin-bottom:14px;" data-reveal>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span>Common Questions</span>
+      </div>
+      <h2 class="sa-faq-h2" data-reveal style="--rd:60ms">Service Area FAQ</h2>
+      <div class="sa-faq-list">
+        {faqItems.map(item => (
+          <details class="sa-faq-item">
+            <summary class="sa-faq-q">
+              {item.q}
+              <svg class="sa-faq-chev" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M5 7.5l5 5 5-5" stroke="#B85C38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </summary>
+            <p class="sa-faq-a">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 9. ALSO CONSIDER ─── -->
+  <section class="sp-related">
+    <div class="sp-related-dark">
+      <div class="sp-related-hdr">
+        <div class="sp-related-eyebrow" data-reveal>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Also Consider</span>
+        </div>
+        <h2 class="sp-related-heading" data-reveal style="--rd:80ms">Related Masonry<br><em>Services</em></h2>
+      </div>
+
+      <div class="sp-rsvc-grid">
+
+        <a href="/services/chimney-fireplace" class="sp-rsvc-card" data-reveal>
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-chimney-m.webp" type="image/webp" />
+                <img src="/images/svc-chimney.webp" alt="Chimney and fireplace masonry" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M7 19V10H15V19" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 19H17" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round"/><rect x="8" y="4" width="6" height="6" rx="0.5" stroke="#B85C38" stroke-width="1.5"/><path d="M9 4V3M11 4V2M13 4V3" stroke="#B85C38" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">Chimney &amp; Fireplace</h3>
+            <p class="sp-rsvc-desc">Custom chimney construction and fireplace masonry for residential properties and custom homes.</p>
+          </div>
+        </a>
+
+        <a href="/services/brick-installation" class="sp-rsvc-card" data-reveal style="--rd:80ms">
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-brick-repair-m.webp" type="image/webp" />
+                <img src="/images/svc-brick-repair.webp" alt="Brick installation for new construction" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><rect x="2" y="5" width="8" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="12" y="5" width="8" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="6" y="11" width="10" height="4" rx="1" stroke="#B85C38" stroke-width="1.5"/><rect x="2" y="11" width="2" height="4" rx="0.5" stroke="#B85C38" stroke-width="1.5"/><rect x="18" y="11" width="2" height="4" rx="0.5" stroke="#B85C38" stroke-width="1.5"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">Brick Installation</h3>
+            <p class="sp-rsvc-desc">New brick walls, additions, and features — precision bricklaying for residential and commercial projects.</p>
+          </div>
+        </a>
+
+        <a href="/services/natural-stone-limestone" class="sp-rsvc-card" data-reveal style="--rd:160ms">
+          <div class="sp-rsvc-img-wrap">
+            <div class="sp-rsvc-img-clip">
+              <picture style="display:block;width:100%;">
+                <source media="(max-width: 768px)" srcset="/images/svc-stone-install-m.webp" type="image/webp" />
+                <img src="/images/svc-stone-install.webp" alt="Natural stone and limestone installation" class="sp-rsvc-img" loading="lazy" />
+              </picture>
+            </div>
+            <div class="sp-rsvc-notch">
+              <svg class="sp-rsvc-notch-bg" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 40 C20 40 28 40 38 28 C46 18 50 4 68 4 L92 4 C110 4 114 18 122 28 C132 40 140 40 160 40 Z" fill="white"/></svg>
+              <div class="sp-rsvc-icon-inner"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M13 4L18 9L10 17L5 12L13 4Z" stroke="#B85C38" stroke-width="1.5" stroke-linejoin="round"/><path d="M5 12L3 19L10 17" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 5L17 8" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            </div>
+          </div>
+          <div class="sp-rsvc-body">
+            <h3 class="sp-rsvc-title">Natural Stone &amp; Limestone</h3>
+            <p class="sp-rsvc-desc">Premium natural stone and limestone installation for facades, accents, and architectural features.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 11. CTA BANNER ─── -->
+  <section class="sp-cta-banner">
+    <div class="sp-cta-banner-inner">
+      <div class="sp-cta-banner-text">
+        <h2 class="sp-cta-banner-h2">Serving Your Neighborhood Since 2007</h2>
+        <p class="sp-cta-banner-sub">19 cities. 19 years. Brick, stone, chimney, and tuckpointing across Chicagoland — free estimates, own crew, written price. No surprises.</p>
+      </div>
+      <div class="sp-cta-banner-actions">
+        <a href="/contact#form" class="sp-btn sp-btn--accent">Get a Free Estimate</a>
+        <a href="tel:7736562107" class="sp-btn sp-btn--ghost-light">Call 773-656-2107</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+</Layout>
+
+<!-- Leaflet JS -->
+<script is:inline src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- ─── SERVICE AREA MAP ─── -->
+<script is:inline>
+(function () {
+  var REGION_COLORS = {
+    'North Shore':      '#B85C38',
+    'Western Suburbs':  '#6E4C3B',
+    'DuPage County':    '#9B7B6A',
+    'City of Chicago':  '#16120F',
+  };
+
+  var CITIES = [
+    { name: 'Winnetka',          lat: 42.1078, lng: -87.7359, region: 'North Shore',      slug: 'winnetka' },
+    { name: 'Wilmette',          lat: 42.0720, lng: -87.7276, region: 'North Shore',      slug: 'wilmette' },
+    { name: 'Kenilworth',        lat: 42.0867, lng: -87.7148, region: 'North Shore',      slug: 'kenilworth' },
+    { name: 'Glencoe',           lat: 42.1353, lng: -87.7587, region: 'North Shore',      slug: 'glencoe' },
+    { name: 'Evanston',          lat: 42.0450, lng: -87.6877, region: 'North Shore',      slug: 'evanston' },
+    { name: 'Highland Park',     lat: 42.1817, lng: -87.8003, region: 'North Shore',      slug: 'highland-park' },
+    { name: 'Northbrook',        lat: 42.1264, lng: -87.8264, region: 'North Shore',      slug: 'northbrook' },
+    { name: 'Hinsdale',          lat: 41.8003, lng: -87.9298, region: 'Western Suburbs',  slug: 'hinsdale' },
+    { name: 'Oak Brook',         lat: 41.8328, lng: -87.9482, region: 'Western Suburbs',  slug: 'oak-brook' },
+    { name: 'Elmhurst',          lat: 41.8997, lng: -87.9403, region: 'Western Suburbs',  slug: 'elmhurst' },
+    { name: 'Western Springs',   lat: 41.8136, lng: -87.9009, region: 'Western Suburbs',  slug: 'western-springs' },
+    { name: 'La Grange',         lat: 41.8069, lng: -87.8698, region: 'Western Suburbs',  slug: 'la-grange' },
+    { name: 'Burr Ridge',        lat: 41.7492, lng: -87.9187, region: 'Western Suburbs',  slug: 'burr-ridge' },
+    { name: 'Naperville',        lat: 41.7508, lng: -88.1535, region: 'DuPage County',    slug: 'naperville' },
+    { name: 'Downers Grove',     lat: 41.8081, lng: -88.0111, region: 'DuPage County',    slug: 'downers-grove' },
+    { name: 'Clarendon Hills',   lat: 41.7975, lng: -87.9576, region: 'DuPage County',    slug: 'clarendon-hills' },
+    { name: 'Willowbrook',       lat: 41.7653, lng: -87.9428, region: 'DuPage County',    slug: 'willowbrook' },
+    { name: 'Wheaton',           lat: 41.8661, lng: -88.1070, region: 'DuPage County',    slug: 'wheaton' },
+    { name: 'Chicago',           lat: 41.8781, lng: -87.6298, region: 'City of Chicago',  slug: 'chicago' },
+  ];
+
+  function initSapMap() {
+    if (typeof L === 'undefined') return;
+    var el = document.getElementById('sap-map');
+    if (!el) return;
+    if (el.dataset.sapInit) {
+      el.dataset.sapInit = '';
+      try { el._sapMap && el._sapMap.remove(); } catch (e) {}
+    }
+    el.dataset.sapInit = '1';
+
+    var map = L.map(el, {
+      center: [41.97, -87.87],
+      zoom: 10,
+      scrollWheelZoom: false,
+      zoomControl: true,
+    });
+    el._sapMap = map;
+
+    L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+      { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>', subdomains: 'abcd', maxZoom: 19 }
+    ).addTo(map);
+
+    CITIES.forEach(function (c) {
+      var color = REGION_COLORS[c.region] || '#B85C38';
+      var dotIcon = L.divIcon({
+        className: '',
+        html: '<div style="width:11px;height:11px;background:' + color + ';border:2.5px solid #ffffff;border-radius:50%;box-shadow:0 1px 6px rgba(0,0,0,0.35);"></div>',
+        iconSize: [11, 11], iconAnchor: [5, 5], popupAnchor: [0, -10],
+      });
+      L.marker([c.lat, c.lng], { icon: dotIcon })
+        .bindPopup(
+          '<div style="font-family:Inter,sans-serif;min-width:130px;">' +
+          '<strong style="font-size:13px;color:#16120F;">' + c.name + ', IL</strong><br>' +
+          '<span style="font-size:11px;color:' + color + ';font-weight:600;">' + c.region + '</span><br>' +
+          '<a href="/locations/' + c.slug + '" style="font-size:11px;color:#B85C38;text-decoration:none;font-weight:600;">View page →</a>' +
+          '</div>'
+        )
+        .addTo(map);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSapMap);
+  } else {
+    initSapMap();
+  }
+  document.addEventListener('astro:page-load', initSapMap);
+})();
+</script>
+
+<!-- ─── CITY DIRECTORY FILTER ─── -->
+<script is:inline>
+  function setFilter(region) {
+    var tabs  = document.querySelectorAll('.sa-dir-tab');
+    var cards = document.querySelectorAll('.sa-city-card');
+    tabs.forEach(function(t) {
+      t.classList.toggle('active', t.dataset.filter === region);
+    });
+    cards.forEach(function(c) {
+      var show = region === 'All' || c.dataset.region === region;
+      c.style.display = show ? '' : 'none';
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function() { setFilter('All'); });
+</script>
+
+<!-- ─── HERO ENTRANCE ─── -->
+<script is:inline>
+  (function() {
+    function initHeroAnim() {
+      var gsap = window.__gsap;
+      if (!gsap) return;
+      var label  = document.getElementById('sa-label');
+      var r1     = document.getElementById('sa-r1');
+      var r2     = document.getElementById('sa-r2');
+      var sub    = document.getElementById('sa-sub');
+      var act    = document.getElementById('sa-act');
+      var bdg    = document.getElementById('sa-bdg');
+      var scroll = document.getElementById('sa-scroll');
+      if (!label) return;
+
+      var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from(label,  { opacity: 0, y: 12, duration: 0.6 })
+        .from([r1, r2], { opacity: 0, y: 24, duration: 0.7, stagger: 0.12 }, '-=0.3')
+        .from(sub,    { opacity: 0, y: 16, duration: 0.6 }, '-=0.3')
+        .from(act,    { opacity: 0, y: 12, duration: 0.5 }, '-=0.3')
+        .from(bdg,    { opacity: 0, y: 8,  duration: 0.5 }, '-=0.2');
+      if (scroll) tl.from(scroll, { opacity: 0, duration: 0.5 }, '-=0.2');
+    }
+
+    window.removeEventListener('animations:ready', window.__saHeroAnimReady);
+    window.__saHeroAnimReady = initHeroAnim;
+    window.addEventListener('animations:ready', window.__saHeroAnimReady);
+  })();
+</script>
+
+<!-- ─── REVIEWS ANIMATION ─── -->
+<script is:inline>
+  (function() {
+    function initRevAnim() {
+      var gsap         = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+
+      var driver    = document.getElementById('sp-rev-driver');
+      var tCards    = gsap.utils.toArray('.sp-rev-card');
+      var nbhdArea  = document.getElementById('sp-rev-nbhd-area');
+      var nbhdCards = gsap.utils.toArray('.sp-rev-nbhd-card');
+      var N         = tCards.length;
+      if (!driver || !N) return;
+
+      var ROTATIONS = [0, -3, -6, -9, -12];
+      var SCALES    = [1, 0.97, 0.94, 0.91, 0.88];
+
+      tCards.forEach(function(card, i) {
+        gsap.set(card, {
+          rotation: ROTATIONS[i] || 0,
+          scale:    SCALES[i]    || 0.85,
+          zIndex:   N - i,
+          transformOrigin: '50% 50%',
+        });
+      });
+
+      gsap.set(nbhdArea,  { opacity: 0, y: 16 });
+      gsap.set(nbhdCards, { opacity: 0, y: 16 });
+
+      var tl = gsap.timeline();
+      for (var i = 0; i < N - 1; i++) {
+        var s = i / (N - 1);
+        var e = (i + 1) / (N - 1);
+        var d = e - s;
+        tl.to(tCards[i], { yPercent: -110, opacity: 0, duration: d, ease: 'power2.in' }, s);
+        for (var j = i + 1; j < N; j++) {
+          var newPos = j - (i + 1);
+          tl.to(tCards[j], {
+            rotation: ROTATIONS[newPos] || 0,
+            scale:    SCALES[newPos]    || 0.85,
+            duration: d, ease: 'power2.out'
+          }, s);
+        }
+      }
+
+      ScrollTrigger.create({
+        trigger: driver, start: 'top top', end: 'bottom bottom',
+        scrub: 1.2, animation: tl
+      });
+
+      ScrollTrigger.create({
+        trigger: driver, start: '60% bottom', end: '80% bottom', scrub: 1,
+        onEnter: function() {
+          gsap.to(nbhdArea,  { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+          gsap.to(nbhdCards, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.12, delay: 0.15 });
+        },
+        onLeaveBack: function() {
+          gsap.to(nbhdArea,  { opacity: 0, y: 16, duration: 0.35 });
+          gsap.to(nbhdCards, { opacity: 0, y: 16, duration: 0.25 });
+        }
+      });
+    }
+
+    window.removeEventListener('animations:ready', window.__saRevAnimReady);
+    window.__saRevAnimReady = initRevAnim;
+    window.addEventListener('animations:ready', window.__saRevAnimReady);
+  })();
+</script>
+
+<!-- ─── PROJECTS ANIMATION ─── -->
+<script is:inline>
+  (function() {
+    function initProjAnim() {
+      var gsap         = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+
+      var driver = document.getElementById('sp-proj-driver');
+      var cards  = gsap.utils.toArray('.sp-proj-polaroid');
+      var N      = cards.length;
+      if (!driver || !N) return;
+
+      var FAN_ROTATIONS = [-24, -12, 0, 12, 24];
+
+      gsap.set(cards, {
+        transformOrigin: '50% 100%',
+        rotation: 0, scale: 1,
+        zIndex: function(i) { return i + 1; }
+      });
+
+      var tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+      cards.forEach(function(card, i) {
+        tl.to(card, { rotation: FAN_ROTATIONS[i], duration: 1 }, 0);
+      });
+
+      ScrollTrigger.create({
+        trigger: driver, start: 'top top', end: 'bottom bottom',
+        scrub: 0.6, animation: tl
+      });
+
+      var SHADOW_DEFAULT = '0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06)';
+      var SHADOW_HOVER   = '0 20px 60px rgba(22,18,15,0.22), 0 6px 16px rgba(22,18,15,0.10)';
+      var SHADOW_ACTIVE  = '0 28px 80px rgba(22,18,15,0.26), 0 8px 20px rgba(22,18,15,0.12)';
+      var activeCard = null;
+
+      cards.forEach(function(card, i) {
+        var title = card.querySelector('.sp-proj-label');
+        var img   = card.querySelector('.sp-proj-img');
+        card.addEventListener('mouseenter', function() {
+          if (card === activeCard) return;
+          card.style.boxShadow = SHADOW_HOVER;
+          card.style.zIndex    = String(N + 5);
+          if (title) title.style.color   = '#B85C38';
+          if (img)   img.style.transform = 'scale(1.06)';
+          gsap.to(card, { y: -28, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+        });
+        card.addEventListener('mouseleave', function() {
+          if (card === activeCard) return;
+          card.style.boxShadow = SHADOW_DEFAULT;
+          card.style.zIndex    = String(i + 1);
+          if (title) title.style.color   = '#16120F';
+          if (img)   img.style.transform = 'scale(1)';
+          gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+        });
+        card.addEventListener('click', function() {
+          if (card === activeCard) {
+            activeCard = null;
+            card.style.boxShadow = SHADOW_DEFAULT;
+            card.style.zIndex    = String(i + 1);
+            gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+            return;
+          }
+          if (activeCard) {
+            var prevI = parseInt(activeCard.dataset.i || '0');
+            activeCard.style.boxShadow = SHADOW_DEFAULT;
+            activeCard.style.zIndex    = String(prevI + 1);
+            gsap.to(activeCard, { y: 0, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+          }
+          activeCard = card;
+          card.style.zIndex    = String(N + 10);
+          card.style.boxShadow = SHADOW_ACTIVE;
+          gsap.to(card, { y: -48, duration: 0.35, ease: 'back.out(1.6)', overwrite: 'auto' });
+        });
+      });
+    }
+
+    window.removeEventListener('animations:ready', window.__saProjAnimReady);
+    window.__saProjAnimReady = initProjAnim;
+    window.addEventListener('animations:ready', window.__saProjAnimReady);
+  })();
+</script>
+
+<!-- ─── PROCESS ANIMATION ─── -->
+<script is:inline>
+  (function() {
+    function initProcessAnim() {
+      var gsap         = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+
+      var driver  = document.getElementById('sp-prc-driver');
+      var leftCol = document.getElementById('sp-prc-left');
+      var items   = Array.from(document.querySelectorAll('.sp-prc-item'));
+      var nums    = Array.from(document.querySelectorAll('.sp-prc-num'));
+      if (!driver || !leftCol || !items.length) return;
+
+      var isMobile = window.innerWidth < 900;
+      if (isMobile) {
+        items.forEach(function(item, i) {
+          var stepTl = gsap.timeline({ defaults: { ease: 'none' } });
+          var n = nums[i];
+          stepTl
+            .fromTo(n,    { opacity: 0.22 }, { opacity: 1, duration: 0.5 }, 0)
+            .fromTo(item, { backgroundColor: 'rgba(184,92,56,0)' }, { backgroundColor: 'rgba(184,92,56,0.06)', duration: 0.5 }, 0)
+            .to(n,    { opacity: 0.22, duration: 0.5 }, 0.5)
+            .to(item, { backgroundColor: 'rgba(184,92,56,0)', duration: 0.5 }, 0.5);
+          ScrollTrigger.create({ trigger: item, start: 'top 65%', end: 'bottom 35%', scrub: 0.4, animation: stepTl });
+        });
+        return;
+      }
+
+      gsap.from(leftCol, {
+        opacity: 0, x: -24, duration: 0.9, ease: 'power2.out',
+        scrollTrigger: { trigger: driver, start: 'top 80%', once: true },
+      });
+      gsap.from(items, {
+        opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', stagger: 0.08,
+        scrollTrigger: { trigger: driver, start: 'top 70%', once: true },
+      });
+
+      var tl  = gsap.timeline({ defaults: { ease: 'none' } });
+      var seg = 1 / items.length;
+      items.forEach(function(item, i) {
+        var s  = i * seg;
+        var fi = seg * 0.25;
+        var fo = seg * 0.25;
+        tl.fromTo(nums[i],  { opacity: 0.22 }, { opacity: 1, duration: fi }, s);
+        tl.to(nums[i],      { opacity: 0.22, duration: fo }, s + seg - fo);
+        tl.fromTo(items[i], { backgroundColor: 'rgba(184,92,56,0)' },
+                            { backgroundColor: 'rgba(184,92,56,0.06)', duration: fi }, s);
+        tl.to(items[i],     { backgroundColor: 'rgba(184,92,56,0)', duration: fo }, s + seg - fo);
+      });
+
+      ScrollTrigger.create({
+        trigger: driver, start: 'top top', end: 'bottom bottom',
+        scrub: 1.2, animation: tl,
+      });
+    }
+
+    window.removeEventListener('animations:ready', window.__saPrcAnimReady);
+    window.__saPrcAnimReady = initProcessAnim;
+    window.addEventListener('animations:ready', window.__saPrcAnimReady);
+  })();
+</script>
+
+<!-- ─── DATA-REVEAL ─── -->
+<script is:inline>
+  (function() {
+    function initRevealAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+      document.querySelectorAll('[data-reveal]').forEach(function(el) {
+        var delay = parseFloat(el.style.getPropertyValue('--rd') || '0') / 1000;
+        gsap.fromTo(el,
+          { opacity: 0, y: 28 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: delay,
+            scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+          }
+        );
+      });
+    }
+    window.removeEventListener('animations:ready', window.__saRevealAnimReady);
+    window.__saRevealAnimReady = initRevealAnim;
+    window.addEventListener('animations:ready', window.__saRevealAnimReady);
+  })();
+</script>
+
+<style>
+* { box-sizing: border-box; }
+
+/* ─── HERO ─── */
+.sa-hero {
+  position: relative; width: 100%; height: 100svh; min-height: 600px;
+  overflow: hidden; background: #16120F;
+  display: flex; align-items: flex-end;
+}
+.sa-hero-bg {
+  position: absolute; inset: 0; z-index: 1;
+  background-image: url('/images/sa-hero.webp');
+  background-size: cover; background-position: center 35%;
+  opacity: 0.5;
+}
+.sa-hero-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(
+    105deg,
+    rgba(22,18,15,0.94) 0%,
+    rgba(22,18,15,0.82) 42%,
+    rgba(22,18,15,0.45) 72%,
+    rgba(22,18,15,0.15) 100%
+  );
+}
+.sa-hero-content {
+  position: relative; z-index: 10;
+  max-width: 1280px; width: 100%; margin: 0 auto;
+  padding: 0 80px 72px;
+  pointer-events: none;
+}
+.sa-hero-label {
+  display: inline-flex; align-items: center; gap: 12px;
+  color: rgba(255,255,255,0.55);
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 22px;
+}
+.sa-label-line { display: block; width: 32px; height: 1px; background: #B85C38; }
+.sa-h1 {
+  color: #ffffff; font-family: 'Onest', sans-serif; font-weight: 700;
+  font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.0;
+  letter-spacing: -0.03em; margin: 0 0 24px;
+}
+.sa-h1-row { display: block; overflow: hidden; padding-bottom: 0.06em; }
+.sa-sub {
+  max-width: 500px; color: rgba(255,255,255,0.75);
+  font-family: 'Inter', sans-serif; font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.65; margin: 0 0 30px;
+}
+.sa-actions {
+  display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 38px;
+  pointer-events: auto;
+}
+.sa-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 500;
+  padding: 16px 30px; border-radius: 14px; text-decoration: none;
+  cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease;
+}
+.sa-btn--primary { background: #B85C38; color: #fff; border: none; }
+.sa-btn--primary:hover { background: #8A3A22; }
+.sa-btn--ghost { background: rgba(255,255,255,0.10); color: #fff; border: 1.5px solid rgba(255,255,255,0.22); }
+.sa-btn--ghost:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4); }
+.sa-badges { display: flex; align-items: center; pointer-events: auto; }
+.sa-badge { display: flex; flex-direction: column; gap: 3px; padding: 0 22px; border-left: 1px solid rgba(255,255,255,0.12); }
+.sa-badge:first-child { padding-left: 0; border-left: none; }
+.sa-badge strong { font-family: 'Onest', sans-serif; font-size: 24px; font-weight: 800; color: #B85C38; line-height: 1; }
+.sa-badge span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.sa-badge-sep { width: 1px; height: 28px; background: rgba(255,255,255,0.2); align-self: center; margin: 0 4px; }
+.sa-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  z-index: 20; cursor: pointer;
+}
+.sa-scroll-mouse { width: 21px; height: 33px; border: 1.5px solid rgba(255,255,255,0.3); border-radius: 11px; position: relative; }
+.sa-scroll-dot {
+  position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 6px; background: #B85C38; border-radius: 2px;
+  animation: saScrollDot 1.9s ease-in-out infinite;
+}
+@keyframes saScrollDot { 0%{opacity:1;top:5px} 60%{opacity:0;top:20px} 100%{opacity:0;top:20px} }
+.sa-scroll span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+/* ─── TRUST BAR ─── */
+.sp-trust { background: #16120F; padding: 20px 0; }
+.sp-trust-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 30px;
+  display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap;
+}
+.sp-trust-item {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  color: #B85C38; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.sp-trust-item svg { flex-shrink: 0; stroke: #B85C38; }
+.sp-trust-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.10); }
+
+/* ─── EYEBROW (shared) ─── */
+.sa-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.sa-eyebrow span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; color: #B85C38; text-transform: uppercase; }
+
+/* ─── MAP + REGION GRID ─── */
+.sap-map-wrap {
+  width: 100%; height: 520px; border-radius: 20px; overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+#sap-map { width: 100%; height: 100%; background: #e8e8e8; }
+
+.sap-regions {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  border: 1px solid #E4E2DE; border-radius: 18px; overflow: hidden;
+  background: #ffffff;
+}
+.sap-region-col {
+  padding: 28px 24px; border-right: 1px solid #E4E2DE;
+  display: flex; flex-direction: column; gap: 0;
+}
+.sap-region-col:last-child { border-right: none; }
+
+.sap-region-head {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--rc, #B85C38);
+  margin-bottom: 14px; padding-bottom: 12px; border-bottom: 2px solid var(--rc, #B85C38);
+}
+.sap-region-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--rc, #B85C38); flex-shrink: 0;
+}
+.sap-region-count {
+  margin-left: auto; background: var(--rc, #B85C38); color: #fff;
+  font-size: 9px; font-weight: 700; width: 18px; height: 18px;
+  border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sap-city-pill {
+  display: block; font-family: 'Inter', sans-serif; font-size: 13.5px;
+  font-weight: 500; color: #3A342E; text-decoration: none;
+  padding: 7px 0; border-bottom: 1px solid rgba(0,0,0,0.05);
+  transition: color 0.15s, padding-left 0.15s;
+}
+.sap-city-pill:last-of-type { border-bottom: none; }
+.sap-city-pill:hover { color: #B85C38; padding-left: 4px; }
+
+.sap-area-cta {
+  display: inline-block; margin-top: 16px; font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 700; color: #B85C38; text-decoration: none;
+  letter-spacing: 0.04em; opacity: 0.8; transition: opacity 0.15s;
+}
+.sap-area-cta:hover { opacity: 1; }
+
+:global(.leaflet-popup-content-wrapper) { border-radius: 10px !important; box-shadow: 0 4px 16px rgba(0,0,0,0.14) !important; padding: 0 !important; }
+:global(.leaflet-popup-content) { margin: 12px 16px !important; }
+:global(.leaflet-popup-tip-container) { display: none; }
+:global(.leaflet-attribution-flag)    { display: none !important; }
+
+/* ─── ZONE OVERVIEW ─── */
+.sa-zones { background: #ffffff; padding: 90px 40px; }
+.sa-zones-inner { max-width: 1200px; margin: 0 auto; }
+.sa-zones-header { text-align: center; margin-bottom: 56px; }
+.sa-zones-h2 {
+  font-family: 'Onest', sans-serif; font-size: clamp(30px,3.4vw,48px);
+  font-weight: 700; color: #16120F; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 16px;
+}
+.sa-zones-h2 em { font-style: normal; color: #B85C38; }
+.sa-zones-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.6; color: #6A625A; margin: 0 auto; max-width: 520px; }
+
+/* ─── CITY DIRECTORY ─── */
+.sa-dir { background: #F5F5F5; padding: 90px 40px; }
+.sa-dir-inner { max-width: 1200px; margin: 0 auto; }
+.sa-dir-header { margin-bottom: 40px; }
+.sa-dir-h2 {
+  font-family: 'Onest', sans-serif; font-size: clamp(30px,3.4vw,48px);
+  font-weight: 700; color: #16120F; letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 0;
+}
+.sa-dir-h2 em { font-style: normal; color: #B85C38; }
+
+/* Filter tabs */
+.sa-dir-tabs {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px;
+}
+.sa-dir-tab {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  color: #6A625A; background: #ffffff; border: 1px solid #D9D9D9;
+  border-radius: 8px 8px 0 0; border-bottom: 2px solid transparent;
+  padding: 9px 18px; cursor: pointer; transition: all 0.18s ease;
+}
+.sa-dir-tab:hover { color: #16120F; border-bottom-color: rgba(184,92,56,0.4); }
+.sa-dir-tab.active {
+  color: #16120F; background: #fff;
+  border-bottom-color: #B85C38;
+}
+
+/* City card grid */
+.sa-dir-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px;
+  margin-bottom: 36px;
+}
+.sa-city-card {
+  background: #ffffff; border: 1px solid #E4E2DE; border-radius: 16px;
+  padding: 20px 18px 18px; text-decoration: none;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+.sa-city-card:hover {
+  box-shadow: 0 8px 28px rgba(22,18,15,0.10);
+  transform: translateY(-3px); border-color: #B85C38;
+}
+.sa-city-card-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 2px;
+}
+.sa-city-region {
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: #B85C38;
+}
+.sa-city-name {
+  font-family: 'Onest', sans-serif; font-size: 17px; font-weight: 700;
+  color: #16120F; margin: 0; line-height: 1.2;
+}
+.sa-city-county {
+  font-family: 'Inter', sans-serif; font-size: 11px; color: #8A8178;
+}
+.sa-city-bottom { margin-top: auto; padding-top: 10px; }
+.sa-city-cta {
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  color: #B85C38; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.sa-dir-note {
+  font-family: 'Inter', sans-serif; font-size: 14px; color: #6A625A;
+  text-align: center; margin: 0;
+}
+.sa-dir-note a { color: #B85C38; font-weight: 600; text-decoration: none; }
+.sa-dir-note a:hover { text-decoration: underline; }
+
+/* ─── PROCESS ─── */
+.sp-prc-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1.65fr; gap: 80px; align-items: start;
+}
+#sp-prc-left { align-self: center; }
+#sp-prc-sticky {
+  align-items: flex-start !important;
+  padding-top: 80px !important;
+  padding-bottom: 60px !important;
+}
+
+/* ─── REVIEWS ─── */
+.sp-rev-mob-nbhd { display: none; }
+.sp-rev-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+
+/* ─── PROJECTS ─── */
+.sp-proj-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.sp-proj-text { display: flex; flex-direction: column; gap: 40px; }
+.sp-proj-spacer { height: 160px; }
+
+/* ─── FAQ ─── */
+.sa-faq { background: #F5F5F5; padding: 90px 40px; }
+.sa-faq-inner { max-width: 760px; margin: 0 auto; }
+.sa-faq-h2 {
+  font-family: 'Onest', sans-serif; font-size: clamp(28px,3.2vw,44px);
+  font-weight: 700; color: #16120F; letter-spacing: -0.02em; line-height: 1.1;
+  margin: 0 0 36px; text-align: center;
+}
+.sa-faq-list { display: flex; flex-direction: column; gap: 12px; }
+.sa-faq-item {
+  background: #ffffff; border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px; padding: 0 22px;
+}
+.sa-faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  font-family: 'Onest', sans-serif; font-size: 16px; font-weight: 700; color: #16120F;
+  padding: 20px 0; cursor: pointer; list-style: none;
+}
+.sa-faq-q::-webkit-details-marker { display: none; }
+.sa-faq-chev { flex-shrink: 0; transition: transform 0.25s; }
+.sa-faq-item[open] .sa-faq-chev { transform: rotate(180deg); }
+.sa-faq-a {
+  font-family: 'Inter', sans-serif; font-size: 14.5px; line-height: 1.7;
+  color: #4A433B; margin: 0; padding: 0 0 20px;
+}
+
+/* ─── OUR MASONRY SERVICES ─── */
+.absvc { background: #16120F; padding: 110px 0; }
+.absvc-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.absvc-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.absvc-eyebrow span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #B85C38; }
+.absvc-h2 { font-family: 'Onest', sans-serif; font-size: clamp(34px, 3.6vw, 52px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #FFFFFF; margin: 0 0 18px; }
+.absvc-h2 em { font-style: normal; color: rgba(255,255,255,0.45); }
+.absvc-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.62); max-width: 680px; margin: 0 0 48px; }
+.absvc-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid rgba(255,255,255,0.12); margin-bottom: 56px; }
+.absvc-cell {
+  position: relative; display: grid; grid-template-columns: 46px 1fr 22px; align-items: center;
+  gap: 0 16px; padding: 22px 16px 22px 0; border-bottom: 1px solid rgba(255,255,255,0.12);
+  text-decoration: none; transition: background 200ms ease, padding-left 200ms ease;
+}
+.absvc-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.12); padding-right: 40px; }
+.absvc-cell:not(.absvc-cell--empty):hover { background: rgba(255,255,255,0.035); padding-left: 16px; }
+.absvc-cell-num { font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 700; color: #B85C38; letter-spacing: 0.04em; }
+.absvc-cell-name { font-family: 'Onest', sans-serif; font-size: clamp(16px, 1.4vw, 19px); font-weight: 600; color: #ffffff; transition: color 240ms ease; }
+.absvc-cell:hover .absvc-cell-name { color: #ffffff; }
+.absvc-cell-arrow { display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.30); transition: color 240ms ease, transform 240ms ease; }
+.absvc-cell:hover .absvc-cell-arrow { color: #B85C38; transform: translateX(4px); }
+.absvc-cell--empty { background: rgba(255,255,255,0.025); pointer-events: none; }
+.absvc-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; padding-top: 8px; }
+.absvc-foot-cta { display: inline-flex; align-items: center; gap: 8px; background: #B85C38; color: #fff; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; padding: 14px 26px; border-radius: 12px; text-decoration: none; transition: background 0.2s; }
+.absvc-foot-cta:hover { background: #8A3A22; }
+
+/* ─── ALSO CONSIDER ─── */
+.sp-related { background: #ffffff; padding: 80px 12px 80px; }
+.sp-related-dark { background: #16120F; border-radius: 24px; padding: 80px 40px; max-width: 1224px; margin: 0 auto; }
+.sp-related-hdr { margin-bottom: 56px; }
+.sp-related-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.sp-related-eyebrow span { font-family: 'Inter',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; color: #B85C38; text-transform: uppercase; }
+.sp-related-heading { font-family: 'Onest',sans-serif; font-size: clamp(36px,4vw,54px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: #ffffff; margin: 0; }
+.sp-related-heading em { font-style: normal; color: #ffffff; }
+.sp-rsvc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sp-rsvc-card { background: #ffffff; border-radius: 20px; overflow: visible; text-decoration: none; display: flex; flex-direction: column; transition: transform 240ms ease, box-shadow 240ms ease; height: 100%; }
+.sp-rsvc-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.40); }
+.sp-rsvc-img-wrap { position: relative; width: 100%; flex-shrink: 0; padding: 10px 10px 0; }
+.sp-rsvc-img-clip { overflow: hidden; border-radius: 14px 14px 0 0; width: 100%; }
+.sp-rsvc-img { width: 100%; height: 260px; object-fit: cover; display: block; transform: scale(1); transition: transform 500ms cubic-bezier(0.25,0.46,0.45,0.94); }
+.sp-rsvc-card:hover .sp-rsvc-img { transform: scale(1.06); }
+.sp-rsvc-notch { position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); z-index: 3; width: 160px; height: 40px; pointer-events: none; }
+.sp-rsvc-notch-bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sp-rsvc-icon-inner { position: absolute; top: 6px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; }
+.sp-rsvc-body { padding: 16px 20px 22px; display: flex; flex-direction: column; align-items: center; text-align: center; flex: 1; background: #ffffff; border-radius: 0 0 20px 20px; }
+.sp-rsvc-title { font-family: 'Onest',sans-serif; font-size: 16px; font-weight: 700; color: #16120F; margin: 0 0 6px; line-height: 1.2; letter-spacing: -0.01em; transition: color 200ms ease; }
+.sp-rsvc-card:hover .sp-rsvc-title { color: #B85C38; }
+.sp-rsvc-desc { font-family: 'Inter',sans-serif; font-size: 13px; line-height: 1.5; color: #4A433B; margin: 0; max-width: 260px; }
+
+/* ─── CTA BANNER ─── */
+.sp-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
+  letter-spacing: 0.04em; text-decoration: none;
+  padding: 0 28px; height: 52px; border-radius: 14px;
+  border: 2px solid transparent;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  white-space: nowrap; cursor: pointer;
+}
+.sp-btn--accent { background: #B85C38; color: #ffffff; border-color: #B85C38; }
+.sp-btn--accent:hover { background: #8A3A22; border-color: #8A3A22; }
+.sp-btn--ghost-light { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.sp-btn--ghost-light:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
+.sp-cta-banner { background: linear-gradient(90deg, #16120F 0%, #6E2A19 40%, #B85C38 100%); padding: 80px 0; }
+.sp-cta-banner-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.sp-cta-banner-h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px,3vw,40px); font-weight: 700; color: #ffffff; margin: 0 0 10px; line-height: 1.2; }
+.sp-cta-banner-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.6; margin: 0; max-width: 520px; }
+.sp-cta-banner-actions { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1200px) {
+  .sa-dir-grid   { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 1024px) {
+  .sa-hero-content { padding: 0 40px 64px; }
+}
+@media (max-width: 900px) {
+  .sp-rsvc-grid  { grid-template-columns: repeat(2, 1fr); }
+  .sap-map-wrap  { height: 360px; }
+  .sap-regions   { grid-template-columns: repeat(2, 1fr); }
+  .sap-region-col:nth-child(odd)  { border-right: 1px solid #E4E2DE; }
+  .sap-region-col:nth-child(even) { border-right: none; }
+  .sap-region-col:nth-child(1),
+  .sap-region-col:nth-child(2)    { border-bottom: 1px solid #E4E2DE; }
+  .sa-zones { padding: 72px 24px; }
+  .sa-dir   { padding: 72px 24px; }
+  .sa-faq   { padding: 72px 24px; }
+  .sa-dir-grid { grid-template-columns: repeat(3, 1fr); }
+  .sp-trust-inner { padding: 0 40px; }
+  .sp-trust-sep { display: none; }
+  .sp-trust-inner { justify-content: flex-start; gap: 16px; }
+  .sp-cta-banner { padding: 56px 0; }
+  .sp-cta-banner-inner { padding: 0 24px; flex-direction: column; align-items: flex-start; }
+  .sp-cta-banner-actions { flex-direction: column; }
+  .sp-btn { width: 100%; text-align: center; }
+  #sp-prc-driver { height: auto !important; }
+  #sp-prc-sticky { position: relative !important; top: auto !important; height: auto !important; padding: 72px 0 !important; align-items: center !important; }
+  .sp-prc-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; }
+  .sp-prc-desktop-cta { display: none !important; }
+  .sp-prc-mobile-cta { display: block !important; }
+  .sp-prc-item { padding: 28px 0 !important; }
+  .sp-prc-num { font-size: 36px !important; }
+  .sp-rev-mob-nbhd { display: block; padding: 0 20px 60px; margin-top: -80px; }
+  .sp-rev-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; }
+  #sp-rev-nbhd-area { display: none !important; }
+  .sp-rev-left h2 { font-size: 32px !important; margin-bottom: 16px !important; }
+  #sp-rev-stack { width: 290px !important; height: 340px !important; margin: 0 auto; }
+  #sp-proj-driver { height: auto !important; }
+  #sp-proj-sticky { position: relative !important; top: auto !important; height: auto !important; padding: 72px 0; }
+  .sp-proj-grid { display: flex !important; flex-direction: column !important; gap: 28px !important; padding: 0 20px !important; }
+  .sp-proj-text { display: contents; }
+  .sp-proj-text-top  { order: 1; }
+  #sp-proj-stack     { order: 2; height: 300px !important; }
+  .sp-proj-text-bottom { order: 3; margin-top: 40px; }
+  .sp-proj-polaroid  { width: 160px !important; }
+  .sp-proj-polaroid > div:first-child { height: 200px !important; }
+  .sp-proj-spacer    { height: 60px; }
+}
+@media (max-width: 768px) {
+  .sa-hero-content { padding: 0 24px 90px; }
+  .sa-scroll { display: none; }
+  .sa-actions { flex-direction: column; }
+  .sa-btn { width: 100%; justify-content: center; }
+  .sa-dir-tabs { gap: 6px; }
+  .sa-dir-tab { font-size: 12px; padding: 7px 12px; }
+  .sa-dir-grid { grid-template-columns: repeat(2, 1fr); }
+  .sp-trust-inner { padding: 0 20px; }
+  .sap-map-wrap  { height: 280px; }
+  .sap-regions   { grid-template-columns: 1fr; border-radius: 14px; }
+  .sap-region-col { border-right: none !important; border-bottom: 1px solid #E4E2DE; padding: 20px 18px; }
+  .sap-region-col:last-child { border-bottom: none; }
+}
+@media (max-width: 760px) {
+  .absvc { padding: 72px 0; }
+  .absvc-inner { padding: 0 20px; }
+  .absvc-grid { grid-template-columns: 1fr; }
+  .absvc-cell:nth-child(odd) { border-right: none; padding-right: 16px; }
+  .absvc-cell { grid-template-columns: 38px 1fr 20px; gap: 12px; padding: 20px 8px 20px 4px; }
+  .absvc-cell--empty { display: none; }
+  .sp-related { padding: 0 8px 48px; }
+  .sp-related-dark { padding: 48px 20px; border-radius: 16px; }
+  .sp-rsvc-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .sa-dir-grid { grid-template-columns: 1fr; }
+  .sa-badge { padding: 0 14px; }
+  .sa-badge strong { font-size: 20px; }
+  #sp-prc-sticky { padding: 56px 0 !important; }
+  .sp-prc-grid { padding: 0 16px !important; }
+}
+@media (max-width: 900px) {
+  #sp-rev-nbhd-area, .sp-rev-nbhd-card { opacity: 1 !important; transform: translateY(0) !important; }
+}
+</style>

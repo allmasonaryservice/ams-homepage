@@ -1,0 +1,600 @@
+---
+// Contact — schedule a free inspection
+// Layout: masonry-clipped image canvas with form card floating INSIDE on desktop
+// Key: .cta-bg has clip-path (image+overlay+glass inside it)
+//      .cta-card is a sibling of .cta-bg → NOT clipped → floats on top of image
+---
+
+<section class="cta-section" id="contact">
+
+  <!-- Hidden SVG: arch clip-path definition (same bezier technique as WhyUs) -->
+  <svg style="position:absolute;top:0;left:0;width:0;height:0;overflow:hidden;" aria-hidden="true">
+    <defs>
+      <!--
+        Masonry arch — straight pillars (6%..94%) with cubic-bezier semicircle.
+        clipPathUnits="objectBoundingBox" → scales perfectly to any element size.
+        Spring point at y=0.38; keystone at (0.5, 0).
+      -->
+      <clipPath id="cta-arch" clipPathUnits="objectBoundingBox">
+        <path d="
+          M0.06,1
+          L0.06,0.38
+          C0.06,0.12  0.26,0     0.5,0
+          C0.74,0     0.94,0.12  0.94,0.38
+          L0.94,1
+          Z
+        "/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <div class="cta-inner">
+
+    <!-- Heading above the canvas (white background, not clipped) -->
+    <div class="cta-header">
+      <div class="cta-eyebrow">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+          <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+          <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+        </svg>
+        <span>FREE INSPECTION</span>
+      </div>
+      <h2 class="cta-heading">
+        Schedule Your<br>
+        <em class="cta-heading-accent">Free Inspection.</em>
+      </h2>
+    </div>
+
+    <!--
+      CANVAS — the visual unit.
+      .cta-bg   → brick-octagon clip-path  (image + overlay + glass badge)
+      .cta-card → sibling, NOT clipped     → floats on top of the image
+    -->
+    <div class="cta-canvas">
+
+      <!-- Clipped masonry image layer (glass badge lives INSIDE this) -->
+      <div class="cta-bg">
+        <picture style="display:block;width:100%;height:100%;">
+          <source media="(max-width: 768px)" srcset="/images/contact-masonry-m.webp" type="image/webp" />
+          <img
+            src="/images/contact-masonry.webp"
+            alt="Masonry craftsman at work — All Masonry Services Chicagoland"
+            class="cta-bg-img"
+            loading="lazy"
+          />
+        </picture>
+        <div class="cta-bg-overlay" aria-hidden="true"></div>
+
+        <!-- Glass info badge — inside .cta-bg so it's contained within the image shape -->
+        <div class="cta-glass">
+          <div class="cta-glass-badge">18+ Years in Chicagoland</div>
+          <div class="cta-glass-row">
+            <svg class="cta-glass-icon" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M3 4h3.5l1.5 3.5-1.8 1.1c.8 1.6 2.2 3 3.8 3.8l1.1-1.8L14.5 12V15.5a.5.5 0 01-.5.5C7 16 2 11 2 4.5a.5.5 0 01.5-.5H3z" fill="rgba(255,255,255,0.92)"/>
+            </svg>
+            <span>(630) 553-7557</span>
+          </div>
+          <div class="cta-glass-row">
+            <svg class="cta-glass-icon" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M9 1a5.5 5.5 0 015.5 5.5C14.5 10.5 9 17 9 17S3.5 10.5 3.5 6.5A5.5 5.5 0 019 1zm0 7.5a2 2 0 100-4 2 2 0 000 4z" fill="rgba(255,255,255,0.92)"/>
+            </svg>
+            <span>Chicagoland, Illinois</span>
+          </div>
+        </div>
+      </div><!-- /cta-bg -->
+
+      <!-- Form card — sibling of .cta-bg, NOT clipped, floats on the right side of the image -->
+      <div class="cta-card" id="cta-card">
+
+        <div class="cta-card-header">
+          <p class="cta-card-title">Get Your Written Estimate</p>
+          <p class="cta-card-sub">No obligation — we assess every visible problem and give you a written estimate before any work begins.</p>
+        </div>
+
+        <form class="cta-form" id="cta-form" novalidate>
+          <div class="cta-row">
+            <div class="cta-field">
+              <label class="cta-label" for="cta-name">Full name <span class="cta-req" aria-hidden="true">*</span></label>
+              <input class="cta-input" type="text" id="cta-name" name="fullName" placeholder="John Carter" required autocomplete="name"/>
+            </div>
+            <div class="cta-field">
+              <label class="cta-label" for="cta-phone">Phone number</label>
+              <input class="cta-input" type="tel" id="cta-phone" name="phone" placeholder="(555) 247-8901" autocomplete="tel"/>
+            </div>
+          </div>
+          <div class="cta-row">
+            <div class="cta-field">
+              <label class="cta-label" for="cta-email">Email address <span class="cta-req" aria-hidden="true">*</span></label>
+              <input class="cta-input" type="email" id="cta-email" name="email" placeholder="john@example.com" required autocomplete="email"/>
+            </div>
+            <div class="cta-field">
+              <label class="cta-label" for="cta-service">Service type</label>
+              <div class="cta-select-wrap">
+                <select class="cta-select" id="cta-service" name="service">
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="tuckpointing">Tuckpointing</option>
+                  <option value="brick-repair">Brick Repair</option>
+                  <option value="chimney-repair">Chimney Repair</option>
+                  <option value="stone-work">Stone Work</option>
+                  <option value="concrete">Concrete Work</option>
+                  <option value="inspection">Inspection Only</option>
+                  <option value="other">Other / Not Sure</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="cta-field">
+            <label class="cta-label" for="cta-message">Message</label>
+            <textarea class="cta-textarea" id="cta-message" name="message"
+              placeholder="Briefly describe your masonry needs — wall, chimney, steps, etc."></textarea>
+          </div>
+          <button class="cta-submit" type="submit">
+            <span class="cta-submit-text">Schedule Free Inspection →</span>
+            <span class="cta-submit-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <div class="cta-success" id="cta-success" hidden>
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+            <circle cx="22" cy="22" r="22" fill="#B85C38"/>
+            <path d="M13 22l7 7 11-11" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="cta-success-title">Request Received!</p>
+          <p class="cta-success-body">We'll reach out within one business day to schedule your free inspection. Thank you.</p>
+        </div>
+
+      </div><!-- /cta-card -->
+
+    </div><!-- /cta-canvas -->
+  </div><!-- /cta-inner -->
+</section>
+
+<script is:inline>
+(function () {
+
+  /* ── Form submit ── */
+  var form    = document.getElementById('cta-form');
+  var success = document.getElementById('cta-success');
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var btn = form.querySelector('.cta-submit');
+      if (btn) { btn.classList.add('loading'); btn.disabled = true; }
+      setTimeout(function () {
+        form.hidden = true;
+        if (success) success.hidden = false;
+        if (btn) { btn.classList.remove('loading'); btn.disabled = false; }
+      }, 1100);
+    });
+  }
+
+  /* ── GSAP scroll animations ── */
+  function initAnims() {
+    var w    = /** @type {any} */ (window);
+    var gsap = w.__gsap;
+    var ST   = w.__ScrollTrigger;
+    if (!gsap || !ST) return;
+
+    var section = document.getElementById('contact');
+    if (!section || section.dataset.ctaDone) return;
+    section.dataset.ctaDone = '1';
+
+    var ease = 'power3.out';
+
+    gsap.from('.cta-eyebrow', {
+      y: 18, opacity: 0, duration: 0.6, ease: ease,
+      scrollTrigger: { trigger: '.cta-header', start: 'top 82%', once: true }
+    });
+    gsap.from('.cta-heading', {
+      y: 26, opacity: 0, duration: 0.7, ease: ease, delay: 0.1,
+      scrollTrigger: { trigger: '.cta-header', start: 'top 82%', once: true }
+    });
+    gsap.from('.cta-bg', {
+      scale: 0.97, opacity: 0, duration: 0.9, ease: ease,
+      scrollTrigger: { trigger: '.cta-canvas', start: 'top 82%', once: true }
+    });
+    gsap.from('.cta-glass', {
+      x: -20, opacity: 0, duration: 0.6, ease: ease, delay: 0.4,
+      scrollTrigger: { trigger: '.cta-canvas', start: 'top 82%', once: true }
+    });
+    gsap.from('#cta-card', {
+      x: window.innerWidth > 960 ? 28 : 0, opacity: 0, duration: 0.7, ease: ease, delay: 0.25,
+      scrollTrigger: { trigger: '.cta-canvas', start: 'top 82%', once: true }
+    });
+  }
+
+  var w2 = /** @type {any} */ (window);
+  if (w2.__gsap && w2.__ScrollTrigger) { initAnims(); }
+  else { window.addEventListener('animations:ready', initAnims); }
+
+  document.addEventListener('astro:page-load', function () {
+    var s = document.getElementById('contact');
+    if (s) delete s.dataset.ctaDone;
+    initAnims();
+  });
+
+})();
+</script>
+
+<style>
+/* ══════════════════════════════════════
+   SECTION
+══════════════════════════════════════ */
+.cta-section {
+  background: #ffffff;
+  padding: 100px 24px;
+}
+
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ══════════════════════════════════════
+   HEADER
+══════════════════════════════════════ */
+.cta-header {
+  max-width: 520px;
+  margin-bottom: 40px;
+}
+
+.cta-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.cta-eyebrow span {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #B85C38;
+}
+
+.cta-heading {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #16120F;
+  margin: 0;
+}
+.cta-heading-accent {
+  font-style: normal;
+  color: #16120F;
+}
+
+/* ══════════════════════════════════════
+   CANVAS
+   Desktop: 860px tall.
+   Arch spring at 38% = 327px from top.
+   Form card starts at 340px → 520px available (form content ~490px fits).
+══════════════════════════════════════ */
+.cta-canvas {
+  position: relative;
+  width: 100%;
+  height: 860px;
+}
+
+/* ── Clipped image container — perfect masonry arch via SVG clipPath ── */
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  /* SVG bezier arch: spring y=0.38, pillars x=0.06..0.94, keystone at (0.5,0) */
+  clip-path: url(#cta-arch);
+  overflow: hidden;
+}
+
+.cta-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.cta-bg-overlay {
+  position: absolute;
+  inset: 0;
+  /* Slightly darker on the right where the form card overlaps — keeps contrast */
+  background: linear-gradient(
+    105deg,
+    rgba(22,18,15,0.05)  0%,
+    rgba(22,18,15,0.18)  35%,
+    rgba(22,18,15,0.52)  75%,
+    rgba(22,18,15,0.68)  100%
+  );
+}
+
+/* ── Glass badge (inside .cta-bg, clipped with the image) ── */
+.cta-glass {
+  position: absolute;
+  /*
+    Left visible strip: x=6%..28% (left of the centered form card).
+    bottom: 80px on 860px canvas = y≈90.7% — in pillar zone ✓
+    left: 8% — inside left pillar (6%) and left of form card (28%) ✓
+  */
+  bottom: 80px;
+  left: 8%;
+  z-index: 2;
+  background: rgba(22, 18, 15, 0.65);
+  backdrop-filter: blur(14px) saturate(1.3);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 18px 22px;
+  min-width: 195px;
+}
+
+.cta-glass-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B85C38;
+  margin-bottom: 12px;
+}
+
+.cta-glass-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.cta-glass-row:last-child { margin-bottom: 0; }
+.cta-glass-icon { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* ══════════════════════════════════════
+   FORM CARD
+   Sibling of .cta-bg — NOT clipped by it.
+   Sits in the pillar zone (below arch spring at 38%).
+══════════════════════════════════════ */
+.cta-card {
+  position: absolute;
+  /*
+    Canvas: 800px. Spring: 38% × 800 = 304px from top.
+    Card top: 320px (just below spring).
+    Right: 72px → right edge at (1200-72)/1200 = 94% ≤ 94% pillar ✓
+    Width: 42% → left edge at ~52%, inside pillars ✓
+    Available height: 800-320-24 = 456px — card content ~420px fits without scroll.
+  */
+  /*
+    Centered within the arch pillar zone (x=6%..94%).
+    left: 50% + translateX(-50%) → card center aligns with arch center.
+    This shows equal arch image strips on BOTH sides of the form card.
+    Width: 44% → left edge at 28%, right edge at 72% — image visible 6%-28% and 72%-94%.
+  */
+  top: 340px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44%;
+  max-width: 600px;
+  z-index: 10;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.06),
+    0 16px 64px rgba(0,0,0,0.22);
+  padding: 26px 28px;
+  /* Thin scrollbar if content overflows */
+  scrollbar-width: thin;
+  scrollbar-color: #D9D9D9 transparent;
+}
+.cta-card::-webkit-scrollbar { width: 4px; }
+.cta-card::-webkit-scrollbar-thumb { background: #D9D9D9; border-radius: 2px; }
+
+/* ── Card header ── */
+.cta-card-header {
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #E8E4E0;
+}
+.cta-card-title {
+  font-family: 'Onest', sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #16120F;
+  margin: 0 0 6px;
+}
+.cta-card-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #6A625A;
+  margin: 0;
+}
+
+/* ── Form fields ── */
+.cta-form { display: flex; flex-direction: column; gap: 14px; }
+
+.cta-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.cta-field { display: flex; flex-direction: column; gap: 5px; }
+
+.cta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #16120F;
+}
+.cta-req { color: #B85C38; }
+
+.cta-input,
+.cta-select,
+.cta-textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4A433B;
+  background: #ffffff;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+  padding: 0 13px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+.cta-input,
+.cta-select { height: 46px; }
+.cta-input::placeholder,
+.cta-textarea::placeholder { color: #B0A89F; }
+.cta-input:focus,
+.cta-select:focus,
+.cta-textarea:focus {
+  border-color: #B85C38;
+  box-shadow: 0 0 0 3px rgba(184,92,56,0.10);
+}
+
+.cta-select-wrap { position: relative; }
+.cta-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 32px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236A625A' stroke-width='1.5' stroke-linecap='square'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.cta-textarea {
+  height: auto;
+  min-height: 88px;
+  padding: 11px 13px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* ── Submit button ── */
+.cta-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 50px;
+  margin-top: 2px;
+  background: #16120F;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 200ms ease, transform 100ms ease;
+}
+.cta-submit:hover:not(:disabled) { background: #B85C38; }
+.cta-submit:active:not(:disabled) { transform: scale(0.99); }
+.cta-submit:focus-visible { outline: 2px solid #B85C38; outline-offset: 2px; }
+.cta-submit:disabled { opacity: 0.65; cursor: not-allowed; }
+
+.cta-submit-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: cta-spin 0.7s linear infinite;
+}
+.cta-submit.loading .cta-submit-text { display: none; }
+.cta-submit.loading .cta-submit-spinner { display: block; }
+@keyframes cta-spin { to { transform: rotate(360deg); } }
+
+/* ── Success state ── */
+.cta-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px 16px;
+  gap: 14px;
+}
+.cta-success[hidden] { display: none; }
+.cta-success-title {
+  font-family: 'Onest', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #16120F;
+  margin: 0;
+}
+.cta-success-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #4A433B;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .cta-section { padding: 72px 20px; }
+
+  .cta-canvas {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 24px;
+  }
+
+  /* On mobile: .cta-bg back in normal flow as a tall image block */
+  .cta-bg {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 440px;
+    flex-shrink: 0;
+  }
+
+  /* Form card below the image in normal flow */
+  .cta-card {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 24px 20px 28px;
+  }
+
+  .cta-glass {
+    bottom: 24px;
+    left: 9%;
+    min-width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-bg { height: 300px; }
+  .cta-heading { font-size: clamp(28px, 8vw, 42px); }
+  .cta-row { grid-template-columns: 1fr; }
+  .cta-card { padding: 22px 18px 26px; }
+  .cta-glass { padding: 14px 16px; left: 12%; }
+}
+</style>

@@ -1,0 +1,370 @@
+---
+const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+---
+<div id="cmu-cfg" data-key={geminiKey} style="display:none"></div>
+<div class="cmu-wrap" id="cmu-root">
+  <div class="cmu-header">
+    <span class="cmu-badge">COMMERCIAL TOOL</span>
+    <h2 class="cmu-title">CMU Block Installation — <em>Quantity Calculator</em></h2>
+    <p class="cmu-sub">Input your commercial wall specs — get CMU block count, mortar estimate, and a project complexity assessment from our AI.</p>
+    <div class="cmu-progress"><div class="cmu-progress-fill" id="cmu-progress-fill"></div></div>
+  </div>
+
+  <div class="step active" id="cmu-step1">
+    <p class="step-label">Step 1 of 3 — Wall Specifications</p>
+    <div class="input-grid">
+      <div class="field-group">
+        <label class="field-label" for="cmu-length">Wall Length (ft)</label>
+        <input class="cmu-input" type="number" id="cmu-length" placeholder="e.g. 120" min="0" />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cmu-height">Wall Height (ft)</label>
+        <input class="cmu-input" type="number" id="cmu-height" placeholder="e.g. 16" min="0" />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cmu-block-size">CMU Block Size</label>
+        <select class="cmu-input cmu-select" id="cmu-block-size">
+          <option value="8x8x16 Standard">8×8×16 Standard</option>
+          <option value="8x4x16 Partition">8×4×16 Partition</option>
+          <option value="8x12x16 Load-Bearing">8×12×16 Load-Bearing</option>
+          <option value="8x6x16">8×6×16</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cmu-app-type">Application Type</label>
+        <select class="cmu-input cmu-select" id="cmu-app-type">
+          <option value="Exterior Load-Bearing">Exterior Load-Bearing</option>
+          <option value="Interior Partition">Interior Partition</option>
+          <option value="Retaining/Foundation">Retaining / Foundation</option>
+          <option value="Fire Wall">Fire Wall</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cmu-stories">Number of Stories</label>
+        <select class="cmu-input cmu-select" id="cmu-stories">
+          <option value="1">1 Story</option>
+          <option value="2">2 Stories</option>
+          <option value="3+">3+ Stories</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cmu-openings">Openings / Deductions (sq ft)</label>
+        <input class="cmu-input" type="number" id="cmu-openings" placeholder="e.g. 200" min="0" />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="cmu-project-name">Project / Company Name</label>
+        <input class="cmu-input" type="text" id="cmu-project-name" placeholder="e.g. Northside Warehouse — ABC Construction" />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="cmu-notes">Additional Notes</label>
+        <textarea class="cmu-input cmu-textarea" id="cmu-notes" placeholder="Reinforcement requirements, soil conditions, design constraints, etc."></textarea>
+      </div>
+    </div>
+    <button class="cmu-btn cmu-btn-primary" id="cmu-to-step2">Next — Your Information →</button>
+  </div>
+
+  <div class="step" id="cmu-step2">
+    <p class="step-label">Step 2 of 3 — Your Contact Information</p>
+    <p class="step-desc">We'll include your details in the personalized commercial estimate report.</p>
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="cmu-name">Full Name <span class="req">*</span></label>
+        <input class="cmu-input" type="text" id="cmu-name" placeholder="John Contractor" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cmu-phone">Phone <span class="req">*</span></label>
+        <input class="cmu-input" type="tel" id="cmu-phone" placeholder="(773) 555-0100" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cmu-email">Email <span class="req">*</span></label>
+        <input class="cmu-input" type="email" id="cmu-email" placeholder="john@contractor.com" required />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="cmu-address">Property Address <span class="req">*</span></label>
+        <input class="cmu-input" type="text" id="cmu-address" placeholder="456 Industrial Ave, Chicago, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cmu-zip">Zip Code <span class="req">*</span></label>
+        <input class="cmu-input" type="text" id="cmu-zip" placeholder="60608" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="cmu-btn cmu-btn-outline" id="cmu-back-to-step1">← Back</button>
+      <button class="cmu-btn cmu-btn-primary" id="cmu-submit">Generate Quantity Report →</button>
+    </div>
+  </div>
+
+  <div class="step" id="cmu-step3">
+    <div class="spinner-wrap" id="cmu-spinner">
+      <div class="spinner"></div>
+      <p class="spinner-text">Calculating CMU quantities and commercial estimate…</p>
+    </div>
+    <div class="result-wrap" id="cmu-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="result-title">Your CMU Report Is Ready</h3>
+      <p class="result-sub">Your personalized CMU Quantity & Cost Analysis is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary commercial estimate is based on the specifications you provided and is not a substitute for a professional site inspection or formal engineering review. Actual block counts, structural requirements, and costs may differ based on site conditions, soil type, local code requirements, and engineering specifications. Contact All Masonry Services Inc. for a formal commercial bid — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="cmu-btn cmu-btn-primary" id="cmu-pdf-btn">Download PDF Report</button>
+        <a class="cmu-btn cmu-btn-outline" href="/contact#form">Request a Formal Bid</a>
+      </div>
+    </div>
+    <div class="error-wrap" id="cmu-error" style="display:none">
+      <p class="error-msg" id="cmu-error-msg"></p>
+      <button class="cmu-btn cmu-btn-outline" id="cmu-retry">← Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+(function() {
+  const GEMINI_KEY = document.getElementById('cmu-cfg').dataset.key;
+  const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' + GEMINI_KEY;
+
+  var cmu_reportText = "";
+  var cmu_contactData = {};
+
+  function cmu_getVal(id) {
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : "";
+  }
+
+  function cmu_setProgress(pct) {
+    var bar = document.getElementById("cmu-progress-fill");
+    if (bar) bar.style.width = pct + "%";
+  }
+
+  function cmu_showStep(n) {
+    [1, 2, 3].forEach(function(i) {
+      var el = document.getElementById("cmu-step" + i);
+      if (el) el.classList.toggle("active", i === n);
+    });
+    cmu_setProgress(n === 1 ? 10 : n === 2 ? 50 : 100);
+  }
+
+  async function cmu_generate() {
+    var length = parseFloat(cmu_getVal("cmu-length")) || 0;
+    var height = parseFloat(cmu_getVal("cmu-height")) || 0;
+    var blockSize = cmu_getVal("cmu-block-size");
+    var appType = cmu_getVal("cmu-app-type");
+    var stories = cmu_getVal("cmu-stories");
+    var openings = parseFloat(cmu_getVal("cmu-openings")) || 0;
+    var projectName = cmu_getVal("cmu-project-name");
+    var notes = cmu_getVal("cmu-notes");
+    var zip = cmu_contactData.zip;
+    var grossArea = length * height;
+    var netArea = Math.max(0, grossArea - openings);
+    var blocksNeeded = Math.ceil(netArea * 1.125 * 1.05);
+    var mortarBags = Math.ceil(netArea / 25);
+    var mo = new Date().getMonth();
+    var season = (mo >= 10 || mo <= 2) ? "winter" : "upcoming season";
+
+    var prompt = "You are a senior commercial masonry estimator at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED CMU quantity report for a specific contractor/developer at zip code " + zip + ".\n\nPROJECT PROFILE:\n- Project/Company: " + (projectName || "Not specified") + "\n- Contact: " + cmu_contactData.name + "\n- Property: " + cmu_contactData.address + ", IL " + zip + "\n- Wall Length: " + length + " ft\n- Wall Height: " + height + " ft\n- Gross Wall Area: " + grossArea + " sq ft\n- Openings/Deductions: " + openings + " sq ft\n- NET CMU AREA: " + netArea + " sq ft\n- CMU Block Size: " + blockSize + "\n- Application Type: " + appType + "\n- Number of Stories: " + stories + "\n- Pre-Calculated Block Count (1.125 blocks/sqft + 5% waste): " + blocksNeeded + " blocks\n- Pre-Calculated Mortar Bags (1 bag per 25 sqft): " + mortarBags + " bags\n- Additional Notes: " + (notes || "None provided") + "\n\nTASK: Write a SPECIFIC, PERSONALIZED CMU quantity and cost report for THIS project at THIS property. Reference the exact dimensions (" + length + "ft × " + height + "ft = " + grossArea + " sqft gross, " + netArea + " sqft net) in every calculation section. Do NOT give generic CMU advice — use their actual numbers.\n\nUse exactly these ALL CAPS headings:\n\nPROJECT OVERVIEW — " + netArea + " SQ FT " + blockSize + " " + appType.toUpperCase() + "\n(Describe this specific commercial project: " + (projectName || "unnamed project") + " at " + cmu_contactData.address + ". Explain what " + netArea + " sq ft of " + appType + " using " + blockSize + " CMU blocks means in scope — is this a full building, single wall, fire separation? Identify the key structural and code considerations for " + stories + " story " + appType + ".)\n\nCMU QUANTITY CALCULATION — PRECISE BREAKDOWN\n(Show the exact math:\n- Net CMU area: " + netArea + " sq ft\n- Block coverage rate for " + blockSize + ": 1.125 blocks per sq ft\n- Blocks before waste: " + Math.ceil(netArea * 1.125) + " blocks\n- With 5% waste factor: " + blocksNeeded + " blocks TOTAL\n- Pallets needed (72 blocks per pallet for " + blockSize + "): " + Math.ceil(blocksNeeded / 72) + " pallets\n- Mortar bags (1 bag covers 25 sq ft): " + mortarBags + " bags\n- Grout fill (if cores filled, calculate for " + netArea + " sq ft at 1/3 core fill): [calculate cubic yards]\n- Rebar (if required for " + appType + "): [calculate linear feet]\nVerify each number against industry standards.)\n\nCOST ESTIMATE — CHICAGO COMMERCIAL 2026\n(Break down every cost line:\n- " + blockSize + " CMU blocks: $X.XX – $X.XX per block × " + blocksNeeded + " blocks = $X,XXX – $X,XXX\n- Mortar and supplies: $X per bag × " + mortarBags + " bags = $XXX – $XXX\n- Rebar and grout (if " + appType + " requires): $XXX – $XXX\n- Labor for " + appType + ": $X.XX – $X.XX per block installed × " + blocksNeeded + " blocks = $X,XXX – $X,XXX\n- Equipment/scaffold for " + stories + " stories: $XXX – $X,XXX\n- TOTAL ESTIMATED PROJECT COST: $X,XXX – $XX,XXX\nUse real Chicago Metro commercial contractor pricing for 2026. Give contractor-grade numbers.)\n\nSTRUCTURAL & ENGINEERING REQUIREMENTS FOR " + appType.toUpperCase() + "\n(Explain the specific structural requirements for " + appType + " in " + stories + " story construction. Address: minimum wall thickness for " + blockSize + ", bearing capacity, lateral load requirements, lintel specs over openings (" + openings + " sq ft), control joint spacing for " + length + " ft wall. Flag any engineering review triggers.)\n\nREBAR & GROUTING SPECIFICATION\n(Based on " + appType + " and " + stories + " stories, specify: vertical rebar spacing and size, horizontal bond beam requirements, grout fill percentage, cleanout requirements. Reference ACI 530 or applicable masonry code. Explain what happens structurally if rebar/grout specs are not met for " + appType + ".)\n\nCHICAGO BUILDING CODE COMPLIANCE\n(Address Chicago-specific requirements for " + appType + ": permit requirements for " + grossArea + " sq ft commercial masonry, required inspections, wind load requirements for " + stories + " stories, fire rating requirements if applicable, weather protection requirements for " + season + " work.)\n\nTIMELINE & CREW FOR THIS PROJECT\n(Specific timeline for " + netArea + " sq ft of " + blockSize + " " + appType + ": crew size, blocks per day production rate, total calendar days, schedule for " + stories + " story work including scaffold setup/breakdown, quality control inspection points.)\n\nYOUR NEXT STEP\n(Recommend contacting All Masonry Services Inc. for a formal commercial bid at 773-656-2107 or allmasonryservices.com. Mention AMS has completed 500+ commercial CMU projects in Chicagoland since 2007 and can provide a certified written estimate with material and labor breakdown within 48 hours.)\n\nWrite in contractor-grade professional language. Every number must be specific and calculated from the actual project inputs.";
+
+    var resp = await fetch(GEMINI_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+      })
+    });
+    if (!resp.ok) throw new Error("API error: " + resp.status);
+    var data = await resp.json();
+    cmu_reportText = (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts && data.candidates[0].content.parts[0] && data.candidates[0].content.parts[0].text) || "No report generated.";
+  }
+
+  function cmu_renderReport() {
+    var spinner = document.getElementById("cmu-spinner");
+    var result = document.getElementById("cmu-result");
+    if (spinner) spinner.style.display = "none";
+    if (result) result.style.display = "block";
+  }
+
+  async function cmu_downloadPDF() {
+    await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js");
+    var jsPDF = window.jspdf.jsPDF;
+    var GState = window.jspdf.GState;
+    var doc = new jsPDF({ unit: "pt", format: "letter" });
+    var pageW = doc.internal.pageSize.getWidth();
+    var pageH = doc.internal.pageSize.getHeight();
+    var margin = 48;
+    var y = 0;
+
+    function cmu_checkPage(needed) {
+      if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
+    }
+
+    doc.setFillColor(22, 18, 15);
+    doc.rect(0, 0, pageW, 72, "F");
+    doc.setTextColor(184, 92, 56);
+    doc.setFontSize(13);
+    doc.setFont("helvetica", "bold");
+    doc.text("ALL MASONRY SERVICES INC", margin, 26);
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(15);
+    doc.text("CMU Block Installation — Quantity Calculator Report", margin, 52);
+    y = 96;
+
+    doc.setTextColor(74, 74, 74);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
+    doc.text("Prepared for: " + cmu_contactData.name + "  |  " + cmu_contactData.phone + "  |  " + cmu_contactData.email, margin, y);
+    y += 14;
+    doc.text("Property: " + cmu_contactData.address + ", " + cmu_contactData.zip, margin, y);
+    y += 14;
+    doc.text("Date: " + new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }), margin, y);
+    y += 24;
+
+    var lines = cmu_reportText.split("\n");
+    for (var li = 0; li < lines.length; li++) {
+      var line = lines[li];
+      var trimmed = line.trim();
+      if (!trimmed) { y += 6; continue; }
+      var isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 90 && !trimmed.includes("•") && !/^\d/.test(trimmed) && !/^\$/.test(trimmed);
+      if (isHeading) {
+        cmu_checkPage(36);
+        doc.setFillColor(184, 92, 56);
+        doc.rect(margin, y, 3, 16, "F");
+        doc.setTextColor(22, 18, 15);
+        doc.setFontSize(11);
+        doc.setFont("helvetica", "bold");
+        doc.text(trimmed, margin + 10, y + 12);
+        y += 24;
+      } else {
+        cmu_checkPage(18);
+        doc.setTextColor(74, 74, 74);
+        doc.setFontSize(9.5);
+        doc.setFont("helvetica", "normal");
+        var cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/^[-•]\s+/, "• ");
+        var wrapped = doc.splitTextToSize(cleaned, pageW - margin * 2);
+        doc.text(wrapped, margin, y);
+        y += wrapped.length * 13;
+      }
+    }
+
+    cmu_checkPage(80);
+    doc.setDrawColor(184, 92, 56);
+    doc.setLineWidth(0.5);
+    doc.line(margin, y, pageW - margin, y);
+    y += 12;
+    doc.setTextColor(140, 128, 112);
+    doc.setFontSize(8);
+    doc.setFont("helvetica", "bolditalic");
+    doc.text("DISCLAIMER", margin, y);
+    y += 12;
+    doc.setFont("helvetica", "normal");
+    var cmuDisc = "This report is a preliminary commercial estimate based on specifications provided through an online self-assessment tool. It is not a substitute for a professional site inspection, formal engineering review, or licensed contractor bid. Actual CMU quantities, structural requirements, local code compliance, and costs may differ significantly. All Masonry Services Inc. does not warrant the accuracy of this preliminary report. For a certified commercial estimate, contact All Masonry Services Inc. at 773-656-2107 or allmasonryservices.com.";
+    var cmuDiscWrapped = doc.splitTextToSize(cmuDisc, pageW - margin * 2);
+    doc.text(cmuDiscWrapped, margin, y);
+
+    var totalPages = doc.internal.getNumberOfPages();
+    for (var p = 1; p <= totalPages; p++) {
+      doc.setPage(p);
+      doc.saveGraphicsState();
+      doc.setGState(new GState({ opacity: 0.07 }));
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(52);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES", pageW / 2, pageH / 2, { align: "center", angle: 45 });
+      doc.restoreGraphicsState();
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, pageH - 36, pageW, 36, "F");
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(8);
+      doc.setFont("helvetica", "bold");
+      doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+      doc.setTextColor(180, 180, 180);
+      doc.text("Page " + p + " of " + totalPages, pageW - margin - 40, pageH - 14);
+    }
+    doc.save("CMUReport-" + cmu_contactData.name.replace(/\s+/g, "-") + ".pdf");
+  }
+
+  document.getElementById("cmu-to-step2").addEventListener("click", function() { cmu_showStep(2); });
+  document.getElementById("cmu-back-to-step1").addEventListener("click", function() { cmu_showStep(1); });
+
+  document.getElementById("cmu-submit").addEventListener("click", async function() {
+    var name = cmu_getVal("cmu-name");
+    var phone = cmu_getVal("cmu-phone");
+    var email = cmu_getVal("cmu-email");
+    var address = cmu_getVal("cmu-address");
+    var zip = cmu_getVal("cmu-zip");
+    if (!name || !phone || !email || !address || !zip) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+    cmu_contactData = { name: name, phone: phone, email: email, address: address, zip: zip };
+    cmu_showStep(3);
+    var spinner = document.getElementById("cmu-spinner");
+    var result = document.getElementById("cmu-result");
+    var errWrap = document.getElementById("cmu-error");
+    if (spinner) spinner.style.display = "flex";
+    if (result) result.style.display = "none";
+    if (errWrap) errWrap.style.display = "none";
+    try {
+      await cmu_generate();
+      cmu_renderReport();
+    } catch (e) {
+      if (spinner) spinner.style.display = "none";
+      if (errWrap) errWrap.style.display = "block";
+      var msg = document.getElementById("cmu-error-msg");
+      if (msg) msg.textContent = "Error generating report: " + (e.message || "Please try again.");
+    }
+  });
+
+  document.getElementById("cmu-pdf-btn").addEventListener("click", cmu_downloadPDF);
+  document.getElementById("cmu-retry").addEventListener("click", function() { cmu_showStep(1); });
+})();
+</script>
+
+<style>
+  .cmu-wrap { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #16120F; max-width: 720px; margin: 0 auto; }
+  .cmu-header { background: #16120F; padding: 32px 36px 0; }
+  .cmu-badge { display: inline-block; background: #B85C38; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 4px 10px; margin-bottom: 14px; border-radius: 4px; }
+  .cmu-title { font-family: 'Onest', sans-serif; color: #F5F1E8; font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.25; }
+  .cmu-title em { color: #B85C38; font-style: normal; }
+  .cmu-sub { color: #6A625A; font-size: 14px; margin: 0 0 24px; line-height: 1.5; }
+  .cmu-progress { height: 3px; background: rgba(255,255,255,0.10); }
+  .cmu-progress-fill { height: 3px; background: #B85C38; width: 10%; transition: width .4s ease; }
+  .step { display: none; padding: 32px 36px; }
+  .step.active { display: block; }
+  .step-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #6A625A; text-transform: uppercase; margin: 0 0 20px; }
+  .step-desc { font-size: 14px; color: #4A433B; margin: -12px 0 20px; }
+  .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 4px; }
+  .field-group { margin-bottom: 4px; }
+  .field-full { grid-column: 1 / -1; }
+  .field-label { display: block; font-size: 13px; font-weight: 600; color: #16120F; margin-bottom: 6px; }
+  .req { color: #B85C38; }
+  .cmu-input { width: 100%; height: 44px; border: 1px solid #D9D9D9; background: #fff; color: #16120F; font-family: 'Inter', sans-serif; font-size: 14px; padding: 0 12px; box-sizing: border-box; outline: none; border-radius: 10px; appearance: none; }
+  .cmu-input:focus { border-color: #B85C38; }
+  .cmu-select { cursor: pointer; }
+  .cmu-textarea { height: 80px; resize: vertical; padding: 10px 12px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cmu-btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border: none; border-radius: 14px; letter-spacing: .04em; text-decoration: none; transition: opacity .2s; }
+  .cmu-btn:hover { opacity: .88; }
+  .cmu-btn-primary { background: #B85C38; color: #FFFFFF; }
+  .cmu-btn-outline { background: transparent; color: #16120F; border: 2px solid #16120F; }
+  .nav-row { display: flex; gap: 12px; margin-top: 16px; }
+  #cmu-to-step2 { width: 100%; margin-top: 20px; }
+  .spinner-wrap { display: flex; flex-direction: column; align-items: center; padding: 48px 0; gap: 16px; }
+  .spinner { width: 44px; height: 44px; border: 3px solid #E8E4DC; border-top-color: #B85C38; border-radius: 50%; animation: cmu-spin .8s linear infinite; }
+  @keyframes cmu-spin { to { transform: rotate(360deg); } }
+  .spinner-text { color: #6A625A; font-size: 14px; }
+  .result-wrap { text-align: center; padding: 8px 0; }
+  .success-icon { width: 56px; height: 56px; background: #B85C38; color: #FFFFFF; font-size: 28px; font-weight: 900; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .result-title { font-family: 'Onest', sans-serif; font-size: 22px; color: #16120F; margin: 0 0 8px; }
+  .result-sub { font-size: 14px; color: #4A433B; margin: 0 0 20px; line-height: 1.5; }
+  .disclaimer-box { background: #FEF3EF; border: 1px solid #B85C38; border-left: 4px solid #B85C38; padding: 14px 16px; font-size: 12px; color: #4A433B; line-height: 1.6; text-align: left; margin-bottom: 20px; border-radius: 8px; }
+  .disclaimer-box strong { color: #16120F; display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; }
+  .result-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; justify-content: center; }
+  .error-wrap { padding: 32px; text-align: center; }
+  .error-msg { color: #c0392b; font-size: 14px; margin-bottom: 16px; }
+  @media (max-width: 600px) {
+    .cmu-header, .step { padding: 24px 20px; }
+    .input-grid, .contact-grid { grid-template-columns: 1fr; }
+    .cmu-title { font-size: 20px; }
+    .field-full { grid-column: 1; }
+  }
+</style>

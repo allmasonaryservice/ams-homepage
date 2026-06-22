@@ -1,0 +1,225 @@
+---
+import { projects as allProjects } from '../data/projects.js';
+
+interface Props {
+  cityName?: string;
+}
+const { cityName } = Astro.props;
+
+const FEATURED = [
+  'hinsdale-brick-installation',
+  'winnetka-chimney-fireplace',
+  'evanston-tuckpointing-repointing',
+  'kenilworth-custom-home-masonry',
+  'chicago-natural-stone-limestone',
+];
+
+const projects = cityName
+  ? allProjects.filter(p => p.city === cityName)
+  : FEATURED.map(s => allProjects.find(p => p.slug === s)).filter(Boolean);
+---
+
+<section style="background:#16120F; position:relative; overflow-x:clip;">
+
+  <div id="proj-driver" style="position:relative; height:200vh;">
+
+    <div id="proj-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+      <div class="proj-grid" style="max-width:1200px; width:100%; margin:0 auto; padding:0 40px; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+
+        <!-- LEFT: Polaroid card stack — cards scatter here as you scroll -->
+        <div id="proj-stack" style="position:relative; height:520px; display:flex; align-items:center; justify-content:center;">
+          {projects.map((p, i) => (
+            <div
+              class="proj-polaroid"
+              data-i={i}
+              style="position:absolute; background:#ffffff; padding:14px 14px 56px; box-shadow:0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06); width:230px; will-change:transform; user-select:none; cursor:pointer; transition:box-shadow 0.25s ease;"
+            >
+              <div style="overflow:hidden; width:100%; height:290px;">
+                <picture style="display:block;width:100%;height:100%;">
+                  <source media="(max-width: 768px)" srcset={p.heroImageSm} type="image/webp" />
+                  <img
+                    src={p.heroImage}
+                    alt={`${p.serviceType} in ${p.city}`}
+                    class="proj-img"
+                    style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);"
+                    loading="lazy"
+                  />
+                </picture>
+              </div>
+              <div style="padding-top:14px; text-align:center;">
+                <p style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 3px; line-height:1.3; transition:color 0.25s ease;">{p.serviceType}</p>
+                <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">{p.city}, IL</p>
+                <a href={`/projects/${p.slug}`} style="display:inline-block; margin-top:6px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:#B85C38; text-decoration:none; letter-spacing:0.04em; text-transform:uppercase;" onclick="event.stopPropagation()">View →</a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- RIGHT: Text content — split into top/bottom for mobile reordering -->
+        <div class="proj-text">
+
+          <div class="proj-text-top">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">{cityName ? `${cityName} Projects` : 'Our Work'}</span>
+            </div>
+
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#ffffff; letter-spacing:-0.02em; margin:0 0 20px;">
+              {cityName ? <>Recent work in<br />{cityName}</> : <>Recent masonry<br />projects</>}
+            </h2>
+
+            <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.65); margin:0; max-width:400px;">
+              {cityName
+                ? `Brick, stone, and chimney projects completed for ${cityName} homeowners — every job delivered with 19 years of masonry expertise.`
+                : 'From brick facade restorations to custom stone walls — every project delivered with the same precision and care since 2008.'}
+            </p>
+          </div>
+
+          <div class="proj-text-bottom">
+            <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+              <a href="/projects"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:16px; font-weight:500; padding:16px 30px; border-radius:14px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                View more projects
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <a href="/contact#form"
+                style="font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,0.3); transition:color 0.2s;"
+                onmouseenter="this.style.color='#fff'"
+                onmouseleave="this.style.color='rgba(255,255,255,0.65)'">
+                Get a free estimate →
+              </a>
+            </div>
+
+            <p style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.4); margin:16px 0 0;">
+              500+ projects completed across Illinois
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-spacer" style="height:160px;"></div>
+</section>
+
+<style>
+/* Desktop: gap between the two text blocks inside .proj-text */
+.proj-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  /* On mobile: flatten .proj-text so its children become direct flex items of .proj-grid */
+  .proj-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 28px !important;
+    padding: 0 20px !important;
+    align-items: stretch !important;
+  }
+  .proj-text { display: contents; } /* children participate directly in .proj-grid flex */
+  .proj-text-top  { order: 1; }
+  #proj-stack     { order: 2; height: 300px !important; }
+  .proj-text-bottom { order: 3; margin-top: 40px; }
+
+  .proj-polaroid { width: 160px !important; }
+  .proj-polaroid > div:first-child { height: 200px !important; }
+}
+</style>
+
+<script>
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const driver = document.getElementById('proj-driver') as HTMLElement;
+const cards  = gsap.utils.toArray<HTMLElement>('.proj-polaroid');
+const N      = cards.length;
+
+const FAN_ROTATIONS = [-24, -12, 0, 12, 24];
+
+gsap.set(cards, {
+  transformOrigin: '50% 100%',
+  rotation: 0,
+  scale: 1,
+  zIndex: (i: number) => i + 1,
+});
+
+// Same scrub fan animation on both desktop and mobile
+const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+cards.forEach((card, i) => {
+  tl.to(card, { rotation: FAN_ROTATIONS[i], duration: 1 }, 0);
+});
+
+ScrollTrigger.create({
+  trigger:   driver,
+  start:     'top top',
+  end:       'bottom bottom',
+  scrub:     0.6,
+  animation: tl,
+});
+
+// ── Hover & Click interactions ──────────────────────────────────
+const SHADOW_DEFAULT = '0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06)';
+const SHADOW_HOVER   = '0 20px 60px rgba(22,18,15,0.22), 0 6px 16px rgba(22,18,15,0.10)';
+const SHADOW_ACTIVE  = '0 28px 80px rgba(22,18,15,0.26), 0 8px 20px rgba(22,18,15,0.12)';
+
+let activeCard: HTMLElement | null = null;
+
+cards.forEach((card, i) => {
+  const title = card.querySelector<HTMLElement>('p:first-child');
+  const img   = card.querySelector<HTMLElement>('.proj-img');
+
+  card.addEventListener('mouseenter', () => {
+    if (card === activeCard) return;
+    card.style.boxShadow = SHADOW_HOVER;
+    card.style.zIndex    = String(N + 5);
+    if (title) title.style.color   = '#B85C38';
+    if (img)   img.style.transform = 'scale(1.06)';
+    gsap.to(card, { y: -28, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+  });
+
+  card.addEventListener('mouseleave', () => {
+    if (card === activeCard) return;
+    card.style.boxShadow = SHADOW_DEFAULT;
+    card.style.zIndex    = String(i + 1);
+    if (title) title.style.color   = '#16120F';
+    if (img)   img.style.transform = 'scale(1)';
+    gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+  });
+
+  card.addEventListener('click', () => {
+    if (card === activeCard) {
+      activeCard = null;
+      card.style.boxShadow = SHADOW_DEFAULT;
+      card.style.zIndex    = String(i + 1);
+      gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' });
+      return;
+    }
+    if (activeCard) {
+      const prevI = parseInt(activeCard.dataset.i ?? '0');
+      activeCard.style.boxShadow = SHADOW_DEFAULT;
+      activeCard.style.zIndex    = String(prevI + 1);
+      gsap.to(activeCard, { y: 0, duration: 0.25, ease: 'power2.out', overwrite: 'auto' });
+    }
+    activeCard = card;
+    card.style.zIndex    = String(N + 10);
+    card.style.boxShadow = SHADOW_ACTIVE;
+    gsap.to(card, { y: -48, duration: 0.35, ease: 'back.out(1.6)', overwrite: 'auto' });
+  });
+});
+</script>

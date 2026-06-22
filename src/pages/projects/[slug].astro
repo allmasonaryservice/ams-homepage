@@ -1,0 +1,1696 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { projects } from '../../data/projects.js';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project: p } = Astro.props;
+---
+
+<Layout
+  title={`${p.title} — ${p.serviceType} | All Masonry Services Inc`}
+  description={p.heroSub}
+>
+  <Navbar />
+
+  <!-- ─────────────────────────────────────────
+       HERO
+  ───────────────────────────────────────── -->
+  <section class="pp-hero" style={[
+    p.heroImage   ? `--pp-hero-img: url('${p.heroImage}')`     : '',
+    p.heroImageSm ? `--pp-hero-img-sm: url('${p.heroImageSm}')` : '',
+  ].filter(Boolean).join('; ')}>
+    {p.heroImage && <div class="pp-hero-bg"></div>}
+    <div class="pp-hero-overlay"></div>
+    <div class="pp-hero-grain"></div>
+    <div class="pp-hero-inner">
+
+      <div class="pp-hero-left">
+        <div class="pp-hero-label">{p.serviceType}</div>
+
+        <h1 class="pp-h1">{p.title}</h1>
+
+        <p class="pp-hero-sub">{p.heroSub}</p>
+
+        <div class="pp-hero-meta">
+          <span class="pp-meta-item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            {p.location}
+          </span>
+          <span class="pp-meta-dot" aria-hidden="true">·</span>
+          <span class="pp-meta-item">{p.county}</span>
+          <span class="pp-meta-dot" aria-hidden="true">·</span>
+          <span class="pp-meta-item">Completed {p.year}</span>
+        </div>
+
+        <div class="pp-hero-actions">
+          <a href="/contact#form" class="pp-btn pp-btn--primary">
+            Get a Free Estimate
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="tel:7736562107" class="pp-btn pp-btn--ghost">773-656-2107</a>
+        </div>
+      </div>
+
+      <div class="pp-hero-right">
+        <div class="pp-snapshot">
+          <p class="pp-snapshot-eyebrow">Project Details</p>
+          <div class="pp-snapshot-stats">
+            <div class="pp-snapshot-stat">
+              <span class="pp-snapshot-val">{p.sqft}</span>
+              <span class="pp-snapshot-key">Sq Ft</span>
+            </div>
+            <div class="pp-snapshot-stat">
+              <span class="pp-snapshot-val">{p.duration}</span>
+              <span class="pp-snapshot-key">Duration</span>
+            </div>
+            <div class="pp-snapshot-stat">
+              <span class="pp-snapshot-val">{p.year}</span>
+              <span class="pp-snapshot-key">Completed</span>
+            </div>
+            <div class="pp-snapshot-stat">
+              <span class="pp-snapshot-val">{p.warranty}</span>
+              <span class="pp-snapshot-key">Warranty</span>
+            </div>
+          </div>
+          <div class="pp-snapshot-divider"></div>
+          <div class="pp-snapshot-rows">
+            <div class="pp-snapshot-row">
+              <span class="pp-snapshot-row-key">Materials</span>
+              <span class="pp-snapshot-row-val">{p.materials}</span>
+            </div>
+            <div class="pp-snapshot-row">
+              <span class="pp-snapshot-row-key">Cost Range</span>
+              <span class="pp-snapshot-row-val">{p.costRange}</span>
+            </div>
+            <div class="pp-snapshot-row">
+              <span class="pp-snapshot-row-key">Location</span>
+              <span class="pp-snapshot-row-val">{p.location}</span>
+            </div>
+            <div class="pp-snapshot-row">
+              <span class="pp-snapshot-row-key">County</span>
+              <span class="pp-snapshot-row-val">{p.county}</span>
+            </div>
+          </div>
+          <a href="/contact#form" class="pp-snapshot-cta">
+            Request a Free Estimate
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       TRUST BAR
+  ───────────────────────────────────────── -->
+  <div class="sp-trust" role="list" aria-label="Trust indicators">
+    <div class="sp-trust-inner">
+      <span class="sp-trust-item" role="listitem">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Licensed &amp; Insured
+      </span>
+      <span class="sp-trust-sep" aria-hidden="true"></span>
+      <span class="sp-trust-item" role="listitem">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Free Estimates
+      </span>
+      <span class="sp-trust-sep" aria-hidden="true"></span>
+      <span class="sp-trust-item" role="listitem">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Serving Chicagoland Since 2007
+      </span>
+      <span class="sp-trust-sep" aria-hidden="true"></span>
+      <span class="sp-trust-item" role="listitem">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Mortar-Match Guarantee
+      </span>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────
+       BEFORE / AFTER GALLERY
+  ───────────────────────────────────────── -->
+  <section class="pp-gallery">
+    <div class="pp-gallery-inner">
+
+      <div class="pp-gallery-hdr">
+        <div class="pp-section-label">Project Gallery</div>
+        <h2 class="pp-gallery-h2">Before &amp; After</h2>
+        <p class="pp-gallery-sub">Drag the handle to compare. Use arrows to browse all {p.gallery.length} project photos.</p>
+      </div>
+
+      <div class="pp-gallery-stage">
+
+        {p.gallery.map((pair, i) => (
+          <div class={`pp-ba-pair${i === 0 ? ' pp-ba-pair--active' : ''}`} data-pair={i}>
+            <div class="pp-ba-slider" data-ba>
+
+              <!-- AFTER (base layer — always visible) -->
+              <div class="pp-ba-layer pp-ba-after">
+                <img
+                  src={pair.after}
+                  srcset={pair.afterSm ? `${pair.afterSm} 768w, ${pair.after} 1200w` : undefined}
+                  sizes={pair.afterSm ? "(max-width: 767px) 100vw, 1200px" : undefined}
+                  alt={`After: ${pair.caption}`}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  draggable="false"
+                />
+                <span class="pp-ba-tag pp-ba-tag--after">After</span>
+              </div>
+
+              <!-- BEFORE (clipped — clip-path controlled by JS) -->
+              <div class="pp-ba-layer pp-ba-before">
+                <img
+                  src={pair.before}
+                  srcset={pair.beforeSm ? `${pair.beforeSm} 768w, ${pair.before} 1200w` : undefined}
+                  sizes={pair.beforeSm ? "(max-width: 767px) 100vw, 1200px" : undefined}
+                  alt={`Before: ${pair.caption}`}
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  draggable="false"
+                />
+                <span class="pp-ba-tag pp-ba-tag--before">Before</span>
+              </div>
+
+              <!-- DIVIDER -->
+              <div class="pp-ba-div" aria-hidden="true">
+                <div class="pp-ba-handle">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/>
+                  </svg>
+                </div>
+              </div>
+
+            </div>
+            <p class="pp-ba-caption">{i + 1}/{p.gallery.length} — {pair.caption}</p>
+          </div>
+        ))}
+
+        <!-- NAVIGATION -->
+        <div class="pp-gallery-nav">
+          <button class="pp-gallery-btn pp-gallery-btn--prev" aria-label="Previous photo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <div class="pp-gallery-dots" role="tablist" aria-label="Gallery navigation">
+            {p.gallery.map((_, i) => (
+              <button
+                class={`pp-gallery-dot${i === 0 ? ' pp-gallery-dot--active' : ''}`}
+                role="tab"
+                aria-label={`Photo ${i + 1}`}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                data-dot={i}
+              ></button>
+            ))}
+          </div>
+          <button class="pp-gallery-btn pp-gallery-btn--next" aria-label="Next photo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       PROBLEM SECTION
+  ───────────────────────────────────────── -->
+  <section class="pp-prob">
+    <div class="pp-prob-inner">
+      <div class="pp-prob-hdr">
+        <div class="pp-section-label">The Problem</div>
+        <h2 class="pp-prob-h2">{p.problem.heading}</h2>
+        <p class="pp-prob-sub">{p.problem.intro}</p>
+      </div>
+
+      <div class="pp-prob-cols">
+        <aside class="pp-prob-sidebar" aria-label="Project specifics">
+          <p class="pp-prob-sidebar-label">Project Specifics</p>
+          <div class="pp-prob-rows">
+            <div class="pp-prob-row">
+              <span class="pp-prob-row-key">Service</span>
+              <span class="pp-prob-row-val">{p.serviceType}</span>
+            </div>
+            <div class="pp-prob-row">
+              <span class="pp-prob-row-key">Location</span>
+              <span class="pp-prob-row-val">{p.location}</span>
+            </div>
+            <div class="pp-prob-row">
+              <span class="pp-prob-row-key">Sq Footage</span>
+              <span class="pp-prob-row-val">{p.sqft} sq ft</span>
+            </div>
+            <div class="pp-prob-row">
+              <span class="pp-prob-row-key">Duration</span>
+              <span class="pp-prob-row-val">{p.duration}</span>
+            </div>
+            <div class="pp-prob-row">
+              <span class="pp-prob-row-key">Materials</span>
+              <span class="pp-prob-row-val">{p.materials}</span>
+            </div>
+            <div class="pp-prob-row">
+              <span class="pp-prob-row-key">Cost Range</span>
+              <span class="pp-prob-row-val">{p.costRange}</span>
+            </div>
+            <div class="pp-prob-row">
+              <span class="pp-prob-row-key">Warranty</span>
+              <span class="pp-prob-row-val pp-prob-row-val--yes">{p.warranty}</span>
+            </div>
+            <div class="pp-prob-row">
+              <span class="pp-prob-row-key">Free Estimate</span>
+              <span class="pp-prob-row-val pp-prob-row-val--yes">Yes</span>
+            </div>
+          </div>
+          <a href="/contact#form" class="pp-prob-sidebar-cta">
+            Get a Free Estimate
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </aside>
+
+        <div class="pp-prob-list">
+          <div class="pp-prob-rule"></div>
+          {p.problem.bullets.map((bullet, i) => (
+            <div class="pp-prob-item">
+              <div class="pp-prob-item-head">
+                <div class="pp-prob-num">{String(i + 1).padStart(2, '0')}</div>
+                <p class="pp-prob-text">{bullet}</p>
+              </div>
+            </div>
+            <div class="pp-prob-rule"></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       PROCESS — HOW WE FIXED IT
+  ───────────────────────────────────────── -->
+  <section class="pp-proc">
+    <div class="pp-proc-inner">
+      <div class="pp-proc-hdr">
+        <div class="pp-section-label">How We Fixed It</div>
+        <h2 class="pp-proc-h2">Our {p.serviceType} Process</h2>
+        <p class="pp-proc-sub">Every project follows the same disciplined sequence — no shortcuts, no hand-offs, same crew start to finish.</p>
+      </div>
+
+      <div class="pp-proc-grid">
+        {p.process.map((step) => (
+          <div class="pp-proc-card">
+            <div class="pp-proc-card-num">0{step.step}</div>
+            <h3 class="pp-proc-card-title">{step.title}</h3>
+            <p class="pp-proc-card-body">{step.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       VALUE PROPOSITION
+  ───────────────────────────────────────── -->
+  <section class="pp-val">
+    <div class="pp-val-inner">
+      <div class="pp-val-left">
+        <div class="pp-section-label">The Result</div>
+        <h2 class="pp-val-h2">{p.valueProp.heading}</h2>
+      </div>
+      <div class="pp-val-right">
+        <p class="pp-val-body">{p.valueProp.body}</p>
+        <div class="pp-val-badges">
+          <div class="pp-val-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Mortar-Match Guarantee</span>
+          </div>
+          <div class="pp-val-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Same Crew, Start to Finish</span>
+          </div>
+          <div class="pp-val-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>Written Estimate Before Work Begins</span>
+          </div>
+          <div class="pp-val-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            <span>19+ Years of Local Expertise</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       FAQ
+  ───────────────────────────────────────── -->
+  <section class="pp-faq">
+    <div class="pp-faq-inner">
+      <div class="pp-faq-hdr">
+        <div class="pp-section-label">Questions About This Project</div>
+        <h2 class="pp-faq-h2">Common Questions About This Project</h2>
+      </div>
+
+      <div class="pp-faq-list" role="list">
+        {p.faq.map((item, i) => (
+          <div class="pp-faq-item" role="listitem">
+            <button
+              class="pp-faq-q"
+              aria-expanded="false"
+              aria-controls={`pp-faq-ans-${i}`}
+            >
+              <span>{item.q}</span>
+              <svg class="pp-faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+            <div class="pp-faq-a" id={`pp-faq-ans-${i}`} hidden>
+              <p>{item.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       RELATED PROJECTS
+  ───────────────────────────────────────── -->
+  <section class="pp-related">
+    <div class="pp-related-inner">
+
+      <div class="pp-related-block">
+        <h2 class="pp-related-h2">Other Projects Near {p.city}</h2>
+        <div class="pp-related-grid">
+          {p.relatedByCity.map((rel) => (
+            <a href={`/projects/${rel.slug}`} class="pp-related-card">
+              <div class="pp-related-card-tag">{rel.service}</div>
+              <h3 class="pp-related-card-title">{rel.title}</h3>
+              <div class="pp-related-card-city">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                {rel.city}
+              </div>
+              <div class="pp-related-card-arrow">
+                View Project
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="pp-related-block">
+        <h2 class="pp-related-h2">More {p.serviceType} Projects</h2>
+        <div class="pp-related-grid">
+          {p.relatedByService.map((rel) => (
+            <a href={`/projects/${rel.slug}`} class="pp-related-card">
+              <div class="pp-related-card-tag">{rel.service}</div>
+              <h3 class="pp-related-card-title">{rel.title}</h3>
+              <div class="pp-related-card-city">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                {rel.city}
+              </div>
+              <div class="pp-related-card-arrow">
+                View Project
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────────
+       CTA BANNER
+  ───────────────────────────────────────── -->
+  <section class="sp-cta-banner" aria-label="Call to action">
+    <div class="sp-cta-inner">
+      <div class="sp-cta-text">
+        <h2 class="sp-cta-h2">Need {p.serviceType} Done Right?</h2>
+        <p class="sp-cta-sub">See what AMS can do for your home — schedule your free on-site estimate and get a written quote within 48 hours.</p>
+      </div>
+      <div class="sp-cta-actions">
+        <a href="/contact#form" class="sp-cta-btn sp-cta-btn--primary">
+          Request Free Estimate
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="tel:7736562107" class="sp-cta-btn sp-cta-btn--ghost">773-656-2107</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<!-- ═══════════════════════════════════════════════
+     STYLES
+══════════════════════════════════════════════════ -->
+<style>
+
+/* ── GALLERY / BEFORE-AFTER ── */
+.pp-gallery {
+  background: #F5F5F5;
+  padding: 100px 0;
+}
+.pp-gallery-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.pp-gallery-hdr {
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+.pp-gallery-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #16120F;
+  margin: 0 0 14px;
+}
+.pp-gallery-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #6A625A;
+  margin: 0;
+}
+.pp-gallery-stage {
+  position: relative;
+}
+.pp-ba-pair {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 380ms ease;
+}
+.pp-ba-pair--active {
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
+}
+.pp-ba-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: col-resize;
+  user-select: none;
+  background: #16120F;
+}
+.pp-ba-layer {
+  position: absolute;
+  inset: 0;
+}
+.pp-ba-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.pp-ba-before {
+  clip-path: inset(0 50% 0 0);
+  z-index: 2;
+}
+.pp-ba-after {
+  z-index: 1;
+}
+.pp-ba-tag {
+  position: absolute;
+  top: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 6px;
+  pointer-events: none;
+}
+.pp-ba-tag--before {
+  left: 16px;
+  background: rgba(22,18,15,0.75);
+  color: rgba(255,255,255,0.9);
+}
+.pp-ba-tag--after {
+  right: 16px;
+  background: rgba(184,92,56,0.9);
+  color: #ffffff;
+}
+.pp-ba-div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #ffffff;
+  z-index: 10;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.pp-ba-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.35);
+  color: #16120F;
+  pointer-events: all;
+  cursor: col-resize;
+  transition: box-shadow 150ms ease;
+}
+.pp-ba-handle:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.45); }
+.pp-ba-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #6A625A;
+  margin: 14px 0 0;
+  line-height: 1.5;
+}
+.pp-gallery-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+.pp-gallery-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #D4CFC9;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #16120F;
+  flex-shrink: 0;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.pp-gallery-btn:hover { border-color: #B85C38; color: #B85C38; }
+.pp-gallery-dots { display: flex; align-items: center; gap: 8px; }
+.pp-gallery-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #D4CFC9;
+  cursor: pointer;
+  padding: 0;
+  transition: background 250ms ease, transform 250ms ease;
+}
+.pp-gallery-dot--active { background: #B85C38; transform: scale(1.4); }
+
+/* ── HERO ── */
+.pp-hero {
+  position: relative;
+  background: #0F0D0C;
+  overflow: hidden;
+  padding: 140px 0 90px;
+}
+.pp-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: var(--pp-hero-img);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transform: scale(1.04);
+}
+@media (max-width: 767px) {
+  .pp-hero-bg { background-image: var(--pp-hero-img-sm, var(--pp-hero-img)); }
+}
+.pp-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(15,13,12,0.92) 0%,
+    rgba(15,13,12,0.78) 55%,
+    rgba(15,13,12,0.55) 100%
+  );
+  z-index: 1;
+}
+.pp-hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 2;
+}
+.pp-hero-inner {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 60px;
+  align-items: start;
+}
+.pp-hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B85C38;
+  margin-bottom: 24px;
+}
+.pp-hero-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: #B85C38;
+  flex-shrink: 0;
+}
+.pp-hero-label-sep { color: rgba(184,92,56,0.45); }
+.pp-h1 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(38px, 4.4vw, 68px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 0 28px;
+  color: #ffffff;
+  max-width: 640px;
+}
+.pp-hero-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.62);
+  margin: 0 0 32px;
+  max-width: 520px;
+}
+.pp-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.pp-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+}
+.pp-meta-item svg { color: rgba(255,255,255,0.3); flex-shrink: 0; }
+.pp-meta-dot { color: rgba(255,255,255,0.2); font-size: 13px; }
+.pp-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.pp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 13px 22px;
+  text-decoration: none;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.pp-btn--primary {
+  background: #B85C38;
+  color: #ffffff;
+  border: 1.5px solid #B85C38;
+}
+.pp-btn--primary:hover { background: #8A3A22; border-color: #8A3A22; }
+.pp-btn--ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.82);
+  border: 1.5px solid rgba(255,255,255,0.2);
+}
+.pp-btn--ghost:hover { border-color: rgba(255,255,255,0.45); color: #ffffff; }
+
+/* snapshot card */
+.pp-snapshot {
+  background: #16120F;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 28px;
+}
+.pp-snapshot-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin: 0 0 20px;
+}
+.pp-snapshot-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.pp-snapshot-stat {
+  background: rgba(255,255,255,0.03);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pp-snapshot-val {
+  font-family: 'Onest', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #B85C38;
+  line-height: 1.1;
+}
+.pp-snapshot-key {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.pp-snapshot-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+  margin-bottom: 20px;
+}
+.pp-snapshot-rows { display: flex; flex-direction: column; margin-bottom: 20px; }
+.pp-snapshot-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: baseline;
+}
+.pp-snapshot-row:last-child { border-bottom: none; }
+.pp-snapshot-row-key {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+}
+.pp-snapshot-row-val {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.72);
+  text-align: right;
+  line-height: 1.4;
+}
+.pp-snapshot-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 13px 18px;
+  background: #B85C38;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+.pp-snapshot-cta:hover { background: #8A3A22; }
+
+/* ── TRUST BAR ── */
+.sp-trust {
+  background: #16120F;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: center;
+}
+.sp-trust-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sp-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  white-space: nowrap;
+}
+.sp-trust-sep {
+  width: 1px;
+  height: 14px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+
+/* ── PROBLEM SECTION ── */
+.pp-prob {
+  background: #ffffff;
+  padding: 100px 0;
+}
+.pp-prob-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.pp-prob-hdr {
+  max-width: 700px;
+  margin-bottom: 60px;
+}
+.pp-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B85C38;
+  margin-bottom: 16px;
+}
+.pp-section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #B85C38;
+  flex-shrink: 0;
+}
+.pp-prob-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #16120F;
+  margin: 0 0 20px;
+}
+.pp-prob-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4A433B;
+  margin: 0;
+  max-width: 560px;
+}
+.pp-prob-cols {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.pp-prob-sidebar {
+  background: #16120F;
+  border-radius: 16px;
+  padding: 28px;
+  position: sticky;
+  top: 100px;
+}
+.pp-prob-sidebar-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: block;
+  margin-bottom: 0;
+}
+.pp-prob-rows { display: flex; flex-direction: column; }
+.pp-prob-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  align-items: baseline;
+}
+.pp-prob-row:last-child { border-bottom: none; }
+.pp-prob-row-key {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  flex-shrink: 0;
+}
+.pp-prob-row-val {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.78);
+  text-align: right;
+  line-height: 1.4;
+}
+.pp-prob-row-val--yes { color: #B85C38; font-weight: 700; }
+.pp-prob-sidebar-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 18px;
+  padding: 13px 18px;
+  background: #B85C38;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 200ms ease;
+}
+.pp-prob-sidebar-cta:hover { background: #8A3A22; }
+
+/* problem bullets list */
+.pp-prob-list { display: flex; flex-direction: column; }
+.pp-prob-rule { height: 1px; background: #E8E4DF; }
+.pp-prob-item { padding: 28px 0; }
+.pp-prob-item-head { display: flex; align-items: flex-start; gap: 20px; }
+.pp-prob-num {
+  font-family: 'Onest', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: rgba(22,18,15,0.08);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 48px;
+}
+.pp-prob-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #4A433B;
+  margin: 0;
+  padding-top: 6px;
+}
+
+/* ── PROCESS SECTION ── */
+.pp-proc {
+  background: #F5F5F5;
+  padding: 100px 0;
+}
+.pp-proc-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.pp-proc-hdr {
+  max-width: 600px;
+  margin-bottom: 60px;
+}
+.pp-proc-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(32px, 3.6vw, 52px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: #16120F;
+  margin: 0 0 16px;
+}
+.pp-proc-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #4A433B;
+  margin: 0;
+}
+.pp-proc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #E0DDD9;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.pp-proc-card {
+  background: #ffffff;
+  padding: 40px 36px;
+  position: relative;
+}
+.pp-proc-card-num {
+  font-family: 'Onest', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  color: rgba(22,18,15,0.06);
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.pp-proc-card-title {
+  font-family: 'Onest', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #16120F;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+.pp-proc-card-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4A433B;
+  margin: 0;
+}
+
+/* ── VALUE PROP ── */
+.pp-val {
+  background: #ffffff;
+  padding: 100px 0;
+  border-top: 1px solid #F0EDE9;
+}
+.pp-val-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.pp-val-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #16120F;
+  margin: 0;
+}
+.pp-val-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #4A433B;
+  margin: 0 0 32px;
+}
+.pp-val-badges { display: flex; flex-direction: column; gap: 14px; }
+.pp-val-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #16120F;
+}
+
+/* ── FAQ ── */
+.pp-faq {
+  background: #F5F5F5;
+  padding: 100px 0;
+}
+.pp-faq-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.pp-faq-hdr { margin-bottom: 48px; }
+.pp-faq-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: #16120F;
+  margin: 0;
+}
+.pp-faq-list { display: flex; flex-direction: column; }
+.pp-faq-item {
+  border-bottom: 1px solid #E0DDD9;
+}
+.pp-faq-item:first-child { border-top: 1px solid #E0DDD9; }
+.pp-faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Onest', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #16120F;
+  line-height: 1.3;
+}
+.pp-faq-q:hover { color: #B85C38; }
+.pp-faq-icon {
+  flex-shrink: 0;
+  transition: transform 280ms cubic-bezier(0.4,0,0.2,1);
+  color: #B85C38;
+}
+.pp-faq-q[aria-expanded="true"] .pp-faq-icon { transform: rotate(180deg); }
+.pp-faq-a {
+  overflow: hidden;
+  padding: 0 0 22px;
+}
+.pp-faq-a p {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4A433B;
+  margin: 0;
+}
+
+/* ── RELATED PROJECTS ── */
+.pp-related {
+  background: #16120F;
+  padding: 100px 0;
+}
+.pp-related-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+.pp-related-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 32px;
+}
+.pp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.pp-related-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+.pp-related-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(184,92,56,0.35);
+}
+.pp-related-card-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #B85C38;
+}
+.pp-related-card-title {
+  font-family: 'Onest', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+}
+.pp-related-card-city {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.38);
+}
+.pp-related-card-arrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #B85C38;
+  margin-top: 4px;
+}
+
+/* ── CTA BANNER (shared with service pages) ── */
+.sp-cta-banner {
+  background: linear-gradient(90deg, #16120F 0%, #6E2A19 40%, #B85C38 100%);
+  padding: 80px 30px;
+}
+.sp-cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.sp-cta-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(26px, 2.8vw, 40px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.sp-cta-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  max-width: 480px;
+  line-height: 1.6;
+}
+.sp-cta-actions { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
+.sp-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+.sp-cta-btn--primary {
+  background: #ffffff;
+  color: #16120F;
+  border: 1.5px solid #ffffff;
+}
+.sp-cta-btn--primary:hover { background: #F5F5F5; border-color: #F5F5F5; }
+.sp-cta-btn--ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.88);
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+.sp-cta-btn--ghost:hover { border-color: rgba(255,255,255,0.7); color: #ffffff; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .pp-gallery { padding: 72px 0; }
+  .pp-ba-slider { aspect-ratio: 4 / 3; border-radius: 12px; }
+  .pp-ba-tag { font-size: 10px; padding: 4px 8px; top: 10px; }
+  .pp-ba-handle { width: 38px; height: 38px; }
+}
+
+@media (max-width: 1024px) {
+  .pp-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .pp-hero-right { display: none; }
+  .pp-val-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 900px) {
+  .pp-hero { padding: 110px 0 60px; }
+  .pp-prob-hdr { margin-bottom: 40px; }
+  .pp-prob-cols { grid-template-columns: 1fr; gap: 40px; }
+  .pp-prob-sidebar { position: static; }
+  .pp-proc-grid { grid-template-columns: 1fr; }
+  .pp-related-grid { grid-template-columns: 1fr; gap: 12px; }
+  .sp-cta-inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 640px) {
+  .pp-prob { padding: 72px 0; }
+  .pp-proc { padding: 72px 0; }
+  .pp-val { padding: 72px 0; }
+  .pp-faq { padding: 72px 0; }
+  .pp-related { padding: 72px 0; }
+  .sp-cta-banner { padding: 60px 20px; }
+  .pp-proc-card { padding: 28px 24px; }
+  .sp-trust-inner { gap: 12px; }
+  .sp-trust-sep { display: none; }
+}
+
+</style>
+
+<!-- ═══════════════════════════════════════════════
+     BEFORE / AFTER SLIDER + GALLERY NAV
+══════════════════════════════════════════════════ -->
+<script is:inline>
+(function () {
+
+  /* ─── Single before/after drag slider ─── */
+  function initBaSlider(slider) {
+    var before = slider.querySelector('.pp-ba-before');
+    var divider = slider.querySelector('.pp-ba-div');
+    if (!before || !divider) return;
+
+    var dragging = false;
+
+    function setPos(clientX) {
+      var rect = slider.getBoundingClientRect();
+      var pct = Math.max(2, Math.min(98, (clientX - rect.left) / rect.width * 100));
+      divider.style.left = pct + '%';
+      before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    }
+
+    /* Mouse */
+    divider.addEventListener('mousedown', function (e) {
+      dragging = true;
+      e.preventDefault();
+    });
+    slider.addEventListener('mousemove', function (e) {
+      if (dragging) setPos(e.clientX);
+    });
+    document.addEventListener('mouseup', function () { dragging = false; });
+
+    /* Touch */
+    divider.addEventListener('touchstart', function (e) {
+      dragging = true;
+      e.preventDefault();
+    }, { passive: false });
+    slider.addEventListener('touchmove', function (e) {
+      if (dragging) { setPos(e.touches[0].clientX); e.preventDefault(); }
+    }, { passive: false });
+    document.addEventListener('touchend', function () { dragging = false; });
+
+    /* Keyboard: arrow keys adjust slider 5% per press */
+    slider.setAttribute('tabindex', '0');
+    slider.addEventListener('keydown', function (e) {
+      var rect = slider.getBoundingClientRect();
+      var cur = divider.offsetLeft / slider.offsetWidth * 100;
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); setPos(rect.left + (cur - 5) / 100 * rect.width); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); setPos(rect.left + (cur + 5) / 100 * rect.width); }
+    });
+
+    /* Initial state already set via CSS class */
+  }
+
+  /* ─── Gallery slideshow ─── */
+  function initGallery() {
+    var stage   = document.querySelector('.pp-gallery-stage');
+    if (!stage) return;
+
+    var pairs   = Array.from(stage.querySelectorAll('.pp-ba-pair'));
+    var dots    = Array.from(stage.querySelectorAll('.pp-gallery-dot'));
+    var prevBtn = stage.querySelector('.pp-gallery-btn--prev');
+    var nextBtn = stage.querySelector('.pp-gallery-btn--next');
+    var current = 0;
+
+    /* Init all sliders */
+    pairs.forEach(function (pair) {
+      var slider = pair.querySelector('.pp-ba-slider');
+      if (slider) initBaSlider(slider);
+    });
+
+    /* Navigate to pair index */
+    function goTo(idx) {
+      pairs[current].classList.remove('pp-ba-pair--active');
+      dots[current].classList.remove('pp-gallery-dot--active');
+      dots[current].setAttribute('aria-selected', 'false');
+
+      current = ((idx % pairs.length) + pairs.length) % pairs.length;
+
+      pairs[current].classList.add('pp-ba-pair--active');
+      dots[current].classList.add('pp-gallery-dot--active');
+      dots[current].setAttribute('aria-selected', 'true');
+
+      /* Reset slider to 50% */
+      var slider = pairs[current].querySelector('.pp-ba-slider');
+      if (slider) {
+        var before  = slider.querySelector('.pp-ba-before');
+        var divider = slider.querySelector('.pp-ba-div');
+        if (before)  before.style.clipPath = 'inset(0 50% 0 0)';
+        if (divider) divider.style.left = '50%';
+      }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { goTo(i); });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initGallery);
+  } else {
+    initGallery();
+  }
+  document.addEventListener('astro:page-load', initGallery);
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     FAQ ACCORDION
+══════════════════════════════════════════════════ -->
+<script is:inline>
+(function () {
+  function initFaq() {
+    var items = document.querySelectorAll('.pp-faq-item');
+    items.forEach(function (item) {
+      var btn = item.querySelector('.pp-faq-q');
+      var ans = item.querySelector('.pp-faq-a');
+      if (!btn || !ans) return;
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        // close all
+        items.forEach(function (other) {
+          var ob = other.querySelector('.pp-faq-q');
+          var oa = other.querySelector('.pp-faq-a');
+          if (ob && oa) { ob.setAttribute('aria-expanded', 'false'); oa.hidden = true; }
+        });
+        if (!open) { btn.setAttribute('aria-expanded', 'true'); ans.hidden = false; }
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFaq);
+  } else {
+    initFaq();
+  }
+  document.addEventListener('astro:page-load', initFaq);
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     GSAP SCROLL ANIMATIONS
+══════════════════════════════════════════════════ -->
+<script is:inline>
+(function () {
+
+  function initPpAnim() {
+    var gsap = window.__gsap;
+    var ScrollTrigger = window.__ScrollTrigger;
+    if (!gsap || !ScrollTrigger) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    /* ── PROBLEM SECTION ── */
+    var probSection = document.querySelector('.pp-prob');
+    if (probSection) {
+      var probLabel = probSection.querySelector('.pp-section-label');
+      var probH2 = probSection.querySelector('.pp-prob-h2');
+      var probSub = probSection.querySelector('.pp-prob-sub');
+      var probSidebar = probSection.querySelector('.pp-prob-sidebar');
+      var probItems = Array.from(probSection.querySelectorAll('.pp-prob-item'));
+      var probRules = Array.from(probSection.querySelectorAll('.pp-prob-rule'));
+
+      gsap.set([probLabel, probH2, probSub].filter(Boolean), { opacity: 0, y: 24 });
+      if (probSidebar) gsap.set(probSidebar, { opacity: 0, x: -32 });
+      gsap.set(probRules, { scaleX: 0, transformOrigin: 'left center' });
+      gsap.set(probItems, { opacity: 0, y: 24 });
+
+      ScrollTrigger.create({
+        trigger: probSection,
+        start: 'top 78%',
+        onEnter: function () {
+          gsap.to([probLabel, probH2, probSub].filter(Boolean), {
+            opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', stagger: 0.12, overwrite: true
+          });
+        },
+        onLeaveBack: function () {
+          gsap.set([probLabel, probH2, probSub].filter(Boolean), { opacity: 0, y: 24 });
+        }
+      });
+
+      if (probSidebar) {
+        ScrollTrigger.create({
+          trigger: '.pp-prob-cols',
+          start: 'top 82%',
+          onEnter: function () {
+            gsap.to(probSidebar, { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', overwrite: true });
+          },
+          onLeaveBack: function () { gsap.set(probSidebar, { opacity: 0, x: -32 }); }
+        });
+      }
+
+      probItems.forEach(function (item, i) {
+        var prevRule = probRules[i];
+        ScrollTrigger.create({
+          trigger: item,
+          start: 'top 88%',
+          onEnter: function () {
+            if (prevRule) gsap.to(prevRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true });
+            gsap.to(item, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.12, overwrite: true });
+          },
+          onLeaveBack: function () {
+            if (prevRule) gsap.set(prevRule, { scaleX: 0 });
+            gsap.set(item, { opacity: 0, y: 24 });
+          }
+        });
+      });
+
+      var lastProbRule = probRules[probRules.length - 1];
+      if (lastProbRule) {
+        ScrollTrigger.create({
+          trigger: lastProbRule,
+          start: 'top 92%',
+          onEnter: function () { gsap.to(lastProbRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true }); },
+          onLeaveBack: function () { gsap.set(lastProbRule, { scaleX: 0 }); }
+        });
+      }
+    }
+
+    /* ── PROCESS CARDS ── */
+    var procSection = document.querySelector('.pp-proc');
+    if (procSection) {
+      var procLabel = procSection.querySelector('.pp-section-label');
+      var procH2 = procSection.querySelector('.pp-proc-h2');
+      var procSub = procSection.querySelector('.pp-proc-sub');
+      var procCards = Array.from(procSection.querySelectorAll('.pp-proc-card'));
+
+      gsap.set([procLabel, procH2, procSub].filter(Boolean), { opacity: 0, y: 24 });
+      gsap.set(procCards, { opacity: 0, y: 32 });
+
+      ScrollTrigger.create({
+        trigger: procSection,
+        start: 'top 78%',
+        onEnter: function () {
+          gsap.to([procLabel, procH2, procSub].filter(Boolean), {
+            opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.1, overwrite: true
+          });
+          gsap.to(procCards, {
+            opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', stagger: 0.1, delay: 0.2, overwrite: true
+          });
+        },
+        onLeaveBack: function () {
+          gsap.set([procLabel, procH2, procSub].filter(Boolean), { opacity: 0, y: 24 });
+          gsap.set(procCards, { opacity: 0, y: 32 });
+        }
+      });
+    }
+
+    /* ── VALUE PROP ── */
+    var valSection = document.querySelector('.pp-val');
+    if (valSection) {
+      var valEls = Array.from(valSection.querySelectorAll('.pp-section-label, .pp-val-h2, .pp-val-body, .pp-val-badge'));
+      gsap.set(valEls, { opacity: 0, y: 20 });
+      ScrollTrigger.create({
+        trigger: valSection,
+        start: 'top 78%',
+        onEnter: function () {
+          gsap.to(valEls, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.08, overwrite: true });
+        },
+        onLeaveBack: function () { gsap.set(valEls, { opacity: 0, y: 20 }); }
+      });
+    }
+
+    /* ── FAQ ── */
+    var faqSection = document.querySelector('.pp-faq');
+    if (faqSection) {
+      var faqHdrEls = Array.from(faqSection.querySelectorAll('.pp-section-label, .pp-faq-h2'));
+      var faqItems = Array.from(faqSection.querySelectorAll('.pp-faq-item'));
+      gsap.set([...faqHdrEls, ...faqItems], { opacity: 0, y: 20 });
+      ScrollTrigger.create({
+        trigger: faqSection,
+        start: 'top 78%',
+        onEnter: function () {
+          gsap.to([...faqHdrEls, ...faqItems], {
+            opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.08, overwrite: true
+          });
+        },
+        onLeaveBack: function () { gsap.set([...faqHdrEls, ...faqItems], { opacity: 0, y: 20 }); }
+      });
+    }
+
+    /* ── RELATED CARDS ── */
+    var relatedCards = Array.from(document.querySelectorAll('.pp-related-card'));
+    if (relatedCards.length) {
+      gsap.set(relatedCards, { opacity: 0, y: 28 });
+      ScrollTrigger.create({
+        trigger: '.pp-related',
+        start: 'top 78%',
+        onEnter: function () {
+          gsap.to(relatedCards, {
+            opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', stagger: 0.07, overwrite: true
+          });
+        },
+        onLeaveBack: function () { gsap.set(relatedCards, { opacity: 0, y: 28 }); }
+      });
+    }
+  }
+
+  window.__ppAnimReady = initPpAnim;
+  window.addEventListener('animations:ready', window.__ppAnimReady);
+  document.addEventListener('astro:page-load', initPpAnim);
+})();
+</script>

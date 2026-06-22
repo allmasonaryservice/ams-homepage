@@ -1,0 +1,495 @@
+---
+---
+
+<div class="fe-wrap" id="fe-root">
+  <div class="fe-header">
+    <span class="fe-badge">COMMERCIAL TOOL</span>
+    <h2 class="fe-title">Commercial Masonry Veneers — <em>Facade Estimator</em></h2>
+    <p class="fe-sub">Input your building dimensions — get a detailed commercial facade coverage breakdown with material, labor, and engineering notes.</p>
+    <div class="fe-progress"><div class="fe-progress-fill" id="fe-progress-fill"></div></div>
+  </div>
+
+  <!-- STEP 1: Tool Inputs -->
+  <div class="step active" id="fe-step1">
+    <p class="step-label">Step 1 of 3 — Building Dimensions</p>
+    <div class="input-grid">
+      <div class="field-group">
+        <label class="field-label" for="fe-width">Building Width (ft)</label>
+        <input class="fe-input" type="number" id="fe-width" placeholder="e.g. 80" min="0" />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="fe-depth">Building Depth (ft)</label>
+        <input class="fe-input" type="number" id="fe-depth" placeholder="e.g. 120" min="0" />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="fe-stories">Number of Stories</label>
+        <select class="fe-input fe-select" id="fe-stories">
+          <option value="1">1 Story (~12 ft)</option>
+          <option value="2">2 Stories (~24 ft)</option>
+          <option value="3">3 Stories (~36 ft)</option>
+          <option value="4+">4+ Stories</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="fe-custom-height">Custom Height Override (ft) — optional</label>
+        <input class="fe-input" type="number" id="fe-custom-height" placeholder="Leave blank to use story estimate" min="0" />
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Elevations to Clad</label>
+      <div class="elev-row">
+        <label class="elev-check"><input type="checkbox" class="fe-elev" value="Front" /><span class="elev-box"></span><span class="elev-text">Front</span></label>
+        <label class="elev-check"><input type="checkbox" class="fe-elev" value="Rear" /><span class="elev-box"></span><span class="elev-text">Rear</span></label>
+        <label class="elev-check"><input type="checkbox" class="fe-elev" value="Left" /><span class="elev-box"></span><span class="elev-text">Left</span></label>
+        <label class="elev-check"><input type="checkbox" class="fe-elev" value="Right" /><span class="elev-box"></span><span class="elev-text">Right</span></label>
+      </div>
+    </div>
+
+    <div class="input-grid">
+      <div class="field-group">
+        <label class="field-label" for="fe-veneer">Veneer System</label>
+        <select class="fe-input fe-select" id="fe-veneer">
+          <option value="Thin Brick">Thin Brick</option>
+          <option value="Full Natural Stone">Full Natural Stone</option>
+          <option value="Limestone Panel">Limestone Panel</option>
+          <option value="Manufactured Stone">Manufactured Stone</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="fe-openings">Openings / Deductions (sq ft)</label>
+        <input class="fe-input" type="number" id="fe-openings" placeholder="e.g. 500" min="0" />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="fe-project-name">Company / Project Name</label>
+        <input class="fe-input" type="text" id="fe-project-name" placeholder="e.g. River North Mixed-Use — Devco Partners" />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="fe-notes">Additional Notes</label>
+        <textarea class="fe-input fe-textarea" id="fe-notes" placeholder="Existing substrate, access restrictions, design requirements, phasing, etc."></textarea>
+      </div>
+    </div>
+    <button class="fe-btn fe-btn-primary" id="fe-to-step2">Next — Your Information →</button>
+  </div>
+
+  <!-- STEP 2: Contact Form -->
+  <div class="step" id="fe-step2">
+    <p class="step-label">Step 2 of 3 — Your Contact Information</p>
+    <p class="step-desc">We'll include your details in the personalized facade estimate report.</p>
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="fe-name">Full Name <span class="req">*</span></label>
+        <input class="fe-input" type="text" id="fe-name" placeholder="Lisa Developer" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="fe-phone">Phone <span class="req">*</span></label>
+        <input class="fe-input" type="tel" id="fe-phone" placeholder="(312) 555-0100" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="fe-email">Email <span class="req">*</span></label>
+        <input class="fe-input" type="email" id="fe-email" placeholder="lisa@developer.com" required />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="fe-address">Property Address <span class="req">*</span></label>
+        <input class="fe-input" type="text" id="fe-address" placeholder="500 N Michigan Ave, Chicago, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="fe-zip">Zip Code <span class="req">*</span></label>
+        <input class="fe-input" type="text" id="fe-zip" placeholder="60611" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="fe-btn fe-btn-outline" id="fe-back-to-step1">← Back</button>
+      <button class="fe-btn fe-btn-primary" id="fe-submit">Generate Facade Estimate →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="fe-step3">
+    <div class="spinner-wrap" id="fe-spinner">
+      <div class="spinner"></div>
+      <p class="spinner-text">Calculating commercial facade coverage and cost estimate…</p>
+    </div>
+    <div class="result-wrap" id="fe-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="result-title">Your Facade Estimate Is Ready</h3>
+      <p class="result-sub">Your personalized Commercial Facade Coverage Analysis is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary facade estimate is based on building dimensions you provided and is not a substitute for a professional site inspection or engineering review. Actual coverage, material quantities, anchorage requirements, and costs may differ based on site conditions and structural engineering specifications. Contact All Masonry Services Inc. for a formal commercial estimate — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="fe-btn fe-btn-primary" id="fe-pdf-btn">Download PDF Report</button>
+        <a class="fe-btn fe-btn-outline" href="/contact#form">Book Free Consultation</a>
+      </div>
+    </div>
+    <div class="error-wrap" id="fe-error" style="display:none">
+      <p class="error-msg" id="fe-error-msg"></p>
+      <button class="fe-btn fe-btn-outline" id="fe-retry">← Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (async () => {
+    const GEMINI_KEY = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+
+    let fe_reportText = "";
+    let fe_contactData: Record<string, string> = {};
+
+    function fe_getVal(id: string): string {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      return el ? el.value.trim() : "";
+    }
+
+    function fe_setProgress(pct: number) {
+      const bar = document.getElementById("fe-progress-fill") as HTMLElement | null;
+      if (bar) bar.style.width = pct + "%";
+    }
+
+    function fe_showStep(n: number) {
+      [1, 2, 3].forEach(i => {
+        const el = document.getElementById(`fe-step${i}`);
+        if (el) el.classList.toggle("active", i === n);
+      });
+      fe_setProgress(n === 1 ? 10 : n === 2 ? 50 : 100);
+    }
+
+    function fe_getElevations(): string[] {
+      return Array.from(document.querySelectorAll<HTMLInputElement>(".fe-elev:checked")).map(c => c.value);
+    }
+
+    function fe_calcHeight(): number {
+      const custom = parseFloat(fe_getVal("fe-custom-height"));
+      if (custom > 0) return custom;
+      const stories = fe_getVal("fe-stories");
+      if (stories === "1") return 14;
+      if (stories === "2") return 26;
+      if (stories === "3") return 38;
+      return 52;
+    }
+
+    async function fe_generate() {
+      const width = parseFloat(fe_getVal("fe-width")) || 0;
+      const depth = parseFloat(fe_getVal("fe-depth")) || 0;
+      const stories = fe_getVal("fe-stories");
+      const buildingHeight = fe_calcHeight();
+      const elevations = fe_getElevations();
+      const veneer = fe_getVal("fe-veneer");
+      const openings = parseFloat(fe_getVal("fe-openings")) || 0;
+      const projectName = fe_getVal("fe-project-name");
+      const notes = fe_getVal("fe-notes");
+      const zip = fe_contactData.zip;
+
+      let grossArea = 0;
+      const frontArea = width * buildingHeight;
+      const rearArea = width * buildingHeight;
+      const leftArea = depth * buildingHeight;
+      const rightArea = depth * buildingHeight;
+      if (elevations.includes("Front")) grossArea += frontArea;
+      if (elevations.includes("Rear")) grossArea += rearArea;
+      if (elevations.includes("Left")) grossArea += leftArea;
+      if (elevations.includes("Right")) grossArea += rightArea;
+      if (elevations.length === 0) grossArea = frontArea + rearArea + leftArea + rightArea;
+      const netArea = Math.max(0, grossArea - openings);
+      const materialWithWaste = Math.ceil(netArea * 1.10);
+
+      const elevStr = elevations.length > 0 ? elevations.join(", ") : "All four elevations (full building wrap)";
+
+      const prompt = `You are a senior commercial facade specialist at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED facade coverage estimate for a specific developer/GC at zip code ${zip}.
+
+PROJECT PROFILE:
+- Developer/Contact: ${fe_contactData.name}
+- Property: ${fe_contactData.address}, IL ${zip}
+- Project/Company Name: ${projectName || "Not specified"}
+- Building Dimensions: ${width} ft wide × ${depth} ft deep
+- Stories: ${stories} (estimated height: ${buildingHeight} ft)
+- Elevations to Clad: ${elevStr}
+- Veneer System Selected: ${veneer}
+- Openings / Deductions: ${openings} sq ft
+- Additional Notes: ${notes || "None provided"}
+
+PRE-CALCULATED AREAS (use exactly these numbers — do not recalculate):
+- Front elevation: ${frontArea} sq ft
+- Rear elevation: ${rearArea} sq ft
+- Left elevation: ${leftArea} sq ft
+- Right elevation: ${rightArea} sq ft
+- Gross facade area (selected elevations): ${grossArea} sq ft
+- Openings deducted: ${openings} sq ft
+- Net cladding area: ${netArea} sq ft
+- Material needed with 10% waste: ${materialWithWaste} sq ft
+
+TASK: Write a SPECIFIC, PERSONALIZED commercial facade coverage estimate for THIS building at THIS property. Reference the developer's name, property address, specific dimensions (${width}×${depth} ft, ${buildingHeight} ft tall), selected veneer (${veneer}), and elevations (${elevStr}) in every section. This must read like a pre-bid estimate document, not generic advice.
+
+Use exactly these ALL CAPS headings:
+
+FACADE COVERAGE SUMMARY — ${veneer.toUpperCase()}
+(Open with a clear summary: ${fe_contactData.name}'s ${stories}-story building at ${fe_contactData.address} has ${netArea} sq ft of net cladding area on the ${elevStr} elevation(s). State the veneer system (${veneer}) and why it is appropriate for this building type, scale, and Chicago climate. Identify the 2-3 most critical facade decisions for this project before awarding a bid.)
+
+MATERIAL CALCULATION — PRECISE BREAKDOWN
+(Show the breakdown using exactly the pre-calculated numbers above:
+- Front elevation: ${frontArea} sq ft${elevations.includes("Front") ? " [SELECTED]" : " [NOT SELECTED]"}
+- Rear elevation: ${rearArea} sq ft${elevations.includes("Rear") ? " [SELECTED]" : " [NOT SELECTED]"}
+- Left elevation: ${leftArea} sq ft${elevations.includes("Left") ? " [SELECTED]" : " [NOT SELECTED]"}
+- Right elevation: ${rightArea} sq ft${elevations.includes("Right") ? " [SELECTED]" : " [NOT SELECTED]"}
+- Gross facade area: ${grossArea} sq ft
+- Openings / deductions: ${openings} sq ft
+- Net cladding area: ${netArea} sq ft
+- ${veneer} material needed (10% waste): ${materialWithWaste} sq ft
+Then explain what unit packaging looks like for ${veneer}: sq ft per pallet, typical order quantity for ${materialWithWaste} sq ft.)
+
+COST ESTIMATE — CHICAGO COMMERCIAL 2026
+(Material cost for ${materialWithWaste} sq ft of ${veneer}: $X.XX–$X.XX per sq ft = $XX,XXX–$XX,XXX total material
+Labor cost for ${netArea} sq ft ${veneer} installation on ${stories}-story building: $X.XX–$X.XX per sq ft = $XX,XXX–$XX,XXX
+Anchorage / shelf angles / backup wall: $XX,XXX–$XX,XXX estimate
+Scaffolding / access for ${buildingHeight} ft building: $XX,XXX–$XX,XXX
+TOTAL PROJECT ESTIMATE: $XXX,XXX–$XXX,XXX
+Use real Chicago Metro 2026 commercial prices. Explain what drives the range for ${veneer} on a ${stories}-story building. Note: this is a budgetary estimate; formal bid required for contract.)
+
+VENEER SYSTEM SPECIFICATION — ${veneer.toUpperCase()}
+(Technical specification for ${veneer} appropriate for ${stories}-story commercial building in Chicago:
+- Material standard (ASTM reference)
+- Minimum thickness requirement for ${stories}-story application
+- Weight per sq ft
+- Freeze-thaw cycle rating requirement for Chicago climate (Zone 5B)
+- Recommended mortar type and mix design
+- Joint profile and width specification
+- Color/texture options appropriate for ${projectName || "commercial"} aesthetic)
+
+ENGINEERING & STRUCTURAL REQUIREMENTS
+(Specific engineering requirements for ${veneer} on a ${buildingHeight} ft, ${stories}-story building at ${fe_contactData.address}:
+- Structural engineer of record required? Yes/No and why for ${stories} stories
+- Backup wall type and specification (CMU, stud frame, concrete)
+- Tie system specification (veneer ties per sq ft, ASTM reference)
+- Lintel requirements over openings in ${netArea} sq ft cladding area
+- Wind load requirement for ${zip} area
+- Chicago building code section reference for ${veneer} on ${stories}-story)
+
+SHELF ANGLE AND ANCHORAGE NOTES
+(Specific shelf angle / anchorage plan for ${buildingHeight} ft building:
+- Shelf angle specification (size, steel grade, spacing per story)
+- Number of shelf angle lines needed for ${stories}-story building
+- Flashing and weep system at each shelf angle level
+- Movement joint specification (location and frequency for ${veneer})
+- Anchor bolt pattern into backup wall
+- Expansion joint at building corners — details for ${width}×${depth} ft footprint)
+
+INSTALLATION PHASING FOR ${elevStr.toUpperCase()}
+(Specific phasing plan for ${netArea} sq ft of ${veneer} on ${elevStr} elevation(s) of a ${stories}-story building:
+- Scaffolding / access plan for ${buildingHeight} ft height
+- Phase 1 and Phase 2 breakdown (which elevations, which stories)
+- Crew size for this scope (${netArea} sq ft is approximately X crew-weeks)
+- Chicago weather window — optimal installation months, winter protection if needed
+- Coordination with other trades at ${fe_contactData.address})
+
+YOUR NEXT STEP
+(Recommend contacting All Masonry Services Inc. for a formal commercial facade proposal at 773-656-2107 or allmasonryservices.com. AMS can provide certified written estimate for ${netArea} sq ft ${veneer} installation within 48–72 hours. AMS has completed 500+ commercial facade projects in Chicagoland since 2007 and has active crews in the ${zip} area.)
+
+Write in GC-grade professional language. Reference specific numbers from the pre-calculated areas throughout. Never round the areas differently from the values given.`;
+
+      const resp = await fetch(GEMINI_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+        })
+      });
+      if (!resp.ok) throw new Error(`API error: ${resp.status}`);
+      const data = await resp.json();
+      fe_reportText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No report generated.";
+    }
+
+    function fe_renderReport() {
+      const spinner = document.getElementById("fe-spinner");
+      const result = document.getElementById("fe-result");
+      if (spinner) spinner.style.display = "none";
+      if (result) result.style.display = "block";
+    }
+
+    async function fe_downloadPDF() {
+      await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"); const jsPDF = (window as any).jspdf.jsPDF; const GState = (window as any).jspdf.GState;
+      const doc = new jsPDF({ unit: "pt", format: "letter" });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const margin = 48;
+      let y = 0;
+
+      function fe_checkPage(needed: number) {
+        if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
+      }
+
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, 0, pageW, 72, "F");
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES INC", margin, 26);
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(15);
+      doc.text("Commercial Masonry Veneers — Facade Estimator Report", margin, 52);
+      y = 96;
+
+      doc.setTextColor(74, 74, 74);
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Prepared for: ${fe_contactData.name}  |  ${fe_contactData.phone}  |  ${fe_contactData.email}`, margin, y);
+      y += 14;
+      doc.text(`Property: ${fe_contactData.address}, ${fe_contactData.zip}`, margin, y);
+      y += 14;
+      doc.text(`Date: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`, margin, y);
+      y += 24;
+
+      const lines = fe_reportText.split("\n");
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) { y += 6; continue; }
+        const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 90 && !trimmed.includes("•") && !trimmed.match(/^\d/) && !trimmed.match(/^\$/);
+        if (isHeading) {
+          fe_checkPage(36);
+          doc.setFillColor(184, 92, 56);
+          doc.rect(margin, y, 3, 16, "F");
+          doc.setTextColor(22, 18, 15);
+          doc.setFontSize(11);
+          doc.setFont("helvetica", "bold");
+          doc.text(trimmed, margin + 10, y + 12);
+          y += 24;
+        } else {
+          fe_checkPage(18);
+          doc.setTextColor(74, 74, 74);
+          doc.setFontSize(9.5);
+          doc.setFont("helvetica", "normal");
+          const cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/^[-•]\s+/, "• ");
+          const wrapped = doc.splitTextToSize(cleaned, pageW - margin * 2);
+          doc.text(wrapped, margin, y);
+          y += wrapped.length * 13;
+        }
+      }
+
+      fe_checkPage(48);
+      y += 8;
+      doc.setFillColor(248, 246, 242);
+      doc.rect(margin, y, pageW - margin * 2, 42, "F");
+      doc.setTextColor(120, 110, 100);
+      doc.setFontSize(7.5);
+      doc.setFont("helvetica", "italic");
+      const disclaimer = "DISCLAIMER: This preliminary facade coverage estimate is based on building dimensions provided by the user and is not a substitute for a professional site inspection, structural engineering review, or formal bid. Actual coverage areas, material quantities, anchorage requirements, shelf angle specifications, and installation costs may vary based on on-site conditions, substrate conditions, wind load engineering, and final architectural drawings. All Masonry Services Inc. is not liable for decisions made solely on the basis of this estimate. A licensed commercial masonry contractor must inspect the site and provide a formal written proposal before any work begins.";
+      const dLines = doc.splitTextToSize(disclaimer, pageW - margin * 2 - 16);
+      doc.text(dLines, margin + 8, y + 10);
+      y += dLines.length * 9 + 16;
+
+      const totalPages = (doc.internal as any).getNumberOfPages();
+      for (let p = 1; p <= totalPages; p++) {
+        doc.setPage(p);
+        doc.saveGraphicsState();
+        doc.setGState(new GState({ opacity: 0.07 }));
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(52);
+        doc.setFont("helvetica", "bold");
+        doc.text("ALL MASONRY SERVICES", pageW / 2, pageH / 2, { align: "center", angle: 45 });
+        doc.restoreGraphicsState();
+        doc.setFillColor(22, 18, 15);
+        doc.rect(0, pageH - 36, pageW, 36, "F");
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "bold");
+        doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+        doc.setTextColor(180, 180, 180);
+        doc.text(`Page ${p} of ${totalPages}`, pageW - margin - 40, pageH - 14);
+      }
+      doc.save(`FacadeEstimate-${fe_contactData.name.replace(/\s+/g, "-")}.pdf`);
+    }
+
+    document.getElementById("fe-to-step2")?.addEventListener("click", () => fe_showStep(2));
+    document.getElementById("fe-back-to-step1")?.addEventListener("click", () => fe_showStep(1));
+
+    document.getElementById("fe-submit")?.addEventListener("click", async () => {
+      const name = fe_getVal("fe-name");
+      const phone = fe_getVal("fe-phone");
+      const email = fe_getVal("fe-email");
+      const address = fe_getVal("fe-address");
+      const zip = fe_getVal("fe-zip");
+      if (!name || !phone || !email || !address || !zip) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+      fe_contactData = { name, phone, email, address, zip };
+      fe_showStep(3);
+      const spinner = document.getElementById("fe-spinner");
+      const result = document.getElementById("fe-result");
+      const errWrap = document.getElementById("fe-error");
+      if (spinner) spinner.style.display = "flex";
+      if (result) result.style.display = "none";
+      if (errWrap) errWrap.style.display = "none";
+      try {
+        await fe_generate();
+        fe_renderReport();
+      } catch (e: any) {
+        if (spinner) spinner.style.display = "none";
+        if (errWrap) errWrap.style.display = "block";
+        const msg = document.getElementById("fe-error-msg");
+        if (msg) msg.textContent = "Error generating report: " + (e.message || "Please try again.");
+      }
+    });
+
+    document.getElementById("fe-pdf-btn")?.addEventListener("click", fe_downloadPDF);
+    document.getElementById("fe-retry")?.addEventListener("click", () => fe_showStep(1));
+  })();
+</script>
+
+<style>
+  .fe-wrap { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #16120F; max-width: 720px; margin: 0 auto; }
+  .fe-header { background: #16120F; padding: 32px 36px 0; }
+  .fe-badge { display: inline-block; background: #B85C38; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 4px 10px; margin-bottom: 14px; border-radius: 4px; }
+  .fe-title { font-family: 'Onest', sans-serif; color: #F5F3EF; font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.25; }
+  .fe-title em { color: #B85C38; font-style: normal; }
+  .fe-sub { color: #6A625A; font-size: 14px; margin: 0 0 24px; line-height: 1.5; }
+  .fe-progress { height: 3px; background: #2A2A2A; }
+  .fe-progress-fill { height: 3px; background: #B85C38; width: 10%; transition: width .4s ease; }
+  .step { display: none; padding: 32px 36px; }
+  .step.active { display: block; }
+  .step-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #6A625A; text-transform: uppercase; margin: 0 0 20px; }
+  .step-desc { font-size: 14px; color: #4A433B; margin: -12px 0 20px; }
+  .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field-group { margin-bottom: 16px; }
+  .field-full { grid-column: 1 / -1; }
+  .field-label { display: block; font-size: 13px; font-weight: 600; color: #16120F; margin-bottom: 6px; }
+  .req { color: #B85C38; }
+  .elev-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .elev-check { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: #fff; border: 2px solid #E0DDD8; cursor: pointer; transition: border-color .15s; }
+  .elev-check:hover { border-color: #16120F; }
+  .elev-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .elev-box { width: 16px; height: 16px; border: 2px solid #16120F; flex-shrink: 0; background: #fff; position: relative; transition: background .15s; }
+  .elev-check input:checked ~ .elev-box { background: #B85C38; border-color: #B85C38; }
+  .elev-check input:checked ~ .elev-box::after { content: ""; position: absolute; left: 3px; top: 0; width: 5px; height: 9px; border: 2px solid #FFFFFF; border-top: none; border-left: none; transform: rotate(45deg); }
+  .elev-text { font-size: 13px; font-weight: 600; color: #16120F; }
+  .fe-input { width: 100%; height: 44px; border: 1px solid #D9D9D9; background: #fff; color: #16120F; font-family: 'Inter', sans-serif; font-size: 14px; padding: 0 12px; box-sizing: border-box; outline: none; border-radius: 10px; appearance: none; }
+  .fe-input:focus { border-color: #B85C38; }
+  .fe-select { cursor: pointer; }
+  .fe-textarea { height: 80px; resize: vertical; padding: 10px 12px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fe-btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border: none; border-radius: 14px; letter-spacing: .04em; text-decoration: none; transition: opacity .2s; }
+  .fe-btn:hover { opacity: .85; }
+  .fe-btn-primary { background: #B85C38; color: #FFFFFF; }
+  .fe-btn-outline { background: transparent; color: #16120F; border: 2px solid #16120F; }
+  .nav-row { display: flex; gap: 12px; margin-top: 8px; }
+  #fe-to-step2 { width: 100%; }
+  .spinner-wrap { display: flex; flex-direction: column; align-items: center; padding: 48px 0; gap: 16px; }
+  .spinner { width: 44px; height: 44px; border: 3px solid #E0DDD8; border-top-color: #B85C38; border-radius: 50%; animation: fe-spin .8s linear infinite; }
+  @keyframes fe-spin { to { transform: rotate(360deg); } }
+  .spinner-text { color: #6A625A; font-size: 14px; }
+  .success-icon { font-size: 40px; margin-bottom: 12px; }
+  .result-wrap { text-align: center; padding: 32px 24px 24px; }
+  .result-title { font-family: 'Onest', sans-serif; font-size: 22px; color: #16120F; margin: 8px 0 0; }
+  .result-sub { font-size: 14px; color: #6A625A; margin: 8px 0 24px; }
+  .disclaimer-box { background: #FEF3EF; border-left: 3px solid #B85C38; padding: 12px 16px; font-size: 12px; color: #4A433B; line-height: 1.55; text-align: left; margin-top: 16px; }
+  .result-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; justify-content: center; }
+  .error-wrap { padding: 32px; text-align: center; }
+  .error-msg { color: #c0392b; font-size: 14px; margin-bottom: 16px; }
+  @media (max-width: 600px) {
+    .fe-header, .step { padding: 24px 20px; }
+    .input-grid, .contact-grid { grid-template-columns: 1fr; }
+    .fe-title { font-size: 20px; }
+    .field-full { grid-column: 1; }
+  }
+</style>

@@ -1,0 +1,372 @@
+---
+const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+---
+<div id="chmp-cfg" data-key={geminiKey} style="display:none"></div>
+<div class="magnet" id="magnet-custom-home">
+  <div class="magnet-header">
+    <span class="badge badge-gold">FREE AI PLANNER</span>
+    <h3 class="magnet-title">Custom Home Masonry<br /><em>Project Planner</em></h3>
+    <p class="magnet-sub">Answer a few questions — our AI generates a personalized masonry scope, timeline, and cost guidance for your custom home.</p>
+  </div>
+
+  <!-- STEP 1: Project Details -->
+  <div class="step active" id="step1">
+    <p class="step-label">Step 1 of 3 — Project Details</p>
+    <div class="field-col">
+      <div class="field-group">
+        <label class="field-label">What masonry work does your home need?</label>
+        <select class="select" id="ch-project-type">
+          <option value="">— Select —</option>
+          <option value="Full exterior masonry (all walls)">Full Exterior Masonry</option>
+          <option value="Front facade / elevation only">Front Facade Only</option>
+          <option value="Fireplace and chimney">Fireplace & Chimney</option>
+          <option value="Retaining walls and landscaping masonry">Retaining Walls / Landscaping</option>
+          <option value="Mixed scope — multiple areas">Mixed Scope</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Material preference</label>
+        <select class="select" id="ch-material">
+          <option value="">— Select —</option>
+          <option value="Brick">Brick</option>
+          <option value="Natural stone">Natural Stone</option>
+          <option value="Limestone">Limestone</option>
+          <option value="Mixed brick and stone">Mixed Brick & Stone</option>
+          <option value="Not decided yet">Not Decided Yet</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Home size (sq ft)</label>
+        <select class="select" id="ch-size">
+          <option value="">— Select —</option>
+          <option value="under 3,000 sq ft">Under 3,000 sq ft</option>
+          <option value="3,000–5,000 sq ft">3,000–5,000 sq ft</option>
+          <option value="5,000–8,000 sq ft">5,000–8,000 sq ft</option>
+          <option value="over 8,000 sq ft">Over 8,000 sq ft</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">When do you need work to start?</label>
+        <select class="select" id="ch-timeline">
+          <option value="">— Select —</option>
+          <option value="as soon as possible">As Soon As Possible</option>
+          <option value="within 1–3 months">1–3 Months</option>
+          <option value="3–6 months out">3–6 Months</option>
+          <option value="still in planning phase">Still Planning</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Additional details (optional)</label>
+        <textarea class="textarea" id="ch-notes" rows="2" placeholder="Any special requirements, style preferences, or questions..."></textarea>
+      </div>
+    </div>
+    <button class="btn btn-primary step-next" onclick="chNext()">Next — Your Information →</button>
+  </div>
+
+  <!-- STEP 2: Contact Info -->
+  <div class="step" id="step2">
+    <p class="step-label">Step 2 of 3 — Your Information</p>
+    <div class="field-col">
+      <div class="field-row-2">
+        <div class="field-group">
+          <label class="field-label">First & Last Name <span class="req">*</span></label>
+          <input class="input" id="ch-name" type="text" placeholder="John Smith" required />
+        </div>
+        <div class="field-group">
+          <label class="field-label">Phone Number <span class="req">*</span></label>
+          <input class="input" id="ch-phone" type="tel" placeholder="773-000-0000" required />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Email Address <span class="req">*</span></label>
+        <input class="input" id="ch-email" type="email" placeholder="you@email.com" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Property Address <span class="req">*</span></label>
+        <input class="input" id="ch-address" type="text" placeholder="123 Main St, Hinsdale, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Zip Code <span class="req">*</span></label>
+        <input class="input" id="ch-zip" type="text" placeholder="60521" maxlength="10" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn btn-outline" onclick="chBack()">← Back</button>
+      <button class="btn btn-primary" onclick="chSubmit()" id="ch-submit-btn">Generate My Plan →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="step3">
+    <div class="loading-state" id="ch-loading">
+      <div class="spinner"></div>
+      <p class="loading-text">Your Personal Masonry Assistant is preparing your plan…</p>
+    </div>
+    <div class="result-wrap" id="ch-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h4 class="result-title">Your Masonry Plan Is Ready</h4>
+      <p class="result-sub">Your personalized Custom Home Masonry Project Plan is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary project plan is based on the information you provided and is intended as a preliminary planning guide only. It is not a formal bid, contract, or engineering specification. Actual scope, costs, timelines, and material requirements may vary based on a site inspection, structural conditions, local building code requirements, and final design plans. All Masonry Services Inc. is not liable for decisions made solely on the basis of this plan. A licensed masonry contractor must inspect the property and provide a formal written proposal before any work begins.
+      </div>
+      <div class="result-actions">
+        <button class="btn btn-primary" onclick="chDownloadPDF()">Download PDF Report</button>
+        <a href="/contact#form" class="btn btn-outline">Book Free Consultation</a>
+      </div>
+    </div>
+    <div class="error-state" id="ch-error" style="display:none">
+      <p class="error-text">Something went wrong generating your plan. <a href="/contact#form">Contact us directly →</a></p>
+    </div>
+  </div>
+
+  <div class="progress-track">
+    <div class="progress-fill" id="ch-progress" style="width:33%"></div>
+  </div>
+</div>
+
+<script is:inline>
+const GEMINI_KEY = document.getElementById('chmp-cfg').dataset.key;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+
+function chNext() {
+  const pt = document.getElementById('ch-project-type').value;
+  if (!pt) { alert('Please select a project type.'); return; }
+  document.getElementById('step1').classList.remove('active');
+  document.getElementById('step2').classList.add('active');
+  document.getElementById('ch-progress').style.width = '66%';
+}
+function chBack() {
+  document.getElementById('step2').classList.remove('active');
+  document.getElementById('step1').classList.add('active');
+  document.getElementById('ch-progress').style.width = '33%';
+}
+function chValidate() {
+  const fields = ['ch-name','ch-phone','ch-email','ch-address','ch-zip'];
+  for (const id of fields) {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.focus(); alert('Please fill in all required fields.'); return false; }
+  }
+  const email = document.getElementById('ch-email').value;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return false; }
+  return true;
+}
+async function chSubmit() {
+  if (!chValidate()) return;
+  const btn = document.getElementById('ch-submit-btn');
+  btn.disabled = true; btn.textContent = 'Generating...';
+
+  const data = {
+    projectType: document.getElementById('ch-project-type').value,
+    material: document.getElementById('ch-material').value,
+    homeSize: document.getElementById('ch-size').value,
+    timeline: document.getElementById('ch-timeline').value,
+    notes: document.getElementById('ch-notes').value,
+    name: document.getElementById('ch-name').value,
+    phone: document.getElementById('ch-phone').value,
+    email: document.getElementById('ch-email').value,
+    address: document.getElementById('ch-address').value,
+    zip: document.getElementById('ch-zip').value,
+  };
+
+  document.getElementById('step2').classList.remove('active');
+  document.getElementById('step3').classList.add('active');
+  document.getElementById('ch-progress').style.width = '100%';
+
+  const prompt = `You are a senior masonry consultant at All Masonry Services Inc., Chicago's leading residential masonry contractor since 2007 with 19+ years of experience and 500+ completed homes. You are writing a PERSONALIZED masonry project plan for a specific homeowner at their specific address.
+
+HOMEOWNER PROFILE:
+- Name: ${data.name}
+- Phone: ${data.phone}
+- Property: ${data.address}, IL ${data.zip}
+- Project Type: ${data.projectType}
+- Material Preference: ${data.material}
+- Home Size: ${data.homeSize}
+- Desired Start: ${data.timeline}
+- Additional Notes: ${data.notes || 'None provided'}
+
+TASK: Write a SPECIFIC, PERSONALIZED masonry project plan for ${data.name}'s ${data.homeSize} home at ${data.address}. Reference their name, address, specific project type (${data.projectType}), material preference (${data.material}), and timeline (${data.timeline}) throughout every section. This must feel like a report written specifically for THEM, not a generic template.
+
+Use exactly these ALL CAPS headings:
+
+PROJECT ASSESSMENT — ${data.projectType.toUpperCase()}
+(Write 3-4 sentences specifically assessing ${data.name}'s project at ${data.address}. Reference their ${data.homeSize} home, the ${data.projectType} scope, and their ${data.material} preference. Identify the 2-3 most critical decisions they need to make before starting. If notes were provided ("${data.notes || 'none'}"), address them specifically.)
+
+RECOMMENDED SCOPE OF WORK
+(List 5-7 specific line items tailored to ${data.projectType} for a ${data.homeSize} home in the ${data.zip} area. Each item on its own line with a dash. Be specific: not "brick installation" but "Full exterior brick installation — recommend modular brick in running bond pattern for ${data.homeSize} home scale." Include specific prep work, material installation, and finishing tasks for ${data.material}.)
+
+MATERIAL RECOMMENDATION — ${data.material.toUpperCase()}
+(3-4 sentences on the best material for ${data.name}'s specific project. For ${data.material} applied to ${data.projectType} on a ${data.homeSize} home in Chicago (Zone 5B): ASTM rating required, freeze-thaw cycle resistance, color/texture options appropriate for the home's scale, and why this material holds up in Chicago winters specifically at ${data.zip}. If material is "Not decided yet", recommend the best option for their scope and explain why.)
+
+ESTIMATED INVESTMENT RANGE — CHICAGO 2026
+(Provide a realistic cost range for this specific project in the Chicago metro market:
+- Labor: $X,XXX – $X,XXX (for ${data.homeSize} ${data.projectType})
+- Materials (${data.material}): $X,XXX – $X,XXX
+- TOTAL ESTIMATED RANGE: $XX,XXX – $XX,XXX
+Explain what drives the range for ${data.homeSize} ${data.projectType} projects specifically. Note: formal on-site estimate required for exact pricing.)
+
+ESTIMATED TIMELINE
+(Specific timeline from start to completion for ${data.projectType} on a ${data.homeSize} home: breakdown by phase — demolition/prep, foundation/footer work if needed, material installation, cleanup. Give calendar weeks or days for each phase. Total project duration. Note any dependencies on permits, inspections, or material lead times for the ${data.zip} area.)
+
+CHICAGO SEASONAL PLANNING
+(2-3 sentences specifically about ${data.name}'s timeline request of "${data.timeline}" in context of Chicago weather. Best months for ${data.projectType} in Chicago. If they want to start "as soon as possible," give specific guidance on whether current season at ${data.zip} is workable. Winter masonry protection requirements if applicable. Optimal window for ${data.material} installation in Chicagoland.)
+
+YOUR NEXT STEP
+(Recommend ${data.name} contact All Masonry Services Inc. for a FREE on-site estimate at ${data.address}. Call 773-656-2107 or visit allmasonryservices.com. AMS has completed 500+ custom homes in Chicagoland since 2007 and serves the ${data.zip} area regularly. A project coordinator will follow up within 24 hours to schedule the site visit.)
+
+Write in warm but professional language. Every section must feel personalized to ${data.name}'s specific home and project — never generic.`;
+
+  try {
+    const res = await fetch(GEMINI_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+        generationConfig: { maxOutputTokens: 2048, temperature: 0.7 }
+      })
+    });
+    const json = await res.json();
+    const text = json && json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts && json.candidates[0].content.parts[0] && json.candidates[0].content.parts[0].text;
+    if (!text) throw new Error('No response');
+
+    window.__chReportData = { text, data };
+
+    document.getElementById('ch-loading').style.display = 'none';
+    document.getElementById('ch-result').style.display = 'block';
+  } catch (e) {
+    document.getElementById('ch-loading').style.display = 'none';
+    document.getElementById('ch-error').style.display = 'block';
+  }
+}
+async function chDownloadPDF() {
+  const d = window.__chReportData;
+  if (!d) return;
+  await import('https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js'); const jsPDF = window.jspdf.jsPDF; const GState = window.jspdf.GState;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const pageW = 210, margin = 20, contentW = pageW - margin * 2;
+  let y = 20;
+
+  doc.setFillColor(22, 18, 15);
+  doc.rect(0, 0, pageW, 45, 'F');
+  doc.setTextColor(184, 92, 56);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(18);
+  doc.text('ALL MASONRY SERVICES INC', margin, 18);
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(13);
+  doc.text('Custom Home Masonry Project Plan', margin, 28);
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(200, 200, 200);
+  doc.text('Prepared by All Masonry Services Inc', margin, 36);
+  doc.text('Client: ' + d.data.name + '  |  ' + d.data.address + ', ' + d.data.zip, margin, 42);
+  y = 55;
+
+  doc.setDrawColor(184, 92, 56);
+  doc.setLineWidth(0.5);
+  doc.line(margin, y, pageW - margin, y);
+  y += 8;
+
+  const sections = d.text.split('\n\n').filter(function(s) { return s.trim(); });
+  sections.forEach(function(section) {
+    const lines = section.trim().split('\n');
+    const heading = lines[0].trim();
+    const body = lines.slice(1).join('\n').trim();
+
+    if (y > 260) { doc.addPage(); y = 20; }
+
+    doc.setFillColor(184, 92, 56);
+    doc.rect(margin, y - 4, 3, 6, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(22, 18, 15);
+    doc.text(heading, margin + 6, y);
+    y += 6;
+
+    if (body) {
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9);
+      doc.setTextColor(74, 74, 74);
+      const wrapped = doc.splitTextToSize(body.replace(/^- /gm, '• '), contentW - 6);
+      wrapped.forEach(function(line) {
+        if (y > 270) { doc.addPage(); y = 20; }
+        doc.text(line, margin + 6, y);
+        y += 5;
+      });
+    }
+    y += 6;
+  });
+
+  if (y > 250) { doc.addPage(); y = 20; }
+  y += 4;
+  doc.setFillColor(248, 246, 242);
+  doc.rect(margin, y, contentW, 28, 'F');
+  doc.setTextColor(120, 110, 100);
+  doc.setFontSize(7);
+  doc.setFont('helvetica', 'italic');
+  const disclaimer = 'DISCLAIMER: This preliminary project plan is based on information provided by the homeowner and is intended as a preliminary planning guide only. It is not a formal bid, contract, or engineering specification. Actual scope, costs, timelines, and material requirements may vary based on a site inspection, structural conditions, local building code, and final design plans. All Masonry Services Inc. is not liable for decisions made solely on the basis of this plan. A licensed masonry contractor must inspect the property and provide a formal written proposal before any work begins.';
+  const dLines = doc.splitTextToSize(disclaimer, contentW - 8);
+  doc.text(dLines, margin + 4, y + 6);
+  y += dLines.length * 4 + 12;
+
+  const pageCount = doc.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.saveGraphicsState();
+    doc.setGState(new GState({ opacity: 0.07 }));
+    doc.setTextColor(184, 92, 56);
+    doc.setFontSize(36);
+    doc.setFont('helvetica', 'bold');
+    doc.text('ALL MASONRY SERVICES', pageW / 2, 148, { align: 'center', angle: 45 });
+    doc.restoreGraphicsState();
+    doc.setFontSize(8);
+    doc.setTextColor(139, 128, 112);
+    doc.setFont('helvetica', 'normal');
+    doc.text('© All Masonry Services Inc · allmasonryservices.com · 773-656-2107', margin, 288);
+    doc.text('Page ' + i + ' of ' + pageCount, pageW - margin - 20, 288);
+  }
+
+  doc.save('AMS-Custom-Home-Masonry-Plan-' + d.data.name.replace(/\s+/g, '-') + '.pdf');
+}
+</script>
+
+<style>
+.magnet { background:#FFFFFF; padding:32px; max-width:580px; width:100%; }
+.magnet-header { margin-bottom:24px; }
+.badge-gold { display:inline-block; background:#B85C38; color:#FFFFFF; font-size:11px; font-weight:700; letter-spacing:.1em; padding:4px 10px; border-radius:4px; margin-bottom:12px; }
+.magnet-title { font-family:'Onest',sans-serif; font-weight:700; font-size:22px; color:#16120F; margin:10px 0 6px; line-height:1.2; }
+.magnet-title em { font-style:italic; color:#B85C38; }
+.magnet-sub { font-family:'Inter',sans-serif; font-size:13px; color:#4A433B; line-height:1.6; margin:0; }
+.step { display:none; }
+.step.active { display:block; }
+.step-label { font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#6A625A; margin:0 0 16px; }
+.field-col { display:flex; flex-direction:column; gap:14px; margin-bottom:20px; }
+.field-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.field-group { display:flex; flex-direction:column; gap:6px; }
+.field-label { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#16120F; }
+.req { color:#C0392B; }
+.btn { display:inline-flex; align-items:center; justify-content:center; height:48px; padding:0 24px; font-family:'Inter',sans-serif; font-size:14px; font-weight:700; cursor:pointer; border:none; border-radius:14px; letter-spacing:.04em; text-decoration:none; transition:opacity .2s; }
+.btn:hover { opacity:.88; }
+.btn-primary { background:#B85C38; color:#FFFFFF; }
+.btn-outline { background:transparent; color:#16120F; border:2px solid #16120F; }
+.input,.select,.textarea { width:100%; border:1px solid #D9D9D9; background:#fff; color:#16120F; font-family:'Inter',sans-serif; font-size:14px; padding:0 12px; box-sizing:border-box; outline:none; border-radius:10px; appearance:none; }
+.input,.select { height:44px; }
+.input:focus,.select:focus,.textarea:focus { border-color:#B85C38; }
+.select { cursor:pointer; }
+.textarea { height:80px; resize:vertical; padding:10px 12px; }
+.nav-row { display:flex; gap:12px; }
+.progress-track { height:3px; background:#E8E4DC; margin-top:20px; }
+.progress-fill { height:3px; background:#B85C38; transition:width 400ms ease; }
+.loading-state { text-align:center; padding:32px 0; }
+.spinner { width:36px; height:36px; border:3px solid #E8E4DC; border-top-color:#B85C38; border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto 16px; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.loading-text { font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; }
+.result-wrap { text-align:center; padding:24px 0 16px; }
+.success-icon { font-size:40px; margin-bottom:12px; color:#B85C38; }
+.result-title { font-family:'Onest',sans-serif; font-size:20px; font-weight:700; color:#16120F; margin:0 0 6px; }
+.result-sub { font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0 0 20px; }
+.disclaimer-box { background:#FEF3EF; border-left:3px solid #B85C38; padding:12px 16px; font-family:'Inter',sans-serif; font-size:11px; color:#4A433B; line-height:1.55; text-align:left; margin-bottom:20px; }
+.result-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+.error-state { padding:24px; text-align:center; }
+.error-text { font-family:'Inter',sans-serif; font-size:13px; color:#C0392B; }
+@media(max-width:480px) { .field-row-2 { grid-template-columns:1fr; } .magnet { padding:20px; } .result-actions { flex-direction:column; } }
+</style>

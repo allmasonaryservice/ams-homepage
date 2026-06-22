@@ -1,0 +1,540 @@
+---
+---
+
+<div class="cp-wrap" id="cp-root">
+  <div class="cp-header">
+    <span class="cp-badge">COMMERCIAL TOOL</span>
+    <h2 class="cp-title">Commercial Brick &amp; Stone — <em>Project Scope Builder</em></h2>
+    <p class="cp-sub">Define your commercial masonry scope in 60 seconds — get a preliminary spec sheet ready for your GC or architect.</p>
+    <div class="cp-progress"><div class="cp-progress-fill" id="cp-progress-fill"></div></div>
+  </div>
+
+  <!-- STEP 1: Multi-sub-step Tool Inputs -->
+  <div class="step active" id="cp-step1">
+    <p class="step-label">Step 1 of 3 — Project Scope</p>
+
+    <!-- Sub-step A: Building Type -->
+    <div class="substep active" id="cp-sub-a">
+      <p class="substep-label">A — What type of building?</p>
+      <div class="radio-grid">
+        <label class="radio-card">
+          <input type="radio" name="cp-building" value="Office Building" />
+          <span class="radio-face"><span class="radio-icon">🏢</span><span class="radio-text">Office Building</span></span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="cp-building" value="Retail Storefront" />
+          <span class="radio-face"><span class="radio-icon">🏪</span><span class="radio-text">Retail Storefront</span></span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="cp-building" value="Multi-Family" />
+          <span class="radio-face"><span class="radio-icon">🏘</span><span class="radio-text">Multi-Family</span></span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="cp-building" value="Industrial" />
+          <span class="radio-face"><span class="radio-icon">🏭</span><span class="radio-text">Industrial</span></span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="cp-building" value="Hotel" />
+          <span class="radio-face"><span class="radio-icon">🏨</span><span class="radio-text">Hotel</span></span>
+        </label>
+        <label class="radio-card">
+          <input type="radio" name="cp-building" value="Mixed-Use" />
+          <span class="radio-face"><span class="radio-icon">🏙</span><span class="radio-text">Mixed-Use</span></span>
+        </label>
+      </div>
+      <button class="cp-btn cp-btn-primary cp-sub-next" id="cp-a-to-b">Next →</button>
+    </div>
+
+    <!-- Sub-step B: Scope -->
+    <div class="substep" id="cp-sub-b">
+      <p class="substep-label">B — What masonry scope is needed?</p>
+      <div class="check-grid">
+        <label class="scope-check">
+          <input type="checkbox" class="cp-scope" value="Full Building Facade" />
+          <span class="scope-box"></span>
+          <span class="scope-text">Full Building Facade</span>
+        </label>
+        <label class="scope-check">
+          <input type="checkbox" class="cp-scope" value="Entry Feature Wall" />
+          <span class="scope-box"></span>
+          <span class="scope-text">Entry Feature Wall</span>
+        </label>
+        <label class="scope-check">
+          <input type="checkbox" class="cp-scope" value="Parapet Walls" />
+          <span class="scope-box"></span>
+          <span class="scope-text">Parapet Walls</span>
+        </label>
+        <label class="scope-check">
+          <input type="checkbox" class="cp-scope" value="Site Walls / Perimeter" />
+          <span class="scope-box"></span>
+          <span class="scope-text">Site Walls / Perimeter</span>
+        </label>
+        <label class="scope-check">
+          <input type="checkbox" class="cp-scope" value="CMU Structure" />
+          <span class="scope-box"></span>
+          <span class="scope-text">CMU Structure</span>
+        </label>
+        <label class="scope-check">
+          <input type="checkbox" class="cp-scope" value="Signage / Feature Wall" />
+          <span class="scope-box"></span>
+          <span class="scope-text">Signage / Feature Wall</span>
+        </label>
+      </div>
+      <div class="sub-nav">
+        <button class="cp-btn cp-btn-outline" id="cp-b-to-a">← Back</button>
+        <button class="cp-btn cp-btn-primary" id="cp-b-to-c">Next →</button>
+      </div>
+    </div>
+
+    <!-- Sub-step C: Scale -->
+    <div class="substep" id="cp-sub-c">
+      <p class="substep-label">C — Approximate masonry area?</p>
+      <div class="scale-list">
+        <label class="scale-option">
+          <input type="radio" name="cp-scale" value="Under 2,000 sq ft" />
+          <span class="scale-face">
+            <span class="scale-text">Under 2,000 sq ft</span>
+            <span class="scale-sub">Small commercial / storefront</span>
+          </span>
+        </label>
+        <label class="scale-option">
+          <input type="radio" name="cp-scale" value="2,000–5,000 sq ft" />
+          <span class="scale-face">
+            <span class="scale-text">2,000 – 5,000 sq ft</span>
+            <span class="scale-sub">Mid-size building</span>
+          </span>
+        </label>
+        <label class="scale-option">
+          <input type="radio" name="cp-scale" value="5,000–15,000 sq ft" />
+          <span class="scale-face">
+            <span class="scale-text">5,000 – 15,000 sq ft</span>
+            <span class="scale-sub">Large commercial</span>
+          </span>
+        </label>
+        <label class="scale-option">
+          <input type="radio" name="cp-scale" value="Over 15,000 sq ft" />
+          <span class="scale-face">
+            <span class="scale-text">Over 15,000 sq ft</span>
+            <span class="scale-sub">Major project / phased</span>
+          </span>
+        </label>
+      </div>
+      <div class="field-group" style="margin-top:16px;">
+        <label class="field-label" for="cp-notes">Project Notes / Additional Details</label>
+        <textarea class="cp-input cp-textarea" id="cp-notes" placeholder="Timeline constraints, budget range, architect/engineer assigned, special requirements, etc."></textarea>
+      </div>
+      <div class="sub-nav">
+        <button class="cp-btn cp-btn-outline" id="cp-c-to-b">← Back</button>
+        <button class="cp-btn cp-btn-primary" id="cp-to-step2">Next — Your Information →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Contact Form -->
+  <div class="step" id="cp-step2">
+    <p class="step-label">Step 2 of 3 — Your Contact Information</p>
+    <p class="step-desc">We'll generate a personalized commercial scope document with your details.</p>
+    <div class="contact-grid">
+      <div class="field-group">
+        <label class="field-label" for="cp-name">Full Name <span class="req">*</span></label>
+        <input class="cp-input" type="text" id="cp-name" placeholder="Mike Developer" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cp-phone">Phone <span class="req">*</span></label>
+        <input class="cp-input" type="tel" id="cp-phone" placeholder="(312) 555-0100" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cp-email">Email <span class="req">*</span></label>
+        <input class="cp-input" type="email" id="cp-email" placeholder="mike@developer.com" required />
+      </div>
+      <div class="field-group field-full">
+        <label class="field-label" for="cp-address">Property Address <span class="req">*</span></label>
+        <input class="cp-input" type="text" id="cp-address" placeholder="789 Commercial Blvd, Chicago, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="cp-zip">Zip Code <span class="req">*</span></label>
+        <input class="cp-input" type="text" id="cp-zip" placeholder="60611" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="cp-btn cp-btn-outline" id="cp-back-to-step1">← Back</button>
+      <button class="cp-btn cp-btn-primary" id="cp-submit">Generate Scope Document →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="cp-step3">
+    <div class="spinner-wrap" id="cp-spinner">
+      <div class="spinner"></div>
+      <p class="spinner-text">Building your commercial project scope document…</p>
+    </div>
+    <div class="result-wrap" id="cp-result" style="display:none">
+      <div class="success-icon">✓</div>
+      <h3 class="result-title">Your Scope Document Is Ready</h3>
+      <p class="result-sub">Your personalized Commercial Masonry Scope is ready — click the button below to download your PDF.</p>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary scope document is based on the project details you provided and is not a substitute for a formal GC specification, architectural review, or professional bid. Actual scope, schedule of values, and costs may differ based on site conditions and engineering requirements. Contact All Masonry Services Inc. for a formal commercial proposal — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="cp-btn cp-btn-primary" id="cp-pdf-btn">Download PDF Scope Sheet</button>
+        <a class="cp-btn cp-btn-outline" href="/contact#form">Book Free Consultation</a>
+      </div>
+    </div>
+    <div class="error-wrap" id="cp-error" style="display:none">
+      <p class="error-msg" id="cp-error-msg"></p>
+      <button class="cp-btn cp-btn-outline" id="cp-retry">← Try Again</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (async () => {
+    const GEMINI_KEY = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+    const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+
+    async function cp_fetchWithRetry(opts: RequestInit, retries = 1): Promise<Response> {
+      const resp = await fetch(GEMINI_URL, opts);
+      if (resp.status === 429 && retries > 0) {
+        await new Promise(r => setTimeout(r, 35000));
+        return cp_fetchWithRetry(opts, retries - 1);
+      }
+      return resp;
+    }
+
+    let cp_reportText = "";
+    let cp_contactData: Record<string, string> = {};
+
+    function cp_getVal(id: string): string {
+      const el = document.getElementById(id) as HTMLInputElement | null;
+      return el ? el.value.trim() : "";
+    }
+
+    function cp_getRadio(name: string): string {
+      const el = document.querySelector<HTMLInputElement>(`input[name="${name}"]:checked`);
+      return el ? el.value : "Not selected";
+    }
+
+    function cp_setProgress(pct: number) {
+      const bar = document.getElementById("cp-progress-fill") as HTMLElement | null;
+      if (bar) bar.style.width = pct + "%";
+    }
+
+    function cp_showStep(n: number) {
+      [1, 2, 3].forEach(i => {
+        const el = document.getElementById(`cp-step${i}`);
+        if (el) el.classList.toggle("active", i === n);
+      });
+      cp_setProgress(n === 1 ? 10 : n === 2 ? 50 : 100);
+    }
+
+    function cp_showSubStep(id: string) {
+      ["cp-sub-a", "cp-sub-b", "cp-sub-c"].forEach(s => {
+        const el = document.getElementById(s);
+        if (el) el.classList.toggle("active", s === id);
+      });
+    }
+
+    // Sub-step navigation
+    document.getElementById("cp-a-to-b")?.addEventListener("click", () => cp_showSubStep("cp-sub-b"));
+    document.getElementById("cp-b-to-a")?.addEventListener("click", () => cp_showSubStep("cp-sub-a"));
+    document.getElementById("cp-b-to-c")?.addEventListener("click", () => cp_showSubStep("cp-sub-c"));
+    document.getElementById("cp-c-to-b")?.addEventListener("click", () => cp_showSubStep("cp-sub-b"));
+
+    // Radio card highlight
+    document.querySelectorAll("input[name='cp-building']").forEach(radio => {
+      radio.addEventListener("change", () => {
+        document.querySelectorAll(".radio-card").forEach(c => c.classList.remove("selected"));
+        (radio as HTMLElement).closest(".radio-card")?.classList.add("selected");
+      });
+    });
+    document.querySelectorAll("input[name='cp-scale']").forEach(radio => {
+      radio.addEventListener("change", () => {
+        document.querySelectorAll(".scale-option").forEach(c => c.classList.remove("selected"));
+        (radio as HTMLElement).closest(".scale-option")?.classList.add("selected");
+      });
+    });
+
+    async function cp_generate() {
+      const buildingType = cp_getRadio("cp-building");
+      const scopeItems = Array.from(document.querySelectorAll<HTMLInputElement>(".cp-scope:checked")).map(c => c.value);
+      const scale = cp_getRadio("cp-scale");
+      const notes = cp_getVal("cp-notes");
+      const zip = cp_contactData.zip;
+
+      const prompt = `You are a senior commercial masonry project coordinator at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED commercial scope document for a specific developer/GC at zip code ${zip}.
+
+PROJECT PROFILE:
+- Contact/Developer: ${cp_contactData.name}
+- Property: ${cp_contactData.address}, IL ${zip}
+- Building Type: ${buildingType}
+- Masonry Scope Selected: ${scopeItems.join(", ") || "Not specified"}
+- Project Scale: ${scale}
+- Additional Notes: ${notes || "None provided"}
+
+TASK: Write a SPECIFIC, PERSONALIZED commercial masonry scope document for THIS project at THIS property. Reference their specific building type (${buildingType}), selected scope items (${scopeItems.join(", ") || "TBD"}), and scale (${scale}) in every section. This must read like a professional pre-bid scope document, not generic advice.
+
+Use exactly these ALL CAPS headings:
+
+PROJECT SCOPE SUMMARY — ${buildingType.toUpperCase()}
+(Summarize the masonry scope for this specific project: a ${scale} ${buildingType} at ${cp_contactData.address} requiring ${scopeItems.join(", ") || "TBD masonry work"}. Identify the primary masonry system needed and the 2-3 most critical scope decisions this developer must make before bidding. Be specific about what ${scale} ${buildingType} masonry scope means in Chicago Metro context.)
+
+RECOMMENDED MASONRY SYSTEM FOR ${buildingType.toUpperCase()}
+(Recommend the specific masonry system for this building type and scale. For ${buildingType}: material recommendation (brick type, CMU specs, stone if applicable), mortar specification, joint profile, and color/texture recommendation. Explain why this specific system is appropriate for ${scale} ${buildingType} in Chicago's climate. Include ASTM references where applicable.)
+
+PRELIMINARY COST RANGE — CHICAGO METRO 2026
+(Break down estimated costs by scope item:
+${scopeItems.map(item => `- ${item}: $X.XX – $X.XX per sq ft`).join("\n") || "- Primary masonry scope: $X.XX – $X.XX per sq ft"}
+- Mobilization / site setup for ${scale} project: $X,XXX – $X,XXX
+- TOTAL PRELIMINARY RANGE: $XX,XXX – $XXX,XXX
+Use real Chicago Metro 2026 commercial contractor pricing. Explain what drives the range for ${scale} ${buildingType} projects specifically.)
+
+CREW AND PHASING PLAN
+(Specific crew and phase plan for ${scale} ${buildingType} masonry:
+- Phase 1: [specific work] — crew size, calendar days
+- Phase 2: [specific work] — crew size, calendar days
+- Total masonry duration for ${scale} project
+Address: Chicago weather window, winter work requirements, coordination with other trades for ${buildingType} construction sequence.)
+
+BID PACKAGE REQUIREMENTS
+(List the specific documents and specs a GC/owner needs to include in the masonry bid package for this ${buildingType} project: drawings, specs sections, addenda, shop drawing schedule. Include: ASTM/ACI references applicable to ${scopeItems.join(" and ") || "commercial masonry"}, insurance requirements, bonding thresholds for ${scale} project, prevailing wage applicability for ${zip} area.)
+
+SUBCONTRACTOR COORDINATION NOTES
+(Identify the key trade coordination issues for ${scopeItems.join(" + ") || "masonry"} on a ${buildingType}: structural steel interface, waterproofing handoff, caulking/sealant scope delineation, window/door buck installation sequencing, electrical/mechanical penetrations through masonry. Specific to ${buildingType} construction sequence.)
+
+SCHEDULE OF VALUES — PRELIMINARY BREAKDOWN
+(Provide a rough SOV breakdown for ${scale} ${buildingType} masonry scope:
+- Mobilization & material staging: X%
+- ${scopeItems[0] || "Primary masonry"}: X%
+${scopeItems.slice(1).map((item, i) => `- ${item}: X%`).join("\n")}
+- Cleanup & punch list: X%
+Note: This is a preliminary breakdown for budgeting only, subject to refinement in formal bid.)
+
+YOUR NEXT STEP
+(Recommend contacting All Masonry Services Inc. for a formal commercial proposal at 773-656-2107 or allmasonryservices.com. AMS can provide a certified written scope and cost breakdown within 48 hours for ${scale} ${buildingType} projects. Mention AMS has completed 500+ commercial projects in Chicagoland since 2007 and is bonded for commercial work in the ${zip} area.)
+
+Write in GC-grade professional language suitable for including in a bid package. Specific numbers, clear scope delineation.`;
+
+      const resp = await cp_fetchWithRetry({
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+        })
+      });
+      if (!resp.ok) throw new Error(`API error: ${resp.status}`);
+      const data = await resp.json();
+      cp_reportText = data.candidates?.[0]?.content?.parts?.[0]?.text || "No report generated.";
+    }
+
+    function cp_renderReport() {
+      const spinner = document.getElementById("cp-spinner");
+      const result = document.getElementById("cp-result");
+      if (spinner) spinner.style.display = "none";
+      if (result) result.style.display = "block";
+    }
+
+    async function cp_downloadPDF() {
+      await import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"); const jsPDF = (window as any).jspdf.jsPDF; const GState = (window as any).jspdf.GState;
+      const doc = new jsPDF({ unit: "pt", format: "letter" });
+      const pageW = doc.internal.pageSize.getWidth();
+      const pageH = doc.internal.pageSize.getHeight();
+      const margin = 48;
+      let y = 0;
+
+      function cp_checkPage(needed: number) {
+        if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
+      }
+
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, 0, pageW, 72, "F");
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES INC", margin, 26);
+      doc.setTextColor(255, 255, 255);
+      doc.setFontSize(15);
+      doc.text("Commercial Brick & Stone — Project Scope Document", margin, 52);
+      y = 96;
+
+      doc.setTextColor(74, 67, 59);
+      doc.setFontSize(10);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Prepared for: ${cp_contactData.name}  |  ${cp_contactData.phone}  |  ${cp_contactData.email}`, margin, y);
+      y += 14;
+      doc.text(`Property: ${cp_contactData.address}, ${cp_contactData.zip}`, margin, y);
+      y += 14;
+      doc.text(`Date: ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}`, margin, y);
+      y += 24;
+
+      const lines = cp_reportText.split("\n");
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed) { y += 6; continue; }
+        const isHeading = trimmed === trimmed.toUpperCase() && trimmed.length > 4 && trimmed.length < 90 && !trimmed.includes("•") && !trimmed.match(/^\d/) && !trimmed.match(/^\$/);
+        if (isHeading) {
+          cp_checkPage(36);
+          doc.setFillColor(184, 92, 56);
+          doc.rect(margin, y, 3, 16, "F");
+          doc.setTextColor(22, 18, 15);
+          doc.setFontSize(11);
+          doc.setFont("helvetica", "bold");
+          doc.text(trimmed, margin + 10, y + 12);
+          y += 24;
+        } else {
+          cp_checkPage(18);
+          doc.setTextColor(74, 67, 59);
+          doc.setFontSize(9.5);
+          doc.setFont("helvetica", "normal");
+          const cleaned = trimmed.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\*(.+?)\*/g, "$1").replace(/^[-•]\s+/, "• ");
+          const wrapped = doc.splitTextToSize(cleaned, pageW - margin * 2);
+          doc.text(wrapped, margin, y);
+          y += wrapped.length * 13;
+        }
+      }
+
+      cp_checkPage(48);
+      y += 8;
+      doc.setFillColor(248, 246, 242);
+      doc.rect(margin, y, pageW - margin * 2, 42, "F");
+      doc.setTextColor(120, 110, 100);
+      doc.setFontSize(7.5);
+      doc.setFont("helvetica", "italic");
+      const disclaimer = "DISCLAIMER: This commercial scope document is a preliminary planning estimate generated by AI based on the information provided. It is not a formal bid, contract, or engineering specification. Actual costs, material quantities, and construction requirements may vary based on on-site conditions, structural assessment, local code requirements, and final project drawings. All Masonry Services Inc. is not liable for decisions made solely on the basis of this document. A licensed masonry contractor must inspect the site and provide a formal written proposal before any work begins.";
+      const dLines = doc.splitTextToSize(disclaimer, pageW - margin * 2 - 16);
+      doc.text(dLines, margin + 8, y + 10);
+      y += dLines.length * 9 + 16;
+
+      const totalPages = (doc.internal as any).getNumberOfPages();
+      for (let p = 1; p <= totalPages; p++) {
+        doc.setPage(p);
+        doc.saveGraphicsState();
+        doc.setGState(new GState({ opacity: 0.07 }));
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(52);
+        doc.setFont("helvetica", "bold");
+        doc.text("ALL MASONRY SERVICES", pageW / 2, pageH / 2, { align: "center", angle: 45 });
+        doc.restoreGraphicsState();
+        doc.setFillColor(22, 18, 15);
+        doc.rect(0, pageH - 36, pageW, 36, "F");
+        doc.setTextColor(184, 92, 56);
+        doc.setFontSize(8);
+        doc.setFont("helvetica", "bold");
+        doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+        doc.setTextColor(180, 180, 180);
+        doc.text(`Page ${p} of ${totalPages}`, pageW - margin - 40, pageH - 14);
+      }
+      doc.save(`CommercialScopeDocument-${cp_contactData.name.replace(/\s+/g, "-")}.pdf`);
+    }
+
+    document.getElementById("cp-to-step2")?.addEventListener("click", () => cp_showStep(2));
+    document.getElementById("cp-back-to-step1")?.addEventListener("click", () => { cp_showStep(1); cp_showSubStep("cp-sub-c"); });
+
+    document.getElementById("cp-submit")?.addEventListener("click", async () => {
+      const name = cp_getVal("cp-name");
+      const phone = cp_getVal("cp-phone");
+      const email = cp_getVal("cp-email");
+      const address = cp_getVal("cp-address");
+      const zip = cp_getVal("cp-zip");
+      if (!name || !phone || !email || !address || !zip) {
+        alert("Please fill in all required fields.");
+        return;
+      }
+      cp_contactData = { name, phone, email, address, zip };
+      cp_showStep(3);
+      const spinner = document.getElementById("cp-spinner");
+      const result = document.getElementById("cp-result");
+      const errWrap = document.getElementById("cp-error");
+      if (spinner) spinner.style.display = "flex";
+      if (result) result.style.display = "none";
+      if (errWrap) errWrap.style.display = "none";
+      try {
+        await cp_generate();
+        cp_renderReport();
+      } catch (e: any) {
+        if (spinner) spinner.style.display = "none";
+        if (errWrap) errWrap.style.display = "block";
+        const msg = document.getElementById("cp-error-msg");
+        if (msg) msg.textContent = "Error generating report: " + (e.message || "Please try again.");
+      }
+    });
+
+    document.getElementById("cp-pdf-btn")?.addEventListener("click", cp_downloadPDF);
+    document.getElementById("cp-retry")?.addEventListener("click", () => { cp_showStep(1); cp_showSubStep("cp-sub-a"); });
+  })();
+</script>
+
+<style>
+  .cp-wrap { font-family: 'Inter', sans-serif; background: #FFFFFF; color: #16120F; max-width: 720px; margin: 0 auto; }
+  .cp-header { background: #16120F; padding: 32px 36px 0; }
+  .cp-badge { display: inline-block; background: #B85C38; color: #FFFFFF; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding: 4px 10px; margin-bottom: 14px; border-radius: 4px; }
+  .cp-title { font-family: 'Onest', sans-serif; color: #F5F3EF; font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.25; }
+  .cp-title em { color: #B85C38; font-style: normal; }
+  .cp-sub { color: #6A625A; font-size: 14px; margin: 0 0 24px; line-height: 1.5; }
+  .cp-progress { height: 3px; background: #2A2A2A; }
+  .cp-progress-fill { height: 3px; background: #B85C38; width: 10%; transition: width .4s ease; }
+  .step { display: none; padding: 32px 36px; }
+  .step.active { display: block; }
+  .substep { display: none; }
+  .substep.active { display: block; }
+  .step-label { font-size: 12px; font-weight: 700; letter-spacing: .08em; color: #6A625A; text-transform: uppercase; margin: 0 0 20px; }
+  .substep-label { font-size: 14px; font-weight: 700; color: #16120F; margin: 0 0 16px; }
+  .step-desc { font-size: 14px; color: #4A433B; margin: -12px 0 20px; }
+  .radio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+  .radio-card { display: block; cursor: pointer; }
+  .radio-card input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .radio-face { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 18px 12px; background: #fff; border: 2px solid #E0DDD8; text-align: center; transition: border-color .15s, background .15s; }
+  .radio-card input:checked ~ .radio-face, .radio-card.selected .radio-face { border-color: #B85C38; background: #FEF3EF; }
+  .radio-icon { font-size: 22px; }
+  .radio-text { font-size: 13px; font-weight: 600; color: #16120F; }
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; }
+  .scope-check { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #fff; border: 2px solid #E0DDD8; cursor: pointer; transition: border-color .15s; }
+  .scope-check:hover { border-color: #16120F; }
+  .scope-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .scope-box { width: 18px; height: 18px; border: 2px solid #16120F; flex-shrink: 0; background: #fff; position: relative; transition: background .15s; }
+  .scope-check input:checked ~ .scope-box { background: #B85C38; border-color: #B85C38; }
+  .scope-check input:checked ~ .scope-box::after { content: ""; position: absolute; left: 4px; top: 1px; width: 5px; height: 9px; border: 2px solid #FFFFFF; border-top: none; border-left: none; transform: rotate(45deg); }
+  .scope-text { font-size: 13px; font-weight: 600; color: #16120F; }
+  .scale-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+  .scale-option { display: block; cursor: pointer; }
+  .scale-option input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .scale-face { display: flex; flex-direction: column; padding: 14px 18px; background: #fff; border: 2px solid #E0DDD8; transition: border-color .15s, background .15s; }
+  .scale-option input:checked ~ .scale-face, .scale-option.selected .scale-face { border-color: #B85C38; background: #FEF3EF; }
+  .scale-text { font-size: 15px; font-weight: 700; color: #16120F; }
+  .scale-sub { font-size: 12px; color: #6A625A; margin-top: 2px; }
+  .sub-nav { display: flex; gap: 12px; margin-top: 4px; }
+  .cp-sub-next { width: 100%; margin-top: 4px; }
+  .field-group { margin-bottom: 16px; }
+  .field-full { grid-column: 1 / -1; }
+  .field-label { display: block; font-size: 13px; font-weight: 600; color: #16120F; margin-bottom: 6px; }
+  .req { color: #B85C38; }
+  .cp-input { width: 100%; height: 44px; border: 1px solid #D9D9D9; background: #fff; color: #16120F; font-family: 'Inter', sans-serif; font-size: 14px; padding: 0 12px; box-sizing: border-box; outline: none; border-radius: 10px; appearance: none; }
+  .cp-input:focus { border-color: #B85C38; }
+  .cp-textarea { height: 80px; resize: vertical; padding: 10px 12px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cp-btn { display: inline-flex; align-items: center; justify-content: center; height: 48px; padding: 0 24px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; border: none; border-radius: 14px; letter-spacing: .04em; text-decoration: none; transition: opacity .2s; }
+  .cp-btn:hover { opacity: .85; }
+  .cp-btn-primary { background: #B85C38; color: #FFFFFF; }
+  .cp-btn-outline { background: transparent; color: #16120F; border: 2px solid #16120F; }
+  .nav-row { display: flex; gap: 12px; margin-top: 8px; }
+  .spinner-wrap { display: flex; flex-direction: column; align-items: center; padding: 48px 0; gap: 16px; }
+  .spinner { width: 44px; height: 44px; border: 3px solid #E0DDD8; border-top-color: #B85C38; border-radius: 50%; animation: cp-spin .8s linear infinite; }
+  @keyframes cp-spin { to { transform: rotate(360deg); } }
+  .spinner-text { color: #6A625A; font-size: 14px; }
+  .success-icon { font-size: 40px; margin-bottom: 12px; }
+  .result-wrap { text-align: center; padding: 32px 24px 24px; }
+  .result-title { font-family: 'Onest', sans-serif; font-size: 22px; color: #16120F; margin: 8px 0 0; }
+  .result-sub { font-size: 14px; color: #6A625A; margin: 8px 0 24px; }
+  .disclaimer-box { background: #FEF3EF; border-left: 3px solid #B85C38; padding: 12px 16px; font-size: 12px; color: #4A433B; line-height: 1.55; text-align: left; margin-top: 16px; }
+  .result-actions { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; justify-content: center; }
+  .error-wrap { padding: 32px; text-align: center; }
+  .error-msg { color: #c0392b; font-size: 14px; margin-bottom: 16px; }
+  @media (max-width: 600px) {
+    .cp-header, .step { padding: 24px 20px; }
+    .radio-grid { grid-template-columns: 1fr 1fr; }
+    .check-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .cp-title { font-size: 20px; }
+    .field-full { grid-column: 1; }
+  }
+</style>

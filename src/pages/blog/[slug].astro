@@ -1,0 +1,679 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { blogPosts, getPostBySlug, getRelatedPosts, formatDate } from '../../data/blog.js';
+
+export function getStaticPaths() {
+  return blogPosts.map(post => ({
+    params: { slug: post.slug },
+    props:  { post },
+  }));
+}
+
+const { post } = Astro.props;
+const related   = getRelatedPosts(post.slug, 3);
+const catLabel  = post.category === 'services' ? 'Service' : post.category === 'locations' ? 'Location' : 'Guide';
+---
+
+<Layout
+  title={`${post.title} — AMS Masonry Blog`}
+  description={post.excerpt}
+>
+  <Navbar />
+
+  <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+  <section class="bp-hero">
+    <picture class="bp-hero-bg">
+      <source media="(max-width:768px)" srcset={`/images/blog/${post.slug}-m.webp`} type="image/webp">
+      <img
+        src={`/images/blog/${post.slug}.webp`}
+        alt={post.title}
+        fetchpriority="high"
+        decoding="async"
+        width="1260"
+        height="720"
+      >
+    </picture>
+    <div class="bp-hero-overlay"></div>
+    <div class="bp-hero-content" id="bp-hero-inner">
+      <!-- Breadcrumb -->
+      <nav class="bp-breadcrumb" aria-label="Breadcrumb">
+        <a href="/" class="bp-bc-link">Home</a>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <a href="/blog" class="bp-bc-link">Blog</a>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="bp-bc-cur" aria-current="page">{catLabel}</span>
+      </nav>
+
+      <span class={`bp-cat-pill bp-cat-${post.category}`}>{catLabel}</span>
+      <h1 class="bp-hero-h1">{post.title}</h1>
+      <div class="bp-hero-meta">
+        <span>{formatDate(post.date)}</span>
+        <span class="bp-meta-sep" aria-hidden="true">·</span>
+        <span>{post.readTime} min read</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Article ───────────────────────────────────────────────────────────── -->
+  <main class="bp-main" id="bp-main">
+    <div class="bp-layout">
+
+      <!-- Article content -->
+      <article class="bp-article" id="bp-article">
+        <p class="bp-lead">{post.excerpt}</p>
+        <div class="bp-content">
+          <Fragment set:html={post.content} />
+        </div>
+
+        <!-- Tags -->
+        <div class="bp-tags">
+          {post.tags.map(tag => (
+            <span class="bp-tag">{tag}</span>
+          ))}
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="bp-sidebar">
+        <!-- CTA card -->
+        <div class="bp-sidebar-cta">
+          <p class="bp-sc-eyebrow">Free Estimate</p>
+          <h3 class="bp-sc-h3">Ready to Start Your Project?</h3>
+          <p class="bp-sc-body">19 years of masonry expertise across Chicagoland. Licensed, insured, and trusted by thousands of homeowners.</p>
+          <a href="tel:+17736562107" class="bp-sc-btn">
+            <svg width="15" height="15" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+              <path d="M4.5 3h3.4l1.6 4-2 1.2a10.5 10.5 0 005.3 5.3L14 11.5l4 1.6V16.5A2 2 0 0116 18.5C8.5 18.5 3.5 13.5 3.5 6A2 2 0 014.5 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            773-656-2107
+          </a>
+          <a href="/contact#form" class="bp-sc-link">Or send us a message →</a>
+        </div>
+
+        <!-- Trust bullets -->
+        <div class="bp-sidebar-trust">
+          {['Licensed & Insured', 'Free Estimates', 'All Chicagoland', 'Since 2005'].map(item => (
+            <div class="bp-trust-row">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M2 6.5l3.2 3.2 5.8-5.8" stroke="#B85C38" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ── Related Posts ─────────────────────────────────────────────────────── -->
+  <section class="bp-related" id="bp-related">
+    <div class="bp-related-inner">
+      <div class="bp-related-head">
+        <p class="bp-rel-eyebrow">Keep Reading</p>
+        <h2 class="bp-rel-h2">Related Articles</h2>
+      </div>
+      <div class="bp-rel-grid">
+        {related.map(rel => (
+          <article class="bp-rel-card">
+            <a href={`/blog/${rel.slug}`} class="bp-rel-img-wrap" tabindex="-1" aria-hidden="true">
+              <picture>
+                <source srcset={`/images/blog/${rel.slug}.webp`} type="image/webp">
+                <img
+                  src={`/images/blog/${rel.slug}.webp`}
+                  alt={rel.title}
+                  width="420"
+                  height="240"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </picture>
+              <span class={`bp-rel-cat bp-cat-${rel.category}`}>
+                {rel.category === 'services' ? 'Service' : rel.category === 'locations' ? 'Location' : 'Guide'}
+              </span>
+            </a>
+            <div class="bp-rel-body">
+              <h3 class="bp-rel-title">
+                <a href={`/blog/${rel.slug}`}>{rel.title}</a>
+              </h3>
+              <div class="bp-rel-meta">
+                <span>{formatDate(rel.date)}</span>
+                <span aria-hidden="true">·</span>
+                <span>{rel.readTime} min</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="bp-rel-action">
+        <a href="/blog" class="bp-rel-all">← Back to All Articles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Band ──────────────────────────────────────────────────────────── -->
+  <section class="bp-cta-band">
+    <div class="bp-cta-inner">
+      <div>
+        <p class="bp-cta-eyebrow">Get Started Today</p>
+        <h2 class="bp-cta-h2">Free Masonry Estimate — No Obligation</h2>
+        <p class="bp-cta-sub">Serving all of Chicagoland since 2005. Licensed &amp; insured.</p>
+      </div>
+      <div class="bp-cta-btns">
+        <a href="tel:+17736562107" class="bp-btn-primary">
+          <svg width="16" height="16" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M4.5 3h3.4l1.6 4-2 1.2a10.5 10.5 0 005.3 5.3L14 11.5l4 1.6V16.5A2 2 0 0116 18.5C8.5 18.5 3.5 13.5 3.5 6A2 2 0 014.5 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          773-656-2107
+        </a>
+        <a href="/contact#form" class="bp-btn-ghost">Send a Message</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<!-- ── Styles ─────────────────────────────────────────────────────────────── -->
+<style>
+
+  /* ── Hero ── */
+  .bp-hero {
+    position: relative;
+    height: clamp(420px, 52vh, 580px);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .bp-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .bp-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .bp-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(13,10,8,0.30) 0%,
+      rgba(13,10,8,0.40) 40%,
+      rgba(13,10,8,0.85) 100%
+    );
+  }
+  .bp-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px 52px;
+    margin-left: max(0px, calc((100vw - 1280px) / 2));
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  }
+  .bp-hero-content.visible { opacity: 1; transform: translateY(0); }
+
+  .bp-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .bp-bc-link, .bp-bc-cur {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.60);
+    text-decoration: none;
+  }
+  .bp-bc-link:hover { color: #ffffff; }
+  .bp-bc-cur { color: rgba(255,255,255,0.40); }
+  .bp-breadcrumb svg { color: rgba(255,255,255,0.30); flex-shrink: 0; }
+
+  .bp-cat-pill {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .bp-cat-services  { background: rgba(184,92,56,0.90); color: #fff; }
+  .bp-cat-locations { background: rgba(255,255,255,0.18); color: #fff; }
+  .bp-cat-guides    { background: rgba(74,67,59,0.85);  color: #fff; }
+
+  .bp-hero-h1 {
+    font-family: 'Onest', sans-serif;
+    font-size: clamp(26px, 3.6vw, 50px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: #ffffff;
+    margin: 0 0 14px;
+    letter-spacing: -0.02em;
+    max-width: 820px;
+  }
+  .bp-hero-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bp-meta-sep { opacity: 0.5; }
+
+  /* ── Article Layout ── */
+  .bp-main {
+    background: #F5F3EF;
+    padding: 64px 0 80px;
+  }
+  .bp-layout {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* Article */
+  .bp-article {}
+
+  .bp-lead {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4A433B;
+    font-weight: 400;
+    margin: 0 0 36px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(22,18,15,0.10);
+  }
+
+  .bp-content {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #4A433B;
+  }
+  .bp-content p {
+    margin: 0 0 24px;
+  }
+  .bp-content p:last-child { margin-bottom: 0; }
+  .bp-content ul, .bp-content ol {
+    padding-left: 24px;
+    margin: 0 0 24px;
+  }
+  .bp-content li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+  }
+  .bp-content strong {
+    font-weight: 600;
+    color: #16120F;
+  }
+  .bp-content h2 {
+    font-family: 'Onest', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #16120F;
+    margin: 40px 0 16px;
+    letter-spacing: -0.01em;
+  }
+  .bp-content h3 {
+    font-family: 'Onest', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #16120F;
+    margin: 32px 0 12px;
+  }
+  .bp-content blockquote {
+    border-left: 3px solid #B85C38;
+    margin: 28px 0;
+    padding: 16px 24px;
+    background: rgba(184,92,56,0.05);
+    border-radius: 0 8px 8px 0;
+    font-style: normal;
+    color: #16120F;
+  }
+
+  /* Tags */
+  .bp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(22,18,15,0.10);
+  }
+  .bp-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6A625A;
+    background: rgba(22,18,15,0.07);
+    border-radius: 20px;
+    padding: 5px 14px;
+  }
+
+  /* ── Sidebar ── */
+  .bp-sidebar {
+    position: sticky;
+    top: 100px;
+  }
+
+  .bp-sidebar-cta {
+    background: #16120F;
+    border-radius: 16px;
+    padding: 28px 26px;
+    margin-bottom: 20px;
+  }
+  .bp-sc-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #B85C38;
+    margin: 0 0 10px;
+  }
+  .bp-sc-h3 {
+    font-family: 'Onest', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .bp-sc-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 20px;
+  }
+  .bp-sc-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #B85C38;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 13px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 12px;
+  }
+  .bp-sc-btn:hover { background: #8A3A22; }
+  .bp-sc-link {
+    display: block;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.18s;
+  }
+  .bp-sc-link:hover { color: rgba(255,255,255,0.80); }
+
+  .bp-sidebar-trust {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 2px 10px rgba(22,18,15,0.06);
+  }
+  .bp-trust-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #4A433B;
+  }
+
+  /* ── Related Posts ── */
+  .bp-related {
+    background: #ffffff;
+    padding: 72px 0 80px;
+  }
+  .bp-related-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .bp-related-head {
+    margin-bottom: 36px;
+  }
+  .bp-rel-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #B85C38;
+    margin: 0 0 8px;
+  }
+  .bp-rel-h2 {
+    font-family: 'Onest', sans-serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 800;
+    color: #16120F;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .bp-rel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .bp-rel-card {
+    background: #F5F3EF;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .bp-rel-card:hover {
+    box-shadow: 0 6px 24px rgba(22,18,15,0.10);
+    transform: translateY(-2px);
+  }
+  .bp-rel-img-wrap {
+    display: block;
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  .bp-rel-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  }
+  .bp-rel-card:hover .bp-rel-img-wrap img { transform: scale(1.04); }
+  .bp-rel-cat {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .bp-rel-body {
+    padding: 18px 20px 20px;
+  }
+  .bp-rel-title {
+    font-family: 'Onest', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #16120F;
+    margin: 0 0 8px;
+  }
+  .bp-rel-title a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.18s;
+  }
+  .bp-rel-title a:hover { color: #B85C38; }
+  .bp-rel-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: rgba(106,98,90,0.75);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bp-rel-action {
+    margin-top: 36px;
+    text-align: center;
+  }
+  .bp-rel-all {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #B85C38;
+    text-decoration: none;
+    transition: color 0.18s;
+  }
+  .bp-rel-all:hover { color: #8A3A22; }
+
+  /* ── CTA Band ── */
+  .bp-cta-band { background: #16120F; padding: 56px 40px; }
+  .bp-cta-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .bp-cta-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #B85C38;
+    margin: 0 0 8px;
+  }
+  .bp-cta-h2 {
+    font-family: 'Onest', sans-serif;
+    font-size: clamp(22px, 2.8vw, 34px);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .bp-cta-sub { font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.50); margin: 0; }
+  .bp-cta-btns { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
+  .bp-btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #B85C38; color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+    padding: 14px 24px; border-radius: 10px; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .bp-btn-primary:hover { background: #8A3A22; }
+  .bp-btn-ghost {
+    display: inline-flex; align-items: center;
+    background: transparent; color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,255,255,0.22);
+    font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+    padding: 14px 24px; border-radius: 10px; text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .bp-btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
+
+  /* ── Responsive ── */
+  @media (max-width: 1080px) {
+    .bp-layout {
+      grid-template-columns: 1fr;
+    }
+    .bp-sidebar {
+      position: static;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .bp-sidebar-cta { margin-bottom: 0; }
+    .bp-rel-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .bp-hero-content { padding: 0 32px 40px; margin-left: 0; }
+    .bp-layout { padding: 0 24px; }
+    .bp-related-inner { padding: 0 24px; }
+  }
+  @media (max-width: 640px) {
+    .bp-hero { height: auto; min-height: 440px; padding-top: 80px; align-items: flex-end; }
+    .bp-hero-content { padding: 0 20px 36px; }
+    .bp-main { padding: 40px 0 60px; }
+    .bp-layout { padding: 0 16px; gap: 32px; }
+    .bp-sidebar { grid-template-columns: 1fr; }
+    .bp-related { padding: 48px 0 56px; }
+    .bp-related-inner { padding: 0 16px; }
+    .bp-rel-grid { grid-template-columns: 1fr; }
+    .bp-cta-band { padding: 48px 20px; }
+    .bp-cta-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<!-- ── Script ──────────────────────────────────────────────────────────────── -->
+<script is:inline>
+(function() {
+  const hero = document.getElementById('bp-hero-inner');
+  if (hero) requestAnimationFrame(() => setTimeout(() => hero.classList.add('visible'), 80));
+
+  // Article content fade in
+  const article = document.getElementById('bp-article');
+  if (article) {
+    article.style.opacity = '0';
+    article.style.transform = 'translateY(20px)';
+    article.style.transition = 'opacity 0.65s cubic-bezier(0.22,1,0.36,1) 0.15s, transform 0.65s cubic-bezier(0.22,1,0.36,1) 0.15s';
+    requestAnimationFrame(() => setTimeout(() => {
+      article.style.opacity = '1';
+      article.style.transform = 'translateY(0)';
+    }, 150));
+  }
+
+  // Related cards reveal
+  const relCards = document.querySelectorAll('.bp-rel-card');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  relCards.forEach((c, i) => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(24px)';
+    c.style.transition = `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`;
+    io.observe(c);
+  });
+})();
+</script>

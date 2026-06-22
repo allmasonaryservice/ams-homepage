@@ -1,0 +1,352 @@
+---
+// Lead Magnet: Natural Stone & Limestone — AI Style Selector
+const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
+---
+<div id="sss-cfg" data-key={geminiKey} style="display:none"></div>
+<div class="magnet" id="magnet-stone">
+  <div class="magnet-header">
+    <span class="badge badge-gold">FREE AI SELECTOR</span>
+    <h3 class="magnet-title">Natural Stone & Limestone<br /><em>Style Selector</em></h3>
+    <p class="magnet-sub">Tell us about your home and style — our AI recommends the perfect stone type with care instructions and cost guidance.</p>
+  </div>
+
+  <div class="step active" id="stone-step1">
+    <p class="step-label">Step 1 of 3 — Project Details</p>
+    <div class="field-col">
+      <div class="field-row-2">
+        <div class="field-group">
+          <label class="field-label">Home Architectural Style</label>
+          <select class="select" id="st-style">
+            <option value="">— Select —</option>
+            <option value="Traditional / Colonial">Traditional / Colonial</option>
+            <option value="Modern / Contemporary">Modern / Contemporary</option>
+            <option value="Craftsman / Farmhouse">Craftsman / Farmhouse</option>
+            <option value="Mediterranean / Tuscan">Mediterranean / Tuscan</option>
+            <option value="Tudor / European">Tudor / European</option>
+            <option value="Prairie / Mid-century">Prairie / Mid-century</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Where Is Stone Going?</label>
+          <select class="select" id="st-application">
+            <option value="">— Select —</option>
+            <option value="Full exterior facade">Full Exterior Facade</option>
+            <option value="Accent walls and columns">Accent Walls / Columns</option>
+            <option value="Foundation and base">Foundation / Base</option>
+            <option value="Interior feature wall">Interior Feature Wall</option>
+            <option value="Fireplace surround">Fireplace Surround</option>
+            <option value="Steps and entryway">Steps / Entryway</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row-2">
+        <div class="field-group">
+          <label class="field-label">Desired Aesthetic</label>
+          <select class="select" id="st-aesthetic">
+            <option value="">— Select —</option>
+            <option value="Clean and linear">Clean & Linear</option>
+            <option value="Rustic and natural">Rustic & Natural</option>
+            <option value="Elegant and formal">Elegant & Formal</option>
+            <option value="Bold and dramatic">Bold & Dramatic</option>
+            <option value="Warm and inviting">Warm & Inviting</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Approximate Area (sq ft)</label>
+          <input class="input" id="st-area" type="number" min="1" placeholder="e.g. 500" />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Budget Range</label>
+        <select class="select" id="st-budget">
+          <option value="">— Select —</option>
+          <option value="under $10,000">Under $10,000</option>
+          <option value="$10,000 – $25,000">$10,000 – $25,000</option>
+          <option value="$25,000 – $60,000">$25,000 – $60,000</option>
+          <option value="$60,000+">$60,000+</option>
+          <option value="not decided yet">Not Decided Yet</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Additional preferences (optional)</label>
+        <textarea class="textarea" id="st-notes" rows="2" placeholder="Existing stone colors, neighborhood style, any stone you've seen and loved..."></textarea>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="stNext()">Next — Your Information →</button>
+  </div>
+
+  <div class="step" id="stone-step2">
+    <p class="step-label">Step 2 of 3 — Your Information</p>
+    <div class="field-col">
+      <div class="field-row-2">
+        <div class="field-group">
+          <label class="field-label">Full Name <span class="req">*</span></label>
+          <input class="input" id="st-name" type="text" placeholder="John Smith" required />
+        </div>
+        <div class="field-group">
+          <label class="field-label">Phone Number <span class="req">*</span></label>
+          <input class="input" id="st-phone" type="tel" placeholder="773-000-0000" required />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Email Address <span class="req">*</span></label>
+        <input class="input" id="st-email" type="email" placeholder="you@email.com" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Property Address <span class="req">*</span></label>
+        <input class="input" id="st-address" type="text" placeholder="123 Main St, Hinsdale, IL" required />
+      </div>
+      <div class="field-group">
+        <label class="field-label">Zip Code <span class="req">*</span></label>
+        <input class="input" id="st-zip" type="text" placeholder="60521" maxlength="10" required />
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn btn-outline" onclick="stBack()">← Back</button>
+      <button class="btn btn-primary" id="st-submit" onclick="stSubmit()">Get My Stone Recommendation →</button>
+    </div>
+  </div>
+
+  <div class="step" id="stone-step3">
+    <div class="loading-state" id="st-loading">
+      <div class="spinner"></div>
+      <p class="loading-text">Your Personal Masonry Assistant is selecting your match…</p>
+    </div>
+    <div class="result-state" id="st-result" style="display:none">
+      <div class="success-icon-wrap">
+        <div class="result-check">✓</div>
+        <div>
+          <h4 class="result-title">Your Stone Recommendation Is Ready</h4>
+          <p class="result-sub">Your personalized Stone Style Recommendation is ready — click the button below to download your PDF.</p>
+        </div>
+      </div>
+      <div class="disclaimer-box">
+        <strong>Important Disclaimer:</strong> This preliminary recommendation is based on the style preferences and details you provided. It is not a substitute for an on-site professional consultation. Actual stone selection, substrate requirements, and costs may differ based on site conditions and local material availability. Contact All Masonry Services Inc. for a FREE on-site stone consultation — 773-656-2107.
+      </div>
+      <div class="result-actions">
+        <button class="btn btn-primary" onclick="stDownloadPDF()">Download PDF Report →</button>
+        <a href="/contact#form" class="btn btn-outline">Book Free Stone Consultation →</a>
+      </div>
+    </div>
+    <div class="error-state" id="st-error" style="display:none">
+      <p class="error-text">Unable to generate recommendation. <a href="/contact#form">Contact us directly →</a></p>
+    </div>
+  </div>
+
+  <div class="progress-track">
+    <div class="progress-fill" id="st-progress" style="width:33%"></div>
+  </div>
+</div>
+
+<script is:inline>
+const _GKEY = document.getElementById('sss-cfg').dataset.key;
+const _GURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${_GKEY}`;
+
+function stNext() {
+  if (!document.getElementById('st-style').value) { alert('Please select your home style.'); return; }
+  document.getElementById('stone-step1').classList.remove('active');
+  document.getElementById('stone-step2').classList.add('active');
+  document.getElementById('st-progress').style.width = '66%';
+}
+function stBack() {
+  document.getElementById('stone-step2').classList.remove('active');
+  document.getElementById('stone-step1').classList.add('active');
+  document.getElementById('st-progress').style.width = '33%';
+}
+async function stSubmit() {
+  const ids = ['st-name','st-phone','st-email','st-address','st-zip'];
+  for (const id of ids) { const el = document.getElementById(id); if (!el.value.trim()) { el.focus(); alert('Please fill in all required fields.'); return; } }
+  const btn = document.getElementById('st-submit'); btn.disabled = true; btn.textContent = 'Generating...';
+  const d = {
+    homeStyle: document.getElementById('st-style').value,
+    application: document.getElementById('st-application').value,
+    aesthetic: document.getElementById('st-aesthetic').value,
+    area: document.getElementById('st-area').value,
+    budget: document.getElementById('st-budget').value,
+    notes: document.getElementById('st-notes').value,
+    name: document.getElementById('st-name').value,
+    phone: document.getElementById('st-phone').value,
+    email: document.getElementById('st-email').value,
+    address: document.getElementById('st-address').value,
+    zip: document.getElementById('st-zip').value,
+  };
+  document.getElementById('stone-step2').classList.remove('active');
+  document.getElementById('stone-step3').classList.add('active');
+  document.getElementById('st-progress').style.width = '100%';
+
+  const areaNum = parseFloat(d.area) || 0;
+  const prompt = `You are a master masonry craftsman and stone specialist at All Masonry Services Inc., Chicago's leading masonry contractor since 2007. You are writing a PERSONALIZED stone recommendation report for a specific homeowner at zip code ${d.zip}.
+
+HOMEOWNER PROFILE:
+- Name: ${d.name}
+- Property: ${d.address}, IL ${d.zip}
+- Home Architectural Style: ${d.homeStyle}
+- Stone Application: ${d.application}
+- Desired Aesthetic: ${d.aesthetic}
+- Coverage Area: ${areaNum > 0 ? areaNum + " sq ft" : "not specified"}
+- Budget: ${d.budget}
+- Notes: ${d.notes || "None provided"}
+
+TASK: Write a SPECIFIC, PERSONALIZED stone recommendation for THIS homeowner at THIS property. Do NOT give a generic stone guide. Every recommendation must reference their specific home style (${d.homeStyle}), aesthetic (${d.aesthetic}), application (${d.application}), and Chicago's climate. Consider their budget (${d.budget}) throughout.
+
+Use exactly these ALL CAPS headings:
+
+PRIMARY STONE RECOMMENDATION FOR ${d.homeStyle.toUpperCase()} HOME
+(Name the specific stone type — e.g., "Indiana Limestone Cut Ashlar" or "Ledgestone Quartzite." Explain WHY this specific stone is the right match for a ${d.homeStyle} home with a ${d.aesthetic} aesthetic at ${d.address}. Be authoritative — 3-4 sentences, no hedging.)
+
+WHY THIS STONE WORKS FOR YOUR ${d.application.toUpperCase()}
+(Explain specifically how this stone performs in the ${d.application} application. Address: installation requirements for Chicago's freeze-thaw climate, load-bearing vs. veneer considerations, waterproofing requirements for ${d.application}. Be specific to their application, not generic.)
+
+STONE SPECIFICATIONS
+(List: Origin, Color Range, Finish, Hardness/Durability, Chicago freeze-thaw rating, Maintenance frequency. Make this specific to their recommended stone type.)
+
+COST ESTIMATE FOR YOUR PROJECT
+(Give specific numbers:
+${areaNum > 0 ? `- Material cost: $X.XX – $X.XX per sq ft × ${areaNum} sq ft = $X,XXX – $X,XXX` : "- Material cost: $X.XX – $X.XX per sq ft (typical residential range)"}
+- Installation at ${d.application}: $X.XX – $X.XX per sq ft
+${areaNum > 0 ? `- TOTAL INSTALLED: $X,XXX – $X,XXX` : "- TOTAL INSTALLED: $X,XXX – $XX,XXX for typical projects"}
+- Assessment vs. budget ${d.budget}: [comment on fit]
+Use real Chicago Metro 2026 pricing.)
+
+ALTERNATIVE STONE OPTIONS FOR YOUR HOME
+(Give 2 alternatives with 1-2 sentences each on why they'd work for ${d.homeStyle} with ${d.aesthetic} aesthetic, and how they compare on cost and durability. Be specific — no generic "also consider limestone.")
+
+CHICAGO CLIMATE INSTALLATION REQUIREMENTS
+(Explain what Chicago's 30–40 annual freeze-thaw cycles mean specifically for the recommended stone at a ${d.application} in zip ${d.zip}. Include: mortar mix specification (Type S vs. Type N), drainage requirements, flashing needs, sealer recommendation. Best installation month for this project.)
+
+CARE & MAINTENANCE SCHEDULE
+(Give a year-by-year maintenance schedule for this specific stone at this specific application. Year 1, Year 3, Year 5+. Include specific products or treatment types. Mention what happens if maintenance is skipped in Chicago's climate.)
+
+YOUR NEXT STEP
+(Recommend a FREE stone consultation from All Masonry Services Inc. at 773-656-2107 or allmasonryservices.com. Mention AMS can bring stone samples to ${d.address} so they can see the actual material in their home's light. No cost, no obligation.)
+
+Write for a homeowner who is researching stone options. Be confident, specific, and personalized.`;
+
+  try {
+    const res = await fetch(_GURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { maxOutputTokens: 2048, temperature: 0.7 } })
+    });
+    const json = await res.json();
+    const text = json && json.candidates && json.candidates[0] && json.candidates[0].content && json.candidates[0].content.parts && json.candidates[0].content.parts[0] && json.candidates[0].content.parts[0].text;
+    if (!text) throw new Error('No response');
+    window.__stData = { text, d };
+    document.getElementById('st-loading').style.display = 'none';
+    document.getElementById('st-result').style.display = 'block';
+  } catch(e) {
+    document.getElementById('st-loading').style.display = 'none';
+    document.getElementById('st-error').style.display = 'block';
+  }
+}
+async function stDownloadPDF() {
+  const stored = window.__stData;
+  if (!stored) return;
+  const d = stored.d;
+  await _amsGenPDF(
+    'Natural Stone & Limestone — Style Recommendation',
+    `Client: ${d.name} | ${d.address}, ${d.zip} | ${d.homeStyle} | ${d.aesthetic}`,
+    stored.text,
+    `AMS-Stone-Recommendation-${d.name.replace(/\s+/g, '-')}.pdf`
+  );
+}
+async function _amsGenPDF(title, meta, report, filename) {
+  await import('https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js'); const jsPDF = window.jspdf.jsPDF; const GState = window.jspdf.GState;
+  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const pageW = 210, margin = 20, contentW = pageW - margin * 2;
+  let y = 20;
+
+  doc.setFillColor(22, 18, 15); doc.rect(0, 0, pageW, 45, 'F');
+  doc.setTextColor(184, 92, 56); doc.setFont('helvetica', 'bold'); doc.setFontSize(18);
+  doc.text('ALL MASONRY SERVICES INC', margin, 18);
+  doc.setTextColor(255, 255, 255); doc.setFontSize(13);
+  doc.text(title, margin, 28);
+  doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.setTextColor(200, 200, 200);
+  doc.text('Prepared by All Masonry Services Inc · allmasonryservices.com · 773-656-2107', margin, 36);
+  doc.text(meta, margin, 42);
+  y = 55;
+
+  doc.setDrawColor(184, 92, 56); doc.setLineWidth(0.5); doc.line(margin, y, pageW - margin, y); y += 8;
+
+  const sections = report.split('\n\n').filter(function(s) { return s.trim(); });
+  sections.forEach(function(section) {
+    const lines = section.trim().split('\n');
+    const heading = lines[0].trim();
+    const body = lines.slice(1).join('\n').trim();
+    if (y > 260) { doc.addPage(); y = 20; }
+    doc.setFillColor(184, 92, 56); doc.rect(margin, y - 4, 3, 6, 'F');
+    doc.setFont('helvetica', 'bold'); doc.setFontSize(10); doc.setTextColor(22, 18, 15);
+    doc.text(heading, margin + 6, y); y += 6;
+    if (body) {
+      doc.setFont('helvetica', 'normal'); doc.setFontSize(9); doc.setTextColor(74, 74, 74);
+      const wrapped = doc.splitTextToSize(body.replace(/^[-•]\s*/gm, ''), contentW - 6);
+      wrapped.forEach(function(line) { if (y > 270) { doc.addPage(); y = 20; } doc.text(line, margin + 6, y); y += 5; });
+    }
+    y += 5;
+  });
+
+  if (y > 250) { doc.addPage(); y = 20; }
+  doc.setDrawColor(184, 92, 56); doc.setLineWidth(0.3); doc.line(margin, y, pageW - margin, y); y += 5;
+  doc.setFont('helvetica', 'bolditalic'); doc.setFontSize(7); doc.setTextColor(140, 128, 112);
+  doc.text('DISCLAIMER', margin, y); y += 5;
+  doc.setFont('helvetica', 'normal');
+  const disc = 'This report is a preliminary stone recommendation based on style preferences and project information provided by the homeowner. It is not a substitute for a professional on-site consultation by a licensed masonry contractor. Actual stone selection, substrate requirements, site conditions, and final costs may differ. All Masonry Services Inc. does not warrant the accuracy of this preliminary report. For a definitive recommendation, contact All Masonry Services Inc. for a FREE stone consultation at 773-656-2107 or allmasonryservices.com.';
+  const discLines = doc.splitTextToSize(disc, contentW);
+  discLines.forEach(function(line) { if (y > 275) { doc.addPage(); y = 20; } doc.text(line, margin, y); y += 4; });
+
+  const pc = doc.getNumberOfPages();
+  for (let i = 1; i <= pc; i++) {
+    doc.setPage(i);
+    doc.saveGraphicsState();
+    doc.setGState(new GState({ opacity: 0.07 }));
+    doc.setTextColor(184, 92, 56); doc.setFontSize(36); doc.setFont('helvetica', 'bold');
+    doc.text('ALL MASONRY SERVICES', pageW / 2, 148, { align: 'center', angle: 45 });
+    doc.restoreGraphicsState();
+    doc.setFontSize(8); doc.setTextColor(139, 128, 112);
+    doc.text('© All Masonry Services Inc · allmasonryservices.com · 773-656-2107', margin, 288);
+    doc.text(`Page ${i} of ${pc}`, pageW - margin - 20, 288);
+  }
+  doc.save(filename);
+}
+</script>
+
+<style>
+.magnet{background:#FFFFFF;padding:32px;max-width:580px;width:100%}
+.magnet-header{margin-bottom:24px}
+.badge-gold{display:inline-block;background:#B85C38;color:#FFFFFF;font-size:11px;font-weight:700;letter-spacing:.1em;padding:4px 10px;border-radius:4px;margin-bottom:12px}
+.magnet-title{font-family:'Onest',sans-serif;font-weight:700;font-size:22px;color:#16120F;margin:10px 0 6px;line-height:1.2}
+.magnet-title em{font-style:italic;color:#B85C38}
+.magnet-sub{font-family:'Inter',sans-serif;font-size:13px;color:#4A433B;line-height:1.6;margin:0}
+.step{display:none}.step.active{display:block}
+.step-label{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6A625A;margin:0 0 16px}
+.field-col{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
+.field-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field-group{display:flex;flex-direction:column;gap:6px}
+.field-label{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#16120F}
+.req{color:#C0392B}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;border-radius:14px;letter-spacing:.04em;text-decoration:none;transition:opacity .2s}
+.btn:hover{opacity:.88}
+.btn-primary{background:#B85C38;color:#FFFFFF}
+.btn-outline{background:transparent;color:#16120F;border:2px solid #16120F}
+.input,.select,.textarea{width:100%;border:1px solid #D9D9D9;background:#fff;color:#16120F;font-family:'Inter',sans-serif;font-size:14px;padding:0 12px;box-sizing:border-box;outline:none;border-radius:10px;appearance:none}
+.input,.select{height:44px}
+.input:focus,.select:focus,.textarea:focus{border-color:#B85C38}
+.select{cursor:pointer}
+.textarea{height:80px;resize:vertical;padding:10px 12px}
+.nav-row{display:flex;gap:12px}
+.progress-track{height:3px;background:#E8E4DC;margin-top:20px}
+.progress-fill{height:3px;background:#B85C38;transition:width 400ms ease}
+.loading-state{text-align:center;padding:32px 0}
+.spinner{width:36px;height:36px;border:3px solid #E8E4DC;border-top-color:#B85C38;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-family:'Inter',sans-serif;font-size:13px;color:#6A625A}
+.success-icon-wrap{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px}
+.result-check{width:48px;height:48px;background:#B85C38;color:#FFFFFF;font-weight:900;font-size:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:50%}
+.result-title{font-family:'Onest',sans-serif;font-size:18px;font-weight:700;color:#16120F;margin:0 0 4px}
+.result-sub{font-family:'Inter',sans-serif;font-size:13px;color:#4A433B;margin:0;line-height:1.5}
+.disclaimer-box{background:#FEF3EF;border:1px solid #B85C38;border-left:4px solid #B85C38;padding:12px 14px;font-size:12px;color:#4A433B;line-height:1.6;margin-bottom:16px}
+.disclaimer-box strong{color:#16120F;display:block;margin-bottom:4px;font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.result-actions{display:flex;gap:12px;flex-wrap:wrap}
+.error-text{font-family:'Inter',sans-serif;font-size:13px;color:#C0392B;text-align:center;padding:24px}
+@media(max-width:480px){.field-row-2{grid-template-columns:1fr}.magnet{padding:20px}.result-actions{flex-direction:column}}
+</style>
