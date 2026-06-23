@@ -1,0 +1,76 @@
+---
+interface Props {
+  city: string;
+  size?: number;
+}
+
+const { city, size = 400 } = Astro.props;
+
+const citySlug = city.toLowerCase().replace(/\s+/g, '-');
+const maskUrl = `/shapes/${citySlug}-shape.svg`;
+
+const images = [
+  '/images/about-hero.webp',
+  '/images/svc-chimney.webp',
+  '/images/svc-natural-stone.webp',
+];
+const bgImage = images[city.length % images.length];
+---
+
+<div class="dcm-wrap" style={`width:${size}px; max-width:100%;`}>
+  <div
+    class="dcm-mask"
+    style={`
+      width:${size}px;
+      height:${size}px;
+      max-width:100%;
+      mask-image: url('${maskUrl}');
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-image: url('${maskUrl}');
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      position: relative;
+    `}
+  >
+    <div
+      class="dcm-img"
+      style={`
+        width: 100%;
+        height: 100%;
+        background-image: url('${bgImage}');
+        background-size: cover;
+        background-position: center;
+      `}
+    ></div>
+    <div class="dcm-glow" aria-hidden="true"></div>
+  </div>
+</div>
+
+<style>
+  .dcm-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dcm-mask {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .dcm-mask:hover {
+    transform: scale(1.04);
+  }
+  .dcm-glow {
+    position: absolute;
+    inset: 0;
+    background: rgba(184, 92, 56, 0.18);
+    filter: blur(40px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+  .dcm-mask:hover .dcm-glow {
+    opacity: 1;
+  }
+</style>
