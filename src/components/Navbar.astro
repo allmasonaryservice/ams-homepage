@@ -43,7 +43,7 @@ const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.st
     <div class="mortar-line"></div>
   </div>
 
-  <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+  <nav class="nav-inner" aria-label="Main navigation">
 
     <!-- LEFT: Logo -->
     <a href="/" class="nav-logo" aria-label="All Masonry Services Inc — Home">
@@ -71,18 +71,18 @@ const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.st
         </button>
 
         <!-- MEGA DROPDOWN -->
-        <div class="nav-dropdown" id="services-dropdown" role="menu" aria-label="Services menu">
+        <div class="nav-dropdown" id="services-dropdown" aria-label="Services submenu">
           <div class="dropdown-inner">
 
             <!-- Column 1 -->
             <div class="dropdown-col">
               <div class="dropdown-col-header">Residential</div>
               <ul role="list">
-                <li><a href="/services/custom-home-masonry" class="dropdown-link" role="menuitem">Custom Home Masonry</a></li>
-                <li><a href="/services/brick-installation" class="dropdown-link" role="menuitem">Brick Installation</a></li>
-                <li><a href="/services/natural-stone-limestone" class="dropdown-link" role="menuitem">Natural Stone & Limestone</a></li>
-                <li><a href="/services/brick-stone-veneers" class="dropdown-link" role="menuitem">Brick & Stone Veneers</a></li>
-                <li><a href="/services/chimney-fireplace" class="dropdown-link" role="menuitem">Chimney & Fireplace</a></li>
+                <li><a href="/services/custom-home-masonry" class="dropdown-link">Custom Home Masonry</a></li>
+                <li><a href="/services/brick-installation" class="dropdown-link">Brick Installation</a></li>
+                <li><a href="/services/natural-stone-limestone" class="dropdown-link">Natural Stone & Limestone</a></li>
+                <li><a href="/services/brick-stone-veneers" class="dropdown-link">Brick & Stone Veneers</a></li>
+                <li><a href="/services/chimney-fireplace" class="dropdown-link">Chimney & Fireplace</a></li>
               </ul>
             </div>
 
@@ -90,16 +90,16 @@ const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.st
             <div class="dropdown-col">
               <div class="dropdown-col-header">Commercial</div>
               <ul role="list">
-                <li><a href="/services/cmu-block-installation" class="dropdown-link" role="menuitem">CMU Block Installation</a></li>
-                <li><a href="/services/commercial-brick-stone" class="dropdown-link" role="menuitem">Commercial Brick & Stone</a></li>
-                <li><a href="/services/commercial-masonry-veneers" class="dropdown-link" role="menuitem">Full Masonry Veneers</a></li>
+                <li><a href="/services/cmu-block-installation" class="dropdown-link">CMU Block Installation</a></li>
+                <li><a href="/services/commercial-brick-stone" class="dropdown-link">Commercial Brick & Stone</a></li>
+                <li><a href="/services/commercial-masonry-veneers" class="dropdown-link">Full Masonry Veneers</a></li>
               </ul>
 
               <div class="dropdown-col-header" style="margin-top:16px">Restoration</div>
               <ul role="list">
-                <li><a href="/services/tuckpointing-repointing" class="dropdown-link" role="menuitem">Tuckpointing & Repointing</a></li>
-                <li><a href="/services/damaged-brick-replacement" class="dropdown-link" role="menuitem">Damaged Brick Replacement</a></li>
-                <li><a href="/services/chimney-repair-rebuilding" class="dropdown-link" role="menuitem">Chimney Repair & Rebuilding</a></li>
+                <li><a href="/services/tuckpointing-repointing" class="dropdown-link">Tuckpointing & Repointing</a></li>
+                <li><a href="/services/damaged-brick-replacement" class="dropdown-link">Damaged Brick Replacement</a></li>
+                <li><a href="/services/chimney-repair-rebuilding" class="dropdown-link">Chimney Repair & Rebuilding</a></li>
               </ul>
             </div>
 
@@ -169,7 +169,7 @@ const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.st
 <!-- ═══════════════════════════════════════════════
      MOBILE MENU
 ═══════════════════════════════════════════════ -->
-<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Mobile navigation">
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <div class="mobile-menu-inner">
 
     <!-- Mobile Header -->
@@ -242,6 +242,8 @@ const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.st
 
 <!-- Spacer so content doesn't hide under fixed navbar -->
 <div class="nav-spacer" aria-hidden="true"></div>
+
+<main id="main-content" tabindex="-1">
 
 <!-- ═══════════════════════════════════════════════
      SCRIPT — deferred, no TBT impact
