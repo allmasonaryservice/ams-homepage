@@ -18,6 +18,18 @@ const {
     <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{title}</title>
 
+    <!-- WebMCP / Agentic Browsing — AI agent discoverability -->
+    <link rel="mcp-manifest" href="/.well-known/mcp.json" />
+    <meta name="mcp:name" content="All Masonry Services Inc" />
+    <meta name="mcp:description" content="Expert masonry contractor in Chicagoland — brick, stone, chimney, tuckpointing. Free estimates. Licensed & insured." />
+    <meta name="mcp:action:estimate" content="/contact#form" />
+    <meta name="mcp:action:call" content="tel:+17736562107" />
+    <!-- AI agent hints (Claude, ChatGPT, Gemini, Perplexity) -->
+    <meta name="ai:service" content="masonry contractor" />
+    <meta name="ai:location" content="Chicagoland, Illinois" />
+    <meta name="ai:phone" content="+17736562107" />
+    <meta name="ai:free-estimate" content="true" />
+
     <!-- Sequence frame-001 preload (LCP) -->
     <link rel="preload" as="image" href="/images/sequence-desktop-webp/frame-001.webp" media="(min-width: 768px)" fetchpriority="high" />
     <link rel="preload" as="image" href="/images/sequence-mobile-webp/frame-001.webp" media="(max-width: 767px)" fetchpriority="high" />

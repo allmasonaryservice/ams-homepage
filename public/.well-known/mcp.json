@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "name": "All Masonry Services Inc",
+  "description": "Expert masonry contractor serving Chicagoland since 2007. Brick installation, tuckpointing, chimney repair, stone, CMU block, and commercial masonry. Free on-site estimates. Licensed & insured in Illinois.",
+  "url": "https://allmasonryservices.com",
+  "contact": {
+    "phone": "+17736562107",
+    "email": "info@allmasonryservices.com",
+    "address": {
+      "region": "IL",
+      "country": "US",
+      "service_area": "Chicagoland"
+    }
+  },
+  "business": {
+    "founded": "2007",
+    "license": "IL #MA-104-018887",
+    "insurance": "$2.5M general liability",
+    "hours": "Monday–Saturday 7am–6pm",
+    "rating": "4.8",
+    "review_count": 92
+  },
+  "services": [
+    { "name": "Brick Installation", "url": "/services/brick-installation" },
+    { "name": "Tuckpointing & Repointing", "url": "/services/tuckpointing-repointing" },
+    { "name": "Chimney Repair & Rebuilding", "url": "/services/chimney-repair-rebuilding" },
+    { "name": "Chimney & Fireplace", "url": "/services/chimney-fireplace" },
+    { "name": "CMU Block Installation", "url": "/services/cmu-block-installation" },
+    { "name": "Commercial Brick & Stone", "url": "/services/commercial-brick-stone" },
+    { "name": "Brick & Stone Veneers", "url": "/services/brick-stone-veneers" },
+    { "name": "Custom Home Masonry", "url": "/services/custom-home-masonry" },
+    { "name": "Commercial Masonry Veneers", "url": "/services/commercial-masonry-veneers" },
+    { "name": "Damaged Brick Replacement", "url": "/services/damaged-brick-replacement" },
+    { "name": "Natural Stone & Limestone", "url": "/services/natural-stone-limestone" }
+  ],
+  "service_areas": [
+    "Winnetka", "Wilmette", "Kenilworth", "Glencoe", "Evanston",
+    "Highland Park", "Northbrook", "Hinsdale", "Oak Brook",
+    "Elmhurst", "Western Springs", "Naperville", "Downers Grove",
+    "La Grange", "Burr Ridge", "Clarendon Hills", "Willowbrook",
+    "Wheaton", "Chicago"
+  ],
+  "actions": [
+    {
+      "name": "Request Free Estimate",
+      "description": "Submit a request for a free on-site masonry estimate",
+      "url": "/contact#form",
+      "method": "GET"
+    },
+    {
+      "name": "Call for Quote",
+      "description": "Call All Masonry Services directly",
+      "url": "tel:+17736562107"
+    },
+    {
+      "name": "View Service Areas",
+      "description": "See all 19 Chicagoland cities served",
+      "url": "/service-areas"
+    }
+  ],
+  "resources": [
+    {
+      "name": "Services Overview",
+      "url": "/services",
+      "description": "All masonry services offered"
+    },
+    {
+      "name": "Project Portfolio",
+      "url": "/projects",
+      "description": "Before & after photos of completed masonry projects"
+    },
+    {
+      "name": "Masonry Blog",
+      "url": "/blog",
+      "description": "Expert guides on brick, chimney, and masonry topics"
+    },
+    {
+      "name": "FAQ",
+      "url": "/faq",
+      "description": "Common questions about masonry services, costs, and process"
+    },
+    {
+      "name": "About AMS",
+      "url": "/about",
+      "description": "Family-owned masonry company background and credentials"
+    }
+  ],
+  "ai_hints": {
+    "primary_cta": "Get a free on-site estimate at /contact#form or call 773-656-2107",
+    "unique_value": "Mortar-match guarantee — new mortar matched to existing in color, texture, and hardness or redone at no charge",
+    "specialties": ["tuckpointing", "brick matching", "historic home restoration", "chimney repair", "commercial masonry"],
+    "not_offered": ["painting", "carpentry", "roofing", "plumbing", "drywall"]
+  }
+}
