@@ -1,4 +1,4 @@
----
+﻿---
 // Contact — schedule a free inspection
 // Layout: masonry-clipped image canvas with form card floating INSIDE on desktop
 // Key: .cta-bg has clip-path (image+overlay+glass inside it)
@@ -169,7 +169,7 @@
       var email = document.getElementById('cta-email').value.trim();
       var service = document.getElementById('cta-service').value;
       var message = document.getElementById('cta-message').value.trim();
-      fetch('https://app.allmasonaryservice.com/api/leads/inbound', {
+      fetch('https://ams-contractor-portal-drab.vercel.app/api/leads/inbound', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' },
         body: JSON.stringify({ name: name, email: email, phone: phone, service: service, message: message, source: 'homepage-cta' })

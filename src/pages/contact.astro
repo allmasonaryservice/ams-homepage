@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
@@ -1091,7 +1091,7 @@ const faqItems = [
       var service = document.getElementById('cth-service').value;
       var city = document.getElementById('cth-city').value.trim();
       var message = document.getElementById('cth-message').value.trim();
-      fetch('https://app.allmasonaryservice.com/api/leads/inbound', {
+      fetch('https://ams-contractor-portal-drab.vercel.app/api/leads/inbound', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' },
         body: JSON.stringify({ name: name, email: email, phone: phone, service: service, message: message, source: 'contact-page', metadata: { city: city } })

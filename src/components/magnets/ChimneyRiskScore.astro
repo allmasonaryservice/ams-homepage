@@ -1,4 +1,4 @@
----
+﻿---
 ---
 
 <div class="cr-wrap" id="cr-root">
@@ -432,7 +432,7 @@ Write for a homeowner, not a contractor. Be specific, direct, and safety-focused
         return;
       }
       cr_contactData = { name, phone, email, address, zip };
-      fetch('https://app.allmasonaryservice.com/api/leads/inbound', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' }, body: JSON.stringify({ name, email, phone, source: 'magnet-tool', metadata: { tool: 'ChimneyRiskScore' } }) }).catch(() => {});
+      fetch('https://ams-contractor-portal-drab.vercel.app/api/leads/inbound', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' }, body: JSON.stringify({ name, email, phone, source: 'magnet-tool', metadata: { tool: 'ChimneyRiskScore' } }) }).catch(() => {});
       cr_showStep(3);
       const spinner = document.getElementById("cr-spinner");
       const result = document.getElementById("cr-result");
