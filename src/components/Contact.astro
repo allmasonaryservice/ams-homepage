@@ -164,11 +164,24 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
       var btn = form.querySelector('.cta-submit');
       if (btn) { btn.classList.add('loading'); btn.disabled = true; }
-      setTimeout(function () {
+      var name = document.getElementById('cta-name').value.trim();
+      var phone = document.getElementById('cta-phone').value.trim();
+      var email = document.getElementById('cta-email').value.trim();
+      var service = document.getElementById('cta-service').value;
+      var message = document.getElementById('cta-message').value.trim();
+      fetch('https://app.allmasonaryservice.com/api/leads/inbound', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' },
+        body: JSON.stringify({ name: name, email: email, phone: phone, service: service, message: message, source: 'homepage-cta' })
+      }).then(function () {
         form.hidden = true;
         if (success) success.hidden = false;
         if (btn) { btn.classList.remove('loading'); btn.disabled = false; }
-      }, 1100);
+      }).catch(function () {
+        form.hidden = true;
+        if (success) success.hidden = false;
+        if (btn) { btn.classList.remove('loading'); btn.disabled = false; }
+      });
     });
   }
 

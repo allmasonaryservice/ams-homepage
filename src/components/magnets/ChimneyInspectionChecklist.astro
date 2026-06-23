@@ -369,6 +369,7 @@ Write for a homeowner who is not a contractor. Be safety-focused, direct, and sp
         return;
       }
       ci_contactData = { name, phone, email, address, zip };
+      fetch('https://app.allmasonaryservice.com/api/leads/inbound', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' }, body: JSON.stringify({ name, email, phone, source: 'magnet-tool', metadata: { tool: 'ChimneyInspectionChecklist' } }) }).catch(() => {});
       ci_showStep(3);
       const spinner = document.getElementById("ci-spinner");
       const result = document.getElementById("ci-result");

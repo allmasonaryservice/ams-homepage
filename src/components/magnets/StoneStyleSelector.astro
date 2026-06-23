@@ -170,6 +170,7 @@ async function stSubmit() {
     address: document.getElementById('st-address').value,
     zip: document.getElementById('st-zip').value,
   };
+  fetch('https://app.allmasonaryservice.com/api/leads/inbound', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' }, body: JSON.stringify({ name: d.name, email: d.email, phone: d.phone, source: 'magnet-tool', metadata: { tool: 'StoneStyleSelector', address: d.address, zip: d.zip } }) }).catch(function(){});
   document.getElementById('stone-step2').classList.remove('active');
   document.getElementById('stone-step3').classList.add('active');
   document.getElementById('st-progress').style.width = '100%';

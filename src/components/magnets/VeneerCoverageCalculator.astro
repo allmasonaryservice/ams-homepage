@@ -401,6 +401,7 @@ Write for a homeowner making a buying decision. Every cost must be a real number
         return;
       }
       vc_contactData = { name, phone, email, address, zip };
+      fetch('https://app.allmasonaryservice.com/api/leads/inbound', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' }, body: JSON.stringify({ name, email, phone, source: 'magnet-tool', metadata: { tool: 'VeneerCoverageCalculator' } }) }).catch(() => {});
       vc_showStep(3);
       const spinner = document.getElementById("vc-spinner");
       const result = document.getElementById("vc-result");

@@ -223,8 +223,11 @@
     if (btnText) btnText.style.display = 'none';
     if (spinner) spinner.style.display = 'inline';
     if (errorEl) errorEl.style.display = 'none';
-    var data = new FormData(form);
-    fetch('https://formspree.io/f/xpwzkqdw', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+    fetch('https://app.allmasonaryservice.com/api/leads/inbound', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' },
+      body: JSON.stringify({ name: name, phone: phone, source: 'hero-form', metadata: { zip: zip, service: service } })
+    })
       .then(function(res) {
         if (res.ok) {
           form.style.display = 'none';

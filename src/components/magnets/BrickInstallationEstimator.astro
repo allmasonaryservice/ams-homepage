@@ -161,6 +161,7 @@ async function brSubmit() {
   const name = document.getElementById('br-name').value;
   const address = document.getElementById('br-address').value;
   const zip = document.getElementById('br-zip').value;
+  fetch('https://app.allmasonaryservice.com/api/leads/inbound', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' }, body: JSON.stringify({ name: name, email: document.getElementById('br-email').value, phone: document.getElementById('br-phone').value, source: 'magnet-tool', metadata: { tool: 'BrickInstallationEstimator', address: address, zip: zip } }) }).catch(function(){});
 
   document.getElementById('brick-step2').classList.remove('active');
   document.getElementById('brick-step3').classList.add('active');

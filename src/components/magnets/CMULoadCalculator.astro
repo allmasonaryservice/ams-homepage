@@ -296,6 +296,7 @@ const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
       return;
     }
     cmu_contactData = { name: name, phone: phone, email: email, address: address, zip: zip };
+    fetch('https://app.allmasonaryservice.com/api/leads/inbound', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' }, body: JSON.stringify({ name: name, email: email, phone: phone, source: 'magnet-tool', metadata: { tool: 'CMULoadCalculator' } }) }).catch(function(){});
     cmu_showStep(3);
     var spinner = document.getElementById("cmu-spinner");
     var result = document.getElementById("cmu-result");

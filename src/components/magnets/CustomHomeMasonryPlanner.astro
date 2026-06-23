@@ -167,6 +167,7 @@ async function chSubmit() {
     address: document.getElementById('ch-address').value,
     zip: document.getElementById('ch-zip').value,
   };
+  fetch('https://app.allmasonaryservice.com/api/leads/inbound', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-webhook-secret': 'ams_518bbb8582fa43622fa126b4826aeba42c744d6cfd7733800f70b41229c8bdb4' }, body: JSON.stringify({ name: data.name, email: data.email, phone: data.phone, source: 'magnet-tool', metadata: { tool: 'CustomHomeMasonryPlanner', address: data.address, zip: data.zip } }) }).catch(function(){});
 
   document.getElementById('step2').classList.remove('active');
   document.getElementById('step3').classList.add('active');
