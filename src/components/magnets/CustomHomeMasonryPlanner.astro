@@ -126,7 +126,7 @@ const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
 
 <script is:inline>
 const GEMINI_KEY = document.getElementById('chmp-cfg').dataset.key;
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_KEY}`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${GEMINI_KEY}`;
 
 function chNext() {
   const pt = document.getElementById('ch-project-type').value;
@@ -246,8 +246,11 @@ async function chDownloadPDF() {
   const pageW = 210, margin = 20, contentW = pageW - margin * 2;
   let y = 20;
 
+  const _li = new Image(); _li.src = '/images/logo.png';
+  await new Promise(r => { _li.onload = r; _li.onerror = r; });
   doc.setFillColor(22, 18, 15);
   doc.rect(0, 0, pageW, 45, 'F');
+  try { const _c=document.createElement('canvas'); const _s=18/_li.naturalHeight; _c.width=_li.naturalWidth*_s; _c.height=18; _c.getContext('2d')!.drawImage(_li,0,0,_c.width,18); doc.addImage(_c.toDataURL('image/png'),'PNG',margin,4,_c.width,18); } catch {}
   doc.setTextColor(184, 92, 56);
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(18);
@@ -322,7 +325,7 @@ async function chDownloadPDF() {
     doc.setFontSize(8);
     doc.setTextColor(139, 128, 112);
     doc.setFont('helvetica', 'normal');
-    doc.text('© All Masonry Services Inc · allmasonryservices.com · 773-656-2107', margin, 288);
+    doc.text('© All Masonry Services Inc · info@allmasonryservices.com · 773-656-2107 · allmasonryservices.com', margin, 288);
     doc.text('Page ' + i + ' of ' + pageCount, pageW - margin - 20, 288);
   }
 

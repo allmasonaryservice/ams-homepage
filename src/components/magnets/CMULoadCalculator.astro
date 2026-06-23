@@ -121,7 +121,7 @@ const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
 <script is:inline>
 (function() {
   const GEMINI_KEY = document.getElementById('cmu-cfg').dataset.key;
-  const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=' + GEMINI_KEY;
+  const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=' + GEMINI_KEY;
 
   var cmu_reportText = "";
   var cmu_contactData = {};
@@ -197,12 +197,23 @@ const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
       if (y + needed > pageH - 48) { doc.addPage(); y = 48; }
     }
 
-    doc.setFillColor(22, 18, 15);
-    doc.rect(0, 0, pageW, 72, "F");
-    doc.setTextColor(184, 92, 56);
-    doc.setFontSize(13);
-    doc.setFont("helvetica", "bold");
-    doc.text("ALL MASONRY SERVICES INC", margin, 26);
+    // PDF Header with logo
+      const _logoImg = new Image();
+      _logoImg.src = "/images/logo.png";
+      await new Promise(resolve => { _logoImg.onload = resolve; _logoImg.onerror = resolve; });
+      doc.setFillColor(22, 18, 15);
+      doc.rect(0, 0, pageW, 80, "F");
+      try {
+        const _c = document.createElement("canvas");
+        const _s = 56 / _logoImg.naturalHeight;
+        _c.width = _logoImg.naturalWidth * _s; _c.height = 56;
+        _c.getContext("2d")!.drawImage(_logoImg, 0, 0, _c.width, 56);
+        doc.addImage(_c.toDataURL("image/png"), "PNG", margin, 12, _c.width, 56);
+      } catch { }
+      doc.setTextColor(184, 92, 56);
+      doc.setFontSize(13);
+      doc.setFont("helvetica", "bold");
+      doc.text("ALL MASONRY SERVICES INC", margin, 26);;
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(15);
     doc.text("CMU Block Installation — Quantity Calculator Report", margin, 52);
@@ -275,7 +286,7 @@ const geminiKey = import.meta.env.PUBLIC_GEMINI_KEY ?? '';
       doc.setTextColor(184, 92, 56);
       doc.setFontSize(8);
       doc.setFont("helvetica", "bold");
-      doc.text("© All Masonry Services Inc  ·  allmasonryservices.com  ·  773-656-2107", margin, pageH - 14);
+      doc.text("© All Masonry Services Inc  ·  info@allmasonryservices.com  ·  773-656-2107  ·  allmasonryservices.com", margin, pageH - 14);
       doc.setTextColor(180, 180, 180);
       doc.text("Page " + p + " of " + totalPages, pageW - margin - 40, pageH - 14);
     }
