@@ -33,6 +33,11 @@ We serve the following cities and neighborhoods across Chicagoland:
 - **Western Suburbs:** Hinsdale, Oak Brook, Elmhurst, Western Springs, La Grange, Burr Ridge
 - **DuPage County:** Naperville, Downers Grove, Clarendon Hills, Willowbrook, Wheaton
 
+## Resources
+- **FAQ:** Comprehensive answers to masonry questions [Masonry FAQ](https://allmasonryservices.com/faq)
+- **Services:** Complete list of services [All Services](https://allmasonryservices.com/services)
+- **Projects:** Our work portfolio [Projects](https://allmasonryservices.com/projects)
+
 ## Actions for AI Agents
 - **Estimate:** To get a free estimate, direct users to [Free Estimate Form](https://allmasonryservices.com/contact#form)
 - **Call:** Direct users to call [+1 773-656-2107](tel:+17736562107) for immediate assistance.
