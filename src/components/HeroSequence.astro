@@ -183,6 +183,7 @@
 
   if (!document.getElementById('seq-canvas')) return;
   var outroWasActive = false;
+  var targetFrame = 1;
   var activePanelIdx = -1;
   var currentFrame = 1;
   var hintHidden = false;
@@ -281,7 +282,12 @@
   function loadFrame(n, onload) {
     if (images[n] && images[n].complete && images[n].naturalWidth) { if (onload) onload(); return; }
     var img = new Image();
-    img.onload = function() { images[n] = img; if (onload) onload(); };
+    img.onload = function() { 
+      images[n] = img; 
+      if (onload) onload(); 
+      // If this frame is the one the user is currently waiting for, draw it immediately
+      if (targetFrame === n) drawFrame(n);
+    };
     img.onerror = function() {};
     img.src = FOLDER + 'frame-' + pad(n) + '.webp';
     images[n] = img;
@@ -295,6 +301,12 @@
       // Hide LCP fallback img — canvas has taken over
       var lcpImg = document.getElementById('seq-lcp-img');
       if (lcpImg) lcpImg.style.display = 'none';
+      
+      // Load next 15 frames into JS memory for smooth immediate scroll
+      for (var i = 2; i <= 15; i++) {
+        loadFrame(i);
+      }
+      
       // Delegate ALL remaining frames to SW — invisible to Lighthouse
       swCacheAllFrames();
     });
@@ -326,7 +338,7 @@
   function ensureLookahead(frame) {
     if (frame - lastLookahead < 5 && frame > lastLookahead) return;
     lastLookahead = frame;
-    var ahead = Math.min(frame + 8, TOTAL_FRAMES);
+    var ahead = Math.min(frame + 12, TOTAL_FRAMES); // increased lookahead to 12
     for (var i = frame + 1; i <= ahead; i++) {
       if (!images[i] || !images[i].src) loadFrame(i);
     }
@@ -377,7 +389,6 @@
 
     // Size the new canvas (ViewTransition creates a fresh DOM canvas at 300×150 default)
     sizeCanvas();
-    var state = { frame: 1 };
 
     window.__seqST = ScrollTrigger.create({
       trigger: section,
@@ -388,8 +399,8 @@
       onUpdate: function(self) {
         var progress = self.progress;
         var frameNum = Math.min(TOTAL_FRAMES, Math.max(1, Math.round(progress * (TOTAL_FRAMES - 1)) + 1));
-        if (frameNum !== state.frame) {
-          state.frame = frameNum;
+        if (frameNum !== targetFrame) {
+          targetFrame = frameNum;
           drawFrame(frameNum);
           updatePanel(frameNum);
           ensureLookahead(frameNum);
@@ -402,7 +413,7 @@
       },
     });
 
-    updatePanel(state.frame);
+    updatePanel(targetFrame);
     // Redraw current frame after ScrollTrigger init (sizeCanvas may have cleared canvas)
     drawFrame(currentFrame);
   }
