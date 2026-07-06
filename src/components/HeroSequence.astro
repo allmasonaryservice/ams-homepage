@@ -416,6 +416,14 @@
     updatePanel(targetFrame);
     // Redraw current frame after ScrollTrigger init (sizeCanvas may have cleared canvas)
     drawFrame(currentFrame);
+
+    // CRITICAL FIX: Because HeroSequence pins the layout (adding a huge spacer), 
+    // it shifts all subsequent sections down. We must tell ScrollTrigger to recalculate 
+    // all offsets (for Process, Projects, Testimonials) so they trigger at the right time.
+    // We use a small timeout to ensure all module scripts have finished their own initializations.
+    setTimeout(function() {
+      ScrollTrigger.refresh();
+    }, 100);
   }
 
   // Remove old listener before adding new one — prevents accumulation across navigations
