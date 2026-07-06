@@ -1003,7 +1003,7 @@ const faqItems = [
         html: '<div style="width:11px;height:11px;background:' + color + ';border:2.5px solid #ffffff;border-radius:50%;box-shadow:0 1px 6px rgba(0,0,0,0.35);"></div>',
         iconSize: [11, 11], iconAnchor: [5, 5], popupAnchor: [0, -10],
       });
-      L.marker([c.lat, c.lng], { icon: dotIcon, title: c.name + ' Service Area', alt: c.name })
+      var m = L.marker([c.lat, c.lng], { icon: dotIcon, title: c.name + ' Service Area', alt: c.name })
         .bindPopup(
           '<div style="font-family:Inter,sans-serif;min-width:130px;">' +
           '<strong style="font-size:13px;color:#16120F;">' + c.name + ', IL</strong><br>' +
@@ -1012,6 +1012,7 @@ const faqItems = [
           '</div>'
         )
         .addTo(map);
+      if (m._icon) m._icon.setAttribute('aria-label', c.name + ' Service Area');
     });
   }
 
