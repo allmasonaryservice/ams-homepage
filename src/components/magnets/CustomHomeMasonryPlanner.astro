@@ -173,7 +173,7 @@ async function chSubmit() {
   document.getElementById('step3').classList.add('active');
   document.getElementById('ch-progress').style.width = '100%';
 
-  const prompt = `You are a senior masonry consultant at All Masonry Services Inc., Chicago's leading residential masonry contractor since 2007 with 19+ years of experience and 500+ completed homes. You are writing a PERSONALIZED masonry project plan for a specific homeowner at their specific address.
+  const prompt = `You are a senior masonry consultant at All Masonry Services Inc., Chicago's leading residential masonry contractor since 2007 with 19+ years of experience and 100+ completed homes. You are writing a PERSONALIZED masonry project plan for a specific homeowner at their specific address.
 
 HOMEOWNER PROFILE:
 - Name: ${data.name}
@@ -212,7 +212,7 @@ CHICAGO SEASONAL PLANNING
 (2-3 sentences specifically about ${data.name}'s timeline request of "${data.timeline}" in context of Chicago weather. Best months for ${data.projectType} in Chicago. If they want to start "as soon as possible," give specific guidance on whether current season at ${data.zip} is workable. Winter masonry protection requirements if applicable. Optimal window for ${data.material} installation in Chicagoland.)
 
 YOUR NEXT STEP
-(Recommend ${data.name} contact All Masonry Services Inc. for a FREE on-site estimate at ${data.address}. Call 773-656-2107 or visit allmasonryservices.com. AMS has completed 500+ custom homes in Chicagoland since 2007 and serves the ${data.zip} area regularly. A project coordinator will follow up within 24 hours to schedule the site visit.)
+(Recommend ${data.name} contact All Masonry Services Inc. for a FREE on-site estimate at ${data.address}. Call 773-656-2107 or visit allmasonryservices.com. AMS has completed 100+ custom homes in Chicagoland since 2007 and serves the ${data.zip} area regularly. A project coordinator will follow up within 24 hours to schedule the site visit.)
 
 Write in warm but professional language. Every section must feel personalized to ${data.name}'s specific home and project — never generic.`;
 

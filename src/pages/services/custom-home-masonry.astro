@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../../layouts/Layout.astro';
   import { projects as allProjects } from '../../data/projects.js';
 import Navbar from '../../components/Navbar.astro';
@@ -69,16 +69,33 @@ const faqItems = [
   <section class="chm-hero" id="sp-hero" aria-label="Custom Home Masonry hero">
 
     <!-- Background: AMS ink dark base with subtle stone texture -->
-    <div class="chm-key-bg" id="chm-key-bg" style="background-image: url('/images/chm-hero/chm-main.webp');" aria-hidden="true"></div>
+    <div class="chm-key-bg chm-custom-hero-bg-base" id="chm-key-bg" aria-hidden="true"></div>
     <div class="chm-key-bg-ink" aria-hidden="true"></div>
 
     <!-- The keystone pendulum mask (different image for contrast) -->
     <div class="chm-key-wrap" aria-hidden="true">
-      <div class="chm-key-stone" id="chm-key-stone" style="background-image: url('/images/chm-hero/chm-finish.webp');">
+      <div class="chm-key-stone chm-custom-hero-bg-stone" id="chm-key-stone">
         <div class="chm-key-overlay"></div>
         <div class="chm-key-border"></div>
       </div>
     </div>
+
+    <style>
+      .chm-custom-hero-bg-base {
+        background-image: url('/images/custom-home-masonry/new-hero-mobile.webp') !important;
+      }
+      .chm-custom-hero-bg-stone {
+        background-image: url('/images/custom-home-masonry/new-hero-mobile.webp') !important;
+      }
+      @media (min-width: 768px) {
+        .chm-custom-hero-bg-base {
+          background-image: url('/images/custom-home-masonry/new-hero-desktop.webp') !important;
+        }
+        .chm-custom-hero-bg-stone {
+          background-image: url('/images/custom-home-masonry/new-hero-desktop.webp') !important;
+        }
+      }
+    </style>
 
     <!-- Bottom gradient so text is always readable -->
     <div class="chm-key-vignette" aria-hidden="true"></div>
@@ -116,7 +133,7 @@ const faqItems = [
 
       <div class="lh-badges chm-badges" id="chm-bdg">
         <div class="lh-badge">
-          <strong>500+</strong>
+          <strong>100+</strong>
           <span>Homes Completed</span>
         </div>
         <div class="lh-badge-sep chm-badge-sep" aria-hidden="true"></div>
@@ -173,33 +190,33 @@ const faqItems = [
       <!-- Header -->
       <div class="sp-delay-hdr">
         <div class="sp-section-label">Why It Matters</div>
-        <h2 class="sp-delay-h2">What Goes Wrong When You <em>Hire the Wrong Mason</em></h2>
-        <p class="sp-delay-sub">Custom home masonry mistakes are expensive — they're often invisible for years, then impossible to fix without opening walls. Here's what hiring the wrong mason costs you.</p>
+        <h2 class="sp-delay-h2">The Impact of <em>Architectural Masonry</em></h2>
+        <p class="sp-delay-sub">In custom home construction, masonry is more than an aesthetic facade—it is the structural envelope of your investment. Precision engineering and execution at this stage dictate the longevity and value of the estate.</p>
       </div>
 
       <div class="sp-delay-cols">
 
         <!-- LEFT: dark stats sidebar -->
         <div class="sp-delay-sidebar">
-          <p class="sp-delay-sidebar-label">The real cost of waiting</p>
+          <p class="sp-delay-sidebar-label">The AMS Standard</p>
           <div class="sp-delay-stats">
             <div class="sp-delay-stat">
-              <span class="sp-delay-stat-val">$25k+</span>
-              <span class="sp-delay-stat-desc">Typical cost overrun when wrong mason is hired for custom home masonry</span>
+              <span class="sp-delay-stat-val">100%</span>
+              <span class="sp-delay-stat-desc">Compliance with structural architectural blueprints</span>
             </div>
             <div class="sp-delay-stat-sep"></div>
             <div class="sp-delay-stat">
-              <span class="sp-delay-stat-val">5+ yrs</span>
-              <span class="sp-delay-stat-desc">Before hidden masonry defects surface and become costly to fix</span>
+              <span class="sp-delay-stat-val">Zero</span>
+              <span class="sp-delay-stat-desc">Tolerance for schedule delays or aesthetic deviation</span>
             </div>
             <div class="sp-delay-stat-sep"></div>
             <div class="sp-delay-stat">
               <span class="sp-delay-stat-val">1st visit</span>
-              <span class="sp-delay-stat-desc">AMS passes every municipal inspection on the first visit</span>
+              <span class="sp-delay-stat-desc">Pass rate for all municipal structural inspections</span>
             </div>
           </div>
           <a href="/contact#form" class="sp-delay-sidebar-cta">
-            Get a free project estimate
+            Schedule a blueprint review
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -214,9 +231,9 @@ const faqItems = [
               <div class="sp-delay-icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <h3 class="sp-delay-title">Wrong Mortar = Cracked Brick</h3>
+              <h3 class="sp-delay-title">Advanced Material Engineering</h3>
             </div>
-            <p class="sp-delay-text">Using mortar that's too hard for your brick is the single most common mistake in new construction masonry. It looks fine for a few years — then bricks start spalling from freeze-thaw stress.</p>
+            <p class="sp-delay-text">We select and mix mortar based on the specific compressive strength and absorption rates of your chosen brick or stone, ensuring the facade performs flawlessly under Chicago's thermal expansion and contraction cycles.</p>
           </div>
 
           <div class="sp-delay-rule"></div>
@@ -226,9 +243,9 @@ const faqItems = [
               <div class="sp-delay-icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
               </div>
-              <h3 class="sp-delay-title">Missing Flashing Causes Leaks</h3>
+              <h3 class="sp-delay-title">Comprehensive Envelope Systems</h3>
             </div>
-            <p class="sp-delay-text">Flashing, weep holes, and drainage mats are code requirements for a reason. Skip them — or install them incorrectly — and water infiltrates your wall cavity, rotting framing from the inside out.</p>
+            <p class="sp-delay-text">We don't just lay brick; we construct complete masonry cavity wall systems. Our precise installation of premium flashing, weep systems, and drainage mats guarantees a hermetically sealed barrier against moisture intrusion.</p>
           </div>
 
           <div class="sp-delay-rule"></div>
@@ -238,35 +255,9 @@ const faqItems = [
               <div class="sp-delay-icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
-              <h3 class="sp-delay-title">Failed Inspections Cost Money</h3>
+              <h3 class="sp-delay-title">Architectural Precision</h3>
             </div>
-            <p class="sp-delay-text">Masonry work that doesn’t meet code gets flagged at inspection — delaying your close date, frustrating your builder, and costing you in carrying costs and rework. We pass every inspection on the first visit.</p>
-            <div class="sp-delay-chart" aria-label="Cost escalation timeline">
-              <div class="sp-delay-chart-row">
-                <span class="sp-delay-chart-stage">Now</span>
-                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:20%"></div></div>
-                <span class="sp-delay-chart-cost">$</span>
-                <span class="sp-delay-chart-note">Planning</span>
-              </div>
-              <div class="sp-delay-chart-row">
-                <span class="sp-delay-chart-stage">1–2 yrs</span>
-                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:42%"></div></div>
-                <span class="sp-delay-chart-cost">$$</span>
-                <span class="sp-delay-chart-note">Joint failure</span>
-              </div>
-              <div class="sp-delay-chart-row">
-                <span class="sp-delay-chart-stage">3–4 yrs</span>
-                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:68%"></div></div>
-                <span class="sp-delay-chart-cost">$$$</span>
-                <span class="sp-delay-chart-note">Brick spalling</span>
-              </div>
-              <div class="sp-delay-chart-row">
-                <span class="sp-delay-chart-stage">5+ yrs</span>
-                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:100%"></div></div>
-                <span class="sp-delay-chart-cost">$$$$</span>
-                <span class="sp-delay-chart-note">Structural</span>
-              </div>
-            </div>
+            <p class="sp-delay-text">High-end elevations demand absolute technical literacy. Our project leads interpret architectural drawings fluently, ensuring complex transitions, archways, and structural supports are executed exactly as designed.</p>
           </div>
 
           <div class="sp-delay-rule"></div>
@@ -276,9 +267,9 @@ const faqItems = [
               <div class="sp-delay-icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               </div>
-              <h3 class="sp-delay-title">Subs Who Miss Schedule</h3>
+              <h3 class="sp-delay-title">Critical Path Management</h3>
             </div>
-            <p class="sp-delay-text">Masonry is on the critical path. A crew that doesn’t show when promised pushes framing, roofing, windows — everything. We commit to a schedule in writing and show up as agreed, every time.</p>
+            <p class="sp-delay-text">Masonry dictates the progress of the entire build. We provide a dedicated, continuous team to drive the masonry phase to completion, ensuring framing, roofing, and interior work proceed exactly on schedule.</p>
           </div>
 
           <div class="sp-delay-rule"></div>
@@ -421,7 +412,10 @@ const faqItems = [
 
         <div class="sp-why-item sp-why-card">
           <div class="sp-why-img-wrap">
-            <img src="/images/proj-brick-facade.webp" alt="AMS masonry crew showing up on schedule for custom home build" loading="lazy" />
+            <picture style="display: block; width: 100%; height: 100%;">
+              <source media="(min-width: 768px)" srcset="/images/custom-home-masonry/why/why-1-desktop.webp" />
+              <img src="/images/custom-home-masonry/why/why-1-mobile.webp" alt="AMS masonry crew showing up on schedule for custom home build" loading="lazy" />
+            </picture>
           </div>
           <div class="sp-why-card-body">
             <div class="sp-why-num" aria-hidden="true">01</div>
@@ -434,7 +428,10 @@ const faqItems = [
 
         <div class="sp-why-item sp-why-card">
           <div class="sp-why-img-wrap">
-            <img src="/images/why-arch.webp" alt="Full scope masonry under one contractor for custom home builds" loading="lazy" />
+            <picture style="display: block; width: 100%; height: 100%;">
+              <source media="(min-width: 768px)" srcset="/images/custom-home-masonry/why/why-2-desktop.webp" />
+              <img src="/images/custom-home-masonry/why/why-2-mobile.webp" alt="Full scope masonry under one contractor for custom home builds" loading="lazy" />
+            </picture>
           </div>
           <div class="sp-why-card-body">
             <div class="sp-why-num" aria-hidden="true">02</div>
@@ -447,7 +444,10 @@ const faqItems = [
 
         <div class="sp-why-item sp-why-card">
           <div class="sp-why-img-wrap">
-            <img src="/images/svc-natural-stone.webp" alt="Free custom home masonry project planner tool" loading="lazy" />
+            <picture style="display: block; width: 100%; height: 100%;">
+              <source media="(min-width: 768px)" srcset="/images/custom-home-masonry/why/why-3-desktop.webp" />
+              <img src="/images/custom-home-masonry/why/why-3-mobile.webp" alt="Free custom home masonry project planner tool" loading="lazy" />
+            </picture>
           </div>
           <div class="sp-why-card-body">
             <div class="sp-why-num" aria-hidden="true">03</div>
@@ -460,7 +460,10 @@ const faqItems = [
 
         <div class="sp-why-item sp-why-card">
           <div class="sp-why-img-wrap">
-            <img src="/images/chm-hero/chm-finish.webp" alt="Family owned masonry company working directly with builders" loading="lazy" />
+            <picture style="display: block; width: 100%; height: 100%;">
+              <source media="(min-width: 768px)" srcset="/images/custom-home-masonry/why/why-4-desktop.webp" />
+              <img src="/images/custom-home-masonry/why/why-4-mobile.webp" alt="Family owned masonry company working directly with builders" loading="lazy" />
+            </picture>
           </div>
           <div class="sp-why-card-body">
             <div class="sp-why-num" aria-hidden="true">04</div>
@@ -565,7 +568,7 @@ const faqItems = [
                 Custom Home Masonry Projects<br><em style="font-style:normal;">Across Chicagoland</em>
               </h2>
               <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.65); margin:0; max-width:400px;">
-                From new brick facades to limestone features and fireplace builds — every project delivered on schedule and built to last.
+                Engineered masonry construction for high-end residential builds—delivering structural integrity and architectural precision from foundation to facade.
               </p>
             </div>
 
@@ -588,7 +591,7 @@ const faqItems = [
                 </a>
               </div>
               <p style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.4); margin:16px 0 0;">
-                500+ projects completed across Chicagoland
+                100+ projects completed across Chicagoland
               </p>
             </div>
 
@@ -711,6 +714,14 @@ const faqItems = [
                       <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Sarah M.</p>
                       <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Winnetka, IL</p>
                     </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
                 <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
@@ -728,6 +739,14 @@ const faqItems = [
                       <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">David L.</p>
                       <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Hinsdale, IL</p>
                     </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
                 <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
@@ -744,6 +763,14 @@ const faqItems = [
                     <div>
                       <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Christine H.</p>
                       <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Naperville, IL</p>
+                    </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -767,6 +794,14 @@ const faqItems = [
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">James T.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Hinsdale, IL</p>
                   </div>
+                  <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                    <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
 
@@ -780,6 +815,14 @@ const faqItems = [
                   <div style="text-align:left;">
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Patricia &amp; David K.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Winnetka, IL</p>
+                  </div>
+                  <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                    <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -795,6 +838,14 @@ const faqItems = [
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Robert S., General Contractor</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Chicagoland</p>
                   </div>
+                  <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                    <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
 
@@ -809,6 +860,14 @@ const faqItems = [
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Michael B.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Naperville, IL</p>
                   </div>
+                  <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                    <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
 
@@ -822,6 +881,14 @@ const faqItems = [
                   <div style="text-align:left;">
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Karen W.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">La Grange, IL</p>
+                  </div>
+                  <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                    <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -857,6 +924,14 @@ const faqItems = [
             <p style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 2px;">Sarah M.</p>
             <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">Winnetka, IL · North Shore</p>
           </div>
+          <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+            <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
@@ -885,18 +960,18 @@ const faqItems = [
       <!-- Single cinematic slider -->
       <div class="sp-ba-stage" data-reveal style="--rd:120ms">
         <div class="sp-ba-slider" id="sp-ba-main">
-          <!-- After (base layer — clean mortar) -->
+          <!-- After (base layer — completed home) -->
           <div class="sp-ba-after">
             <picture>
-              <source media="(max-width:768px)" srcset="/images/proj-tuckpointing-m.webp" type="image/webp" />
-              <img src="/images/why-arch.webp" alt="After — completed custom home brick facade" class="sp-ba-img" loading="lazy" />
+              <source media="(max-width:768px)" srcset="/images/custom-home-masonry/ba/after-mobile.webp" type="image/webp" />
+              <img src="/images/custom-home-masonry/ba/after-desktop.webp" alt="After — finished high-end custom home masonry facade" class="sp-ba-img" loading="lazy" />
             </picture>
           </div>
-          <!-- Before (clipped, reveals on scroll — deteriorated mortar) -->
+          <!-- Before (clipped, reveals on scroll — mid construction) -->
           <div class="sp-ba-before">
             <picture>
-              <source media="(max-width:768px)" srcset="/images/svc-brick-repair-m.webp" type="image/webp" />
-              <img src="/images/svc-brick-repair.webp" alt="Before — brick facade before custom home masonry" class="sp-ba-img" loading="lazy" />
+              <source media="(max-width:768px)" srcset="/images/custom-home-masonry/ba/before-mobile.webp" type="image/webp" />
+              <img src="/images/custom-home-masonry/ba/before-desktop.webp" alt="Before — custom home construction site ready for masonry" class="sp-ba-img" loading="lazy" />
             </picture>
           </div>
           <!-- Glowing divider + handle -->
@@ -928,7 +1003,7 @@ const faqItems = [
       <!-- Stats row -->
       <div class="sp-ba-stats" data-reveal style="--rd:240ms">
         <div class="sp-ba-stat">
-          <strong>500+</strong>
+          <strong>100+</strong>
           <span>Masonry projects<br>completed</span>
         </div>
         <div class="sp-ba-stat-sep"></div>
@@ -1175,8 +1250,8 @@ const faqItems = [
           <div class="sp-rsvc-img-wrap">
             <div class="sp-rsvc-img-clip">
               <picture style="display:block;width:100%;">
-                <source media="(max-width: 768px)" srcset="/images/svc-chimney-m.webp" type="image/webp" />
-                <img src="/images/svc-chimney.webp" alt="Chimney and fireplace masonry" class="sp-rsvc-img" loading="lazy" />
+                <source media="(max-width: 768px)" srcset="/images/custom-home-masonry/related/related-chimney-mobile.webp" type="image/webp" />
+                <img src="/images/custom-home-masonry/related/related-chimney-desktop.webp" alt="Custom new residential brick chimney and outdoor fireplace" class="sp-rsvc-img" loading="lazy" />
               </picture>
             </div>
             <div class="sp-rsvc-notch">
@@ -1195,8 +1270,8 @@ const faqItems = [
           <div class="sp-rsvc-img-wrap">
             <div class="sp-rsvc-img-clip">
               <picture style="display:block;width:100%;">
-                <source media="(max-width: 768px)" srcset="/images/svc-brick-repair-m.webp" type="image/webp" />
-                <img src="/images/svc-brick-repair.webp" alt="Brick installation for new construction" class="sp-rsvc-img" loading="lazy" />
+                <source media="(max-width: 768px)" srcset="/images/custom-home-masonry/related/related-brick-mobile.webp" type="image/webp" />
+                <img src="/images/custom-home-masonry/related/related-brick-desktop.webp" alt="Brand new red brick facade wall construction for luxury residential home" class="sp-rsvc-img" loading="lazy" />
               </picture>
             </div>
             <div class="sp-rsvc-notch">
@@ -1215,8 +1290,8 @@ const faqItems = [
           <div class="sp-rsvc-img-wrap">
             <div class="sp-rsvc-img-clip">
               <picture style="display:block;width:100%;">
-                <source media="(max-width: 768px)" srcset="/images/svc-stone-install-m.webp" type="image/webp" />
-                <img src="/images/svc-stone-install.webp" alt="Natural stone and limestone installation" class="sp-rsvc-img" loading="lazy" />
+                <source media="(max-width: 768px)" srcset="/images/custom-home-masonry/related/related-stone-mobile.webp" type="image/webp" />
+                <img src="/images/custom-home-masonry/related/related-stone-desktop.webp" alt="Premium natural stone and limestone facade installation for high-end residential exterior" class="sp-rsvc-img" loading="lazy" />
               </picture>
             </div>
             <div class="sp-rsvc-notch">

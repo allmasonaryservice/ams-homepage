@@ -1,0 +1,1484 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import DynamicCityMask from '../../components/DynamicCityMask.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import Projects from '../../components/Projects.astro';
+
+const toSlug = (name: string) => name.toLowerCase().replace(/\s+/g, '-');
+const allCityNames = ["Winnetka","Wilmette","Kenilworth","Glencoe","Evanston","Highland Park","Northbrook","Hinsdale","Oak Brook","Elmhurst","Western Springs","Naperville","Downers Grove","La Grange","Burr Ridge","Clarendon Hills","Willowbrook","Wheaton","Chicago"];
+
+const city = {
+  "slug": "wheaton",
+  "name": "Wheaton",
+  "county": "DuPage County",
+  "region": "DuPage County",
+  "metaTitle": "Custom Masonry Construction Wheaton IL | Builders & Contractors",
+  "metaDesc": "Specializing in new custom home masonry, brick, stone, and structural block construction in Wheaton, IL. In-house crew, no subcontractors.",
+  "heroSub": "Your trusted partner for new masonry builds. We handle custom architectural stone, deep foundation blocks, and intricate fireplace construction.",
+  "heroReview": {
+    "quote": "AMS constructed our massive double-sided limestone fireplace. It is the centerpiece of our new build. Flawless execution.",
+    "author": "Robert K.",
+    "location": "Wheaton, IL"
+  },
+  "problem": "Building a luxury home requires precision. Using unverified subcontractors often leads to out-of-plumb walls and mismatched veneers. Once the mortar cures, the only way to fix it is a total, expensive demolition.",
+  "faqItems": [
+    {
+      "question": "Can you read and execute complex architectural blueprints?",
+      "answer": "Absolutely. We routinely build intricate arches, custom stone facades, and load-bearing CMU structures exactly to architectural specifications."
+    },
+    {
+      "question": "How do you coordinate with our General Contractor?",
+      "answer": "We work directly with your GC to ensure seamless scheduling, site safety, and perfect integration with framing and other critical trades."
+    },
+    {
+      "question": "Do you also do masonry restoration?",
+      "answer": "While we are primarily builders, we also provide expert restoration for historic and high-value properties requiring structural rebuilding."
+    },
+    {
+      "question": "Are you fully licensed and insured for new construction?",
+      "answer": "Yes, we carry $2.5M in liability insurance, full workers' comp, and hold all necessary licenses for heavy masonry construction."
+    },
+    {
+      "question": "Do you install natural stone and limestone?",
+      "answer": "Yes, we specialize in high-end natural stone veneers, custom limestone detailing, and premium brick installations for luxury estates."
+    }
+  ],
+  "nearbyAreas": [
+    "Western Springs",
+    "La Grange",
+    "Kenilworth",
+    "Chicago",
+    "Naperville"
+  ],
+  "details": {
+    "areas": "Downtown Wheaton, Danada Farms area, College Avenue corridor",
+    "zipCodes": "60187, 60188, 60189"
+  }
+};
+const cityIndex = 17;
+const siteUrl = 'https://allmasonryservices.com';
+const pageUrl = `${siteUrl}/locations/${city.slug}`;
+
+
+
+const services = [
+  { name: 'Brick Installation',       href: '/services/brick-installation',         icon: 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' },
+  { name: 'Tuckpointing & Repointing',href: '/services/tuckpointing-repointing',    icon: 'M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M3 9.5C3 8.67 3.67 8 4.5 8h5c.83 0 1.5.67 1.5 1.5S10.33 11 9.5 11h-5C3.67 11 3 10.33 3 9.5z' },
+  { name: 'Chimney Repair',            href: '/services/chimney-repair-rebuilding',  icon: 'M5 22V12l7-7 7 7v10M9 22V12h6v10' },
+  { name: 'Chimney & Fireplace',       href: '/services/chimney-fireplace',          icon: 'M18 8h1a4 4 0 0 1 0 8h-1 M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z M6 1v3 M10 1v3 M14 1v3' },
+  { name: 'CMU Block',                 href: '/services/cmu-block-installation',     icon: 'M2 20h20M4 20V6l8-4 8 4v14' },
+  { name: 'Commercial Brick & Stone',  href: '/services/commercial-brick-stone',     icon: 'M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7H3l2-4h14l2 4' },
+  { name: 'Brick & Stone Veneers',     href: '/services/brick-stone-veneers',        icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' },
+  { name: 'Custom Home Masonry',       href: '/services/custom-home-masonry',        icon: 'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10' },
+  { name: 'Commercial Veneers',        href: '/services/commercial-masonry-veneers', icon: 'M6 2v20M18 2v20M2 12h20M2 7h4m12 0h4M2 17h4m12 0h4' },
+  { name: 'Damaged Brick Replacement', href: '/services/damaged-brick-replacement',  icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z' },
+  { name: 'Natural Stone & Limestone', href: '/services/natural-stone-limestone',    icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+];
+---
+
+<Layout
+  title={city.metaTitle}
+  description={city.metaDesc}
+>
+  <!-- LocalBusiness Schema -->
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "All Masonry Services",
+    "url": siteUrl,
+    "telephone": "+17736562107",
+    "address": { "@type": "PostalAddress", "addressLocality": city.name, "addressRegion": "IL", "addressCountry": "US" },
+    "areaServed": city.name + ", IL",
+    "description": city.metaDesc,
+    "priceRange": "$$",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "92" }
+  })}</script>
+
+  <!-- FAQ Schema -->
+  <script is:inline type="application/ld+json">{JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": city.faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+    }))
+  })}</script>
+
+  <Navbar />
+
+  <!-- ─── 1. HERO ─── -->
+  <section class="cp-hero" aria-label={`Masonry services in ${city.name}, IL`}>
+    <div class="cp-hero-bg" aria-hidden="true"></div>
+    <div class="cp-hero-grain" aria-hidden="true"></div>
+
+    <div class="cp-hero-inner">
+      <!-- LEFT: text -->
+      <div class="cp-hero-left" id="cp-hero-left">
+        <div class="cp-hero-label" id="cp-label">
+          <span class="cp-label-line" aria-hidden="true"></span>
+          All Masonry Services · {city.name}, IL
+        </div>
+
+        <h1 class="cp-h1" id="cp-h1">
+          <span class="cp-h1-row"><span class="cp-h1-inner" id="cp-r1">Architectural Masonry Experts</span></span>
+          <span class="cp-h1-row cp-h1-row--city"><span class="cp-h1-inner cp-h1-city" id="cp-r2">in {city.name}</span></span>
+        </h1>
+
+        <p class="cp-sub" id="cp-sub">{city.heroSub}</p>
+
+        <div class="cp-actions" id="cp-act">
+          <a href="/contact#form" class="cp-btn cp-btn--primary">
+            <span class="cp-btn-bg" aria-hidden="true"></span>
+            <span class="cp-btn-label">Get a Free Estimate</span>
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="tel:7736562107" class="cp-btn cp-btn--ghost">
+            <span class="cp-btn-bg" aria-hidden="true"></span>
+            <span class="cp-btn-label">Call 773-656-2107</span>
+          </a>
+        </div>
+
+        <div class="cp-badges" id="cp-bdg">
+          <div class="cp-badge"><strong>500+</strong><span>Homes Served</span></div>
+          <div class="cp-badge-sep" aria-hidden="true"></div>
+          <div class="cp-badge"><strong>4.8★</strong><span>92 Reviews</span></div>
+          <div class="cp-badge-sep" aria-hidden="true"></div>
+          <div class="cp-badge"><strong>19+</strong><span>Years Experience</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: city shape mask -->
+      <div class="cp-hero-right" id="cp-hero-right" aria-hidden="true">
+        <DynamicCityMask city={city.name} size={520} />
+      </div>
+    </div>
+
+    <!-- scroll cue -->
+    <div class="cp-scroll" id="cp-scroll">
+      <div class="cp-scroll-mouse"><div class="cp-scroll-dot"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <script is:inline>
+  (function() {
+    function initCpHero() {
+      var gsap = window.__gsap;
+      if (!gsap) return;
+      var label = document.getElementById('cp-label');
+      var r1    = document.getElementById('cp-r1');
+      var r2    = document.getElementById('cp-r2');
+      var sub   = document.getElementById('cp-sub');
+      var act   = document.getElementById('cp-act');
+      var bdg   = document.getElementById('cp-bdg');
+      var right = document.getElementById('cp-hero-right');
+      if (!r1) return;
+      var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from(label, { opacity: 0, y: 14, duration: 0.6 }, 0)
+        .from(r1,    { yPercent: 110, duration: 0.75 }, 0.1)
+        .from(r2,    { yPercent: 110, duration: 0.75 }, 0.18)
+        .from(sub,   { opacity: 0, y: 16, duration: 0.7 }, 0.45)
+        .from(act,   { opacity: 0, y: 14, duration: 0.6 }, 0.6)
+        .from(bdg,   { opacity: 0, y: 10, duration: 0.5 }, 0.72)
+        .from(right, { opacity: 0, x: 40, duration: 1.0, ease: 'power2.out' }, 0.2);
+    }
+    if (window.__gsap) { initCpHero(); }
+    else { window.addEventListener('animations:ready', initCpHero, { once: true }); }
+
+    var scroll = document.getElementById('cp-scroll');
+    if (scroll) {
+      scroll.addEventListener('click', function() {
+        var next = document.querySelector('.sp-trust');
+        if (next) next.scrollIntoView({ behavior: 'smooth' });
+        else window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+      });
+    }
+  })();
+  </script>
+
+  <!-- ─── 2. TRUST BAR ─── -->
+  <section class="sp-trust">
+    <div class="sp-trust-inner">
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Licensed &amp; Insured in Illinois
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Free On-Site Estimates
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Fully Licensed Builders
+      </div>
+      <div class="sp-trust-sep"></div>
+      <div class="sp-trust-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Structural Integrity Guaranteed
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 2b. LOCAL CONTEXT ─── -->
+  <section class="cp-ctx">
+    <div class="cp-ctx-inner">
+
+      <!-- Header -->
+      <div class="cp-ctx-hdr">
+        <div class="cp-section-label">{city.name} Masonry</div>
+        <h2 class="cp-ctx-h2">Building Custom Masonry<br>in Wheaton</h2>
+        <p class="cp-ctx-sub">Constructing luxury homes requires an elite understanding of structural engineering, premium materials, and flawless architectural execution. We partner with top builders to construct masterworks.</p>
+      </div>
+
+      <div class="cp-ctx-cols">
+
+        <!-- LEFT: dark Service Details sidebar -->
+        <aside class="cp-ctx-sidebar" aria-label="Service details">
+          <p class="cp-ctx-sidebar-label">Service Details</p>
+          <div class="cp-ctx-rows">
+            <div class="cp-ctx-row">
+              <span class="cp-ctx-row-key">Areas Served</span>
+              <span class="cp-ctx-row-val">{city.details.areas}</span>
+            </div>
+            <div class="cp-ctx-row">
+              <span class="cp-ctx-row-key">Zip Codes</span>
+              <span class="cp-ctx-row-val">{city.details.zipCodes}</span>
+            </div>
+            <div class="cp-ctx-row">
+              <span class="cp-ctx-row-key">County</span>
+              <span class="cp-ctx-row-val">{city.county}</span>
+            </div>
+            <div class="cp-ctx-row">
+              <span class="cp-ctx-row-key">Hours</span>
+              <span class="cp-ctx-row-val">Mon–Sat 7am–6pm</span>
+            </div>
+            <div class="cp-ctx-row">
+              <span class="cp-ctx-row-key">Free Estimate</span>
+              <span class="cp-ctx-row-val cp-ctx-row-val--yes">Yes</span>
+            </div>
+            <div class="cp-ctx-row">
+              <span class="cp-ctx-row-key">Licensed &amp; Insured</span>
+              <span class="cp-ctx-row-val cp-ctx-row-val--yes">Yes</span>
+            </div>
+            <div class="cp-ctx-row">
+              <span class="cp-ctx-row-key">Phone</span>
+              <span class="cp-ctx-row-val"><a href="tel:7736562107" class="cp-ctx-phone">773-656-2107</a></span>
+            </div>
+          </div>
+          <a href="/contact#form" class="cp-ctx-sidebar-cta">
+            Get a free {city.name} estimate
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </aside>
+
+        <!-- RIGHT: content items -->
+        <div class="cp-ctx-list">
+
+          <div class="cp-ctx-rule"></div>
+
+          <div class="cp-ctx-item">
+            <div class="cp-ctx-item-head">
+              <div class="cp-ctx-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="cp-ctx-title">Elite Construction in Wheaton</h3>
+            </div>
+            <p class="cp-ctx-text">{city.heroSub}</p>
+          </div>
+
+          <div class="cp-ctx-rule"></div>
+
+          <div class="cp-ctx-item">
+            <div class="cp-ctx-item-head">
+              <div class="cp-ctx-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h3 class="cp-ctx-title">The Risk of Unqualified Crews</h3>
+            </div>
+            <p class="cp-ctx-text">{city.problem}</p>
+          </div>
+
+          <div class="cp-ctx-rule"></div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+  (function() {
+    function initCtxAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+      if (window.innerWidth <= 900) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var section = document.querySelector('.cp-ctx');
+      if (!section) return;
+      var label   = section.querySelector('.cp-section-label');
+      var h2      = section.querySelector('.cp-ctx-h2');
+      var sub     = section.querySelector('.cp-ctx-sub');
+      var sidebar = section.querySelector('.cp-ctx-sidebar');
+      var items   = Array.from(section.querySelectorAll('.cp-ctx-item'));
+      var rules   = Array.from(section.querySelectorAll('.cp-ctx-rule'));
+
+      gsap.set([label, h2, sub].filter(Boolean), { opacity: 0, y: 24 });
+      if (sidebar) gsap.set(sidebar, { opacity: 0, x: -32 });
+      gsap.set(rules, { scaleX: 0, transformOrigin: 'left center' });
+      gsap.set(items, { opacity: 0, y: 28 });
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 78%',
+        onEnter: function() {
+          gsap.to([label, h2, sub].filter(Boolean), { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', stagger: 0.12, overwrite: true });
+        },
+        onLeaveBack: function() {
+          gsap.set([label, h2, sub].filter(Boolean), { opacity: 0, y: 24 });
+        }
+      });
+
+      if (sidebar) {
+        ScrollTrigger.create({
+          trigger: '.cp-ctx-cols',
+          start: 'top 82%',
+          onEnter: function() {
+            gsap.to(sidebar, { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', overwrite: true });
+          },
+          onLeaveBack: function() {
+            gsap.set(sidebar, { opacity: 0, x: -32 });
+          }
+        });
+      }
+
+      items.forEach(function(item, i) {
+        var prevRule = rules[i];
+        ScrollTrigger.create({
+          trigger: item,
+          start: 'top 88%',
+          onEnter: function() {
+            if (prevRule) gsap.to(prevRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true });
+            gsap.to(item, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.15, overwrite: true });
+          },
+          onLeaveBack: function() {
+            if (prevRule) gsap.set(prevRule, { scaleX: 0 });
+            gsap.set(item, { opacity: 0, y: 28 });
+          }
+        });
+      });
+
+      var lastRule = rules[rules.length - 1];
+      if (lastRule) {
+        ScrollTrigger.create({
+          trigger: lastRule,
+          start: 'top 92%',
+          onEnter: function() { gsap.to(lastRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true }); },
+          onLeaveBack: function() { gsap.set(lastRule, { scaleX: 0 }); }
+        });
+      }
+    }
+    window.__cpCtxAnimReady = initCtxAnim;
+    window.addEventListener('animations:ready', window.__cpCtxAnimReady);
+    document.addEventListener('astro:page-load', initCtxAnim);
+  })();
+  </script>
+
+  <!-- ─── 3. SERVICES IN [CITY] ─── -->
+  <section class="cp-svc">
+    <div class="cp-svc-inner">
+      <div class="cp-section-label">What We Do in {city.name}</div>
+      <h2 class="cp-section-h2">
+        All Masonry Services<br>
+        <em>Available in {city.name}, IL</em>
+      </h2>
+      <p class="cp-svc-sub">Focusing on premium construction, we deliver complete masonry builds. Our team specializes in architectural block, premium face brick, and custom stonework for the most demanding luxury projects.</p>
+
+      <div class="cp-svc-grid">
+        {services.map(svc => (
+          <a href={svc.href} class="cp-svc-card">
+            <div class="cp-svc-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d={svc.icon} />
+              </svg>
+            </div>
+            <span class="cp-svc-name">{svc.name}</span>
+            <svg class="cp-svc-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="#B85C38" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 4. HOW WE WORK ─── -->
+  <section id="sp-prc-section" style="background:#ffffff; position:relative;">
+    <div id="sp-prc-driver" style="position:relative; height:600vh;">
+      <div id="sp-prc-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
+        <div class="sp-prc-grid">
+
+          <div id="sp-prc-left">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+                <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+                <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+              </svg>
+              <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">How We Work</span>
+            </div>
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(36px,3.5vw,54px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 20px;">Our Process in<br>{city.name}</h2>
+            <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.65; color:#6A625A; margin:0 0 36px;">No surprise crews. No hidden costs. You know exactly what happens at every step — and why.</p>
+            <div class="sp-prc-desktop-cta">
+              <a href="/contact#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:28px 0 0;">5 steps · 24 hrs to first visit</p>
+            </div>
+          </div>
+
+          <div id="sp-prc-right">
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">01</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Comprehensive Scope Planning</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We don't guess. We provide a rigorous, line-by-line construction estimate covering all structural block, brick, and mortar needs.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Our detailed blueprint analysis prevents costly mid-project change orders.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">02</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Premium Material Selection</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We partner with top-tier suppliers to source the exact luxury brick, natural stone, or architectural CMU specified in your plans.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Proper staging and exact material sourcing eliminate delays during the critical construction phase.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">03</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Site Protection & Scaffolding</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We erect professional scaffolding and implement strict site protection protocols to safeguard adjacent landscaping and foundation work.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Masonry forms the core structure. Seamless GC integration keeps the entire custom build moving perfectly.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">04</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Precision Masonry Execution</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">From complex archways to load-bearing CMU walls, our team builds exactly to blueprint with uncompromising structural integrity.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>We rely entirely on our in-house master craftsmen. Total control over execution guarantees architectural perfection.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE; border-bottom:1px solid #E4E2DE;">
+              <div style="display:flex; gap:20px; align-items:flex-start;">
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">05</span>
+                <div style="flex:1;">
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Quality Assurance Sign-Off</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">A rigorous quality check of all flashing, mortar joints, and stone alignments ensures your new home exceeds municipal building codes.</p>
+                  <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0; margin-top:10px;">
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>We verify every structural detail and aesthetic line before handing the site back to the general contractor.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="sp-prc-mobile-cta" style="display:none; padding-top:36px;">
+              <a href="/contact#form"
+                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                onmouseenter="this.style.background='#8A3A22'"
+                onmouseleave="this.style.background='#B85C38'">
+                Get a free estimate
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 4b. WHY IT MATTERS ─── -->
+  <section class="sp-problem cp-wim">
+    <div class="sp-delay-inner">
+      <div class="sp-delay-hdr">
+        <div class="cp-section-label">Why It Matters</div>
+        <h2 class="sp-delay-h2">Why Cheap Masonry Costs Fortunes Later</h2>
+        <p class="sp-delay-sub">Custom home masonry mistakes are catastrophic. Improperly built load-bearing walls or failed flashing systems don't just look bad—they cause massive structural failures that require tearing down the entire facade.</p>
+      </div>
+      <div class="sp-delay-cols">
+
+        <!-- LEFT: dark stats sidebar -->
+        <div class="sp-delay-sidebar">
+          <p class="sp-delay-sidebar-label">The real cost of waiting</p>
+          <div class="sp-delay-stats">
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">$25k+</span>
+              <span class="sp-delay-stat-desc">Typical cost overrun when wrong mason is hired for custom home masonry</span>
+            </div>
+            <div class="sp-delay-stat-sep"></div>
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">5+ yrs</span>
+              <span class="sp-delay-stat-desc">Before hidden masonry defects surface and become costly to fix</span>
+            </div>
+            <div class="sp-delay-stat-sep"></div>
+            <div class="sp-delay-stat">
+              <span class="sp-delay-stat-val">1st visit</span>
+              <span class="sp-delay-stat-desc">AMS passes every municipal inspection on the first visit</span>
+            </div>
+          </div>
+          <a href="/contact#form" class="sp-delay-sidebar-cta">
+            Get a free {city.name} estimate
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!-- RIGHT: consequence list -->
+        <div class="sp-delay-list">
+          <div class="sp-delay-rule"></div>
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Incorrect Mortar Strength</h3>
+            </div>
+            <p class="sp-delay-text">Using overly hard mortar on modern brick causes the brick face to shatter under thermal expansion, ruining the new facade.</p>
+          </div>
+          <div class="sp-delay-rule"></div>
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Subcontractor Chaos</h3>
+            </div>
+            <p class="sp-delay-text">Brokering out work to unknown crews means zero quality control. The standards drop the minute the general contractor looks away.</p>
+          </div>
+          <div class="sp-delay-rule"></div>
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Failed Lintels & Arches</h3>
+            </div>
+            <p class="sp-delay-text">Improperly supported steel lintels over new windows will sag, causing massive stair-step cracking through the brand new brickwork.</p>
+            <div class="sp-delay-chart" aria-label="Cost escalation timeline">
+              <div class="sp-delay-chart-row"><span class="sp-delay-chart-stage">Now</span><div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:18%"></div></div><span class="sp-delay-chart-cost">$</span><span class="sp-delay-chart-note">Right materials</span></div>
+              <div class="sp-delay-chart-row"><span class="sp-delay-chart-stage">1–3 yrs</span><div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:40%"></div></div><span class="sp-delay-chart-cost">$$</span><span class="sp-delay-chart-note">Joint cracking</span></div>
+              <div class="sp-delay-chart-row"><span class="sp-delay-chart-stage">3–6 yrs</span><div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:70%"></div></div><span class="sp-delay-chart-cost">$$$</span><span class="sp-delay-chart-note">Brick spalling</span></div>
+              <div class="sp-delay-chart-row"><span class="sp-delay-chart-stage">6+ yrs</span><div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:100%"></div></div><span class="sp-delay-chart-cost">$$$$</span><span class="sp-delay-chart-note">Full redo</span></div>
+            </div>
+          </div>
+          <div class="sp-delay-rule"></div>
+          <div class="sp-delay-item">
+            <div class="sp-delay-item-head">
+              <div class="sp-delay-icon-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3 class="sp-delay-title">Unverified Subcontractors</h3>
+            </div>
+            <p class="sp-delay-text">Brokering work to random crews means zero accountability. When structural issues arise during the build, everyone points fingers.</p>
+          </div>
+          <div class="sp-delay-rule"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+  (function() {
+    function initWimAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var section = document.querySelector('.cp-wim');
+      if (!section) return;
+      var label   = section.querySelector('.cp-section-label');
+      var h2      = section.querySelector('.sp-delay-h2');
+      var sub     = section.querySelector('.sp-delay-sub');
+      var sidebar = section.querySelector('.sp-delay-sidebar');
+      var stats   = Array.from(section.querySelectorAll('.sp-delay-stat'));
+      var items   = Array.from(section.querySelectorAll('.sp-delay-item'));
+      var rules   = Array.from(section.querySelectorAll('.sp-delay-rule'));
+      var bars    = Array.from(section.querySelectorAll('.sp-delay-chart-bar'));
+      gsap.set([label, h2, sub].filter(Boolean), { opacity: 0, y: 24 });
+      if (sidebar) gsap.set(sidebar, { opacity: 0, x: -32 });
+      gsap.set(stats, { opacity: 0, y: 16 });
+      gsap.set(rules, { scaleX: 0, transformOrigin: 'left center' });
+      gsap.set(items, { opacity: 0, y: 28 });
+      if (bars.length) gsap.set(bars, { scaleX: 0, transformOrigin: 'left center' });
+      ScrollTrigger.create({
+        trigger: section, start: 'top 78%',
+        onEnter: function() {
+          gsap.to([label, h2, sub].filter(Boolean), { opacity: 1, y: 0, duration: 0.65, ease: 'power2.out', stagger: 0.12, overwrite: true });
+        },
+        onLeaveBack: function() { gsap.set([label, h2, sub].filter(Boolean), { opacity: 0, y: 24 }); }
+      });
+      if (sidebar) {
+        ScrollTrigger.create({
+          trigger: section.querySelector('.sp-delay-cols'), start: 'top 82%',
+          onEnter: function() {
+            gsap.to(sidebar, { opacity: 1, x: 0, duration: 0.7, ease: 'power2.out', overwrite: true });
+            gsap.to(stats, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.12, delay: 0.3, overwrite: true });
+          },
+          onLeaveBack: function() { gsap.set(sidebar, { opacity: 0, x: -32 }); gsap.set(stats, { opacity: 0, y: 16 }); }
+        });
+      }
+      items.forEach(function(item, i) {
+        var prevRule = rules[i];
+        ScrollTrigger.create({
+          trigger: item, start: 'top 88%',
+          onEnter: function() {
+            if (prevRule) gsap.to(prevRule, { scaleX: 1, duration: 0.5, ease: 'power2.out', overwrite: true });
+            gsap.to(item, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', delay: 0.15, overwrite: true });
+            if (i === 2 && bars.length) gsap.to(bars, { scaleX: 1, duration: 0.5, ease: 'power2.inOut', stagger: 0.12, delay: 0.5, overwrite: true });
+          },
+          onLeaveBack: function() {
+            if (prevRule) gsap.set(prevRule, { scaleX: 0 });
+            gsap.set(item, { opacity: 0, y: 28 });
+            if (i === 2 && bars.length) gsap.set(bars, { scaleX: 0 });
+          }
+        });
+      });
+    }
+    if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initWimAnim); }
+    else { initWimAnim(); }
+    document.addEventListener('astro:page-load', initWimAnim);
+  })();
+  </script>
+
+  <!-- ─── 5. WHY AMS ─── -->
+  <section class="sp-why">
+    <div class="sp-why-inner">
+      <div class="cp-section-label">What Sets Us Apart</div>
+      <h2 class="cp-section-h2" style="--rd:80ms">Why {city.name} Homeowners<br><em>Choose AMS</em></h2>
+      <div class="sp-why-grid">
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/proj-tuckpointing.webp" alt="Mortar match guarantee" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">01</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Structural Integrity Guaranteed</h3>
+              <p class="sp-why-body">We partner directly with quarries and brickyards to supply the highest grade natural stone and custom brick for your estate.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/why-arch.webp" alt="Transparent written estimates" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">02</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Structural Engineering Focus</h3>
+              <p class="sp-why-body">We don't just lay brick; we build systems. Flashing, drainage, and load-bearing capacities are executed perfectly to code.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/proj-brick-facade.webp" alt="Same crew estimates and builds" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">03</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Flawless GC Collaboration</h3>
+              <p class="sp-why-body">We know construction scheduling. We arrive on time, coordinate with other trades, and never delay the critical path.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sp-why-item sp-why-card">
+          <div class="sp-why-img-wrap">
+            <img src="/images/why-brick.webp" alt="Family owned masonry company" loading="lazy" />
+          </div>
+          <div class="sp-why-card-body">
+            <div class="sp-why-num" aria-hidden="true">04</div>
+            <div class="sp-why-content">
+              <h3 class="sp-why-title">Blueprint to Reality</h3>
+              <p class="sp-why-body">We specialize in translating complex architectural designs into structurally sound, breathtaking masonry masterpieces.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 6. REVIEW ─── -->
+  <Testimonials cityName={city.name} cityReview={city.heroReview} bg="#F5F5F5" />
+
+  <!-- ─── 6b. RECENT PROJECTS ─── -->
+  <Projects cityName={city.name} cityIndex={cityIndex} />
+
+  <!-- ─── 7. CREDENTIALS ─── -->
+  <section class="sp-creds">
+    <div class="sp-creds-inner">
+      <div class="cp-section-label">Why Trust AMS in {city.name}</div>
+      <h2 class="cp-section-h2">Every Box Checked.<br><em>In Writing.</em></h2>
+      <div class="sp-creds-grid">
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Built Right the First Time</span>
+            <span class="sp-cred-body">Our family motto dictates our work ethic. We engineer and construct your masonry correctly so it lasts a lifetime.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Zero Subcontractors</span>
+            <span class="sp-cred-body">Every artisan on your site is our direct employee. We maintain absolute control over the quality of your new build.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Workers' Comp Covered</span>
+            <span class="sp-cred-body">Every single crew member is fully covered. You bear zero liability for our team while we build on your property.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">$2.5M General Liability</span>
+            <span class="sp-cred-body">Your multi-million dollar custom home project is fully protected. We carry premium insurance for luxury construction.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Structural Integrity Guaranteed</span>
+            <span class="sp-cred-body">Our strict adherence to building codes means we pass municipal structural inspections on the very first visit, avoiding delays.</span>
+          </div>
+        </div>
+        <div class="sp-cred-item">
+          <div class="sp-cred-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="sp-cred-text">
+            <span class="sp-cred-title">Serving {city.name} Since 2007</span>
+            <span class="sp-cred-body">We hold all necessary municipal licenses for new construction and heavy structural masonry across Chicagoland.</span>
+          </div>
+        </div>
+      </div>
+      <div class="sp-creds-guarantee">
+        <div class="sp-guarantee-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Structural Integrity Guaranteed</span>
+        </div>
+        <p class="sp-guarantee-text">If your new mortar doesn't match your existing joints in color and texture — we redo it. No charge, no argument. That's our standard on every {city.name} project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 8. FAQ ─── -->
+  <section class="sp-faqx-section" id="faq-section">
+    <div class="sp-faqx-inner">
+      <div class="sp-faqx-header">
+        <div class="sp-faqx-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="5" height="5" rx="1" fill="#B85C38"/>
+            <rect x="8" y="1" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
+            <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
+          </svg>
+          <span>Common Questions</span>
+        </div>
+        <h2 class="sp-faqx-heading">
+          Masonry in {city.name}<br>
+          <em class="sp-faqx-heading-accent">— Answered Honestly</em>
+        </h2>
+        <p class="sp-faqx-desc">Everything you need to know about masonry work in {city.name} — before you pick up the phone.</p>
+      </div>
+
+      <div class="cp-faq-list" id="cp-faq-list">
+        {city.faqItems.map((item, i) => (
+          <div class="cp-faq-item" data-index={i}>
+            <button class="cp-faq-q" aria-expanded="false" aria-controls={`faq-panel-${i}`}>
+              <span>{item.question}</span>
+              <svg class="cp-faq-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M4 7l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="cp-faq-a" id={`faq-panel-${i}`} hidden>
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+  (function() {
+    var list = document.getElementById('cp-faq-list');
+    if (!list) return;
+    list.querySelectorAll('.cp-faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.closest('.cp-faq-item');
+        var panel = item.querySelector('.cp-faq-a');
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        // Close all
+        list.querySelectorAll('.cp-faq-q').forEach(function(b) {
+          b.setAttribute('aria-expanded', 'false');
+          b.closest('.cp-faq-item').querySelector('.cp-faq-a').hidden = true;
+          b.closest('.cp-faq-item').classList.remove('open');
+        });
+        if (!open) {
+          btn.setAttribute('aria-expanded', 'true');
+          panel.hidden = false;
+          item.classList.add('open');
+        }
+      });
+    });
+  })();
+  </script>
+
+  <!-- ─── 9a. NEARBY COMMUNITIES ─── -->
+  <section class="cp-nearby">
+    <div class="cp-nearby-inner">
+      <div class="cp-section-label">Also Serving Nearby Communities</div>
+      <h2 class="cp-nearby-h2">Masonry Services Near {city.name}</h2>
+      <div class="cp-nearby-grid">
+        {city.nearbyAreas.map((name: string) => (
+          <a href={`/locations/${toSlug(name)}`} class="cp-nearby-card">
+            <div>
+              <p class="cp-nearby-name">{name}</p>
+              <p class="cp-nearby-sub">Tuckpointing &amp; Masonry</p>
+            </div>
+            <svg class="cp-nearby-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M3.75 9h10.5M9.75 4.5 14.25 9l-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 9b. WHERE WE WORK ─── -->
+  <section class="cp-areas">
+    <div class="cp-areas-inner">
+      <div class="cp-section-label">Where We Work</div>
+      <h2 class="cp-section-h2">
+        Custom Home Masonry Service Areas<br>
+        <em style="font-style:normal;">Across Chicagoland</em>
+      </h2>
+      <p class="cp-areas-sub">We serve homeowners throughout the Chicago metro — from the North Shore to the Western Suburbs and beyond.</p>
+      <div class="cp-areas-grid">
+        {allCityNames.map((name: string) => (
+          <a href={`/locations/${toSlug(name)}`} class={`cp-area-chip${name === city.name ? ' cp-area-chip--active' : ''}`}>{name}</a>
+        ))}
+      </div>
+      <p class="cp-areas-note">Don't see your city? <a href="/contact#form" class="cp-areas-link">Contact us</a> — we likely serve your area.</p>
+    </div>
+  </section>
+
+  <!-- ─── 10. CTA BANNER ─── -->
+  <section class="sp-cta-banner">
+    <div class="sp-cta-banner-inner">
+      <div class="sp-cta-banner-text">
+        <h2 class="sp-cta-banner-h2">Ready to Start Your {city.name} Project?</h2>
+        <p class="sp-cta-banner-sub">Partner with Chicagoland's premier masonry construction experts. Delivering impeccable structural and architectural builds for custom homes.</p>
+      </div>
+      <div class="sp-cta-banner-actions">
+        <a href="/contact#form" class="sp-btn sp-btn--accent">Get a Free Estimate</a>
+        <a href="tel:7736562107" class="sp-btn sp-btn--ghost-light">Call 773-656-2107</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- ─── PROCESS ANIMATION ─── -->
+  <script is:inline>
+  (function() {
+    function initProcessAnim() {
+      var gsap = window.__gsap;
+      var ScrollTrigger = window.__ScrollTrigger;
+      if (!gsap || !ScrollTrigger) return;
+      var driver = document.getElementById('sp-prc-driver');
+      var leftCol = document.getElementById('sp-prc-left');
+      var items = Array.from(document.querySelectorAll('.sp-prc-item'));
+      var nums  = Array.from(document.querySelectorAll('.sp-prc-num'));
+      if (!driver || !leftCol || !items.length) return;
+      var isMobile = window.innerWidth < 900;
+      if (isMobile) {
+        items.forEach(function(item, i) {
+          var stepTl = gsap.timeline({ defaults: { ease: 'none' } });
+          stepTl
+            .fromTo(nums[i], { opacity: 0.22 }, { opacity: 1, duration: 0.5 }, 0)
+            .fromTo(item, { backgroundColor: 'rgba(184,92,56,0)' }, { backgroundColor: 'rgba(184,92,56,0.06)', duration: 0.5 }, 0)
+            .to(nums[i], { opacity: 0.22, duration: 0.5 }, 0.5)
+            .to(item, { backgroundColor: 'rgba(184,92,56,0)', duration: 0.5 }, 0.5);
+          ScrollTrigger.create({ trigger: item, start: 'top 65%', end: 'bottom 35%', scrub: 0.4, animation: stepTl });
+        });
+        return;
+      }
+      gsap.from(leftCol, { opacity: 0, x: -24, duration: 0.9, ease: 'power2.out', scrollTrigger: { trigger: driver, start: 'top 80%', once: true } });
+      gsap.from(items, { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out', stagger: 0.08, scrollTrigger: { trigger: driver, start: 'top 70%', once: true } });
+      var tl = gsap.timeline({ defaults: { ease: 'none' } });
+      var seg = 1 / items.length;
+      items.forEach(function(item, i) {
+        var s = i * seg, fi = seg * 0.25, fo = seg * 0.25;
+        tl.fromTo(nums[i], { opacity: 0.22 }, { opacity: 1, duration: fi }, s);
+        tl.to(nums[i], { opacity: 0.22, duration: fo }, s + seg - fo);
+        tl.fromTo(items[i], { backgroundColor: 'rgba(184,92,56,0)' }, { backgroundColor: 'rgba(184,92,56,0.06)', duration: fi }, s);
+        tl.to(items[i], { backgroundColor: 'rgba(184,92,56,0)', duration: fo }, s + seg - fo);
+      });
+      ScrollTrigger.create({ trigger: driver, start: 'top top', end: 'bottom bottom', scrub: 1.2, animation: tl });
+    }
+    window.__cpPrcAnimReady = initProcessAnim;
+    window.addEventListener('animations:ready', window.__cpPrcAnimReady);
+  })();
+  </script>
+
+</Layout>
+
+<style>
+/* ══ CITY PAGE: HERO ══ */
+.cp-hero {
+  position: relative;
+  min-height: 100vh; min-height: 100svh;
+  background: #0F0D0C;
+  display: flex; align-items: stretch;
+  overflow: hidden;
+}
+.cp-hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(184,92,56,0.12) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cp-hero-grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+.cp-hero-inner {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 1360px; margin: 0 auto;
+  padding: 130px 48px 100px;
+  display: grid; grid-template-columns: 55fr 45fr;
+  gap: 48px; align-items: center;
+  min-height: inherit; box-sizing: border-box;
+}
+
+/* Hero left */
+.cp-hero-left { display: flex; flex-direction: column; }
+
+.cp-hero-label {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: #B85C38;
+  margin-bottom: 28px;
+}
+.cp-label-line {
+  display: block; width: 36px; height: 1px; flex-shrink: 0;
+  background: linear-gradient(90deg, #B85C38, rgba(184,92,56,0.1));
+}
+
+.cp-h1 {
+  display: flex; flex-direction: column; gap: 0;
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(48px, 5.2vw, 82px);
+  font-weight: 800; line-height: 1.02; letter-spacing: -0.03em;
+  color: #ffffff; margin: 0 0 28px;
+}
+.cp-h1-row { display: block; overflow: hidden; }
+.cp-h1-inner { display: block; }
+.cp-h1-row--city .cp-h1-inner { color: #ffffff; }
+
+.cp-sub {
+  font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.75;
+  color: rgba(255,255,255,0.6); margin: 0 0 40px; max-width: 500px;
+}
+
+.cp-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+
+.cp-btn {
+  position: relative; display: inline-flex; align-items: center; gap: 9px;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500;
+  letter-spacing: 0.01em; padding: 15px 28px; border-radius: 13px;
+  text-decoration: none; overflow: hidden; cursor: pointer; transition: color 0.28s ease;
+}
+.cp-btn-bg {
+  position: absolute; inset: 0;
+  transform: scaleY(0); transform-origin: bottom center;
+  transition: transform 0.32s cubic-bezier(0.4,0,0.2,1); z-index: 0;
+}
+.cp-btn-label { position: relative; z-index: 1; }
+.cp-btn svg   { position: relative; z-index: 1; }
+.cp-btn:hover .cp-btn-bg { transform: scaleY(1); }
+.cp-btn--primary { background: #B85C38; color: #fff; }
+.cp-btn--primary .cp-btn-bg { background: #8A3A22; }
+.cp-btn--ghost { background: transparent; color: rgba(255,255,255,0.75); border: 1.5px solid rgba(255,255,255,0.22); }
+.cp-btn--ghost .cp-btn-bg { background: rgba(255,255,255,0.08); }
+.cp-btn--ghost:hover { color: #fff; }
+
+.cp-badges { display: flex; align-items: center; }
+.cp-badge { display: flex; flex-direction: column; gap: 3px; padding: 0 22px; border-left: 1px solid rgba(255,255,255,0.10); }
+.cp-badge:first-child { padding-left: 0; border-left: none; }
+.cp-badge strong { font-family: 'Onest', sans-serif; font-size: 22px; font-weight: 800; color: #B85C38; line-height: 1; display: block; }
+.cp-badge span   { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.cp-badge-sep    { width: 1px; height: 32px; background: rgba(255,255,255,0.10); }
+
+/* Hero right */
+.cp-hero-right {
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+
+/* Scroll cue */
+.cp-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  z-index: 3; cursor: pointer;
+}
+.cp-scroll-mouse { width: 21px; height: 33px; border: 1.5px solid rgba(255,255,255,0.18); border-radius: 11px; position: relative; }
+.cp-scroll-dot {
+  position: absolute; top: 5px; left: 50%; transform: translateX(-50%);
+  width: 3px; height: 6px; background: #B85C38; border-radius: 2px;
+  animation: cpScrollDot 1.9s ease-in-out infinite;
+}
+@keyframes cpScrollDot {
+  0%  { opacity: 1; top: 5px; }
+  60% { opacity: 0; top: 20px; }
+  100%{ opacity: 0; top: 20px; }
+}
+.cp-scroll span { font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.17em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+/* ══ SHARED SECTION LABELS ══ */
+.cp-section-label {
+  font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase; color: #B85C38;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.cp-section-label::before {
+  content: ''; display: block; width: 28px; height: 1px; background: #B85C38; flex-shrink: 0;
+}
+.cp-section-label--light { color: rgba(255,255,255,0.45); }
+.cp-section-label--light::before { background: rgba(255,255,255,0.25); }
+
+.cp-section-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(34px, 3.8vw, 56px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.025em;
+  color: #16120F; margin: 0 0 12px;
+}
+.cp-section-h2 em { font-style: normal; color: #16120F; }
+
+/* ══ LOCAL CONTEXT ══ */
+.cp-ctx { background: #ffffff; padding: 100px 0; }
+.cp-ctx-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.cp-ctx-hdr { max-width: 700px; margin-bottom: 60px; }
+.cp-ctx-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.025em;
+  color: #16120F; margin: 0 0 20px;
+}
+.cp-ctx-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #4A433B; margin: 0; max-width: 560px; }
+.cp-ctx-cols { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: start; }
+.cp-ctx-sidebar {
+  background: #16120F; border-radius: 16px; padding: 28px;
+  position: sticky; top: 100px;
+}
+.cp-ctx-sidebar-label {
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.4);
+  margin: 0 0 0; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: block;
+}
+.cp-ctx-rows { display: flex; flex-direction: column; }
+.cp-ctx-row {
+  display: flex; justify-content: space-between; gap: 16px;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  align-items: baseline;
+}
+.cp-ctx-row:last-child { border-bottom: none; }
+.cp-ctx-row-key {
+  font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase; color: rgba(255,255,255,0.4);
+  flex-shrink: 0;
+}
+.cp-ctx-row-val {
+  font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(255,255,255,0.82);
+  text-align: right; line-height: 1.4;
+}
+.cp-ctx-row-val--yes { color: #B85C38; font-weight: 700; }
+.cp-ctx-phone { color: #B85C38; text-decoration: none; font-weight: 600; }
+.cp-ctx-phone:hover { text-decoration: underline; }
+.cp-ctx-sidebar-cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 20px; padding: 14px 20px;
+  background: #B85C38; color: #ffffff;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  border-radius: 10px; text-decoration: none; text-align: center;
+  transition: background 200ms ease; line-height: 1.3;
+}
+.cp-ctx-sidebar-cta:hover { background: #8A3A22; }
+/* Right list */
+.cp-ctx-rule { height: 1px; background: #E8E4DF; transform-origin: left center; }
+.cp-ctx-item { padding: 32px 0; }
+.cp-ctx-item-head {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+}
+.cp-ctx-icon-wrap {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(184,92,56,0.08); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cp-ctx-title {
+  font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 700;
+  color: #16120F; margin: 0; line-height: 1.25;
+}
+.cp-ctx-text {
+  font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7;
+  color: #4A433B; margin: 0;
+}
+
+/* ══ WHY IT MATTERS (shared from service pages) ══ */
+.cp-wim { background: #F5F5F5; padding: 100px 0; }
+.sp-delay-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-delay-hdr { max-width: 700px; margin-bottom: 60px; }
+.sp-delay-h2 {
+  font-family: 'Onest', sans-serif; font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.025em; color: #16120F; margin: 0 0 20px;
+}
+.sp-delay-h2 em { font-style: normal; color: #16120F; }
+.sp-delay-sub { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.7; color: #4A433B; margin: 0; max-width: 560px; }
+.sp-delay-cols { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: start; }
+.sp-delay-sidebar { background: #16120F; border-radius: 16px; padding: 28px; position: sticky; top: 100px; }
+.sp-delay-sidebar-label { font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin: 0 0 20px; }
+.sp-delay-stats { display: flex; flex-direction: column; }
+.sp-delay-stat { padding: 20px 0; }
+.sp-delay-stat-val { font-family: 'Onest', sans-serif; font-size: 38px; font-weight: 800; color: #B85C38; display: block; line-height: 1; margin-bottom: 8px; }
+.sp-delay-stat-desc { font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.55); }
+.sp-delay-stat-sep { height: 1px; background: rgba(255,255,255,0.08); }
+.sp-delay-sidebar-cta {
+  display: flex; align-items: center; gap: 8px; justify-content: center;
+  background: #B85C38; color: #fff; font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 600; padding: 14px; border-radius: 10px;
+  text-decoration: none; margin-top: 24px; transition: background 200ms ease;
+}
+.sp-delay-sidebar-cta:hover { background: #8A3A22; }
+.sp-delay-list { display: flex; flex-direction: column; }
+.sp-delay-rule { height: 1px; background: rgba(0,0,0,0.08); }
+.sp-delay-item { padding: 32px 0; }
+.sp-delay-item-head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.sp-delay-icon-wrap {
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(184,92,56,0.08); border: 1px solid rgba(184,92,56,0.18);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.sp-delay-title { font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 700; color: #16120F; margin: 0; }
+.sp-delay-text { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.65; color: #4A433B; margin: 0; }
+.sp-delay-chart { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; max-width: 500px; }
+.sp-delay-chart-row { display: grid; grid-template-columns: 56px 1fr 36px 120px; align-items: center; gap: 10px; }
+.sp-delay-chart-stage { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; color: #6A625A; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+.sp-delay-chart-bar-wrap { height: 5px; background: rgba(0,0,0,0.08); border-radius: 3px; overflow: hidden; }
+.sp-delay-chart-bar { height: 100%; width: var(--w, 100%); background: #B85C38; border-radius: 3px; transform-origin: left center; }
+.sp-delay-chart-cost { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; color: #B85C38; text-align: right; }
+.sp-delay-chart-note { font-family: 'Inter', sans-serif; font-size: 11px; color: #6A625A; }
+
+/* ══ TRUST BAR (shared from service pages) ══ */
+.sp-trust { background: #16120F; padding: 20px 0; }
+.sp-trust-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 30px;
+  display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap;
+}
+.sp-trust-item {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  color: #B85C38; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.sp-trust-item svg { flex-shrink: 0; stroke: #B85C38; }
+.sp-trust-sep { width: 1px; height: 20px; background: rgba(255,255,255,0.10); }
+
+/* ══ SERVICES GRID ══ */
+.cp-svc { background: #F5F5F5; padding: 100px 0; }
+.cp-svc-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.cp-svc-sub {
+  font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.65; color: #4A433B;
+  margin: 0 0 48px; max-width: 600px;
+}
+.cp-svc-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.cp-svc-card {
+  display: flex; align-items: center; gap: 14px;
+  background: #ffffff; border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px; padding: 18px 20px;
+  text-decoration: none; color: #16120F;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.cp-svc-card:hover { border-color: #B85C38; box-shadow: 0 4px 20px rgba(184,92,56,0.12); }
+.cp-svc-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: rgba(184,92,56,0.07); border: 1px solid rgba(184,92,56,0.18);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+}
+.cp-svc-name {
+  flex: 1;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #16120F;
+  line-height: 1.3;
+}
+.cp-svc-arrow { flex-shrink: 0; opacity: 0.4; transition: opacity 200ms ease, transform 200ms ease; }
+.cp-svc-card:hover .cp-svc-arrow { opacity: 1; transform: translateX(3px); }
+
+/* ══ PROCESS (shared CSS from service pages) ══ */
+.sp-prc-grid {
+  max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: grid; grid-template-columns: 1fr 1.65fr; gap: 80px; align-items: start;
+}
+#sp-prc-left { align-self: center; }
+#sp-prc-sticky {
+  align-items: flex-start !important;
+  padding-top: 80px !important;
+  padding-bottom: 60px !important;
+}
+@media (max-width: 768px) {
+  #sp-prc-driver { height: auto !important; }
+  #sp-prc-sticky { position: relative !important; top: auto !important; height: auto !important; padding: 72px 0 !important; align-items: center !important; }
+  .sp-prc-grid { grid-template-columns: 1fr !important; gap: 40px !important; padding: 0 20px !important; }
+  .sp-prc-desktop-cta { display: none !important; }
+  .sp-prc-mobile-cta { display: block !important; }
+  .sp-prc-item { padding: 28px 0 !important; }
+  .sp-prc-num { font-size: 36px !important; }
+}
+
+/* ══ WHY AMS (shared from service pages) ══ */
+.sp-why { background: #ffffff; padding: 100px 0; }
+.sp-why-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+.sp-why-card {
+  background: #ffffff; border-radius: 20px; overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  display: flex; flex-direction: column;
+}
+.sp-why-img-wrap { height: 200px; overflow: hidden; }
+.sp-why-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.sp-why-card:hover .sp-why-img-wrap img { transform: scale(1.04); }
+.sp-why-card-body { padding: 28px; display: flex; gap: 20px; align-items: flex-start; flex: 1; }
+.sp-why-num { font-family: 'Onest', sans-serif; font-size: 32px; font-weight: 800; color: rgba(184,92,56,0.18); line-height: 1; flex-shrink: 0; }
+.sp-why-content { display: flex; flex-direction: column; gap: 8px; }
+.sp-why-title { font-family: 'Onest', sans-serif; font-size: 16px; font-weight: 700; color: #16120F; margin: 0; }
+.sp-why-body { font-family: 'Inter', sans-serif; font-size: 14px; line-height: 1.65; color: #4A433B; margin: 0; }
+
+/* ══ CREDENTIALS (shared from service pages) ══ */
+.sp-creds { background: #F5F5F5; padding: 100px 0; }
+.sp-creds-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.sp-creds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.sp-cred-item {
+  background: #fff; border: 1px solid rgba(0,0,0,0.06); padding: 32px 28px;
+  display: flex; gap: 20px; align-items: flex-start; border-radius: 20px;
+  transition: border-color 200ms ease; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.sp-cred-item:hover { border-color: #B85C38; }
+.sp-cred-icon {
+  flex-shrink: 0; width: 48px; height: 48px;
+  background: rgba(184,92,56,0.08); border: 1px solid rgba(184,92,56,0.2);
+  display: flex; align-items: center; justify-content: center; border-radius: 12px;
+}
+.sp-cred-text { display: flex; flex-direction: column; gap: 6px; }
+.sp-cred-title { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; color: #16120F; text-transform: uppercase; letter-spacing: 0.05em; }
+.sp-cred-body  { font-family: 'Inter', sans-serif; font-size: 14px; color: #4A433B; line-height: 1.65; }
+.sp-creds-guarantee {
+  margin-top: 32px; background: #16120F; padding: 24px 32px;
+  display: flex; align-items: flex-start; gap: 24px; border-radius: 16px;
+}
+.sp-guarantee-badge {
+  display: flex; align-items: center; gap: 10px; background: #B85C38;
+  padding: 10px 16px; white-space: nowrap; font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 700; color: #ffffff;
+  text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; border-radius: 10px;
+}
+.sp-guarantee-text { font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.65; margin: 0; align-self: center; }
+
+/* ══ FAQ (shared + custom accordion) ══ */
+.sp-faqx-section { background: #ffffff; padding: 100px 24px; }
+.sp-faqx-inner { max-width: 800px; margin: 0 auto; }
+.sp-faqx-header { margin-bottom: 56px; }
+.sp-faqx-eyebrow { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.sp-faqx-eyebrow span { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #B85C38; }
+.sp-faqx-heading { font-family: 'Onest', sans-serif; font-size: clamp(34px, 4vw, 54px); font-weight: 700; line-height: 1.1; color: #16120F; letter-spacing: -0.02em; margin: 0 0 20px; }
+.sp-faqx-heading-accent { font-style: normal; color: #16120F; }
+.sp-faqx-desc { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.65; color: #4A433B; margin: 0; }
+
+.cp-faq-list { display: flex; flex-direction: column; }
+.cp-faq-item { border-bottom: 1px solid #E4E2DE; }
+.cp-faq-item:first-child { border-top: 1px solid #E4E2DE; }
+.cp-faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 0; background: none; border: none; cursor: pointer; text-align: left;
+}
+.cp-faq-q span { font-family: 'Onest', sans-serif; font-size: 17px; font-weight: 600; color: #16120F; line-height: 1.3; }
+.cp-faq-icon { flex-shrink: 0; color: #B85C38; transition: transform 280ms ease; }
+.cp-faq-item.open .cp-faq-icon { transform: rotate(180deg); }
+.cp-faq-a { padding: 0 0 20px; }
+.cp-faq-a p { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; color: #4A433B; margin: 0; }
+
+/* ══ NEARBY COMMUNITIES ══ */
+.cp-nearby { background: #F5F5F5; padding: 100px 0; }
+.cp-nearby-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.cp-nearby-h2 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 700; line-height: 1.1; letter-spacing: -0.025em;
+  color: #16120F; margin: 0 0 56px;
+}
+.cp-nearby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #D4CFC8;
+  border-left: 1px solid #D4CFC8;
+}
+.cp-nearby-card {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 28px 24px;
+  border-right: 1px solid #D4CFC8;
+  border-bottom: 1px solid #D4CFC8;
+  text-decoration: none;
+  transition: background 150ms ease;
+}
+.cp-nearby-card:hover { background: rgba(184,92,56,0.06); }
+.cp-nearby-card:hover .cp-nearby-arrow { color: #B85C38; transform: translateX(4px); }
+.cp-nearby-name { font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 700; color: #16120F; margin: 0 0 5px; }
+.cp-nearby-sub  { font-family: 'Inter', sans-serif; font-size: 13px; color: #6A625A; margin: 0; }
+.cp-nearby-arrow { color: #9E958D; flex-shrink: 0; transition: color 150ms ease, transform 200ms ease; }
+
+/* ══ WHERE WE WORK (chips) ══ */
+.cp-areas { background: #ffffff; padding: 100px 0; }
+.cp-areas-inner { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+.cp-areas-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: #4A433B; line-height: 1.75; margin: 0 0 36px; max-width: 560px; }
+.cp-areas-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+.cp-area-chip {
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: #16120F;
+  background: #fff; border: 1px solid #D9D9D9; border-bottom: 2px solid #B85C38;
+  padding: 8px 16px; text-decoration: none; display: inline-block; border-radius: 8px 8px 0 0;
+  transition: background 150ms ease, color 150ms ease;
+}
+.cp-area-chip:hover { background: #FBF7F4; color: #B85C38; }
+.cp-area-chip--active { background: #B85C38; color: #ffffff; border-color: #B85C38; border-bottom-color: #8A3A22; }
+.cp-areas-note { font-family: 'Inter', sans-serif; font-size: 13px; color: #6A625A; }
+.cp-areas-link { color: #B85C38; text-decoration: underline; }
+
+/* ══ CTA BANNER (shared from service pages) ══ */
+.sp-cta-banner { background: linear-gradient(90deg, #16120F 0%, #6E2A19 40%, #B85C38 100%); padding: 80px 0; }
+.sp-cta-banner-inner {
+  max-width: 1200px; margin: 0 auto; padding: 0 30px;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+}
+.sp-cta-banner-h2 { font-family: 'Onest', sans-serif; font-size: clamp(28px, 3.2vw, 44px); font-weight: 700; color: #ffffff; margin: 0 0 12px; letter-spacing: -0.02em; }
+.sp-cta-banner-sub { font-family: 'Inter', sans-serif; font-size: 16px; color: rgba(255,255,255,0.78); margin: 0; line-height: 1.6; }
+.sp-cta-banner-actions { display: flex; gap: 16px; flex-wrap: wrap; flex-shrink: 0; }
+.sp-btn {
+  display: inline-flex; align-items: center;
+  font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+  letter-spacing: 0.04em; text-decoration: none;
+  padding: 0 28px; height: 52px; border-radius: 14px;
+  border: 2px solid transparent;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+  white-space: nowrap; cursor: pointer;
+}
+.sp-btn--accent { background: #16120F; color: #ffffff; border-color: #16120F; }
+.sp-btn--accent:hover { background: #ffffff; color: #16120F; border-color: #ffffff; }
+.sp-btn--ghost-light { background: transparent; color: #ffffff; border-color: rgba(255,255,255,0.6); }
+.sp-btn--ghost-light:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 1100px) {
+  .cp-svc-grid { grid-template-columns: repeat(2, 1fr); }
+  .sp-why-grid { grid-template-columns: 1fr; }
+  .sp-creds-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .cp-hero-inner { grid-template-columns: 1fr; padding: 120px 28px 80px; }
+  .cp-hero-right { display: none; }
+  .cp-h1 { font-size: clamp(42px, 10vw, 64px); }
+  .cp-badges { flex-wrap: wrap; gap: 12px; }
+}
+@media (max-width: 640px) {
+  .cp-hero-inner { padding: 100px 20px 72px; }
+  .cp-svc-grid { grid-template-columns: 1fr; }
+  .sp-creds-grid { grid-template-columns: 1fr; }
+  .sp-cta-banner-inner { flex-direction: column; align-items: flex-start; }
+  .sp-cta-banner { padding: 56px 0; }
+  .cp-svc { padding: 72px 0; }
+  .sp-why { padding: 72px 0; }
+  .sp-creds { padding: 72px 0; }
+  .sp-faqx-section { padding: 72px 20px; }
+  .cp-nearby { padding: 72px 0; }
+  .cp-areas { padding: 72px 0; }
+  .cp-nearby-grid { grid-template-columns: repeat(2, 1fr); }
+  .cp-ctx { padding: 72px 0; }
+  .cp-wim { padding: 72px 0; }
+  .cp-ctx-hdr { margin-bottom: 40px; }
+  .cp-ctx-cols { grid-template-columns: 1fr; gap: 40px; }
+  .cp-ctx-sidebar { position: static; }
+  .sp-delay-cols { grid-template-columns: 1fr; gap: 40px; }
+  .sp-delay-sidebar { position: static; }
+}
+@media (max-width: 640px) {
+  .cp-nearby-grid { grid-template-columns: 1fr; }
+  .cp-nearby-inner, .cp-areas-inner { padding: 0 20px; }
+  .sp-delay-inner { padding: 0 20px; }
+  .sp-delay-hdr { margin-bottom: 40px; }
+  .sp-delay-chart-row { grid-template-columns: 52px 1fr 30px; }
+  .sp-delay-chart-note { display: none; }
+}
+</style>

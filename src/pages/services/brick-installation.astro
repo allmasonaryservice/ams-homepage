@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../../layouts/Layout.astro';
 import { projects as allProjects } from '../../data/projects.js';
 import Navbar from '../../components/Navbar.astro';
@@ -121,7 +121,7 @@ const faqItems = [
         </a>
       </div>
       <div class="lh-badges bi-badges" id="bi-bdg">
-        <div class="lh-badge"><strong>500+</strong><span>Homes Built</span></div>
+        <div class="lh-badge"><strong>100+</strong><span>Homes Built</span></div>
         <div class="bi-badge-sep" aria-hidden="true"></div>
         <div class="lh-badge"><strong>4.8★</strong><span>92 Google Reviews</span></div>
         <div class="bi-badge-sep" aria-hidden="true"></div>
@@ -159,6 +159,9 @@ const faqItems = [
       var rows = Math.ceil(H / BH) + 1;
       var bricks = [];
 
+      var isMobile = window.innerWidth <= 768;
+      var heroImgUrl = isMobile ? '/images/brick-installation/hero-mobile.webp' : '/images/brick-installation/hero-desktop.webp';
+
       for (var r = 0; r < rows; r++) {
         var xOff = (r % 2 !== 0) ? -(BW / 2) : 0;
         for (var c = 0; c < cols; c++) {
@@ -167,7 +170,7 @@ const faqItems = [
           var b  = document.createElement('div');
           b.style.cssText = [
             'position:absolute',
-            'background-image:url(/images/bi-hero/bi-wall.webp)',
+            'background-image:url("' + heroImgUrl + '")',
             'background-size:' + W + 'px ' + H + 'px',
             'background-position:-' + bx + 'px -' + by + 'px',
             'background-repeat:no-repeat',
@@ -254,120 +257,77 @@ const faqItems = [
   <!-- ─── 3. PROBLEM / CONSEQUENCE ─── -->
   <section class="sp-problem">
     <div class="sp-delay-inner">
-
-      <!-- Header -->
       <div class="sp-delay-hdr">
         <div class="sp-section-label">Why It Matters</div>
-        <h2 class="sp-delay-h2">What Happens When You <em>Cut Corners on Brick</em></h2>
-        <p class="sp-delay-sub">Brick installation looks simple. Get the mortar wrong, the base wrong, or the drainage wrong — and you're relooking at the wall in 5 years.</p>
+        <h2 class="sp-delay-h2">The Difference Between <em>Standard and Custom Brickwork</em></h2>
+        <p class="sp-delay-sub">In custom home building, the exterior is your first impression. Standard tract-home bricklaying won't suffice for luxury architecture. You need precision, deep structural knowledge, and flawless execution.</p>
       </div>
-
       <div class="sp-delay-cols">
-
-        <!-- LEFT: dark stats sidebar -->
         <div class="sp-delay-sidebar">
-          <p class="sp-delay-sidebar-label">The real cost of cutting corners</p>
+          <p class="sp-delay-sidebar-label">The Custom Build Standard</p>
           <div class="sp-delay-stats">
             <div class="sp-delay-stat">
-              <span class="sp-delay-stat-val">$20k+</span>
-              <span class="sp-delay-stat-desc">Average remediation cost when brick drainage is wrong from day one</span>
+              <span class="sp-delay-stat-val">100%</span>
+              <span class="sp-delay-stat-desc">In-house masonry crews on every luxury site</span>
             </div>
             <div class="sp-delay-stat-sep"></div>
             <div class="sp-delay-stat">
-              <span class="sp-delay-stat-val">9%</span>
-              <span class="sp-delay-stat-desc">Water expands this much per freeze cycle inside a wall without weep holes</span>
+              <span class="sp-delay-stat-val">Zero</span>
+              <span class="sp-delay-stat-desc">Subcontractors handling your custom brick installation</span>
             </div>
             <div class="sp-delay-stat-sep"></div>
             <div class="sp-delay-stat">
-              <span class="sp-delay-stat-val">2–3</span>
-              <span class="sp-delay-stat-desc">Seasons before foundation settling becomes visible in your brick courses</span>
+              <span class="sp-delay-stat-val">19+</span>
+              <span class="sp-delay-stat-desc">Years partnering with Chicagoland's top custom builders</span>
             </div>
           </div>
           <a href="/contact#form" class="sp-delay-sidebar-cta">
-            Get a free brick estimate
+            Discuss your custom build
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
-
-        <!-- RIGHT: consequence list -->
         <div class="sp-delay-list">
-
           <div class="sp-delay-rule"></div>
-
           <div class="sp-delay-item">
             <div class="sp-delay-item-head">
               <div class="sp-delay-icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <h3 class="sp-delay-title">Wrong Mortar Hardness → Cracks &amp; Spalling</h3>
+              <h3 class="sp-delay-title">Architectural Precision → Flawless Sightlines</h3>
             </div>
-            <p class="sp-delay-text">Mortar too hard for your brick is the single most common installation mistake in Chicagoland. It looks fine for a few years — then freeze-thaw stress transfers to the brick face, spalling it from the inside.</p>
+            <p class="sp-delay-text">Custom architecture demands perfect coursing. We meticulously plan our layouts to ensure horizontal and vertical lines align seamlessly with luxury windows, doors, and unique rooflines.</p>
           </div>
-
           <div class="sp-delay-rule"></div>
-
           <div class="sp-delay-item">
             <div class="sp-delay-item-head">
               <div class="sp-delay-icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
               </div>
-              <h3 class="sp-delay-title">No Drainage System → Water Buildup</h3>
+              <h3 class="sp-delay-title">Advanced Moisture Management → Lifelong Integrity</h3>
             </div>
-            <p class="sp-delay-text">Without weep holes and proper flashing, water collects behind the brick — saturating your wall cavity, rotting framing, and causing mold before you see any visible damage on the exterior.</p>
+            <p class="sp-delay-text">High-end builds require superior weatherproofing. We integrate premium flashing and weep systems engineered specifically for luxury residential structures, guaranteeing zero hidden water intrusion.</p>
           </div>
-
           <div class="sp-delay-rule"></div>
-
           <div class="sp-delay-item">
             <div class="sp-delay-item-head">
               <div class="sp-delay-icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
-              <h3 class="sp-delay-title">Poor Foundation Prep → Settling &amp; Cracks</h3>
+              <h3 class="sp-delay-title">Master-Grade Mortar Mixing → Enduring Strength</h3>
             </div>
-            <p class="sp-delay-text">Brick is heavy. Lay it on an inadequately prepped base and it settles unevenly — cracking joints, shifting courses, and creating structural problems that only get worse over years.</p>
-            <div class="sp-delay-chart" aria-label="Cost escalation timeline">
-              <div class="sp-delay-chart-row">
-                <span class="sp-delay-chart-stage">Now</span>
-                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:20%"></div></div>
-                <span class="sp-delay-chart-cost">$</span>
-                <span class="sp-delay-chart-note">Right materials</span>
-              </div>
-              <div class="sp-delay-chart-row">
-                <span class="sp-delay-chart-stage">1–2 yrs</span>
-                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:42%"></div></div>
-                <span class="sp-delay-chart-cost">$$</span>
-                <span class="sp-delay-chart-note">Joint cracking</span>
-              </div>
-              <div class="sp-delay-chart-row">
-                <span class="sp-delay-chart-stage">3–5 yrs</span>
-                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:68%"></div></div>
-                <span class="sp-delay-chart-cost">$$$</span>
-                <span class="sp-delay-chart-note">Brick spalling</span>
-              </div>
-              <div class="sp-delay-chart-row">
-                <span class="sp-delay-chart-stage">5+ yrs</span>
-                <div class="sp-delay-chart-bar-wrap"><div class="sp-delay-chart-bar" style="--w:100%"></div></div>
-                <span class="sp-delay-chart-cost">$$$$</span>
-                <span class="sp-delay-chart-note">Full redo</span>
-              </div>
-            </div>
+            <p class="sp-delay-text">Standard mixes are rarely sufficient for specialty brick. We custom-blend our mortar on-site to match the exact density and porosity of your chosen materials, ensuring a bond that withstands Chicago's harshest winters.</p>
           </div>
-
           <div class="sp-delay-rule"></div>
-
           <div class="sp-delay-item">
             <div class="sp-delay-item-head">
               <div class="sp-delay-icon-wrap">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               </div>
-              <h3 class="sp-delay-title">Mismatched Materials → Visible Incompatibility</h3>
+              <h3 class="sp-delay-title">Dedicated Builder Collaboration → Seamless Integration</h3>
             </div>
-            <p class="sp-delay-text">Mixing brick types or batches without careful matching creates obvious color and texture inconsistencies. Once the mortar cures, there's no fixing it — you're living with it or tearing it down.</p>
+            <p class="sp-delay-text">We don't just lay brick; we partner with your general contractor. From blueprint phase to final wash, our in-house team coordinates schedules perfectly to keep your new home build running smoothly without delays.</p>
           </div>
-
           <div class="sp-delay-rule"></div>
-
         </div>
       </div>
     </div>
@@ -378,8 +338,6 @@ const faqItems = [
     <div id="sp-prc-driver" style="position:relative; height:600vh;">
       <div id="sp-prc-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
         <div class="sp-prc-grid">
-
-          <!-- LEFT: heading + CTA -->
           <div id="sp-prc-left">
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -390,107 +348,77 @@ const faqItems = [
               </svg>
               <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">How We Work</span>
             </div>
-
-            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(36px,3.5vw,54px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 20px;">Our Brick Installation<br>Process</h2>
-
-            <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.65; color:#6A625A; margin:0 0 36px;">No surprise crews. No hidden costs. You know exactly what happens at every step — and why.</p>
-
+            <h2 style="font-family:'Onest',sans-serif; font-size:clamp(36px,3.5vw,54px); font-weight:700; line-height:1.1; color:#16120F; letter-spacing:-0.02em; margin:0 0 20px;">Our Custom Brick<br>Execution Plan</h2>
+            <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.65; color:#6A625A; margin:0 0 36px;">From architectural review to the final meticulous wash, our in-house craftsmen follow a strict protocol designed for luxury home builds.</p>
             <div class="sp-prc-desktop-cta">
-              <a href="/contact#form"
-                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
-                onmouseenter="this.style.background='#8A3A22'"
-                onmouseleave="this.style.background='#B85C38'">
-                Get a free estimate
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+              <a href="/contact#form" style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;" onmouseenter="this.style.background='#8A3A22'" onmouseleave="this.style.background='#B85C38'">
+                Consult with our team
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
-              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:28px 0 0;">5 steps · 24 hrs to first visit</p>
+              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:28px 0 0;">5 phases · Zero subcontractors</p>
             </div>
           </div>
-
-          <!-- RIGHT: steps -->
           <div id="sp-prc-right">
-
             <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
               <div style="display:flex; gap:20px; align-items:flex-start;">
-                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">01</span>
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px;">01</span>
                 <div style="flex:1;">
-                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Site &amp; Substrate Assessment</h3>
-                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We evaluate your foundation, existing substrate, and drainage conditions before a single brick is laid. This determines the right base preparation and drainage system.</p>
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Architectural Plan Review</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We collaborate directly with your architect and builder to review blueprints, structural loads, and unique design features before breaking ground.</p>
                   <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
-                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Skipping this step is how brick walls end up settling, cracking, and failing within 5–10 years of installation. The base is invisible once built — so is the damage when it's wrong.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Custom homes require foresight. Catching structural alignment needs early guarantees a flawless aesthetic finish.</p>
                   </div>
                 </div>
               </div>
             </div>
-
             <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
               <div style="display:flex; gap:20px; align-items:flex-start;">
-                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">02</span>
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px;">02</span>
                 <div style="flex:1;">
-                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Mortar Selection &amp; Mix</h3>
-                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We select the correct mortar type for your brick — Type N, S, or M — based on the brick's density, location, and climate exposure. Every batch is mixed to consistent spec.</p>
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Premium Material Sourcing</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">Whether it's imported clay, historic reclaimed brick, or ultra-modern linear profiles, we secure top-tier materials that define luxury exteriors.</p>
                   <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
-                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>The wrong mortar hardness is the single biggest cause of premature brick failure. It's also invisible until it's too late — you won't see spalling for 3–5 years.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>The quality of the brick dictates the curb appeal. We only source from trusted suppliers who meet high-end residential standards.</p>
                   </div>
                 </div>
               </div>
             </div>
-
             <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
               <div style="display:flex; gap:20px; align-items:flex-start;">
-                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">03</span>
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px;">03</span>
                 <div style="flex:1;">
-                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Weep Holes &amp; Flashing</h3>
-                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">Before brick is laid, we install proper flashing at the base course and weep holes at regular intervals to allow moisture to escape the wall cavity.</p>
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Advanced Weatherproofing</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We apply commercial-grade vapor barriers, custom flashing, and strategic weep systems to safeguard your luxury investment against Chicago elements.</p>
                   <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
-                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Inspectors look for this. Builders who skip it create water damage that shows up 3–5 years later — after you've already closed on the project and the contractor is long gone.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Beautiful brick is useless if water penetrates behind it. Our systems ensure your new home remains bone-dry internally.</p>
                   </div>
                 </div>
               </div>
             </div>
-
             <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE;">
               <div style="display:flex; gap:20px; align-items:flex-start;">
-                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">04</span>
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px;">04</span>
                 <div style="flex:1;">
-                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Brick Laying &amp; Joint Tooling</h3>
-                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We lay brick in consistent courses, checking level and plumb at every stage. Mortar joints are tooled to the specified profile while still workable — not raked dry.</p>
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Master Craftsman Installation</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">Our seasoned in-house masons lay every course with laser precision. Mortar joints are identically tooled for an architecturally perfect aesthetic.</p>
                   <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
-                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Joint tooling is what makes brick weathertight. A joint tooled properly sheds water. A joint raked too early or left untooled holds it — leading to freeze-thaw damage within seasons.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>The human hand defines the finish. We rely exclusively on our own trained experts—no temporary labor, no subcontractors.</p>
                   </div>
                 </div>
               </div>
             </div>
-
             <div class="sp-prc-item" style="padding:14px 0; border-top:1px solid #E4E2DE; border-bottom:1px solid #E4E2DE;">
               <div style="display:flex; gap:20px; align-items:flex-start;">
-                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px; transition:opacity 0.3s;">05</span>
+                <span class="sp-prc-num" style="font-family:'Onest',sans-serif; font-size:40px; font-weight:700; color:#B85C38; opacity:0.22; line-height:1; min-width:52px; padding-top:2px;">05</span>
                 <div style="flex:1;">
-                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Cleanup &amp; Final Inspection</h3>
-                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">We clean mortar haze off the brick face with appropriate acid wash, sweep the work area, and walk the completed installation with you before we close out.</p>
+                  <h3 style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 7px; letter-spacing:0.04em; text-transform:uppercase;">Executive Walkthrough & Wash</h3>
+                  <p style="font-family:'Inter',sans-serif; font-size:13px; line-height:1.65; color:#4A433B; margin:0 0 10px;">Following a careful acid wash to reveal the brick's true color, we conduct a final inspection with the builder and homeowner to ensure total satisfaction.</p>
                   <div style="border-left:3px solid #B85C38; padding:8px 12px; background:rgba(184,92,56,0.05); border-radius:0 8px 8px 0;">
-                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>Mortar residue left on brick permanently stains the face. The walk-through is your final check — we don't consider the job done until you do.</p>
+                    <p style="font-family:'Inter',sans-serif; font-size:12px; line-height:1.6; color:#4A433B; margin:0;"><strong style="color:#B85C38; font-weight:700;">Why it matters: </strong>A luxury home deserves a pristine handover. We leave the site spotless and the masonry looking impeccable.</p>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Mobile-only CTA -->
-            <div class="sp-prc-mobile-cta" style="display:none; padding-top:36px;">
-              <a href="/contact#form"
-                style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:15px; font-weight:500; padding:14px 26px; border-radius:12px; text-decoration:none; transition:background 0.2s;"
-                onmouseenter="this.style.background='#8A3A22'"
-                onmouseleave="this.style.background='#B85C38'">
-                Get a free estimate
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-              <p style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.08em; color:#B85C38; text-transform:uppercase; margin:20px 0 0;">5 steps · 24 hrs to first visit</p>
-            </div>
-
           </div>
         </div>
       </div>
@@ -501,61 +429,68 @@ const faqItems = [
   <section class="sp-why">
     <div class="sp-why-inner">
       <div class="sp-section-label" data-reveal>What Sets Us Apart</div>
-      <h2 class="sp-section-h2" data-reveal style="--rd:80ms">Why Chicagoland Homeowners<br><em>Choose AMS for Brick</em></h2>
+      <h2 class="sp-section-h2" data-reveal style="--rd:80ms">Why Luxury Builders & Homeowners<br><em>Partner with AMS</em></h2>
       <div class="sp-why-grid">
-
         <div class="sp-why-item sp-why-card">
           <div class="sp-why-img-wrap">
-            <img src="/images/bi-hero/bi-wall.webp" alt="Brick mortar match guarantee" loading="lazy" />
+            <picture>
+              <source media="(max-width: 768px)" srcset="/images/brick-installation/whyus/why-1-mobile.webp" type="image/webp" />
+              <img src="/images/brick-installation/whyus/why-1-desktop.webp" alt="In-house masonry crews" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </picture>
           </div>
           <div class="sp-why-card-body">
             <div class="sp-why-num" aria-hidden="true">01</div>
             <div class="sp-why-content">
-              <h3 class="sp-why-title">Mortar-Match Guarantee</h3>
-              <p class="sp-why-body">New brick mortar matched to your existing masonry in color, texture, and hardness — or we redo it at no charge. No other contractor in the area offers this in writing.</p>
+              <h3 class="sp-why-title">Strictly In-House Master Crews</h3>
+              <p class="sp-why-body">We completely reject the subcontractor model. Every brick is laid by an AMS employee. This allows us to guarantee the exceptional quality required for high-end custom homes.</p>
             </div>
           </div>
         </div>
-
         <div class="sp-why-item sp-why-card">
           <div class="sp-why-img-wrap">
-            <img src="/images/svc-brick-repair.webp" alt="Transparent written estimates" loading="lazy" />
+            <picture>
+              <source media="(max-width: 768px)" srcset="/images/brick-installation/whyus/why-2-mobile.webp" type="image/webp" />
+              <img src="/images/brick-installation/whyus/why-2-desktop.webp" alt="Builder partnerships" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </picture>
           </div>
           <div class="sp-why-card-body">
             <div class="sp-why-num" aria-hidden="true">02</div>
             <div class="sp-why-content">
-              <h3 class="sp-why-title">Transparent, Written Estimates</h3>
-              <p class="sp-why-body">Every estimate is free, on-site, and in writing — scope, materials, and timeline before any work begins. You know exactly what you're paying before we start.</p>
+              <h3 class="sp-why-title">Preferred Builder Collaboration</h3>
+              <p class="sp-why-body">General contractors and architects trust us because we read blueprints accurately, adhere to strict timelines, and elevate the structural integrity of their luxury designs.</p>
             </div>
           </div>
         </div>
-
         <div class="sp-why-item sp-why-card">
           <div class="sp-why-img-wrap">
-            <img src="/images/proj-brick-facade.webp" alt="Free mortar damage assessment tool" loading="lazy" />
+            <picture>
+              <source media="(max-width: 768px)" srcset="/images/brick-installation/whyus/why-3-mobile.webp" type="image/webp" />
+              <img src="/images/brick-installation/whyus/why-3-desktop.webp" alt="Custom architectural brickwork" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </picture>
           </div>
           <div class="sp-why-card-body">
             <div class="sp-why-num" aria-hidden="true">03</div>
             <div class="sp-why-content">
-              <h3 class="sp-why-title">Free Brick Cost Estimator</h3>
-              <p class="sp-why-body">Use our free brick installation estimator to get material counts and cost ranges before you call anyone. No sign-up, no obligation — just honest numbers so you can plan your project.</p>
+              <h3 class="sp-why-title">Custom Architectural Adaptability</h3>
+              <p class="sp-why-body">From grand entryways to complex arched masonry, our expertise extends far beyond flat walls. We execute complex architectural visions precisely as drafted.</p>
             </div>
           </div>
         </div>
-
         <div class="sp-why-item sp-why-card">
           <div class="sp-why-img-wrap">
-            <img src="/images/why-brick.webp" alt="Family owned masonry company" loading="lazy" />
+            <picture>
+              <source media="(max-width: 768px)" srcset="/images/brick-installation/whyus/why-4-mobile.webp" type="image/webp" />
+              <img src="/images/brick-installation/whyus/why-4-desktop.webp" alt="Family tradition masonry" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </picture>
           </div>
           <div class="sp-why-card-body">
             <div class="sp-why-num" aria-hidden="true">04</div>
             <div class="sp-why-content">
-              <h3 class="sp-why-title">Family-Owned — You Deal With the Owners</h3>
-              <p class="sp-why-body">Not a franchise, not a subcontractor network. Same crew that estimates is the crew that builds. When you call AMS you reach the owners — every time.</p>
+              <h3 class="sp-why-title">19+ Years of Family Tradition</h3>
+              <p class="sp-why-body">Masonry isn't just our job; it's a multi-generational craft. We bring decades of refined skill, deep local roots, and uncompromising family values to every new build.</p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -611,10 +546,7 @@ const faqItems = [
     <div id="sp-proj-driver" style="position:relative; height:200vh;">
       <div id="sp-proj-sticky" style="position:sticky; top:0; height:100vh; display:flex; align-items:center; overflow:hidden;">
         <div class="sp-proj-grid">
-
-          <!-- LEFT: Polaroid card stack -->
           <div id="sp-proj-stack" style="position:relative; height:520px; display:flex; align-items:center; justify-content:center;">
-
             {svcProjects.map((p, i) => (
               <div class="sp-proj-polaroid" data-i={String(i)} style="position:absolute; background:#ffffff; padding:14px 14px 56px; box-shadow:0 8px 40px rgba(22,18,15,0.13), 0 2px 8px rgba(22,18,15,0.06); width:230px; will-change:transform; user-select:none; cursor:pointer; transition:box-shadow 0.25s ease;">
                 <div style="overflow:hidden; width:100%; height:290px;">
@@ -626,16 +558,12 @@ const faqItems = [
                 <div style="padding-top:14px; text-align:center;">
                   <p class="sp-proj-label" style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 3px; line-height:1.3; transition:color 0.25s ease;">{p.city}</p>
                   <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">{p.county}, IL</p>
-                  <a href={'/projects/' + p.slug} style="display:inline-block; margin-top:6px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:#B85C38; text-decoration:none; letter-spacing:0.04em; text-transform:uppercase;" onclick="event.stopPropagation()">View →</a>
+                  <a href={'/projects/' + p.slug} style="display:inline-block; margin-top:6px; font-family:'Inter',sans-serif; font-size:10px; font-weight:600; color:#B85C38; text-decoration:none; letter-spacing:0.04em; text-transform:uppercase;" onclick="event.stopPropagation()">View Gallery →</a>
                 </div>
               </div>
             ))}
-
           </div>
-
-          <!-- RIGHT: Text content -->
           <div class="sp-proj-text">
-
             <div class="sp-proj-text-top">
               <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -644,41 +572,30 @@ const faqItems = [
                   <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
                   <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
                 </svg>
-                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">Recent Work</span>
+                <span style="font-family:'Inter',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.10em; color:#B85C38; text-transform:uppercase;">Signature Builds</span>
               </div>
               <h2 style="font-family:'Onest',sans-serif; font-size:clamp(40px,4.5vw,60px); font-weight:700; line-height:1.1; color:#ffffff; letter-spacing:-0.02em; margin:0 0 20px;">
-                Brick Installation Projects<br><em style="font-style:normal;">Across Chicagoland</em>
+                Custom Brick Installations<br><em style="font-style:normal;">Across Chicagoland</em>
               </h2>
               <p style="font-family:'Inter',sans-serif; font-size:16px; line-height:1.6; color:rgba(255,255,255,0.65); margin:0; max-width:400px;">
-                From new brick walls to additions and outdoor features — every project precision-laid, matched, and delivered on schedule.
+                From striking luxury home exteriors to expansive architectural facades — meticulously built by our dedicated in-house craftsmen.
               </p>
             </div>
-
             <div class="sp-proj-text-bottom">
               <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
-                <a href="/projects"
-                  style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:16px; font-weight:500; padding:16px 30px; border-radius:14px; text-decoration:none; transition:background 0.2s;"
-                  onmouseenter="this.style.background='#8A3A22'"
-                  onmouseleave="this.style.background='#B85C38'">
-                  View more projects
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                <a href="/projects" style="display:inline-flex; align-items:center; gap:8px; background:#B85C38; color:#fff; font-family:'Inter',sans-serif; font-size:16px; font-weight:500; padding:16px 30px; border-radius:14px; text-decoration:none; transition:background 0.2s;" onmouseenter="this.style.background='#8A3A22'" onmouseleave="this.style.background='#B85C38'">
+                  Explore our portfolio
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </a>
-                <a href="/contact#form"
-                  style="font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,0.3); transition:color 0.2s;"
-                  onmouseenter="this.style.color='#fff'"
-                  onmouseleave="this.style.color='rgba(255,255,255,0.65)'">
-                  Get a free estimate →
+                <a href="/contact#form" style="font-family:'Inter',sans-serif; font-size:15px; font-weight:500; color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,0.3); transition:color 0.2s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.65)'">
+                  Discuss your project →
                 </a>
               </div>
               <p style="font-family:'Inter',sans-serif; font-size:13px; color:rgba(255,255,255,0.4); margin:16px 0 0;">
-                500+ projects completed across Chicagoland
+                Countless luxury builds delivered with zero compromises.
               </p>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -796,6 +713,14 @@ const faqItems = [
                       <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Susan L.</p>
                       <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Winnetka, IL</p>
                     </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
                 <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
@@ -813,6 +738,14 @@ const faqItems = [
                       <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Paul R.</p>
                       <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Hinsdale, IL</p>
                     </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                   </div>
                 </div>
                 <div class="sp-rev-nbhd-card" style="flex:1; border-radius:14px; padding:18px 14px 14px; background:#FCFAF4; border:1px solid #E4E2DE; box-shadow:0 4px 24px rgba(22,18,15,0.07); box-sizing:border-box; opacity:0; transform:translateY(16px); display:flex; flex-direction:column; justify-content:space-between;">
@@ -829,6 +762,14 @@ const faqItems = [
                     <div>
                       <p style="font-family:'Onest',sans-serif; font-size:12px; font-weight:700; color:#16120F; margin:0 0 1px;">Jennifer C.</p>
                       <p style="font-family:'Inter',sans-serif; font-size:10px; color:#6A625A; margin:0;">Naperville, IL</p>
+                    </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -852,6 +793,14 @@ const faqItems = [
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Karen M.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Hinsdale, IL</p>
                   </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                 </div>
               </div>
 
@@ -866,6 +815,14 @@ const faqItems = [
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">James &amp; Patricia W.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Winnetka, IL</p>
                   </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                 </div>
               </div>
 
@@ -880,6 +837,14 @@ const faqItems = [
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">William F.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Oak Brook, IL</p>
                   </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                 </div>
               </div>
 
@@ -894,6 +859,14 @@ const faqItems = [
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Richard B.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">Naperville, IL</p>
                   </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                 </div>
               </div>
 
@@ -908,6 +881,14 @@ const faqItems = [
                     <p style="font-family:'Onest',sans-serif; font-size:15px; font-weight:700; color:#16120F; margin:0 0 2px;">Christine H.</p>
                     <p style="font-family:'Inter',sans-serif; font-size:13px; color:#6A625A; margin:0;">La Grange, IL</p>
                   </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
                 </div>
               </div>
 
@@ -942,6 +923,14 @@ const faqItems = [
             <p style="font-family:'Onest',sans-serif; font-size:13px; font-weight:700; color:#16120F; margin:0 0 2px;">Susan L.</p>
             <p style="font-family:'Inter',sans-serif; font-size:11px; color:#6A625A; margin:0;">Winnetka, IL · North Shore</p>
           </div>
+                    <div style="margin-left:auto; display:flex; align-items:center; opacity:0.9;" title="Verified Google Review">
+                      <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
         </div>
       </div>
     </div>
@@ -973,15 +962,15 @@ const faqItems = [
           <!-- After (base layer — clean mortar) -->
           <div class="sp-ba-after">
             <picture>
-              <source media="(max-width:768px)" srcset="/images/proj-tuckpointing-m.webp" type="image/webp" />
-              <img src="/images/bi-hero/bi-wall.webp" alt="After brick installation — new exterior brick facade" class="sp-ba-img" loading="lazy" />
+              <source media="(max-width:768px)" srcset="/images/brick-installation/ba/after-mobile.webp" type="image/webp" />
+              <img src="/images/brick-installation/ba/after-desktop.webp" alt="After brick installation — new exterior brick facade" class="sp-ba-img" loading="lazy" />
             </picture>
           </div>
           <!-- Before (clipped, reveals on scroll — deteriorated mortar) -->
           <div class="sp-ba-before">
             <picture>
-              <source media="(max-width:768px)" srcset="/images/svc-brick-repair-m.webp" type="image/webp" />
-              <img src="/images/svc-brick-repair.webp" alt="Before brick installation — existing exterior surface" class="sp-ba-img" loading="lazy" />
+              <source media="(max-width:768px)" srcset="/images/brick-installation/ba/before-mobile.webp" type="image/webp" />
+              <img src="/images/brick-installation/ba/before-desktop.webp" alt="Before brick installation — existing exterior surface" class="sp-ba-img" loading="lazy" />
             </picture>
           </div>
           <!-- Glowing divider + handle -->
@@ -1013,7 +1002,7 @@ const faqItems = [
       <!-- Stats row -->
       <div class="sp-ba-stats" data-reveal style="--rd:240ms">
         <div class="sp-ba-stat">
-          <strong>500+</strong>
+          <strong>100+</strong>
           <span>Masonry projects<br>completed</span>
         </div>
         <div class="sp-ba-stat-sep"></div>
@@ -1034,16 +1023,16 @@ const faqItems = [
   <!-- ─── 10. CREDENTIALS ─── -->
   <section class="sp-creds">
     <div class="sp-creds-inner">
-      <div class="sp-section-label">Why Trust AMS</div>
-      <h2 class="sp-section-h2">Every Box Checked.<br><em>In Writing.</em></h2>
+      <div class="sp-section-label">A Builder's Standard</div>
+      <h2 class="sp-section-h2">Uncompromising Integrity.<br><em>Guaranteed.</em></h2>
       <div class="sp-creds-grid">
         <div class="sp-cred-item">
           <div class="sp-cred-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div class="sp-cred-text">
-            <span class="sp-cred-title">Licensed in Illinois</span>
-            <span class="sp-cred-body">State-licensed masonry contractor — License #MA-104-018887. We pull permits when required and operate fully above board.</span>
+            <span class="sp-cred-title">Fully Licensed</span>
+            <span class="sp-cred-body">We carry full Illinois state licensing (License #MA-104-018887) required for major structural and custom home masonry projects.</span>
           </div>
         </div>
         <div class="sp-cred-item">
@@ -1051,8 +1040,8 @@ const faqItems = [
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
           </div>
           <div class="sp-cred-text">
-            <span class="sp-cred-title">Fully Insured — $2.5M Liability</span>
-            <span class="sp-cred-body">$2.5 million general liability coverage on every job. Proof of insurance available before any work begins — no exceptions.</span>
+            <span class="sp-cred-title">High-End Liability Coverage</span>
+            <span class="sp-cred-body">Protecting luxury assets demands comprehensive insurance. We carry $2.5 million in general liability for total peace of mind.</span>
           </div>
         </div>
         <div class="sp-cred-item">
@@ -1060,8 +1049,8 @@ const faqItems = [
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
           </div>
           <div class="sp-cred-text">
-            <span class="sp-cred-title">Workers' Comp Covered</span>
-            <span class="sp-cred-body">Every crew member is covered. You're not liable if someone is injured on your property.</span>
+            <span class="sp-cred-title">100% W2 Crews</span>
+            <span class="sp-cred-body">We never hand your custom build to day laborers. Our masons are protected by full workers' compensation and rigorous safety training.</span>
           </div>
         </div>
         <div class="sp-cred-item">
@@ -1069,8 +1058,8 @@ const faqItems = [
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
           <div class="sp-cred-text">
-            <span class="sp-cred-title">Family-Owned Since 2007</span>
-            <span class="sp-cred-body">Not a franchise. Not a call center. You deal with the owners — same crew, same standards, every job.</span>
+            <span class="sp-cred-title">Family Tradition</span>
+            <span class="sp-cred-body">Masonry is our heritage. Since 2007, we have treated every major installation with the profound respect our craft demands.</span>
           </div>
         </div>
         <div class="sp-cred-item">
@@ -1078,8 +1067,8 @@ const faqItems = [
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <div class="sp-cred-text">
-            <span class="sp-cred-title">Mortar-Match Guarantee</span>
-            <span class="sp-cred-body">Every mortar mix matched to your existing masonry in color, texture, and hardness — or we redo it at no charge. The single biggest factor in how long your new brick looks right.</span>
+            <span class="sp-cred-title">Architectural Precision</span>
+            <span class="sp-cred-body">Our builds don't just pass inspection—they set the standard. Perfect alignment, immaculate tooling, and structural excellence.</span>
           </div>
         </div>
         <div class="sp-cred-item">
@@ -1087,17 +1076,17 @@ const faqItems = [
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B85C38" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div class="sp-cred-text">
-            <span class="sp-cred-title">Serving 19 Chicagoland Cities</span>
-            <span class="sp-cred-body">From Chicago to Naperville, Winnetka to Hinsdale — local crews, local knowledge.</span>
+            <span class="sp-cred-title">Chicagoland's Premier Choice</span>
+            <span class="sp-cred-body">Trusted by high-end homeowners and elite builders across the city and surrounding prestige suburbs.</span>
           </div>
         </div>
       </div>
       <div class="sp-creds-guarantee">
         <div class="sp-guarantee-badge">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span>Mortar-Match Guarantee</span>
+          <span>Zero-Compromise Craftsmanship</span>
         </div>
-        <p class="sp-guarantee-text">If your new mortar doesn't match your existing joints in color and texture — we redo it. No charge, no argument. That's our standard, not an exception.</p>
+        <p class="sp-guarantee-text">If a detail on your custom brick installation isn't up to exceptional architectural standards, we fix it immediately. No excuses, no shortcuts.</p>
       </div>
     </div>
   </section>
@@ -1105,7 +1094,6 @@ const faqItems = [
   <!-- ─── 11. FAQ ─── -->
   <section class="sp-faqx-section" id="faq-section">
     <div class="sp-faqx-inner">
-
       <div class="sp-faqx-header" id="faq-header">
         <div class="sp-faqx-eyebrow">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -1114,106 +1102,68 @@ const faqItems = [
             <rect x="1" y="8" width="5" height="5" rx="1" fill="#B85C38" opacity="0.4"/>
             <rect x="8" y="8" width="5" height="5" rx="1" fill="#B85C38"/>
           </svg>
-          <span>Common Questions</span>
+          <span>Client & Builder Inquiries</span>
         </div>
         <h2 class="sp-faqx-heading">
-          Brick Installation FAQ<br>
-          <em class="sp-faqx-heading-accent">Answered Honestly</em>
+          Custom Brick Installation FAQ<br>
+          <em class="sp-faqx-heading-accent">Direct Answers</em>
         </h2>
-        <p class="sp-faqx-desc">Everything you need to know about brick installation in Chicago — before you pick up the phone.</p>
+        <p class="sp-faqx-desc">Clear insights into our high-end installation processes, timelines, and builder collaborations.</p>
       </div>
-
       <div class="sp-faqx-body">
-
         <nav class="sp-faqx-nav" id="faq-nav" aria-label="FAQ categories">
-          <button class="sp-faqx-tab active" data-cat="problems" aria-selected="true">
-            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>The Installation
-          </button>
-          <button class="sp-faqx-tab" data-cat="cost" aria-selected="false">
-            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Materials &amp; Mortar
-          </button>
-          <button class="sp-faqx-tab" data-cat="repair" aria-selected="false">
-            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Cost &amp; Timeline
-          </button>
-          <button class="sp-faqx-tab" data-cat="process" aria-selected="false">
-            <span class="sp-faqx-tab-dot" aria-hidden="true"></span>Working With AMS
-          </button>
+          <button class="sp-faqx-tab active" data-cat="problems" aria-selected="true"><span class="sp-faqx-tab-dot" aria-hidden="true"></span>Custom Builds</button>
+          <button class="sp-faqx-tab" data-cat="cost" aria-selected="false"><span class="sp-faqx-tab-dot" aria-hidden="true"></span>Materials</button>
+          <button class="sp-faqx-tab" data-cat="repair" aria-selected="false"><span class="sp-faqx-tab-dot" aria-hidden="true"></span>Timelines</button>
+          <button class="sp-faqx-tab" data-cat="process" aria-selected="false"><span class="sp-faqx-tab-dot" aria-hidden="true"></span>Working with AMS</button>
         </nav>
-
         <div class="sp-faqx-panels" id="faq-panels">
-
-          <!-- THE INSTALLATION -->
           <div class="sp-faqx-panel active" data-cat="problems" role="list">
             <div class="sp-faqx-item" role="listitem">
-              <button class="sp-faqx-q" aria-expanded="false">How long does brick installation take?</button>
-              <div class="sp-faqx-a" aria-hidden="true">
-                <div class="sp-faqx-a-inner">Small projects (retaining walls, outdoor features, additions) typically run 1–5 days. A full exterior can take 1–3 weeks. We provide a detailed timeline at the estimate stage.</div>
-              </div>
+              <button class="sp-faqx-q" aria-expanded="false">Do you coordinate directly with our general contractor?</button>
+              <div class="sp-faqx-a" aria-hidden="true"><div class="sp-faqx-a-inner">Absolutely. We are fully accustomed to integrating into luxury build schedules. We liaise directly with your GC and architect to ensure structural preparations align perfectly with our masonry requirements.</div></div>
             </div>
             <div class="sp-faqx-item" role="listitem">
-              <button class="sp-faqx-q" aria-expanded="false">Can you match existing brick on my home?</button>
-              <div class="sp-faqx-a" aria-hidden="true">
-                <div class="sp-faqx-a-inner">Yes — brick matching is one of our specialties. We source bricks that match your existing in color, texture, and size, and we mortar-match to your existing joints. The goal is that you can't see where old ends and new begins.</div>
-              </div>
+              <button class="sp-faqx-q" aria-expanded="false">Will you use subcontractors for our large brick exterior?</button>
+              <div class="sp-faqx-a" aria-hidden="true"><div class="sp-faqx-a-inner">Never. Unlike highly leveraged masonry firms, AMS relies exclusively on our veteran in-house crew. This guarantees strict quality control and total accountability on your custom home.</div></div>
             </div>
           </div>
-
-          <!-- MATERIALS & MORTAR -->
           <div class="sp-faqx-panel" data-cat="cost" role="list">
             <div class="sp-faqx-item" role="listitem">
-              <button class="sp-faqx-q" aria-expanded="false">How do I know what brick type I need?</button>
-              <div class="sp-faqx-a" aria-hidden="true">
-                <div class="sp-faqx-a-inner">Brick selection depends on your home's style, the location of the installation, and your climate exposure. AMS helps you select the right brick type and source it before any work begins — we'll walk you through options on the estimate visit.</div>
-              </div>
+              <button class="sp-faqx-q" aria-expanded="false">Can you source specialty or imported brick profiles?</button>
+              <div class="sp-faqx-a" aria-hidden="true"><div class="sp-faqx-a-inner">Yes. We have established relationships with top-tier suppliers across Chicagoland and nationally. Whether your design requires reclaimed antique brick, ultra-long linear profiles, or specific color variations, we secure the exact materials specified.</div></div>
             </div>
             <div class="sp-faqx-item" role="listitem">
-              <button class="sp-faqx-q" aria-expanded="false">What's the difference between Type N, S, and M mortar?</button>
-              <div class="sp-faqx-a" aria-hidden="true">
-                <div class="sp-faqx-a-inner">Type N is correct for most above-grade exterior walls — medium strength, flexible enough for brick movement. Type S is for below-grade or high-moisture environments. Type M is for foundations and hardscape. Using the wrong type causes premature brick failure. AMS matches every mortar mix to your specific brick and location.</div>
-              </div>
+              <button class="sp-faqx-q" aria-expanded="false">How do you ensure mortar longevity on new construction?</button>
+              <div class="sp-faqx-a" aria-hidden="true"><div class="sp-faqx-a-inner">We tailor the mortar mix—typically specialized variations of Type N or Type S—specifically to the compressive strength of your selected brick and its environmental exposure, ensuring the wall breathes and expands correctly without spalling.</div></div>
             </div>
           </div>
-
-          <!-- COST & TIMELINE -->
           <div class="sp-faqx-panel" data-cat="repair" role="list">
             <div class="sp-faqx-item" role="listitem">
-              <button class="sp-faqx-q" aria-expanded="false">How much does brick installation cost in Chicago?</button>
-              <div class="sp-faqx-a" aria-hidden="true">
-                <div class="sp-faqx-a-inner">Brick installation in Chicagoland typically costs $15–$35 per square foot depending on brick type, mortar complexity, and site access. A small outdoor feature or wall repair runs $2,000–$6,000. A full home exterior can range from $20,000 to $75,000+. Free on-site estimates at 773-656-2107.</div>
-              </div>
+              <button class="sp-faqx-q" aria-expanded="false">What is the typical timeframe for a full custom home exterior?</button>
+              <div class="sp-faqx-a" aria-hidden="true"><div class="sp-faqx-a-inner">Extensive luxury exteriors generally require 1 to 3 weeks of continuous masonry work, depending heavily on architectural complexity, weather conditions, and site readiness. We establish a firm schedule prior to mobilization.</div></div>
             </div>
             <div class="sp-faqx-item" role="listitem">
-              <button class="sp-faqx-q" aria-expanded="false">Do you offer free estimates for brick installation?</button>
-              <div class="sp-faqx-a" aria-hidden="true">
-                <div class="sp-faqx-a-inner">Yes — all estimates are free, on-site, and in writing. Call 773-656-2107 or fill out our contact form to schedule.</div>
-              </div>
+              <button class="sp-faqx-q" aria-expanded="false">Do you offer pricing insights during the blueprint phase?</button>
+              <div class="sp-faqx-a" aria-hidden="true"><div class="sp-faqx-a-inner">Yes, we regularly provide comprehensive bids based on architectural drawings. This allows builders and homeowners to accurately forecast budgets well before breaking ground.</div></div>
             </div>
           </div>
-
-          <!-- WORKING WITH AMS -->
           <div class="sp-faqx-panel" data-cat="process" role="list">
             <div class="sp-faqx-item" role="listitem">
-              <button class="sp-faqx-q" aria-expanded="false">Do you install brick for both residential and commercial projects?</button>
-              <div class="sp-faqx-a" aria-hidden="true">
-                <div class="sp-faqx-a-inner">Yes — AMS does both. For commercial brick installation, see our Commercial Brick & Stone service page. For custom home builds, see Custom Home Masonry.</div>
-              </div>
+              <button class="sp-faqx-q" aria-expanded="false">Is AMS insured for high-value residential projects?</button>
+              <div class="sp-faqx-a" aria-hidden="true"><div class="sp-faqx-a-inner">Fully. We carry $2.5 million in comprehensive general liability and full workers' compensation coverage for all our employees, meeting or exceeding the requirements of premier Chicagoland builders.</div></div>
             </div>
             <div class="sp-faqx-item" role="listitem">
-              <button class="sp-faqx-q" aria-expanded="false">Is AMS licensed and insured for brick installation?</button>
-              <div class="sp-faqx-a" aria-hidden="true">
-                <div class="sp-faqx-a-inner">Yes. Licensed in Illinois (License #MA-104-018887), $2.5M general liability, workers' compensation on all crew members. Proof of insurance available before work starts.</div>
-              </div>
+              <button class="sp-faqx-q" aria-expanded="false">Do you perform repairs in addition to new installations?</button>
+              <div class="sp-faqx-a" aria-hidden="true"><div class="sp-faqx-a-inner">While our primary focus and passion lie in new custom home builds and major structural installations, we do selectively offer high-end repair services as an add-on or for previous clientele.</div></div>
             </div>
           </div>
-
         </div>
       </div>
-
       <div class="sp-faqx-footer" id="faq-footer">
-        <p class="sp-faqx-footer-text">Still have questions? We're happy to talk through your specific situation.</p>
-        <a href="/contact#form" class="sp-faqx-footer-cta">Ask Us Directly →</a>
+        <p class="sp-faqx-footer-text">Need to discuss blueprints or schedule a site visit?</p>
+        <a href="/contact#form" class="sp-faqx-footer-cta">Contact Our Estimating Team →</a>
       </div>
-
     </div>
   </section>
 
@@ -1260,8 +1210,8 @@ const faqItems = [
           <div class="sp-rsvc-img-wrap">
             <div class="sp-rsvc-img-clip">
               <picture style="display:block;width:100%;">
-                <source media="(max-width: 768px)" srcset="/images/svc-chimney-m.webp" type="image/webp" />
-                <img src="/images/svc-chimney.webp" alt="Custom home masonry construction" class="sp-rsvc-img" loading="lazy" />
+                <source media="(max-width: 768px)" srcset="/images/brick-installation/related/related-1-mobile.webp" type="image/webp" />
+                <img src="/images/brick-installation/related/related-1-desktop.webp" alt="Custom home masonry construction" class="sp-rsvc-img" loading="lazy" />
               </picture>
             </div>
             <div class="sp-rsvc-notch">
@@ -1280,8 +1230,8 @@ const faqItems = [
           <div class="sp-rsvc-img-wrap">
             <div class="sp-rsvc-img-clip">
               <picture style="display:block;width:100%;">
-                <source media="(max-width: 768px)" srcset="/images/svc-brick-repair-m.webp" type="image/webp" />
-                <img src="/images/svc-brick-repair.webp" alt="Natural stone and limestone installation" class="sp-rsvc-img" loading="lazy" />
+                <source media="(max-width: 768px)" srcset="/images/brick-installation/related/related-2-mobile.webp" type="image/webp" />
+                <img src="/images/brick-installation/related/related-2-desktop.webp" alt="Natural stone and limestone installation" class="sp-rsvc-img" loading="lazy" />
               </picture>
             </div>
             <div class="sp-rsvc-notch">
@@ -1300,8 +1250,8 @@ const faqItems = [
           <div class="sp-rsvc-img-wrap">
             <div class="sp-rsvc-img-clip">
               <picture style="display:block;width:100%;">
-                <source media="(max-width: 768px)" srcset="/images/svc-stone-install-m.webp" type="image/webp" />
-                <img src="/images/svc-stone-install.webp" alt="Tuckpointing and repointing mortar repair" class="sp-rsvc-img" loading="lazy" />
+                <source media="(max-width: 768px)" srcset="/images/brick-installation/related/related-3-mobile.webp" type="image/webp" />
+                <img src="/images/brick-installation/related/related-3-desktop.webp" alt="Tuckpointing and repointing mortar repair" class="sp-rsvc-img" loading="lazy" />
               </picture>
             </div>
             <div class="sp-rsvc-notch">

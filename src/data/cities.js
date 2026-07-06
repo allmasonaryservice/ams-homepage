@@ -1,395 +1,2606 @@
 // City data for all 19 AMS service area location pages
-// Each city gets unique hero copy, FAQ, and nearby areas for local SEO
 
 export const cities = [
   {
-    slug: 'winnetka',
-    name: 'Winnetka',
-    region: 'North Shore',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor Winnetka IL | All Masonry Services',
-    metaDesc: 'Expert brick, stone, chimney repair, and tuckpointing in Winnetka, IL. Serving North Shore estates since 2007. Free on-site estimates. Call 773-656-2107.',
-    heroSub: 'Winnetka homes — many built in the 1920s and 30s — demand masonry work that matches the original craftsmanship. We mortar-match to your existing brick, source period-appropriate materials, and restore facades that stand alongside the original structure seamlessly.',
-    heroReview: { quote: 'AMS matched the brick on our 1928 Tudor perfectly. You genuinely cannot tell where the original ends and the new begins.', author: 'Susan L.', location: 'Winnetka, IL' },
-    problem: 'North Shore lakefront exposure accelerates mortar erosion. Winnetka homes — especially the older Tudor and Georgian estates — show joint deterioration and facade cracking within 15–20 years without proper maintenance.',
-    faqItems: [
-      { question: 'Do you work on historic Winnetka homes?', answer: 'Yes. We regularly restore 1920s–1940s Tudor, Georgian, and Colonial homes in Winnetka. We source period-appropriate brick, match mortar in color and hardness, and work with the textures of the original installation.' },
-      { question: 'Can you match the brick on my North Shore home?', answer: 'Brick matching is one of our specialties. We sample your existing brick, source the closest match in color, size, and texture, and mortar-match your joints. The goal is that no one can identify the repair line.' },
-      { question: 'How much does chimney repair cost in Winnetka?', answer: 'Chimney tuckpointing in Winnetka typically runs $800–$2,500 depending on height and scope. Full chimney rebuilds range $4,000–$12,000. All estimates are free and in writing before work begins.' },
-      { question: 'Do you handle brick repair near the lake?', answer: 'Yes. Lakefront properties require specific mortar hardness and moisture resistance. We use Type S mortar in high-moisture zones and verify proper flashing and weep holes are in place.' },
-      { question: 'Are you licensed and insured in Winnetka?', answer: 'Yes. Illinois license #MA-104-018887, $2.5M general liability, workers\' compensation on all crew. Proof of insurance available before any work begins.' },
+    "slug": "winnetka",
+    "name": "Winnetka",
+    "region": "North Shore",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor Winnetka IL | All Masonry Services",
+    "metaDesc": "Expert brick, stone, chimney repair, and tuckpointing in Winnetka, IL. Serving North Shore estates since 2007. Free on-site estimates. Call 773-656-2107.",
+    "heroSub": "Engineering Commercial Estates across Winnetka. Our in-house artisans deliver impeccable masonry solutions with absolute precision. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "AMS matched the brick on our 1928 Tudor perfectly. You genuinely cannot tell where the original ends and the new begins.",
+      "author": "Susan L.",
+      "location": "Winnetka, IL"
+    },
+    "problem": "North Shore lakefront exposure accelerates mortar erosion. Winnetka homes — especially the older Tudor and Georgian estates — show joint deterioration and facade cracking within 15–20 years without proper maintenance.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Winnetka?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver exceptional facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Winnetka projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install natural stone, premium face brick, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Winnetka project is a direct employee of AMS, ensuring consistent, state-of-the-art quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Winnetka. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Wilmette', 'Kenilworth', 'Glencoe', 'Northbrook', 'Evanston'],
-    details: { areas: 'Hubbard Woods, Indian Hill Estates, Tower Road area', zipCodes: '60093' },
+    "nearbyAreas": [
+      "Wilmette",
+      "Kenilworth",
+      "Glencoe",
+      "Northbrook",
+      "Evanston"
+    ],
+    "details": {
+      "areas": "Hubbard Woods, Indian Hill Estates, Tower Road area",
+      "zipCodes": "60093"
+    },
+    "heroHeading": "Bespoke Masonry Expert in Winnetka",
+    "masonryCtx": {
+      "header": "The Winnetka Excellence",
+      "items": [
+        {
+          "title": "Elite Material Selection",
+          "text": "We source only the finest bespoke masonry units to complement Winnetka's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We deliver with an precise attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Winnetka is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Full-Scope Masonry Services in Winnetka",
+      "body": "From sprawling mansions to large-scale commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Winnetka. We never use subcontractors, guaranteeing uncompromising results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Winnetka project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select precise high-grade CMU that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of High-End Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Winnetka Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to exquisite premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Winnetka project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Architectural Custom Builds<br><em>in Winnetka</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Winnetka with state-of-the-art quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Winnetka and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'wilmette',
-    name: 'Wilmette',
-    region: 'North Shore',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor Wilmette IL | All Masonry Services',
-    metaDesc: 'Brick repair, chimney work, tuckpointing, and stone installation in Wilmette, IL. 19+ years on the North Shore. Free estimates. Call 773-656-2107.',
-    heroSub: 'Wilmette\'s Victorian and mid-century homes carry decades of freeze-thaw cycles in their mortar joints. We repair, restore, and replace brick and stone work to match your home\'s original character — and to last through another generation of Chicago winters.',
-    heroReview: { quote: 'Had AMS tuckpoint our 1905 Victorian in Wilmette. Every joint was color-matched. The difference before and after is night and day.', author: 'Mark T.', location: 'Wilmette, IL' },
-    problem: 'Wilmette\'s older housing stock — Victorians, bungalows, and early colonials — accumulates mortar erosion at an accelerating rate. Joints that look cosmetically worn are often structurally compromised, allowing water infiltration that damages interior walls.',
-    faqItems: [
-      { question: 'What masonry services do you offer in Wilmette?', answer: 'All major masonry services: tuckpointing, brick repair and replacement, chimney repair and rebuilding, stone installation, CMU block, brick veneer, and free mortar damage assessments. We serve both residential and commercial properties in Wilmette.' },
-      { question: 'How much does tuckpointing cost in Wilmette?', answer: 'Tuckpointing in Wilmette typically costs $8–$18 per linear foot or $1,200–$5,000 for a full chimney or wall section. We provide a free, in-writing estimate after the on-site assessment.' },
-      { question: 'My brick bungalow has white staining — what is that?', answer: 'That\'s efflorescence — mineral deposits left when water moves through brick and evaporates. It\'s a sign of moisture infiltration. We assess the source, treat the existing efflorescence, and repoint or seal the affected joints.' },
-      { question: 'Can you repair brick steps and front stoops in Wilmette?', answer: 'Yes — brick steps, front stoops, and retaining walls are common repairs in Wilmette. We reset heaved steps, replace cracked brick, and re-mortar deteriorated joints. Most stoop repairs complete in 1–2 days.' },
-      { question: 'Do you offer free estimates in Wilmette?', answer: 'All estimates are free, on-site, and in writing. Call 773-656-2107 or use our contact form to schedule a visit within 24 hours.' },
+    "slug": "wilmette",
+    "name": "Wilmette",
+    "region": "North Shore",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor Wilmette IL | All Masonry Services",
+    "metaDesc": "Brick repair, chimney work, tuckpointing, and stone installation in Wilmette, IL. 19+ years on the North Shore. Free estimates. Call 773-656-2107.",
+    "heroSub": "Building Architectural Visions across Wilmette. Our in-house artisans deliver impeccable masonry solutions that exceed expectations. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "Had AMS tuckpoint our 1905 Victorian in Wilmette. Every joint was color-matched. The difference before and after is night and day.",
+      "author": "Mark T.",
+      "location": "Wilmette, IL"
+    },
+    "problem": "Wilmette's older housing stock — Victorians, bungalows, and early colonials — accumulates mortar erosion at an accelerating rate. Joints that look cosmetically worn are often structurally compromised, allowing water infiltration that damages interior walls.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Wilmette?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver superior facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Wilmette projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install architectural veneers, custom limestone, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Wilmette project is a direct employee of AMS, ensuring consistent, flawless quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Wilmette. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Winnetka', 'Evanston', 'Kenilworth', 'Skokie', 'Northbrook'],
-    details: { areas: 'Central Wilmette, Linden Square, Mallinckrodt Park area', zipCodes: '60091' },
+    "nearbyAreas": [
+      "Winnetka",
+      "Evanston",
+      "Kenilworth",
+      "Skokie",
+      "Northbrook"
+    ],
+    "details": {
+      "areas": "Central Wilmette, Linden Square, Mallinckrodt Park area",
+      "zipCodes": "60091"
+    },
+    "heroHeading": "High-End Masonry Expert in Wilmette",
+    "masonryCtx": {
+      "header": "The Wilmette Excellence",
+      "items": [
+        {
+          "title": "Premium Material Selection",
+          "text": "We source only the finest high-grade CMU to complement Wilmette's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We build with an meticulous attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Wilmette is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Elite Masonry Services in Wilmette",
+      "body": "From sprawling estates to complex commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Wilmette. We never use subcontractors, guaranteeing enduring results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Wilmette project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select exquisite custom limestone that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Premium Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Wilmette Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to flawless premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Wilmette project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Bespoke Custom Builds<br><em>in Wilmette</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Wilmette with meticulous quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Wilmette and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'kenilworth',
-    name: 'Kenilworth',
-    region: 'North Shore',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor Kenilworth IL | All Masonry Services',
-    metaDesc: 'Premium brick, limestone, and chimney masonry in Kenilworth, IL. Serving North Shore estates since 2007. Free on-site estimates. Call 773-656-2107.',
-    heroSub: 'Kenilworth\'s historic estate homes demand masonry craftsmanship that matches their original quality. We work with limestone, aged brick, and specialty stone to restore and extend the architectural character these homes were built with.',
-    heroReview: { quote: 'AMS restored the limestone facade on our estate home in Kenilworth. Exceptional craftsmanship — exactly what this house deserves.', author: 'Patricia H.', location: 'Kenilworth, IL' },
-    problem: 'Kenilworth\'s estate homes — many with original limestone facades and aged brick from the early 1900s — require specialty masonry skills that most contractors don\'t have. Improper mortar hardness or material mismatch permanently damages the facade.',
-    faqItems: [
-      { question: 'Do you work with limestone facades in Kenilworth?', answer: 'Yes. Limestone is common in Kenilworth estate homes. We repair, replace, and restore limestone window sills, lintels, coping stones, and facade panels. We source matching limestone from regional quarries.' },
-      { question: 'What does chimney restoration cost in Kenilworth?', answer: 'Chimney restoration in Kenilworth varies by scope: repointing runs $1,500–$4,000, partial rebuild $4,000–$10,000, full rebuild from $10,000. Free on-site estimate with full written scope.' },
-      { question: 'Can you source materials that match our original 1920s brick?', answer: 'Yes. We maintain relationships with specialty brick suppliers who carry vintage-style and antique brick. We match color, face texture, size, and mortar color to create seamless repairs.' },
-      { question: 'Are you licensed for masonry work in Kenilworth?', answer: 'Yes. Illinois license #MA-104-018887, $2.5M general liability, workers\' compensation on all crew.' },
-      { question: 'How quickly can you start a project in Kenilworth?', answer: 'Typically within 1–2 weeks of estimate for small-to-mid projects. Larger restoration work may require 2–4 weeks for scheduling and material sourcing. We provide a full timeline at the estimate stage.' },
+    "slug": "kenilworth",
+    "name": "Kenilworth",
+    "region": "North Shore",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor Kenilworth IL | All Masonry Services",
+    "metaDesc": "Premium brick, limestone, and chimney masonry in Kenilworth, IL. Serving North Shore estates since 2007. Free on-site estimates. Call 773-656-2107.",
+    "heroSub": "Delivering Custom Homes across Kenilworth. Our in-house artisans deliver exceptional masonry solutions that define the skyline. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "AMS restored the limestone facade on our estate home in Kenilworth. Exceptional craftsmanship — exactly what this house deserves.",
+      "author": "Patricia H.",
+      "location": "Kenilworth, IL"
+    },
+    "problem": "Kenilworth's estate homes — many with original limestone facades and aged brick from the early 1900s — require specialty masonry skills that most contractors don't have. Improper mortar hardness or material mismatch permanently damages the facade.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Kenilworth?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver precise facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Kenilworth projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install high-grade CMU, natural stone, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Kenilworth project is a direct employee of AMS, ensuring consistent, meticulous quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Kenilworth. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Winnetka', 'Wilmette', 'Glencoe', 'Northbrook', 'Evanston'],
-    details: { areas: 'Kenilworth Historic District, Sheridan Road corridor', zipCodes: '60043' },
+    "nearbyAreas": [
+      "Winnetka",
+      "Wilmette",
+      "Glencoe",
+      "Northbrook",
+      "Evanston"
+    ],
+    "details": {
+      "areas": "Kenilworth Historic District, Sheridan Road corridor",
+      "zipCodes": "60043"
+    },
+    "heroHeading": "Architectural Masonry Specialist in Kenilworth",
+    "masonryCtx": {
+      "header": "The Kenilworth Standard",
+      "items": [
+        {
+          "title": "Luxury Material Selection",
+          "text": "We source only the finest architectural veneers to complement Kenilworth's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We deliver with an meticulous attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Kenilworth is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Elite Masonry Services in Kenilworth",
+      "body": "From sprawling mansions to large-scale commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Kenilworth. We never use subcontractors, guaranteeing superior results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Kenilworth project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select exceptional architectural veneers that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of High-End Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Kenilworth Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to precise premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Kenilworth project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Bespoke Custom Builds<br><em>in Kenilworth</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Kenilworth with flawless quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Kenilworth and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'glencoe',
-    name: 'Glencoe',
-    region: 'North Shore',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor Glencoe IL | All Masonry Services',
-    metaDesc: 'Brick, stone, and chimney masonry in Glencoe, IL. Prairie-style and estate homes. Free estimates. 773-656-2107.',
-    heroSub: 'Glencoe\'s wooded setting and Prairie-style architectural heritage call for masonry that respects the original material palette. We work with natural stone, aged brick, and specialty mortar to restore and extend homes that have stood for generations.',
-    heroReview: { quote: 'We have a Prairie-style home in Glencoe with a complex stone chimney. AMS was the only contractor who understood the material and didn\'t try to substitute something cheaper.', author: 'David K.', location: 'Glencoe, IL' },
-    problem: 'Glencoe\'s mature tree canopy and moisture-rich environment accelerate moss and lichen growth on brick and stone. This leads to mortar erosion and joint deterioration that, left unaddressed, allows water infiltration behind the facade.',
-    faqItems: [
-      { question: 'Do you repair Prairie-style stone and brick in Glencoe?', answer: 'Yes. We\'re familiar with the material palettes used in Prairie-style and Arts & Crafts homes — natural limestone, Roman brick, and specialty mortar mixes. We match existing materials and mortar profile before any work begins.' },
-      { question: 'How do I know if my chimney needs repair in Glencoe?', answer: 'Common signs: white staining on the brick (efflorescence), missing or crumbling mortar joints, spalling brick face, water stains on interior walls near the chimney, or a chimney cap that has shifted or deteriorated. Free chimney assessments available.' },
-      { question: 'Can you handle stone retaining walls in Glencoe?', answer: 'Yes. Natural stone retaining walls, garden walls, and landscape features are common in Glencoe. We repair, rebuild, and install new walls using limestone, fieldstone, and other natural materials.' },
-      { question: 'What causes brick damage in Glencoe\'s wooded areas?', answer: 'Moisture retention from shade, moss and lichen growth, and freeze-thaw cycles accelerate mortar erosion. Glencoe brick homes that go 15+ years without tuckpointing typically show measurable joint deterioration.' },
-      { question: 'Do you offer free masonry assessments in Glencoe?', answer: 'Yes — all assessments and estimates are free, on-site, and in writing. Call 773-656-2107.' },
+    "slug": "glencoe",
+    "name": "Glencoe",
+    "region": "North Shore",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor Glencoe IL | All Masonry Services",
+    "metaDesc": "Brick, stone, and chimney masonry in Glencoe, IL. Prairie-style and estate homes. Free estimates. 773-656-2107.",
+    "heroSub": "Delivering Custom Homes across Glencoe. Our in-house artisans deliver meticulous masonry solutions built to perfection. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "We have a Prairie-style home in Glencoe with a complex stone chimney. AMS was the only contractor who understood the material and didn't try to substitute something cheaper.",
+      "author": "David K.",
+      "location": "Glencoe, IL"
+    },
+    "problem": "Glencoe's mature tree canopy and moisture-rich environment accelerate moss and lichen growth on brick and stone. This leads to mortar erosion and joint deterioration that, left unaddressed, allows water infiltration behind the facade.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Glencoe?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver meticulous facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Glencoe projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install premium face brick, bespoke masonry units, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Glencoe project is a direct employee of AMS, ensuring consistent, state-of-the-art quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Glencoe. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Winnetka', 'Highland Park', 'Northbrook', 'Wilmette', 'Kenilworth'],
-    details: { areas: 'Downtown Glencoe, North Shore Drive, Ravine Drive area', zipCodes: '60022' },
+    "nearbyAreas": [
+      "Winnetka",
+      "Highland Park",
+      "Northbrook",
+      "Wilmette",
+      "Kenilworth"
+    ],
+    "details": {
+      "areas": "Downtown Glencoe, North Shore Drive, Ravine Drive area",
+      "zipCodes": "60022"
+    },
+    "heroHeading": "Bespoke Masonry Contractor in Glencoe",
+    "masonryCtx": {
+      "header": "The Glencoe Difference",
+      "items": [
+        {
+          "title": "High-End Material Selection",
+          "text": "We source only the finest premium face brick to complement Glencoe's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We execute with an exceptional attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Glencoe is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Complete Masonry Services in Glencoe",
+      "body": "From sprawling mansions to intricate commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Glencoe. We never use subcontractors, guaranteeing uncompromising results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Glencoe project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select enduring high-grade CMU that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Professional Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Glencoe Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to flawless premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Glencoe project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Luxury Custom Builds<br><em>in Glencoe</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Glencoe with precise quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Glencoe and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'evanston',
-    name: 'Evanston',
-    region: 'North Shore',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor Evanston IL | All Masonry Services',
-    metaDesc: 'Brick repair, tuckpointing, chimney work, and stone installation in Evanston, IL. Victorian homes and commercial buildings. Free estimates. Call 773-656-2107.',
-    heroSub: 'Evanston\'s mix of Victorian-era single-family homes, brick two-flats, and commercial buildings represents some of the most diverse masonry work in Chicagoland. We repair, restore, and install brick and stone across all property types — residential and commercial.',
-    heroReview: { quote: 'Our 1902 Victorian in Evanston needed significant tuckpointing. AMS assessed every joint, explained what was urgent vs cosmetic, and completed the work in two days. Exactly what we needed.', author: 'Carol W.', location: 'Evanston, IL' },
-    problem: 'Evanston\'s older housing stock — much of it built before 1940 — has original mortar that has well exceeded its design life. Soft lime mortars used in pre-war construction erode faster than the brick, creating pathways for water that causes freeze-thaw damage every winter.',
-    faqItems: [
-      { question: 'Do you do tuckpointing on older brick homes in Evanston?', answer: 'Yes — older Evanston homes are our specialty. Pre-1940 construction used softer lime mortars that erode on their own timeline. We match mortar hardness to your brick (critical for older homes) and repoint affected joints without overcutting.' },
-      { question: 'What does tuckpointing cost in Evanston?', answer: 'Tuckpointing in Evanston typically runs $8–$18 per linear foot. A single chimney face runs $800–$2,000. Full-perimeter tuckpointing on a 2-flat runs $2,500–$7,000. Free, written estimate after on-site assessment.' },
-      { question: 'Do you work on commercial brick buildings in Evanston?', answer: 'Yes. We work on retail storefronts, 2–4 flat apartment buildings, and light commercial structures throughout Evanston. We accommodate business hours and provide written schedules before work begins.' },
-      { question: 'My two-flat in Evanston has water coming in through the brick — what should I do?', answer: 'Don\'t seal the exterior without diagnosing the source first. Water infiltration through brick is almost always a joint mortar issue, not a brick issue. We assess the joints, identify the infiltration path, and repoint the specific sections — not the whole building.' },
-      { question: 'Are you insured for masonry work in Evanston?', answer: 'Yes. $2.5M general liability, workers\' comp on all crew, Illinois license #MA-104-018887.' },
+    "slug": "evanston",
+    "name": "Evanston",
+    "region": "North Shore",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor Evanston IL | All Masonry Services",
+    "metaDesc": "Brick repair, tuckpointing, chimney work, and stone installation in Evanston, IL. Victorian homes and commercial buildings. Free estimates. Call 773-656-2107.",
+    "heroSub": "Building Structural Block Work across Evanston. Our in-house artisans deliver superior masonry solutions that inspire awe. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "Our 1902 Victorian in Evanston needed significant tuckpointing. AMS assessed every joint, explained what was urgent vs cosmetic, and completed the work in two days. Exactly what we needed.",
+      "author": "Carol W.",
+      "location": "Evanston, IL"
+    },
+    "problem": "Evanston's older housing stock — much of it built before 1940 — has original mortar that has well exceeded its design life. Soft lime mortars used in pre-war construction erode faster than the brick, creating pathways for water that causes freeze-thaw damage every winter.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Evanston?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver enduring facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Evanston projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install architectural veneers, premium face brick, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Evanston project is a direct employee of AMS, ensuring consistent, enduring quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Evanston. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Wilmette', 'Skokie', 'Chicago', 'Northbrook', 'Winnetka'],
-    details: { areas: 'Central Evanston, South Evanston, Lakeshore District, West Evanston', zipCodes: '60201, 60202, 60203, 60208' },
+    "nearbyAreas": [
+      "Wilmette",
+      "Skokie",
+      "Chicago",
+      "Northbrook",
+      "Winnetka"
+    ],
+    "details": {
+      "areas": "Central Evanston, South Evanston, Lakeshore District, West Evanston",
+      "zipCodes": "60201, 60202, 60203, 60208"
+    },
+    "heroHeading": "Architectural Masonry Specialist in Evanston",
+    "masonryCtx": {
+      "header": "The Evanston Advantage",
+      "items": [
+        {
+          "title": "Custom Material Selection",
+          "text": "We source only the finest architectural veneers to complement Evanston's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We execute with an state-of-the-art attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Evanston is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Comprehensive Masonry Services in Evanston",
+      "body": "From sprawling mansions to complex commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Evanston. We never use subcontractors, guaranteeing flawless results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Evanston project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select impeccable custom limestone that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Expert Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Evanston Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to exquisite premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Evanston project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Custom Custom Builds<br><em>in Evanston</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Evanston with flawless quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Evanston and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'highland-park',
-    name: 'Highland Park',
-    region: 'North Shore',
-    county: 'Lake County',
-    metaTitle: 'Masonry Contractor Highland Park IL | All Masonry Services',
-    metaDesc: 'Brick, stone, chimney, and tuckpointing in Highland Park, IL. North Shore residential and commercial. Free estimates. 773-656-2107.',
-    heroSub: 'Highland Park\'s varied architectural landscape — from historic downtown buildings to lakefront estates — demands masonry expertise across materials and eras. We match brick, source stone, and repair chimneys with the same attention to detail the original builders brought.',
-    heroReview: { quote: 'AMS rebuilt our chimney in Highland Park from the roofline up. Clean work, on schedule, and the new brick color-matched our 1950s home perfectly.', author: 'Robert F.', location: 'Highland Park, IL' },
-    problem: 'Highland Park properties face both the lakefront moisture that accelerates mortar erosion on the North Shore, and the thermal cycling that damages chimneys and facades on all Chicagoland homes. Brick and chimney maintenance is critical — and often deferred too long.',
-    faqItems: [
-      { question: 'What masonry services do you offer in Highland Park?', answer: 'Full masonry services: tuckpointing, brick repair and replacement, chimney repair and full rebuilds, stone installation, limestone work, brick veneer, and CMU block. Residential and commercial.' },
-      { question: 'How much does chimney repair cost in Highland Park?', answer: 'Chimney tuckpointing runs $800–$3,000. Partial chimney rebuild $3,500–$9,000. Full rebuild from $9,000. All estimates free and in writing.' },
-      { question: 'Do you work near the lake in Highland Park?', answer: 'Yes. We adjust mortar selection for lakefront moisture exposure — Type S mortar in high-moisture zones, proper flashing and weep hole installation, and waterproof parging where appropriate.' },
-      { question: 'What should I look for on my Highland Park brick home?', answer: 'Inspect mortar joints first: crumbling, loose, or recessed joints indicate tuckpointing is needed. Look for efflorescence (white staining), spalling brick, or cracks at window and door lintels. Call us for a free assessment.' },
-      { question: 'Are you licensed and insured in Lake County?', answer: 'Yes. Illinois license #MA-104-018887 covers all counties. $2.5M liability, workers\' comp included.' },
+    "slug": "highland-park",
+    "name": "Highland Park",
+    "region": "North Shore",
+    "county": "Lake County",
+    "metaTitle": "Masonry Contractor Highland Park IL | All Masonry Services",
+    "metaDesc": "Brick, stone, chimney, and tuckpointing in Highland Park, IL. North Shore residential and commercial. Free estimates. 773-656-2107.",
+    "heroSub": "Developing Architectural Visions across Highland Park. Our in-house artisans deliver flawless masonry solutions with unmatched quality. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "AMS rebuilt our chimney in Highland Park from the roofline up. Clean work, on schedule, and the new brick color-matched our 1950s home perfectly.",
+      "author": "Robert F.",
+      "location": "Highland Park, IL"
+    },
+    "problem": "Highland Park properties face both the lakefront moisture that accelerates mortar erosion on the North Shore, and the thermal cycling that damages chimneys and facades on all Chicagoland homes. Brick and chimney maintenance is critical — and often deferred too long.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Highland Park?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver meticulous facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Highland Park projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install premium face brick, architectural veneers, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Highland Park project is a direct employee of AMS, ensuring consistent, enduring quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Highland Park. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Glencoe', 'Northbrook', 'Winnetka', 'Lake Forest', 'Wilmette'],
-    details: { areas: 'Downtown Highland Park, Ravinia District, Moraine Township area', zipCodes: '60035' },
+    "nearbyAreas": [
+      "Glencoe",
+      "Northbrook",
+      "Winnetka",
+      "Lake Forest",
+      "Wilmette"
+    ],
+    "details": {
+      "areas": "Downtown Highland Park, Ravinia District, Moraine Township area",
+      "zipCodes": "60035"
+    },
+    "heroHeading": "Bespoke Masonry Specialist in Highland Park",
+    "masonryCtx": {
+      "header": "The Highland Park Standard",
+      "items": [
+        {
+          "title": "Custom Material Selection",
+          "text": "We source only the finest custom limestone to complement Highland Park's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We build with an exquisite attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Highland Park is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Full-Scope Masonry Services in Highland Park",
+      "body": "From sprawling estates to intricate commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Highland Park. We never use subcontractors, guaranteeing flawless results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Highland Park project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select flawless custom limestone that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Expert Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Highland Park Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to meticulous premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Highland Park project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Luxury Custom Builds<br><em>in Highland Park</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Highland Park with superior quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Highland Park and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'northbrook',
-    name: 'Northbrook',
-    region: 'North Shore',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor Northbrook IL | All Masonry Services',
-    metaDesc: 'Brick installation, chimney repair, tuckpointing, and stone work in Northbrook, IL. Free estimates. 773-656-2107.',
-    heroSub: 'Northbrook\'s residential neighborhoods range from post-war ranches to newer colonials — all with brick and chimney needs that develop on Chicago\'s freeze-thaw timeline. We assess, repair, and restore masonry work across all property types and ages.',
-    heroReview: { quote: 'Called AMS for our Northbrook chimney — hadn\'t been touched in 20 years. They showed us exactly what needed attention and what didn\'t. Honest and thorough.', author: 'Jim A.', location: 'Northbrook, IL' },
-    problem: 'Northbrook\'s older residential neighborhoods have homes built in the 1950s–1970s with original chimney mortar that has reached or exceeded its service life. Chimney deterioration is the most common deferred masonry need in the area.',
-    faqItems: [
-      { question: 'What are the most common masonry repairs in Northbrook?', answer: 'Chimney tuckpointing and rebuilding, brick step and stoop repair, tuckpointing on brick facades, and stone or brick veneer repair. Most Northbrook homes built before 1980 need chimney attention.' },
-      { question: 'How often should a Northbrook chimney be inspected?', answer: 'Every 3–5 years is the general guideline. If your chimney hasn\'t been tuckpointed in 15+ years, or you see white staining, loose brick, or crumbling mortar, schedule an assessment now.' },
-      { question: 'Do you do brick repair on post-war ranch homes in Northbrook?', answer: 'Yes — 1950s and 60s ranch homes are common in Northbrook. We repair brick facades, front stoops, chimneys, and garden walls on these properties. Materials are matched to the original installation.' },
-      { question: 'Can you replace just a few bricks on my chimney?', answer: 'Yes. Selective brick replacement is often the right approach when only a few units are damaged. We remove the damaged bricks, sourcing a close match in color and size, and repoint the surrounding joints.' },
-      { question: 'Do you offer free estimates in Northbrook?', answer: 'Yes — all estimates are free, on-site, and in writing. Call 773-656-2107 or use our contact form.' },
+    "slug": "northbrook",
+    "name": "Northbrook",
+    "region": "North Shore",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor Northbrook IL | All Masonry Services",
+    "metaDesc": "Brick installation, chimney repair, tuckpointing, and stone work in Northbrook, IL. Free estimates. 773-656-2107.",
+    "heroSub": "Engineering Structural Block Work across Northbrook. Our in-house artisans deliver exceptional masonry solutions built to perfection. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "Called AMS for our Northbrook chimney — hadn't been touched in 20 years. They showed us exactly what needed attention and what didn't. Honest and thorough.",
+      "author": "Jim A.",
+      "location": "Northbrook, IL"
+    },
+    "problem": "Northbrook's older residential neighborhoods have homes built in the 1950s–1970s with original chimney mortar that has reached or exceeded its service life. Chimney deterioration is the most common deferred masonry need in the area.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Northbrook?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver impeccable facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Northbrook projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install custom limestone, architectural veneers, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Northbrook project is a direct employee of AMS, ensuring consistent, exceptional quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Northbrook. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Glencoe', 'Highland Park', 'Wilmette', 'Evanston', 'Skokie'],
-    details: { areas: 'Downtown Northbrook, Techny Road area, Dundee Road corridor', zipCodes: '60062' },
+    "nearbyAreas": [
+      "Glencoe",
+      "Highland Park",
+      "Wilmette",
+      "Evanston",
+      "Skokie"
+    ],
+    "details": {
+      "areas": "Downtown Northbrook, Techny Road area, Dundee Road corridor",
+      "zipCodes": "60062"
+    },
+    "heroHeading": "High-End Masonry Partner in Northbrook",
+    "masonryCtx": {
+      "header": "The Northbrook Advantage",
+      "items": [
+        {
+          "title": "Elite Material Selection",
+          "text": "We source only the finest architectural veneers to complement Northbrook's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We execute with an exquisite attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Northbrook is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Elite Masonry Services in Northbrook",
+      "body": "From sprawling mansions to intricate commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Northbrook. We never use subcontractors, guaranteeing exceptional results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Northbrook project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select precise architectural veneers that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Expert Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Northbrook Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to state-of-the-art premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Northbrook project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Elite Custom Builds<br><em>in Northbrook</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Northbrook with exceptional quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Northbrook and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'hinsdale',
-    name: 'Hinsdale',
-    region: 'Western Suburbs',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Hinsdale IL | All Masonry Services',
-    metaDesc: 'Premium brick, limestone, chimney, and stone masonry in Hinsdale, IL. Estate homes and historic district. Free estimates. 773-656-2107.',
-    heroSub: 'Hinsdale\'s historic district and estate homes represent some of the most architecturally significant residential masonry in the western suburbs. We restore, repair, and extend original brick and limestone work with materials and methods that match the original craftsmanship.',
-    heroReview: { quote: 'AMS restored our 1930s Hinsdale estate\'s front brick facade. They sourced antique brick to match the original and the result is flawless. Highly recommend for historic homes.', author: 'Elizabeth M.', location: 'Hinsdale, IL' },
-    problem: 'Hinsdale estate homes — many built in the 1920s–1940s with premium brick and limestone — need careful restoration that respects original materials. Using wrong mortar hardness or mismatched brick permanently damages both the structure and the property\'s historic character.',
-    faqItems: [
-      { question: 'Do you work on Hinsdale historic district homes?', answer: 'Yes. Hinsdale\'s historic residential architecture is a specialty. We identify original materials, source period-appropriate replacements, and use mortar mixes calibrated to your specific brick type and age.' },
-      { question: 'What does brick facade restoration cost in Hinsdale?', answer: 'Facade restoration in Hinsdale varies significantly by scope and material. Tuckpointing runs $1,500–$8,000. Partial facade replacement or limestone restoration can run $5,000–$25,000+. Free estimate after on-site assessment.' },
-      { question: 'Can you source antique brick to match my Hinsdale home?', answer: 'Yes. We work with specialty suppliers to source vintage and antique brick — matching face size, color, texture, and the patina of aged material. Matching historic brick is one of our core capabilities.' },
-      { question: 'Do you handle chimney work on estate homes in Hinsdale?', answer: 'Yes. Estate home chimneys often feature specialty brick, decorative corbeling, and limestone caps. We restore and rebuild these elements to the original profile and material.' },
-      { question: 'Are you insured for large Hinsdale projects?', answer: '$2.5M general liability, workers\' compensation on all crew, Illinois license #MA-104-018887. Proof of insurance before any work begins.' },
+    "slug": "hinsdale",
+    "name": "Hinsdale",
+    "region": "Western Suburbs",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Hinsdale IL | All Masonry Services",
+    "metaDesc": "Premium brick, limestone, chimney, and stone masonry in Hinsdale, IL. Estate homes and historic district. Free estimates. 773-656-2107.",
+    "heroSub": "Engineering Premium Facades across Hinsdale. Our in-house artisans deliver meticulous masonry solutions that stand the test of time. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "AMS restored our 1930s Hinsdale estate's front brick facade. They sourced antique brick to match the original and the result is flawless. Highly recommend for historic homes.",
+      "author": "Elizabeth M.",
+      "location": "Hinsdale, IL"
+    },
+    "problem": "Hinsdale estate homes — many built in the 1920s–1940s with premium brick and limestone — need careful restoration that respects original materials. Using wrong mortar hardness or mismatched brick permanently damages both the structure and the property's historic character.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Hinsdale?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver precise facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Hinsdale projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install natural stone, natural stone, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Hinsdale project is a direct employee of AMS, ensuring consistent, state-of-the-art quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Hinsdale. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Oak Brook', 'Western Springs', 'Clarendon Hills', 'Burr Ridge', 'La Grange'],
-    details: { areas: 'Historic Downtown Hinsdale, Madison Street District, Katherine Avenue area', zipCodes: '60521, 60522' },
+    "nearbyAreas": [
+      "Oak Brook",
+      "Western Springs",
+      "Clarendon Hills",
+      "Burr Ridge",
+      "La Grange"
+    ],
+    "details": {
+      "areas": "Historic Downtown Hinsdale, Madison Street District, Katherine Avenue area",
+      "zipCodes": "60521, 60522"
+    },
+    "heroHeading": "Bespoke Masonry Builder in Hinsdale",
+    "masonryCtx": {
+      "header": "The Hinsdale Standard",
+      "items": [
+        {
+          "title": "Custom Material Selection",
+          "text": "We source only the finest natural stone to complement Hinsdale's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We deliver with an uncompromising attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Hinsdale is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Complete Masonry Services in Hinsdale",
+      "body": "From sprawling mansions to intricate commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Hinsdale. We never use subcontractors, guaranteeing exceptional results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Hinsdale project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select exquisite custom limestone that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Professional Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Hinsdale Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to enduring premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Hinsdale project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Custom Custom Builds<br><em>in Hinsdale</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Hinsdale with exquisite quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Hinsdale and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'oak-brook',
-    name: 'Oak Brook',
-    region: 'Western Suburbs',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Oak Brook IL | All Masonry Services',
-    metaDesc: 'Brick, stone, chimney, and commercial masonry in Oak Brook, IL. Residential and commercial properties. Free estimates. 773-656-2107.',
-    heroSub: 'Oak Brook\'s luxury residential communities and commercial corridor both require high-quality masonry work. We install, repair, and restore brick, stone, and chimney work for Oak Brook homeowners and commercial property managers.',
-    heroReview: { quote: 'Used AMS for our outdoor patio and retaining wall in Oak Brook. Finished on schedule, cleaned up completely, and the stone work is exceptional.', author: 'Paul R.', location: 'Oak Brook, IL' },
-    problem: 'Oak Brook\'s newer luxury homes often use brick and stone veneer that develops mortar issues within 10–15 years — especially at transitions between materials, around windows, and at grade. These need proactive attention before water infiltration damages interior finishes.',
-    faqItems: [
-      { question: 'Do you install brick patios and outdoor features in Oak Brook?', answer: 'Yes — brick patios, outdoor kitchens, retaining walls, and fire pit surrounds are common Oak Brook projects. We design, source, and install custom outdoor masonry features.' },
-      { question: 'What are common masonry problems in Oak Brook homes?', answer: 'Veneer mortar shrinkage and cracking, chimney joint erosion, efflorescence on brick near grade, and stone veneer panel separation. Most of these develop within 10–20 years of original installation.' },
-      { question: 'Do you work on commercial properties in Oak Brook?', answer: 'Yes. We handle commercial tuckpointing, facade repair, and brick/stone installation for the Oak Brook commercial corridor — office parks, retail centers, and multi-tenant buildings.' },
-      { question: 'How much does a brick retaining wall cost in Oak Brook?', answer: 'Brick retaining walls in Oak Brook typically run $45–$80 per linear foot depending on height, footing depth, and drainage requirements. Free estimate after site visit.' },
-      { question: 'Do you offer free estimates in Oak Brook?', answer: 'All estimates are free, on-site, and in writing. Call 773-656-2107.' },
+    "slug": "oak-brook",
+    "name": "Oak Brook",
+    "region": "Western Suburbs",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Oak Brook IL | All Masonry Services",
+    "metaDesc": "Brick, stone, chimney, and commercial masonry in Oak Brook, IL. Residential and commercial properties. Free estimates. 773-656-2107.",
+    "heroSub": "Engineering Commercial Estates across Oak Brook. Our in-house artisans deliver impeccable masonry solutions that stand the test of time. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "Used AMS for our outdoor patio and retaining wall in Oak Brook. Finished on schedule, cleaned up completely, and the stone work is exceptional.",
+      "author": "Paul R.",
+      "location": "Oak Brook, IL"
+    },
+    "problem": "Oak Brook's newer luxury homes often use brick and stone veneer that develops mortar issues within 10–15 years — especially at transitions between materials, around windows, and at grade. These need proactive attention before water infiltration damages interior finishes.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Oak Brook?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver flawless facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Oak Brook projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install premium face brick, natural stone, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Oak Brook project is a direct employee of AMS, ensuring consistent, exquisite quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Oak Brook. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Hinsdale', 'Elmhurst', 'Burr Ridge', 'Western Springs', 'Downers Grove'],
-    details: { areas: 'Oak Brook Center corridor, Midwest Road area, Butler National area', zipCodes: '60523' },
+    "nearbyAreas": [
+      "Hinsdale",
+      "Elmhurst",
+      "Burr Ridge",
+      "Western Springs",
+      "Downers Grove"
+    ],
+    "details": {
+      "areas": "Oak Brook Center corridor, Midwest Road area, Butler National area",
+      "zipCodes": "60523"
+    },
+    "heroHeading": "Architectural Masonry Contractor in Oak Brook",
+    "masonryCtx": {
+      "header": "The Oak Brook Excellence",
+      "items": [
+        {
+          "title": "Luxury Material Selection",
+          "text": "We source only the finest architectural veneers to complement Oak Brook's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We execute with an impeccable attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Oak Brook is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Elite Masonry Services in Oak Brook",
+      "body": "From sprawling estates to intricate commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Oak Brook. We never use subcontractors, guaranteeing precise results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Oak Brook project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select exceptional high-grade CMU that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Premium Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Oak Brook Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to state-of-the-art premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Oak Brook project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Architectural Custom Builds<br><em>in Oak Brook</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Oak Brook with uncompromising quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Oak Brook and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'elmhurst',
-    name: 'Elmhurst',
-    region: 'Western Suburbs',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Elmhurst IL | All Masonry Services',
-    metaDesc: 'Tuckpointing, brick repair, chimney, and stone installation in Elmhurst, IL. Bungalow belt specialists. Free estimates. 773-656-2107.',
-    heroSub: 'Elmhurst\'s mix of pre-war bungalows and post-war colonials creates a diverse masonry landscape. We tuckpoint original brick, repair chimneys, and restore facades on Elmhurst homes — matching original materials and mortar to preserve the character of the neighborhood.',
-    heroReview: { quote: 'AMS tuckpointed our 1940s bungalow in Elmhurst. Perfect mortar match. You can\'t find the repaired joints even if you look for them.', author: 'Nancy B.', location: 'Elmhurst, IL' },
-    problem: 'Elmhurst\'s bungalow belt — built primarily between 1920 and 1955 — has original mortar that has been through 70+ years of Chicago freeze-thaw cycles. These homes need periodic tuckpointing to keep water out of wall cavities, especially at chimney bases and grade-level courses.',
-    faqItems: [
-      { question: 'What masonry services do you offer in Elmhurst?', answer: 'Tuckpointing, brick repair and replacement, chimney repair and rebuilding, stoop and step repair, stone installation, and free mortar damage assessments. Serving both the older bungalow neighborhoods and newer residential areas.' },
-      { question: 'How much does tuckpointing cost on a bungalow in Elmhurst?', answer: 'A full-perimeter tuckpointing on a standard Elmhurst bungalow typically runs $2,500–$5,500 depending on condition and square footage. Individual chimney tuckpointing runs $800–$2,500.' },
-      { question: 'My Elmhurst bungalow chimney is leaning — what should I do?', answer: 'A leaning chimney is a structural issue that needs immediate assessment. We evaluate the foundation, flashing, and structural condition and provide a written scope before any work. Don\'t ignore this — it can become a safety issue.' },
-      { question: 'Can you repair the brick steps on my Elmhurst home?', answer: 'Yes — brick steps and front stoops are one of the most common repairs in Elmhurst. We reset heaved steps, replace cracked brick, and repoint deteriorated joints. Most stoop repairs complete in 1–2 days.' },
-      { question: 'Are you licensed for masonry work in Elmhurst?', answer: 'Yes. Illinois license #MA-104-018887, $2.5M liability, workers\' comp on all crew.' },
+    "slug": "elmhurst",
+    "name": "Elmhurst",
+    "region": "Western Suburbs",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Elmhurst IL | All Masonry Services",
+    "metaDesc": "Tuckpointing, brick repair, chimney, and stone installation in Elmhurst, IL. Bungalow belt specialists. Free estimates. 773-656-2107.",
+    "heroSub": "Crafting Architectural Visions across Elmhurst. Our in-house artisans deliver flawless masonry solutions with unmatched quality. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "AMS tuckpointed our 1940s bungalow in Elmhurst. Perfect mortar match. You can't find the repaired joints even if you look for them.",
+      "author": "Nancy B.",
+      "location": "Elmhurst, IL"
+    },
+    "problem": "Elmhurst's bungalow belt — built primarily between 1920 and 1955 — has original mortar that has been through 70+ years of Chicago freeze-thaw cycles. These homes need periodic tuckpointing to keep water out of wall cavities, especially at chimney bases and grade-level courses.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Elmhurst?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver flawless facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Elmhurst projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install bespoke masonry units, premium face brick, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Elmhurst project is a direct employee of AMS, ensuring consistent, precise quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Elmhurst. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Oak Brook', 'Northbrook', 'Western Springs', 'Lombard', 'Villa Park'],
-    details: { areas: 'Downtown Elmhurst, Wilder Park area, York Road corridor', zipCodes: '60126' },
+    "nearbyAreas": [
+      "Oak Brook",
+      "Northbrook",
+      "Western Springs",
+      "Lombard",
+      "Villa Park"
+    ],
+    "details": {
+      "areas": "Downtown Elmhurst, Wilder Park area, York Road corridor",
+      "zipCodes": "60126"
+    },
+    "heroHeading": "Bespoke Masonry Specialist in Elmhurst",
+    "masonryCtx": {
+      "header": "The Elmhurst Advantage",
+      "items": [
+        {
+          "title": "Custom Material Selection",
+          "text": "We source only the finest custom limestone to complement Elmhurst's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We execute with an state-of-the-art attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Elmhurst is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Elite Masonry Services in Elmhurst",
+      "body": "From sprawling mansions to large-scale commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Elmhurst. We never use subcontractors, guaranteeing flawless results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Elmhurst project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select flawless natural stone that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Professional Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Elmhurst Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to enduring premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Elmhurst project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Exclusive Custom Builds<br><em>in Elmhurst</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Elmhurst with exquisite quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Elmhurst and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'western-springs',
-    name: 'Western Springs',
-    region: 'Western Suburbs',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor Western Springs IL | All Masonry Services',
-    metaDesc: 'Brick repair, tuckpointing, chimney work, and stone in Western Springs, IL. Craftsman and colonial homes. Free estimates. 773-656-2107.',
-    heroSub: 'Western Springs\' quiet residential character and older craftsman homes carry masonry details that deserve careful preservation. We repair and restore brick, tuckpoint deteriorated joints, and rebuild chimneys with the same care the original builders brought.',
-    heroReview: { quote: 'AMS repaired the chimney on our 1935 craftsman home in Western Springs. They matched the original brick color and the mortar profile exactly. Great work.', author: 'Thomas G.', location: 'Western Springs, IL' },
-    problem: 'Western Springs craftsman and colonial homes from the 1920s–1950s have original soft-lime mortar joints that erode on a 15–25 year cycle. Tuckpointing is the most common masonry maintenance need — and delaying it by a few years significantly increases the scope and cost.',
-    faqItems: [
-      { question: 'What are the most common masonry repairs in Western Springs?', answer: 'Chimney tuckpointing and repair, brick facade repointing, stoop and step repair, and occasional chimney rebuilds. Most homes built before 1970 need tuckpointing attention.' },
-      { question: 'How do I know if my Western Springs chimney needs tuckpointing?', answer: 'Look for crumbling or recessed mortar joints, white staining (efflorescence), spalling brick, or any visible gaps in the mortar. If your chimney hasn\'t been addressed in 15+ years, it likely needs attention.' },
-      { question: 'What does tuckpointing cost in Western Springs?', answer: 'Chimney tuckpointing in Western Springs typically runs $900–$2,500. Full house tuckpointing runs $3,000–$8,000. Free written estimate after on-site assessment.' },
-      { question: 'Can you match original mortar color on my craftsman home?', answer: 'Yes. We sample your existing mortar to match color, texture, and hardness. For pre-war homes, we typically use a Type N or transitional mix to match the flexibility of original lime mortars.' },
-      { question: 'Do you offer free estimates in Western Springs?', answer: 'All estimates are free and in writing. Call 773-656-2107 or use our contact form.' },
+    "slug": "western-springs",
+    "name": "Western Springs",
+    "region": "Western Suburbs",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor Western Springs IL | All Masonry Services",
+    "metaDesc": "Brick repair, tuckpointing, chimney work, and stone in Western Springs, IL. Craftsman and colonial homes. Free estimates. 773-656-2107.",
+    "heroSub": "Engineering Architectural Visions across Western Springs. Our in-house artisans deliver uncompromising masonry solutions built to perfection. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "AMS repaired the chimney on our 1935 craftsman home in Western Springs. They matched the original brick color and the mortar profile exactly. Great work.",
+      "author": "Thomas G.",
+      "location": "Western Springs, IL"
+    },
+    "problem": "Western Springs craftsman and colonial homes from the 1920s–1950s have original soft-lime mortar joints that erode on a 15–25 year cycle. Tuckpointing is the most common masonry maintenance need — and delaying it by a few years significantly increases the scope and cost.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Western Springs?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver precise facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Western Springs projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install high-grade CMU, bespoke masonry units, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Western Springs project is a direct employee of AMS, ensuring consistent, uncompromising quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Western Springs. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Hinsdale', 'La Grange', 'Clarendon Hills', 'Elmhurst', 'Burr Ridge'],
-    details: { areas: 'Downtown Western Springs, La Grange Road corridor, Commonwealth Avenue area', zipCodes: '60558' },
+    "nearbyAreas": [
+      "Hinsdale",
+      "La Grange",
+      "Clarendon Hills",
+      "Elmhurst",
+      "Burr Ridge"
+    ],
+    "details": {
+      "areas": "Downtown Western Springs, La Grange Road corridor, Commonwealth Avenue area",
+      "zipCodes": "60558"
+    },
+    "heroHeading": "Custom Masonry Partner in Western Springs",
+    "masonryCtx": {
+      "header": "The Western Springs Benchmark",
+      "items": [
+        {
+          "title": "Bespoke Material Selection",
+          "text": "We source only the finest custom limestone to complement Western Springs's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We deliver with an precise attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Western Springs is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Comprehensive Masonry Services in Western Springs",
+      "body": "From sprawling estates to complex commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Western Springs. We never use subcontractors, guaranteeing superior results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Western Springs project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select precise natural stone that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of High-End Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Western Springs Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to impeccable premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Western Springs project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Premium Custom Builds<br><em>in Western Springs</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Western Springs with flawless quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Western Springs and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'naperville',
-    name: 'Naperville',
-    region: 'DuPage County',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Naperville IL | All Masonry Services',
-    metaDesc: 'Expert brick, chimney, tuckpointing, and stone masonry in Naperville, IL. Serving DuPage homeowners since 2007. Free estimates. 773-656-2107.',
-    heroSub: 'Naperville\'s diverse housing stock — from historic downtown colonials to newer corridor subdivisions — spans multiple decades of masonry styles and needs. We match brick, repair chimneys, and install stone across all property types and ages in Naperville and the surrounding DuPage corridor.',
-    heroReview: { quote: 'Four quotes for our front facade brick installation in Naperville. AMS was the only contractor who explained exactly what mortar type they\'d use and why. Worth every dollar.', author: 'Jennifer C.', location: 'Naperville, IL' },
-    problem: 'Naperville\'s newer subdivisions use brick veneer that develops mortar shrinkage cracks within 10–15 years, while older downtown homes have original joints approaching or exceeding their service life. Both property types need periodic masonry attention.',
-    faqItems: [
-      { question: 'What masonry services do you offer in Naperville?', answer: 'Full masonry services: tuckpointing, brick and stone installation, chimney repair and rebuilding, brick veneer, CMU block, and commercial masonry. Free mortar damage assessments available.' },
-      { question: 'How much does chimney repair cost in Naperville?', answer: 'Chimney tuckpointing in Naperville runs $900–$2,500 for a standard chimney. Partial rebuild $3,500–$9,000. Full rebuild from $8,000. Free written estimate after on-site assessment.' },
-      { question: 'My brick veneer in Naperville is cracking — is that serious?', answer: 'Veneer cracks at window corners, transitions, or grade level typically indicate mortar shrinkage or differential movement. These need to be addressed — they become water infiltration points in the first freeze-thaw season after they open.' },
-      { question: 'Do you install outdoor brick features in Naperville?', answer: 'Yes — brick patios, retaining walls, outdoor kitchens, and fire pit surrounds are popular in Naperville. We design and install custom outdoor masonry features that complement the home\'s existing materials.' },
-      { question: 'Are you licensed and insured in DuPage County?', answer: 'Yes. Illinois license #MA-104-018887, $2.5M general liability, workers\' comp on all crew. Proof of insurance available before any work begins.' },
+    "slug": "naperville",
+    "name": "Naperville",
+    "region": "DuPage County",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Naperville IL | All Masonry Services",
+    "metaDesc": "Expert brick, chimney, tuckpointing, and stone masonry in Naperville, IL. Serving DuPage homeowners since 2007. Free estimates. 773-656-2107.",
+    "heroSub": "Developing Custom Homes across Naperville. Our in-house artisans deliver enduring masonry solutions with unmatched quality. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "Four quotes for our front facade brick installation in Naperville. AMS was the only contractor who explained exactly what mortar type they'd use and why. Worth every dollar.",
+      "author": "Jennifer C.",
+      "location": "Naperville, IL"
+    },
+    "problem": "Naperville's newer subdivisions use brick veneer that develops mortar shrinkage cracks within 10–15 years, while older downtown homes have original joints approaching or exceeding their service life. Both property types need periodic masonry attention.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Naperville?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver meticulous facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Naperville projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install high-grade CMU, custom limestone, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Naperville project is a direct employee of AMS, ensuring consistent, state-of-the-art quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Naperville. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Wheaton', 'Downers Grove', 'Lisle', 'Bolingbrook', 'Aurora'],
-    details: { areas: 'Downtown Naperville Historic District, Naper Settlement area, Route 59 corridor', zipCodes: '60540, 60563, 60564, 60565, 60566, 60567' },
+    "nearbyAreas": [
+      "Wheaton",
+      "Downers Grove",
+      "Lisle",
+      "Bolingbrook",
+      "Aurora"
+    ],
+    "details": {
+      "areas": "Downtown Naperville Historic District, Naper Settlement area, Route 59 corridor",
+      "zipCodes": "60540, 60563, 60564, 60565, 60566, 60567"
+    },
+    "heroHeading": "Bespoke Masonry Expert in Naperville",
+    "masonryCtx": {
+      "header": "The Naperville Advantage",
+      "items": [
+        {
+          "title": "Elite Material Selection",
+          "text": "We source only the finest high-grade CMU to complement Naperville's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We build with an meticulous attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Naperville is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Elite Masonry Services in Naperville",
+      "body": "From sprawling custom homes to complex commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Naperville. We never use subcontractors, guaranteeing enduring results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Naperville project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select precise custom limestone that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Professional Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Naperville Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to enduring premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Naperville project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Architectural Custom Builds<br><em>in Naperville</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Naperville with exquisite quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Naperville and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'downers-grove',
-    name: 'Downers Grove',
-    region: 'DuPage County',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Downers Grove IL | All Masonry Services',
-    metaDesc: 'Tuckpointing, brick repair, chimney restoration, and stone masonry in Downers Grove, IL. Victorian and colonial homes. Free estimates. 773-656-2107.',
-    heroSub: 'Downers Grove\'s Victorian-era downtown and surrounding residential neighborhoods carry some of the oldest brick in DuPage County. We restore, repair, and tuckpoint these homes with period-appropriate materials that preserve their architectural character for decades more.',
-    heroReview: { quote: 'Had AMS tuckpoint our 1898 Victorian in Downers Grove. They were careful with the original soft brick and matched the mortar perfectly. Excellent attention to historic detail.', author: 'Anne S.', location: 'Downers Grove, IL' },
-    problem: 'Downers Grove\'s oldest homes — some dating to the 1880s — have soft historic brick that requires careful mortar selection. Using modern Portland-based mortars that are too hard causes brick face spalling — a permanent and expensive mistake.',
-    faqItems: [
-      { question: 'Do you work on Victorian-era homes in Downers Grove?', answer: 'Yes — historic Downers Grove properties are a specialty. We identify the brick age, select the appropriate mortar hardness (critical for pre-1920 soft brick), and match joint profiles to the original installation.' },
-      { question: 'What is the risk of using the wrong mortar on old Downers Grove brick?', answer: 'Too-hard mortar on soft historic brick causes the brick face itself to spall — the face literally pops off over time. It\'s irreversible. We always calibrate mortar hardness to the specific brick before any tuckpointing begins.' },
-      { question: 'How much does tuckpointing cost in Downers Grove?', answer: 'Chimney tuckpointing in Downers Grove runs $800–$2,500. Full-facade repointing on an older home runs $3,000–$10,000 depending on scope and condition. Free estimate after site assessment.' },
-      { question: 'Can you repair brick on the historic downtown buildings in Downers Grove?', answer: 'Yes. We work on commercial and historic downtown masonry — retail storefronts, mixed-use buildings, and public-facing facades. We work with building managers on scheduling and access.' },
-      { question: 'Do you offer free estimates in Downers Grove?', answer: 'All estimates free, on-site, and in writing. Call 773-656-2107.' },
+    "slug": "downers-grove",
+    "name": "Downers Grove",
+    "region": "DuPage County",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Downers Grove IL | All Masonry Services",
+    "metaDesc": "Tuckpointing, brick repair, chimney restoration, and stone masonry in Downers Grove, IL. Victorian and colonial homes. Free estimates. 773-656-2107.",
+    "heroSub": "Downers Grove's Victorian-era downtown and surrounding residential neighborhoods carry some of the oldest brick in DuPage County. We restore, repair, and tuckpoint these homes with period-appropriate materials that preserve their architectural character for decades more.",
+    "heroReview": {
+      "quote": "Had AMS tuckpoint our 1898 Victorian in Downers Grove. They were careful with the original soft brick and matched the mortar perfectly. Excellent attention to historic detail.",
+      "author": "Anne S.",
+      "location": "Downers Grove, IL"
+    },
+    "problem": "Downers Grove's oldest homes — some dating to the 1880s — have soft historic brick that requires careful mortar selection. Using modern Portland-based mortars that are too hard causes brick face spalling — a permanent and expensive mistake.",
+    "faqItems": [
+      {
+        "question": "Do you work on Victorian-era homes in Downers Grove?",
+        "answer": "Yes — historic Downers Grove properties are a specialty. We identify the brick age, select the appropriate mortar hardness (critical for pre-1920 soft brick), and match joint profiles to the original installation."
+      },
+      {
+        "question": "What is the risk of using the wrong mortar on old Downers Grove brick?",
+        "answer": "Too-hard mortar on soft historic brick causes the brick face itself to spall — the face literally pops off over time. It's irreversible. We always calibrate mortar hardness to the specific brick before any tuckpointing begins."
+      },
+      {
+        "question": "How much does tuckpointing cost in Downers Grove?",
+        "answer": "Chimney tuckpointing in Downers Grove runs $800–$2,500. Full-facade repointing on an older home runs $3,000–$10,000 depending on scope and condition. Free estimate after site assessment."
+      },
+      {
+        "question": "Can you repair brick on the historic downtown buildings in Downers Grove?",
+        "answer": "Yes. We work on commercial and historic downtown masonry — retail storefronts, mixed-use buildings, and public-facing facades. We work with building managers on scheduling and access."
+      },
+      {
+        "question": "Do you offer free estimates in Downers Grove?",
+        "answer": "All estimates free, on-site, and in writing. Call 773-656-2107."
+      }
     ],
-    nearbyAreas: ['Naperville', 'Westmont', 'Clarendon Hills', 'Willowbrook', 'Wheaton'],
-    details: { areas: 'Downtown Downers Grove, Downers Grove Estates, Belmont Road corridor', zipCodes: '60515, 60516' },
+    "nearbyAreas": [
+      "Naperville",
+      "Westmont",
+      "Clarendon Hills",
+      "Willowbrook",
+      "Wheaton"
+    ],
+    "details": {
+      "areas": "Downtown Downers Grove, Downers Grove Estates, Belmont Road corridor",
+      "zipCodes": "60515, 60516"
+    }
   },
   {
-    slug: 'la-grange',
-    name: 'La Grange',
-    region: 'Western Suburbs',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor La Grange IL | All Masonry Services',
-    metaDesc: 'Brick repair, tuckpointing, chimney restoration, and stone work in La Grange, IL. Colonial and craftsman homes. Free estimates. 773-656-2107.',
-    heroSub: 'La Grange\'s commuter-town character and older colonial and craftsman homes represent decades of masonry history. We repair brick facades, restore chimneys, and tuckpoint joints on La Grange homes with materials matched to the original construction.',
-    heroReview: { quote: 'AMS did a complete chimney rebuild on our 1950s colonial in La Grange. Professional, clean, and the new brick is a perfect match. Would use again without hesitation.', author: 'Michael V.', location: 'La Grange, IL' },
-    problem: 'La Grange homes built in the 1940s–1960s have original chimneys that are approaching or past their expected maintenance cycle. Chimney mortar erosion is the most common masonry need, but it\'s often overlooked until water damage inside the home signals the problem.',
-    faqItems: [
-      { question: 'What masonry services do you offer in La Grange?', answer: 'Tuckpointing, chimney repair and rebuilding, brick and stoop repair, stone installation, and free masonry damage assessments. We serve residential properties throughout La Grange.' },
-      { question: 'How much does chimney work cost in La Grange?', answer: 'Chimney tuckpointing: $800–$2,500. Partial rebuild: $3,500–$9,000. Full rebuild: $8,000+. Free, in-writing estimate after on-site assessment.' },
-      { question: 'My La Grange chimney has water stains inside — what does that mean?', answer: 'Water stains on interior walls near the chimney indicate active water infiltration — either through deteriorated mortar joints, missing flashing, or a failed chimney cap. This needs immediate assessment — ongoing water infiltration damages framing and insulation.' },
-      { question: 'Can you repair the brick on my La Grange stoop?', answer: 'Yes. Brick stoops and front steps are a common repair in La Grange. We reset heaved steps, replace cracked brick, repoint joints, and often add waterproof parging at grade level.' },
-      { question: 'Are you licensed and insured in La Grange?', answer: 'Yes. Illinois license #MA-104-018887, $2.5M liability, workers\' comp included.' },
+    "slug": "la-grange",
+    "name": "La Grange",
+    "region": "Western Suburbs",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor La Grange IL | All Masonry Services",
+    "metaDesc": "Brick repair, tuckpointing, chimney restoration, and stone work in La Grange, IL. Colonial and craftsman homes. Free estimates. 773-656-2107.",
+    "heroSub": "Crafting Structural Block Work across La Grange. Our in-house artisans deliver flawless masonry solutions built to perfection. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "AMS did a complete chimney rebuild on our 1950s colonial in La Grange. Professional, clean, and the new brick is a perfect match. Would use again without hesitation.",
+      "author": "Michael V.",
+      "location": "La Grange, IL"
+    },
+    "problem": "La Grange homes built in the 1940s–1960s have original chimneys that are approaching or past their expected maintenance cycle. Chimney mortar erosion is the most common masonry need, but it's often overlooked until water damage inside the home signals the problem.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in La Grange?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver impeccable facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale La Grange projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install high-grade CMU, custom limestone, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your La Grange project is a direct employee of AMS, ensuring consistent, impeccable quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in La Grange. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Western Springs', 'Hinsdale', 'Burr Ridge', 'Willowbrook', 'Chicago'],
-    details: { areas: 'Downtown La Grange Historic District, La Grange Park area, Stone Avenue corridor', zipCodes: '60525, 60526' },
+    "nearbyAreas": [
+      "Western Springs",
+      "Hinsdale",
+      "Burr Ridge",
+      "Willowbrook",
+      "Chicago"
+    ],
+    "details": {
+      "areas": "Downtown La Grange Historic District, La Grange Park area, Stone Avenue corridor",
+      "zipCodes": "60525, 60526"
+    },
+    "heroHeading": "Premium Masonry Contractor in La Grange",
+    "masonryCtx": {
+      "header": "The La Grange Standard",
+      "items": [
+        {
+          "title": "Luxury Material Selection",
+          "text": "We source only the finest architectural veneers to complement La Grange's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We build with an meticulous attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in La Grange is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Full-Scope Masonry Services in La Grange",
+      "body": "From sprawling custom homes to intricate commercial projects, AMS provides a single, accountable source for all your premium masonry needs in La Grange. We never use subcontractors, guaranteeing impeccable results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your La Grange project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select uncompromising architectural veneers that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Professional Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why La Grange Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to flawless premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every La Grange project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Architectural Custom Builds<br><em>in La Grange</em>",
+      "sub": "Explore how we bring complex architectural visions to life across La Grange with exquisite quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for La Grange and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'burr-ridge',
-    name: 'Burr Ridge',
-    region: 'Western Suburbs',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Burr Ridge IL | All Masonry Services',
-    metaDesc: 'Premium brick, stone, chimney, and masonry in Burr Ridge, IL. Luxury estates and newer construction. Free estimates. 773-656-2107.',
-    heroSub: 'Burr Ridge\'s luxury residential market — large estate homes, custom builds, and newer construction — requires masonry craftsmanship that matches the scale and quality of the properties. We install, repair, and restore brick, stone, and chimney work on Burr Ridge homes.',
-    heroReview: { quote: 'We built a custom outdoor kitchen and fireplace in our Burr Ridge backyard. AMS did exceptional stone work — the craftsmanship is on another level.', author: 'Kevin D.', location: 'Burr Ridge, IL' },
-    problem: 'Burr Ridge\'s newer estate homes often feature complex stone and brick work — curved walls, specialty veneers, and large outdoor features. These require skilled masonry contractors, not generalist tradespeople. Veneer separation and mortar shrinkage are the most common issues on newer construction.',
-    faqItems: [
-      { question: 'Do you install outdoor masonry features in Burr Ridge?', answer: 'Yes — outdoor kitchens, fireplaces, retaining walls, and custom stone features are common Burr Ridge projects. We design, source, and install these features in brick, natural stone, and limestone.' },
-      { question: 'What does custom stone masonry cost in Burr Ridge?', answer: 'Custom outdoor stone features in Burr Ridge vary significantly by design and material. Simple retaining walls run $50–$90 per linear foot. Outdoor kitchen or fireplace structures run $15,000–$60,000+. Free estimate after design consultation.' },
-      { question: 'Do you work on large estate homes in Burr Ridge?', answer: 'Yes. Estate-scale masonry — large chimneys, stone facades, landscape walls, and custom hardscape — is part of our regular work in Burr Ridge. We carry the insurance coverage required for larger projects.' },
-      { question: 'How do I choose between brick and natural stone for an outdoor feature?', answer: 'Brick offers cost predictability and a clean uniform look. Natural stone creates character and variation but requires more skilled installation. We walk you through both options at the estimate stage — including material samples and project photos.' },
-      { question: 'Are you insured for large Burr Ridge masonry projects?', answer: '$2.5M general liability, workers\' comp on all crew, Illinois license #MA-104-018887.' },
+    "slug": "burr-ridge",
+    "name": "Burr Ridge",
+    "region": "Western Suburbs",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Burr Ridge IL | All Masonry Services",
+    "metaDesc": "Premium brick, stone, chimney, and masonry in Burr Ridge, IL. Luxury estates and newer construction. Free estimates. 773-656-2107.",
+    "heroSub": "Engineering Structural Block Work across Burr Ridge. Our in-house artisans deliver superior masonry solutions that exceed expectations. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "We built a custom outdoor kitchen and fireplace in our Burr Ridge backyard. AMS did exceptional stone work — the craftsmanship is on another level.",
+      "author": "Kevin D.",
+      "location": "Burr Ridge, IL"
+    },
+    "problem": "Burr Ridge's newer estate homes often feature complex stone and brick work — curved walls, specialty veneers, and large outdoor features. These require skilled masonry contractors, not generalist tradespeople. Veneer separation and mortar shrinkage are the most common issues on newer construction.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Burr Ridge?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver state-of-the-art facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Burr Ridge projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install high-grade CMU, natural stone, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Burr Ridge project is a direct employee of AMS, ensuring consistent, precise quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Burr Ridge. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Hinsdale', 'Oak Brook', 'Willowbrook', 'La Grange', 'Western Springs'],
-    details: { areas: 'Burr Ridge Village Center, County Line Road corridor, Harvester Drive area', zipCodes: '60527' },
+    "nearbyAreas": [
+      "Hinsdale",
+      "Oak Brook",
+      "Willowbrook",
+      "La Grange",
+      "Western Springs"
+    ],
+    "details": {
+      "areas": "Burr Ridge Village Center, County Line Road corridor, Harvester Drive area",
+      "zipCodes": "60527"
+    },
+    "heroHeading": "Custom Masonry Partner in Burr Ridge",
+    "masonryCtx": {
+      "header": "The Burr Ridge Excellence",
+      "items": [
+        {
+          "title": "Elite Material Selection",
+          "text": "We source only the finest natural stone to complement Burr Ridge's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We execute with an state-of-the-art attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Burr Ridge is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Elite Masonry Services in Burr Ridge",
+      "body": "From sprawling mansions to intricate commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Burr Ridge. We never use subcontractors, guaranteeing exceptional results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Burr Ridge project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select superior premium face brick that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Expert Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Burr Ridge Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to exceptional premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Burr Ridge project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Luxury Custom Builds<br><em>in Burr Ridge</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Burr Ridge with precise quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Burr Ridge and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
   },
   {
-    slug: 'clarendon-hills',
-    name: 'Clarendon Hills',
-    region: 'DuPage County',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Clarendon Hills IL | All Masonry Services',
-    metaDesc: 'Tuckpointing, brick repair, chimney work, and stone in Clarendon Hills, IL. Village-scale masonry specialists. Free estimates. 773-656-2107.',
-    heroSub: 'Clarendon Hills\' walkable downtown and established neighborhoods have older craftsman and colonial homes that carry decades of masonry character. We repair, tuckpoint, and restore brick and chimney work that preserves the village feel these homes contribute to.',
-    heroReview: { quote: 'AMS repaired the brick on our Clarendon Hills home — chimney, front stoop, and some facade work. All matched perfectly. Very pleased with the professionalism.', author: 'Laura P.', location: 'Clarendon Hills, IL' },
-    problem: 'Clarendon Hills\' older homes have original mortar joints approaching 50–80 years in age. At this stage, tuckpointing isn\'t optional — it\'s preventive maintenance. Waiting until you see interior water damage means the scope and cost have multiplied.',
-    faqItems: [
-      { question: 'What masonry services do you offer in Clarendon Hills?', answer: 'Tuckpointing, chimney repair, brick step and stoop repair, stone installation, and masonry assessments. We serve all residential property types in the village.' },
-      { question: 'How often should Clarendon Hills homes get tuckpointing?', answer: 'Most pre-1970 homes need tuckpointing every 20–30 years. If your home hasn\'t been done in that timeframe, schedule a free assessment — the condition of the joints determines urgency.' },
-      { question: 'How much does chimney repair cost in Clarendon Hills?', answer: 'Chimney tuckpointing: $800–$2,500. Rebuild sections: $3,000–$8,000. Full rebuild: $8,000+. Free estimate on-site.' },
-      { question: 'Can you repair the front brick stoop on my Clarendon Hills home?', answer: 'Yes. Stoop repair — resetting heaved steps, replacing cracked brick, repointing joints — is a common repair in Clarendon Hills. Usually completes in 1–2 days.' },
-      { question: 'Do you offer free estimates in Clarendon Hills?', answer: 'Yes — free, on-site, in writing. Call 773-656-2107.' },
+    "slug": "clarendon-hills",
+    "name": "Clarendon Hills",
+    "region": "DuPage County",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Clarendon Hills IL | All Masonry Services",
+    "metaDesc": "Tuckpointing, brick repair, chimney work, and stone in Clarendon Hills, IL. Village-scale masonry specialists. Free estimates. 773-656-2107.",
+    "heroSub": "Clarendon Hills' walkable downtown and established neighborhoods have older craftsman and colonial homes that carry decades of masonry character. We repair, tuckpoint, and restore brick and chimney work that preserves the village feel these homes contribute to.",
+    "heroReview": {
+      "quote": "AMS repaired the brick on our Clarendon Hills home — chimney, front stoop, and some facade work. All matched perfectly. Very pleased with the professionalism.",
+      "author": "Laura P.",
+      "location": "Clarendon Hills, IL"
+    },
+    "problem": "Clarendon Hills' older homes have original mortar joints approaching 50–80 years in age. At this stage, tuckpointing isn't optional — it's preventive maintenance. Waiting until you see interior water damage means the scope and cost have multiplied.",
+    "faqItems": [
+      {
+        "question": "What masonry services do you offer in Clarendon Hills?",
+        "answer": "Tuckpointing, chimney repair, brick step and stoop repair, stone installation, and masonry assessments. We serve all residential property types in the village."
+      },
+      {
+        "question": "How often should Clarendon Hills homes get tuckpointing?",
+        "answer": "Most pre-1970 homes need tuckpointing every 20–30 years. If your home hasn't been done in that timeframe, schedule a free assessment — the condition of the joints determines urgency."
+      },
+      {
+        "question": "How much does chimney repair cost in Clarendon Hills?",
+        "answer": "Chimney tuckpointing: $800–$2,500. Rebuild sections: $3,000–$8,000. Full rebuild: $8,000+. Free estimate on-site."
+      },
+      {
+        "question": "Can you repair the front brick stoop on my Clarendon Hills home?",
+        "answer": "Yes. Stoop repair — resetting heaved steps, replacing cracked brick, repointing joints — is a common repair in Clarendon Hills. Usually completes in 1–2 days."
+      },
+      {
+        "question": "Do you offer free estimates in Clarendon Hills?",
+        "answer": "Yes — free, on-site, in writing. Call 773-656-2107."
+      }
     ],
-    nearbyAreas: ['Hinsdale', 'Westmont', 'Downers Grove', 'Western Springs', 'Burr Ridge'],
-    details: { areas: 'Downtown Clarendon Hills, Chicago Avenue corridor, Prospect Avenue area', zipCodes: '60514' },
+    "nearbyAreas": [
+      "Hinsdale",
+      "Westmont",
+      "Downers Grove",
+      "Western Springs",
+      "Burr Ridge"
+    ],
+    "details": {
+      "areas": "Downtown Clarendon Hills, Chicago Avenue corridor, Prospect Avenue area",
+      "zipCodes": "60514"
+    }
   },
   {
-    slug: 'willowbrook',
-    name: 'Willowbrook',
-    region: 'DuPage County',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Willowbrook IL | All Masonry Services',
-    metaDesc: 'Brick, chimney, tuckpointing, and stone masonry in Willowbrook, IL. Residential and commercial. Free estimates. 773-656-2107.',
-    heroSub: 'Willowbrook\'s residential neighborhoods and commercial properties both have masonry needs that accumulate on Chicago\'s freeze-thaw timeline. We provide tuckpointing, chimney repair, brick installation, and stone work for Willowbrook homes and businesses.',
-    heroReview: { quote: 'Used AMS for chimney repair and some tuckpointing on our Willowbrook home. Showed up on time, finished on schedule, excellent cleanup. Professional all the way through.', author: 'Gary N.', location: 'Willowbrook, IL' },
-    problem: 'Willowbrook residential properties — many built in the 1960s–1980s — have chimneys and brick facades entering a common deferred maintenance cycle. These homes need tuckpointing and chimney attention before the next decade of freeze-thaw cycles accelerates the damage.',
-    faqItems: [
-      { question: 'What masonry services do you offer in Willowbrook?', answer: 'Tuckpointing, chimney repair and rebuilding, brick facade repair, stone installation, and commercial masonry. Residential and commercial served.' },
-      { question: 'My Willowbrook chimney cap is broken — is that urgent?', answer: 'Yes. A broken or missing chimney cap allows water directly into the flue, accelerating mortar erosion and causing moisture damage inside the chimney and the home. Cap replacement is a low-cost, high-impact repair.' },
-      { question: 'What does tuckpointing cost in Willowbrook?', answer: 'Chimney tuckpointing: $800–$2,500. Full facade tuckpointing on a typical home: $2,500–$6,000. Free estimate after site visit.' },
-      { question: 'Do you work on commercial brick in Willowbrook?', answer: 'Yes — commercial tuckpointing, facade repair, and brick installation for retail and commercial properties in Willowbrook. We work around business hours and provide written schedules.' },
-      { question: 'Are you licensed and insured in Willowbrook?', answer: 'Illinois license #MA-104-018887, $2.5M liability, workers\' comp. Proof available before any work.' },
+    "slug": "willowbrook",
+    "name": "Willowbrook",
+    "region": "DuPage County",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Willowbrook IL | All Masonry Services",
+    "metaDesc": "Brick, chimney, tuckpointing, and stone masonry in Willowbrook, IL. Residential and commercial. Free estimates. 773-656-2107.",
+    "heroSub": "Willowbrook's residential neighborhoods and commercial properties both have masonry needs that accumulate on Chicago's freeze-thaw timeline. We provide tuckpointing, chimney repair, brick installation, and stone work for Willowbrook homes and businesses.",
+    "heroReview": {
+      "quote": "Used AMS for chimney repair and some tuckpointing on our Willowbrook home. Showed up on time, finished on schedule, excellent cleanup. Professional all the way through.",
+      "author": "Gary N.",
+      "location": "Willowbrook, IL"
+    },
+    "problem": "Willowbrook residential properties — many built in the 1960s–1980s — have chimneys and brick facades entering a common deferred maintenance cycle. These homes need tuckpointing and chimney attention before the next decade of freeze-thaw cycles accelerates the damage.",
+    "faqItems": [
+      {
+        "question": "What masonry services do you offer in Willowbrook?",
+        "answer": "Tuckpointing, chimney repair and rebuilding, brick facade repair, stone installation, and commercial masonry. Residential and commercial served."
+      },
+      {
+        "question": "My Willowbrook chimney cap is broken — is that urgent?",
+        "answer": "Yes. A broken or missing chimney cap allows water directly into the flue, accelerating mortar erosion and causing moisture damage inside the chimney and the home. Cap replacement is a low-cost, high-impact repair."
+      },
+      {
+        "question": "What does tuckpointing cost in Willowbrook?",
+        "answer": "Chimney tuckpointing: $800–$2,500. Full facade tuckpointing on a typical home: $2,500–$6,000. Free estimate after site visit."
+      },
+      {
+        "question": "Do you work on commercial brick in Willowbrook?",
+        "answer": "Yes — commercial tuckpointing, facade repair, and brick installation for retail and commercial properties in Willowbrook. We work around business hours and provide written schedules."
+      },
+      {
+        "question": "Are you licensed and insured in Willowbrook?",
+        "answer": "Illinois license #MA-104-018887, $2.5M liability, workers' comp. Proof available before any work."
+      }
     ],
-    nearbyAreas: ['Downers Grove', 'Burr Ridge', 'La Grange', 'Clarendon Hills', 'Oak Brook'],
-    details: { areas: 'Willowbrook Village, Route 83 corridor, Holmes subdivision area', zipCodes: '60527' },
+    "nearbyAreas": [
+      "Downers Grove",
+      "Burr Ridge",
+      "La Grange",
+      "Clarendon Hills",
+      "Oak Brook"
+    ],
+    "details": {
+      "areas": "Willowbrook Village, Route 83 corridor, Holmes subdivision area",
+      "zipCodes": "60527"
+    }
   },
   {
-    slug: 'wheaton',
-    name: 'Wheaton',
-    region: 'DuPage County',
-    county: 'DuPage County',
-    metaTitle: 'Masonry Contractor Wheaton IL | All Masonry Services',
-    metaDesc: 'Brick repair, chimney work, tuckpointing, and stone masonry in Wheaton, IL. County seat and college town. Free estimates. 773-656-2107.',
-    heroSub: 'Wheaton\'s downtown buildings and surrounding neighborhoods carry masonry history that spans from early 20th-century commercial brick to post-war residential construction. We repair, restore, and tuckpoint across all of Wheaton\'s property types.',
-    heroReview: { quote: 'Had AMS assess our Wheaton colonial — hadn\'t been tuckpointed in 25 years. They completed the chimney and front facade in two days. Best price of four quotes and the best result.', author: 'Chris L.', location: 'Wheaton, IL' },
-    problem: 'Wheaton properties range from downtown commercial buildings with original early-1900s brick to 1950s–1970s residential neighborhoods with aging chimneys and facades. Both categories have masonry maintenance needs that are commonly deferred too long.',
-    faqItems: [
-      { question: 'What masonry services do you offer in Wheaton?', answer: 'Tuckpointing, brick and chimney repair, stone installation, CMU block, commercial masonry, and free masonry assessments. Full-service masonry for residential and commercial Wheaton properties.' },
-      { question: 'How much does tuckpointing cost in Wheaton?', answer: 'Chimney tuckpointing in Wheaton: $800–$2,500. Full-facade repointing: $2,500–$8,000. Commercial tuckpointing: quoted per project. All estimates free and in writing.' },
-      { question: 'Do you work on Wheaton College area buildings?', answer: 'Yes — we work on residential and commercial properties throughout Wheaton, including the areas around the college. We serve property managers, homeowners, and institutional clients.' },
-      { question: 'My Wheaton home has brick on just one side — why does it need tuckpointing first?', answer: 'The north-facing elevation of any brick structure accumulates more moisture and freeze-thaw damage. We typically see 2–3x faster mortar erosion on north-facing brick vs. south-facing. This side needs attention first.' },
-      { question: 'Do you offer free estimates in Wheaton?', answer: 'Yes — all estimates free, on-site, in writing. Call 773-656-2107 or contact us online.' },
+    "slug": "wheaton",
+    "name": "Wheaton",
+    "region": "DuPage County",
+    "county": "DuPage County",
+    "metaTitle": "Masonry Contractor Wheaton IL | All Masonry Services",
+    "metaDesc": "Brick repair, chimney work, tuckpointing, and stone masonry in Wheaton, IL. County seat and college town. Free estimates. 773-656-2107.",
+    "heroSub": "Wheaton's downtown buildings and surrounding neighborhoods carry masonry history that spans from early 20th-century commercial brick to post-war residential construction. We repair, restore, and tuckpoint across all of Wheaton's property types.",
+    "heroReview": {
+      "quote": "Had AMS assess our Wheaton colonial — hadn't been tuckpointed in 25 years. They completed the chimney and front facade in two days. Best price of four quotes and the best result.",
+      "author": "Chris L.",
+      "location": "Wheaton, IL"
+    },
+    "problem": "Wheaton properties range from downtown commercial buildings with original early-1900s brick to 1950s–1970s residential neighborhoods with aging chimneys and facades. Both categories have masonry maintenance needs that are commonly deferred too long.",
+    "faqItems": [
+      {
+        "question": "What masonry services do you offer in Wheaton?",
+        "answer": "Tuckpointing, brick and chimney repair, stone installation, CMU block, commercial masonry, and free masonry assessments. Full-service masonry for residential and commercial Wheaton properties."
+      },
+      {
+        "question": "How much does tuckpointing cost in Wheaton?",
+        "answer": "Chimney tuckpointing in Wheaton: $800–$2,500. Full-facade repointing: $2,500–$8,000. Commercial tuckpointing: quoted per project. All estimates free and in writing."
+      },
+      {
+        "question": "Do you work on Wheaton College area buildings?",
+        "answer": "Yes — we work on residential and commercial properties throughout Wheaton, including the areas around the college. We serve property managers, homeowners, and institutional clients."
+      },
+      {
+        "question": "My Wheaton home has brick on just one side — why does it need tuckpointing first?",
+        "answer": "The north-facing elevation of any brick structure accumulates more moisture and freeze-thaw damage. We typically see 2–3x faster mortar erosion on north-facing brick vs. south-facing. This side needs attention first."
+      },
+      {
+        "question": "Do you offer free estimates in Wheaton?",
+        "answer": "Yes — all estimates free, on-site, in writing. Call 773-656-2107 or contact us online."
+      }
     ],
-    nearbyAreas: ['Naperville', 'Warrenville', 'Glen Ellyn', 'Winfield', 'Carol Stream'],
-    details: { areas: 'Downtown Wheaton, Danada Farms area, College Avenue corridor', zipCodes: '60187, 60188, 60189' },
+    "nearbyAreas": [
+      "Naperville",
+      "Warrenville",
+      "Glen Ellyn",
+      "Winfield",
+      "Carol Stream"
+    ],
+    "details": {
+      "areas": "Downtown Wheaton, Danada Farms area, College Avenue corridor",
+      "zipCodes": "60187, 60188, 60189"
+    }
   },
   {
-    slug: 'chicago',
-    name: 'Chicago',
-    region: 'City of Chicago',
-    county: 'Cook County',
-    metaTitle: 'Masonry Contractor Chicago IL | All Masonry Services',
-    metaDesc: 'Brick repair, tuckpointing, chimney restoration, greystone, and stone masonry in Chicago. Bungalows, 2-flats, and commercial. Free estimates. 773-656-2107.',
-    heroSub: 'Chicago\'s bungalows, greystones, two-flats, and three-flats represent some of the most masonry-dense residential architecture in the country. We tuckpoint joints, repair chimneys, restore greystone facades, and install new brick and stone throughout the city and all Chicago neighborhoods.',
-    heroReview: { quote: 'Used AMS on our Lincoln Square two-flat. Tuckpointing and chimney rebuild. The mortar match on the original brick is perfect and the price was fair. Exactly what we needed.', author: 'Sarah O.', location: 'Chicago, IL' },
-    problem: 'Chicago\'s brick bungalows and two-flats have the most consistent masonry maintenance need in the region. Original mortar joints from the 1920s–1940s construction era erode at a predictable rate — most Chicago homes need tuckpointing every 20–30 years, but the timeline accelerates dramatically once moisture infiltration begins.',
-    faqItems: [
-      { question: 'Do you tuckpoint Chicago bungalows and two-flats?', answer: 'Yes — Chicago bungalows and two-flats are our most common project type. We match original 1920s–1940s mortar color and texture, repoint deteriorated joints, and address chimney conditions in a single visit.' },
-      { question: 'What does tuckpointing cost in Chicago?', answer: 'Chicago bungalow tuckpointing typically runs $2,500–$6,000 for the full perimeter. A two-flat chimney tuckpoint runs $900–$2,500. Full chimney rebuilds on two-flats: $5,000–$14,000. Free written estimate.' },
-      { question: 'Can you restore a greystone facade in Chicago?', answer: 'Yes. Chicago greystones use Bedford limestone or limestone-composition block — a specialty material that requires different techniques than standard brick. We assess, repair, and restore greystone facades across Chicago neighborhoods.' },
-      { question: 'My Chicago two-flat has water coming through the basement brick — what do I do?', answer: 'Basement brick water infiltration is usually a combination of mortar erosion and grade-level joint failure. We assess the source, repoint the affected joints, and apply parging at grade where appropriate. Sealing from the outside without fixing the joints doesn\'t solve it.' },
-      { question: 'Do you work in all Chicago neighborhoods?', answer: 'Yes — we serve all Chicago neighborhoods: North Side, South Side, West Side, and the lakefront. We\'re based in Chicagoland and have done projects in every major Chicago community area.' },
+    "slug": "chicago",
+    "name": "Chicago",
+    "region": "City of Chicago",
+    "county": "Cook County",
+    "metaTitle": "Masonry Contractor Chicago IL | All Masonry Services",
+    "metaDesc": "Brick repair, tuckpointing, chimney restoration, greystone, and stone masonry in Chicago. Bungalows, 2-flats, and commercial. Free estimates. 773-656-2107.",
+    "heroSub": "Creating Premium Facades across Chicago. Our in-house artisans deliver precise masonry solutions with absolute precision. From initial blueprints to the final walk-through, we ensure every detail is perfect.",
+    "heroReview": {
+      "quote": "Used AMS on our Lincoln Square two-flat. Tuckpointing and chimney rebuild. The mortar match on the original brick is perfect and the price was fair. Exactly what we needed.",
+      "author": "Sarah O.",
+      "location": "Chicago, IL"
+    },
+    "problem": "Chicago's brick bungalows and two-flats have the most consistent masonry maintenance need in the region. Original mortar joints from the 1920s–1940s construction era erode at a predictable rate — most Chicago homes need tuckpointing every 20–30 years, but the timeline accelerates dramatically once moisture infiltration begins.",
+    "faqItems": [
+      {
+        "q": "Do you handle custom home builds in Chicago?",
+        "a": "Yes, we specialize in high-end residential masonry, working directly from blueprints to deliver superior facades and structural block work."
+      },
+      {
+        "q": "Can you coordinate with our general contractor?",
+        "a": "Absolutely. We routinely integrate into large-scale Chicago projects, maintaining strict schedules and clear communication with GCs."
+      },
+      {
+        "q": "What materials do you specialize in?",
+        "a": "We expertly install bespoke masonry units, architectural veneers, and structural CMU blocks for premium custom applications."
+      },
+      {
+        "q": "Are your masons in-house?",
+        "a": "Yes. Every artisan on your Chicago project is a direct employee of AMS, ensuring consistent, exceptional quality across the board."
+      },
+      {
+        "q": "How do I get an estimate for my project?",
+        "a": "Simply provide your blueprints or schedule an on-site consultation in Chicago. We will provide a highly detailed, written proposal."
+      }
     ],
-    nearbyAreas: ['Evanston', 'Oak Park', 'Cicero', 'Skokie', 'Berwyn'],
-    details: { areas: 'Lincoln Park, Bucktown, Logan Square, Hyde Park, Pilsen', zipCodes: '60614, 60647, 60639, 60637, 60608' },
-  },
+    "nearbyAreas": [
+      "Evanston",
+      "Oak Park",
+      "Cicero",
+      "Skokie",
+      "Berwyn"
+    ],
+    "details": {
+      "areas": "Lincoln Park, Bucktown, Logan Square, Hyde Park, Pilsen",
+      "zipCodes": "60614, 60647, 60639, 60637, 60608"
+    },
+    "heroHeading": "Custom Masonry Builder in Chicago",
+    "masonryCtx": {
+      "header": "The Chicago Difference",
+      "items": [
+        {
+          "title": "Premium Material Selection",
+          "text": "We source only the finest natural stone to complement Chicago's unique architectural heritage and elevate your design."
+        },
+        {
+          "title": "Architectural Precision",
+          "text": "Every line is plumb, every joint is perfect. We deliver with an exquisite attention to detail that surpasses standard construction."
+        },
+        {
+          "title": "Seamless Coordination",
+          "text": "Working directly with your GC or architect to ensure the masonry phase in Chicago is on time, on budget, and perfectly integrated."
+        }
+      ]
+    },
+    "whatWeDo": {
+      "header": "Full-Scope Masonry Services in Chicago",
+      "body": "From sprawling mansions to large-scale commercial projects, AMS provides a single, accountable source for all your premium masonry needs in Chicago. We never use subcontractors, guaranteeing exquisite results on every build."
+    },
+    "howWeWork": [
+      {
+        "title": "Blueprint Review & Scope",
+        "text": "We carefully analyze your architectural plans for your Chicago project to provide a firm, comprehensive estimate."
+      },
+      {
+        "title": "Material Procurement",
+        "text": "Collaborating to select enduring bespoke masonry units that perfectly match your vision."
+      },
+      {
+        "title": "GC Integration",
+        "text": "We commit to a firm schedule and coordinate directly with site managers to keep the build moving."
+      },
+      {
+        "title": "In-House Execution",
+        "text": "Our dedicated artisans build your project without cutting a single corner, ensuring structural perfection."
+      },
+      {
+        "title": "Final Inspection",
+        "text": "A rigorous walk-through with you and your builder to guarantee the finish exceeds every standard."
+      }
+    ],
+    "whyItMatters": {
+      "header": "The Value of Professional Masonry",
+      "sub": "Choosing the right masonry partner dictates the structural integrity and aesthetic of your entire build.",
+      "items": [
+        {
+          "title": "Flawless Execution",
+          "text": "We translate intricate designs into reality with exact, unwavering precision."
+        },
+        {
+          "title": "Structural Integrity",
+          "text": "Proper flashing and load-bearing construction ensure long-term durability and safety."
+        },
+        {
+          "title": "Keeping on Schedule",
+          "text": "Delays cost money. Our experienced crew shows up on time and completes work efficiently."
+        },
+        {
+          "title": "One Accountable Partner",
+          "text": "No middle-men or unknown sub-crews. You deal directly with our in-house team."
+        }
+      ]
+    },
+    "whatSetsUsApart": {
+      "header": "Why Chicago Builders Partner With Us",
+      "cards": [
+        {
+          "title": "Architectural Precision",
+          "text": "Consistently exceeding the highest standards of modern luxury construction."
+        },
+        {
+          "title": "Comprehensive Scope",
+          "text": "Handling everything from deep foundation blocks to precise premium veneers."
+        },
+        {
+          "title": "Dedicated Craftsmen",
+          "text": "Generations of deep masonry knowledge brought to every Chicago project."
+        },
+        {
+          "title": "Reliable Scheduling",
+          "text": "We know masonry is on the critical path, and we deliver exactly on time."
+        }
+      ]
+    },
+    "projectsText": {
+      "header": "Exclusive Custom Builds<br><em>in Chicago</em>",
+      "sub": "Explore how we bring complex architectural visions to life across Chicago with exquisite quality."
+    },
+    "whyTrustAms": {
+      "header": "Every Standard Met.<br><em>In Writing.</em>",
+      "items": [
+        {
+          "title": "Fully Licensed",
+          "text": "Operating with all required municipal masonry licenses for Chicago and beyond."
+        },
+        {
+          "title": "Comprehensive Insurance",
+          "text": "$2.5M general liability to completely protect your high-value custom build."
+        },
+        {
+          "title": "In-House Team",
+          "text": "We never broker your vision out to unverified subcontractors. Quality is controlled internally."
+        },
+        {
+          "title": "First-Time Pass",
+          "text": "Our meticulous work consistently passes stringent municipal inspections on the first visit."
+        }
+      ]
+    }
+  }
 ];
 
-// Helper: get city data by slug
 export function getCityBySlug(slug) {
-  return cities.find(c => c.slug === slug) || null;
+  return cities.find(c => c.slug === slug);
 }
 
-// Helper: get static paths for Astro
 export function getCityPaths() {
-  return cities.map(c => ({ params: { city: c.slug } }));
+  return cities.map(c => ({
+    params: { city: c.slug }
+  }));
 }
