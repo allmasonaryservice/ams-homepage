@@ -46,24 +46,23 @@ const {
   <body>
     <slot />
 
-    <!-- GSAP + ScrollTrigger as UMD globals (required by Navbar & HeroSequence) -->
-    <script is:inline src="/libs/gsap.min.js"></script>
-    <script is:inline src="/libs/ScrollTrigger.min.js"></script>
-    <script is:inline>
-    (function() {
-      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    <!-- GSAP + ScrollTrigger (bundled via Vite to eliminate double-loading) -->
+    <script>
+      import gsap from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
       gsap.registerPlugin(ScrollTrigger);
       gsap.defaults({ duration: 0.8, ease: 'power2.out' });
       ScrollTrigger.config({ ignoreMobileResize: true });
 
+      // @ts-ignore
       window.__gsap = gsap;
+      // @ts-ignore
       window.__ScrollTrigger = ScrollTrigger;
 
       requestAnimationFrame(function() {
         window.dispatchEvent(new CustomEvent('animations:ready'));
       });
-    })();
     </script>
 
     <!-- Scroll reveal: IntersectionObserver for [data-reveal] elements -->
