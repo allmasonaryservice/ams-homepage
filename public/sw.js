@@ -1,4 +1,4 @@
-const CACHE = 'ams-seq-v4';
+const CACHE = 'ams-seq-v5';
 const SEQ_DESKTOP = '/images/sequence-desktop-webp/';
 const SEQ_MOBILE  = '/images/sequence-mobile-webp/';
 
@@ -6,7 +6,7 @@ function pad(n) { return String(n).padStart(3, '0'); }
 
 function allFrameUrls() {
   const urls = [];
-  for (let i = 1; i <= 95; i++) {
+  for (let i = 1; i <= 67; i++) {
     urls.push(`${SEQ_DESKTOP}frame-${pad(i)}.webp`);
     urls.push(`${SEQ_MOBILE}frame-${pad(i)}.webp`);
   }
