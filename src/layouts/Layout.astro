@@ -37,19 +37,20 @@ const {
     <!-- Google Fonts: Onest (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" />
+    </noscript>
   </head>
   <body>
     <slot />
 
     <!-- GSAP + ScrollTrigger as UMD globals (required by Navbar & HeroSequence) -->
-    <script is:inline src="/libs/gsap.min.js"></script>
-    <script is:inline src="/libs/ScrollTrigger.min.js"></script>
+    <script is:inline defer src="/libs/gsap.min.js"></script>
+    <script is:inline defer src="/libs/ScrollTrigger.min.js"></script>
     <script is:inline>
-    (function() {
+    window.addEventListener('load', function() {
       if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
       gsap.registerPlugin(ScrollTrigger);
@@ -62,7 +63,7 @@ const {
       requestAnimationFrame(function() {
         window.dispatchEvent(new CustomEvent('animations:ready'));
       });
-    })();
+    });
     </script>
 
     <!-- Scroll reveal: IntersectionObserver for [data-reveal] elements -->

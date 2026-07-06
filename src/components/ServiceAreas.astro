@@ -94,11 +94,13 @@ const REGIONS = [
   </div>
 </section>
 
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+<!-- Leaflet CSS (Async) -->
+<link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" /></noscript>
 
-<!-- Leaflet JS -->
-<script is:inline src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Leaflet JS (Deferred) -->
+<script is:inline defer src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script is:inline>
 (function () {
@@ -169,12 +171,20 @@ const REGIONS = [
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMap);
-  } else {
-    initMap();
+  function triggerInit() {
+    if (window.requestIdleCallback) {
+      requestIdleCallback(initMap);
+    } else {
+      setTimeout(initMap, 500);
+    }
   }
-  document.addEventListener('astro:page-load', initMap);
+
+  if (document.readyState === 'complete') {
+    triggerInit();
+  } else {
+    window.addEventListener('load', triggerInit);
+  }
+  document.addEventListener('astro:page-load', triggerInit);
 })();
 </script>
 

@@ -200,8 +200,10 @@ const faqItems = [
     </div>
   </section>
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Leaflet CSS (Async) -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" /></noscript>
 
   <!-- ─── 4. CITY DIRECTORY ─── -->
   <section class="sa-dir" id="sa-dir">
@@ -1855,8 +1857,8 @@ const faqItems = [
 
 </Layout>
 
-<!-- Leaflet JS -->
-<script is:inline src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Leaflet JS (Deferred) -->
+<script is:inline defer src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <!-- ─── SERVICE AREA MAP ─── -->
 <script is:inline>
@@ -1932,12 +1934,20 @@ const faqItems = [
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initSapMap);
-  } else {
-    initSapMap();
+  function triggerInit() {
+    if (window.requestIdleCallback) {
+      requestIdleCallback(initSapMap);
+    } else {
+      setTimeout(initSapMap, 500);
+    }
   }
-  document.addEventListener('astro:page-load', initSapMap);
+
+  if (document.readyState === 'complete') {
+    triggerInit();
+  } else {
+    window.addEventListener('load', triggerInit);
+  }
+  document.addEventListener('astro:page-load', triggerInit);
 })();
 </script>
 
