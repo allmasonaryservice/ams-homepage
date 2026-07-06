@@ -396,6 +396,7 @@
       end: '+=' + (TOTAL_FRAMES * 70), // Increased to slow down the image sequence
       pin: true,
       scrub: true,
+      refreshPriority: 10,
       onUpdate: function(self) {
         var progress = self.progress;
         var frameNum = Math.min(TOTAL_FRAMES, Math.max(1, Math.round(progress * (TOTAL_FRAMES - 1)) + 1));
@@ -422,8 +423,9 @@
     // all offsets (for Process, Projects, Testimonials) so they trigger at the right time.
     // We use a small timeout to ensure all module scripts have finished their own initializations.
     setTimeout(function() {
+      if (ScrollTrigger.sort) ScrollTrigger.sort();
       ScrollTrigger.refresh();
-    }, 100);
+    }, 150);
   }
 
   // Remove old listener before adding new one — prevents accumulation across navigations
