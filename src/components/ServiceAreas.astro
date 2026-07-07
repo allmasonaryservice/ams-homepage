@@ -160,7 +160,7 @@ const REGIONS = [
     });
 
     CITIES.forEach(function (c) {
-      L.marker([c.lat, c.lng], { icon: dotIcon })
+      var m = L.marker([c.lat, c.lng], { icon: dotIcon, title: c.name + ' Service Area', alt: c.name })
         .bindPopup(
           '<div style="font-family:Inter,sans-serif;min-width:120px;">' +
           '<strong style="font-size:13px;color:#16120F;">' + c.name + ', IL</strong><br>' +
@@ -168,6 +168,7 @@ const REGIONS = [
           '</div>'
         )
         .addTo(map);
+      if (m._icon) m._icon.setAttribute('aria-label', c.name + ' Service Area');
     });
   }
 
