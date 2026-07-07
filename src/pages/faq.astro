@@ -408,7 +408,7 @@ const locations = [
               <span class="faqp-panel-count">{cat.faqs.length} questions</span>
             </div>
             {cat.faqs.map((faq, fi) => (
-              <div class="faqp-item" role="listitem" data-q={faq.q.toLowerCase()} data-cat={cat.id}>
+              <div class="faqp-item" data-q={faq.q.toLowerCase()} data-cat={cat.id}>
                 <button class="faqp-q" aria-expanded="false">
                   <span class="faqp-q-text">{faq.q}</span>
                   <span class="faqp-q-icon" aria-hidden="true">
