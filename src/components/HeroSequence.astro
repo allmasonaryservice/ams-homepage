@@ -171,15 +171,15 @@
 (function() {
   var IS_MOBILE = window.innerWidth < 768;
   var FOLDER = IS_MOBILE ? '/images/sequence-mobile-webp/' : '/images/sequence-desktop-webp/';
-  var TOTAL_FRAMES = 67;
+  var TOTAL_FRAMES = 105;
   var INSET = 1;
   var PANELS = [
-    { start: 1,  end: 25 },   // Intro text fades out completely before Van scene ends
-    { start: 30, end: 35 },   // Brick text perfectly centered in its scene (28-37)
-    { start: 40, end: 45 },   // Chimney text perfectly centered in its scene (38-47)
-    { start: 50, end: 54 },   // Tuckpointing text centered in its scene (48-56)
+    { start: 1,  end: 26 },   // Intro
+    { start: 30, end: 40 },   // Brick
+    { start: 45, end: 60 },   // Chimney
+    { start: 65, end: 75 },   // Tuckpointing
   ];
-  var OUTRO_FRAME_START = 57; // Outro form starts exactly on the Fireplace scene
+  var OUTRO_FRAME_START = 85; // Outro form starts on the last scene
 
   if (!document.getElementById('seq-canvas')) return;
   var outroWasActive = false;
