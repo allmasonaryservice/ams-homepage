@@ -110,12 +110,29 @@
         </div>
       </div>
 
-      <!-- Panel 3: Outro CTA form (Fireplace + Form) -->
-      <div class="seq-panel seq-panel-outro" data-panel="3">
+      <!-- Panel 3: Fireplace (Frames 71-89) -->
+      <div class="seq-panel" data-panel="3">
+        <div class="seq-panel-inner">
+          <span class="seq-badge seq-badge--service">Custom Indoor & Outdoor</span>
+          <p class="seq-fomo">A generic fireplace detracts from your home's luxury. We build stunning, focal-point fireplaces crafted from premium stone and brick.</p>
+          <h2 class="seq-title">Custom Made<br>Fireplaces</h2>
+          <p class="seq-body">Enhance your living space with a masterful custom fireplace, designed and built by our in-house masonry experts for unparalleled elegance.</p>
+          <div class="seq-actions">
+            <a href="/services/chimney-fireplace" class="seq-btn-primary">View Chimney & Fireplace</a>
+            <a href="/services/chimney-fireplace#chimney-risk-score" class="seq-btn-tool">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v6m0 0l-2-2m2 2l-2-2M1 10h12M3 10v2h8v-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+              Chimney Risk Score
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel 4: Outro CTA form (Frames 91-105) -->
+      <div class="seq-panel seq-panel-outro" data-panel="4">
         <div class="seq-panel-inner seq-panel-inner--outro">
           <span class="seq-badge seq-badge--urgency seq-badge--outro">Now Scheduling New Projects</span>
-          <h2 class="seq-title seq-title--outro">Custom Fireplaces<br>& Masonry Projects</h2>
-          <p class="seq-subtitle seq-subtitle--outro">Ready to transform your home with a stunning custom fireplace or new masonry installation? Let's discuss your vision.</p>
+          <h2 class="seq-title seq-title--outro">Discuss Your<br>Masonry Project</h2>
+          <p class="seq-subtitle seq-subtitle--outro">Ready to transform your home with a stunning new masonry installation? Let's discuss your vision.</p>
           <div class="seq-social-proof">
             <span class="seq-stars">★★★★★</span>
             <span class="seq-social-text">Trusted by homeowners across Chicagoland</span>
@@ -174,12 +191,13 @@
   var TOTAL_FRAMES = 105;
   var INSET = 1;
   var PANELS = [
-    { start: 1,  end: 26 },   // Intro
-    { start: 30, end: 40 },   // Brick
-    { start: 45, end: 60 },   // Chimney
-    { start: 65, end: 75 },   // Tuckpointing
+    { start: 1,  end: 30 },   // Intro (1-31 originally requested, leaving 31 for gap)
+    { start: 33, end: 44 },   // Brick (32-45 originally requested)
+    { start: 47, end: 60 },   // Chimney (46-61 originally requested)
+    { start: 63, end: 68 },   // Tuckpointing (62-69 originally requested)
+    { start: 71, end: 89 },   // Fireplace (70-90 originally requested)
   ];
-  var OUTRO_FRAME_START = 85; // Outro form starts on the last scene
+  var OUTRO_FRAME_START = 91; // Outro form starts on the last scene
 
   if (!document.getElementById('seq-canvas')) return;
   var outroWasActive = false;
