@@ -9,8 +9,8 @@
     <!-- LCP fallback: static frame-001 visible immediately, hidden once canvas draws -->
     <img
       id="seq-lcp-img"
-      src="/images/sequence-mobile-webp/frame-001.webp"
-      srcset="/images/sequence-mobile-webp/frame-001.webp 768w, /images/sequence-desktop-webp/frame-001.webp 1920w"
+      src="/images/sequence-mobile-webp/frame-001.webp?v=2"
+      srcset="/images/sequence-mobile-webp/frame-001.webp?v=2 768w, /images/sequence-desktop-webp/frame-001.webp?v=2 1920w"
       sizes="(min-width: 768px) 100vw, 100vw"
       alt=""
       aria-hidden="true"
@@ -307,7 +307,7 @@
       if (targetFrame === n) drawFrame(n);
     };
     img.onerror = function() {};
-    img.src = FOLDER + 'frame-' + pad(n) + '.webp';
+    img.src = FOLDER + 'frame-' + pad(n) + '.webp?v=2';
     images[n] = img;
   }
 
@@ -347,7 +347,7 @@
       if (!sw) return;
       var urls = [];
       for (var i = 1; i <= TOTAL_FRAMES; i++) {
-        urls.push(FOLDER + 'frame-' + pad(i) + '.webp');
+        urls.push(FOLDER + 'frame-' + pad(i) + '.webp?v=2');
       }
       sw.postMessage({ type: 'CACHE_FRAMES', urls: urls });
     }).catch(function() {});

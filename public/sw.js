@@ -7,8 +7,8 @@ function pad(n) { return String(n).padStart(3, '0'); }
 function allFrameUrls() {
   const urls = [];
   for (let i = 1; i <= 105; i++) {
-    urls.push(`${SEQ_DESKTOP}frame-${pad(i)}.webp`);
-    urls.push(`${SEQ_MOBILE}frame-${pad(i)}.webp`);
+    urls.push(`${SEQ_DESKTOP}frame-${pad(i)}.webp?v=2`);
+    urls.push(`${SEQ_MOBILE}frame-${pad(i)}.webp?v=2`);
   }
   return urls;
 }
@@ -19,8 +19,8 @@ self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open(CACHE).then(cache =>
       cache.addAll([
-        `${SEQ_DESKTOP}frame-001.webp`,
-        `${SEQ_MOBILE}frame-001.webp`,
+        `${SEQ_DESKTOP}frame-001.webp?v=2`,
+        `${SEQ_MOBILE}frame-001.webp?v=2`,
       ])
     )
   );
